@@ -61,3 +61,8 @@ Quelle: `reports/Instagram Stil oneve und Blossom Pear.md`. Die Instagram-Feeds 
 - **Hashtags (3–5):** #sunnozy #sunnozybaby #babyschweiz #erstausstattung #geburtsgeschenk
 - **Serien (wöchentlich im Wechsel):** „Eine Form, alle Farben“ · „Ganz nah“ · „Erste Momente“ · „Wie fällt es aus?“ · „Aus Alexanders Atelier“
 - **Bewusst nicht übernommen:** Plaketten/Gegenstände auf schlafenden Babys (Safe Sleep) und Rabatt-Druck („buy 2 get 1 free“), stattdessen sachliche Service-Hinweise.
+
+---
+
+## Hausstil „Handschrift“ (von der Inhaberin gewählt, Okt. 2026)
+Baby-Foto vollflächig, darauf **ein** Satz in Handschrift (Caveat, weiss, leicht schräg, weicher Schatten) im unteren Drittel, sunnozy-Logo klein in Weiss unten Mitte. Keine Textboxen, keine Grafik-Karten, keine Memes. Sätze zum Weiterleiten oder Markieren („Schick das …“, „Für die Freundin, die …“, „Markier eine Mama …“). Generator: `tools/make_handschrift.py`.
