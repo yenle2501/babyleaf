@@ -40,3 +40,24 @@ Warm · ruhig · ehrlich · nahbar · schweizerisch-unkompliziert. Wie eine gute
 | Preis & Inhalt klar nennen | Babys in unsicheren Posen (Bauchlage beim Schlafen, Decken übers Gesicht) |
 
 > **Safe-Sleep-Hinweis:** In Schlafszenen Baby immer in Rückenlage, keine losen Decken/Mulltücher im Bett zeigen.
+
+---
+
+## Update Oktober 2026: Bildregeln nach oneve & Blossom & Pear
+Quelle: `reports/Instagram Stil oneve und Blossom Pear.md`. Die Instagram-Feeds selbst waren nicht abrufbar; die Regeln stützen sich auf Shop-Bilder, Threads und TikTok der Marken.
+
+**Grundprinzip:** Kein Text auf Produkt- und Babyfotos. Die Stickerei („mum dad me“, „i love mummy!“) ist die Headline. Wiedererkennung entsteht durch drei konsequent wiederholte Bildtypen.
+
+| Typ | Was | Wie |
+|---|---|---|
+| **A Farbstapel** | Alle Farben eines Sets nebeneinander/gestapelt | Von oben, Creme `#F6F0E8`, weicher Schatten, keine Requisiten |
+| **B Ganz nah** | Ripp-Struktur, Schleife, Stickerei | Füllt ≥ ⅔ des Bildes, Babyhand/-fuss darf rein |
+| **C Baby-Moment** | Baby wach in Rückenlage oder auf dem Arm | Fensterlicht, Gesicht teilweise/abgewandt, max. 2 Requisiten |
+
+- **Licht/Bearbeitung:** Fensterlicht, leicht warm, Sättigung −10 bis −20, ein fixes Preset. Ein Sonnenfleck ist als Stilmittel erlaubt.
+- **Farben:** ein Pastell pro Bild (ausser Typ A).
+- **Text:** nur auf Info-Folien (Grössen, Pflege, Set-Inhalt): Serif-Titel, max. 15 Wörter, Mauve auf Creme. Logo klein, immer unten Mitte.
+- **Formate:** Feed/Karussell 4:5 (1080 × 1350), 4–7 Folien, letzte Folie = Endfolie mit Logo. Reels 9:16, 7–15 s.
+- **Hashtags (3–5):** #sunnozy #sunnozybaby #babyschweiz #erstausstattung #geburtsgeschenk
+- **Serien (wöchentlich im Wechsel):** „Eine Form, alle Farben“ · „Ganz nah“ · „Erste Momente“ · „Wie fällt es aus?“ · „Aus Alexanders Atelier“
+- **Bewusst nicht übernommen:** Plaketten/Gegenstände auf schlafenden Babys (Safe Sleep) und Rabatt-Druck („buy 2 get 1 free“), stattdessen sachliche Service-Hinweise.
