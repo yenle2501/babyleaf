@@ -48,7 +48,11 @@ Jedes Teil konkret beschreiben, also Farbe, Print, Stickerei und Schrift. Dann �
 Marktplatz-Bild → `remove-background`.
 
 ### 4. In voller Auflösung exportieren
-`get-generate-image-job` liefert nur Vorschaubilder (≈200 px). Deshalb das Hilfsdesign **`DAHX6xgEj_I`** („sunnozy KI-Fotos Export“) nutzen:
+`get-generate-image-job` liefert nur Vorschaubilder (≈200 px). Deshalb ein Hilfsdesign nutzen:
+- **`DAHX6xgEj_I`** („sunnozy KI-Fotos Export“) ist **voll** (Canva-Limit: 100 Seiten). Für neue quadratische oder 4:5-Bilder mit `create-design` ein neues leeres Design anlegen.
+- **`DAHX-AebYko`** („sunnozy KI-Fotos Export 9:16“) für Hochformat 1080×1920 (Stories, Reels); dort ist noch Platz.
+
+Ablauf:
 1. `read-design` mit `open_transaction: true`
 2. `edit-design` auf Seite 1 mit `add_page` (1264×1264 für quadratisch, 1136×1408 für 4:5)
 3. `read-design` mit `page_indices` der neuen Seiten, um die Seiten-IDs zu holen
