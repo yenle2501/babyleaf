@@ -8,7 +8,7 @@ jedes Teil auf reinweiss 2000x2000 setzen (via make_marktplatz-Logik).
 Aufruf: python3 make_einzelteile.py <set.png> <ausgabeordner> [paar_abstand_px=6 % der Bildbreite, '-' = Standard] [namen=kommagetrennt] [schnitt]
   schnitt: optional, Schnittlinien fuer flaechig ueberlappende Teile, Pixelkoordinaten im PNG: "x1,y1,x2,y2,...;x1,y1,..."
   namen: optional, in Lesereihenfolge (oben->unten, links->rechts); sonst teil_01, teil_02 ...; 'x' = Teil ueberspringen
-  Ausgabe: <ausgabe>/<set>_<name>.jpg + Kontaktbogen <set>_uebersicht.jpg
+  Ausgabe: <ausgabe>/<set>_<name>.jpg + Kontaktbogen <set>_uebersicht.jpg (mit EINZEL_PNG=1 zusaetzlich <set>_<name>.png)
 """
 import sys, os
 import numpy as np
@@ -138,6 +138,8 @@ for k, (y0, x0, y1, x1, m) in enumerate(parts):
         continue
     a = Image.fromarray((m * alpha).astype('uint8'))
     piece = im.copy(); piece.putalpha(a); piece = piece.crop((x0, y0, x1, y1))
+    if os.environ.get('EINZEL_PNG'):  # zusaetzlich transparentes PNG (fuer Sticker/Collagen)
+        piece.save(os.path.join(out, f'{setname}_{name}.png'))
     sc = S * FILL / max(piece.size)
     piece = piece.resize((round(piece.width * sc), round(piece.height * sc)), Image.LANCZOS)
     rgb = piece.convert('RGB').filter(ImageFilter.UnsharpMask(radius=1.4, percent=50, threshold=2)); rgb.putalpha(piece.getchannel('A')); piece = rgb
