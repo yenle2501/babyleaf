@@ -1,4 +1,4 @@
-# Set-Präsentation im Shop-Stil (Set rosa „Princess“)
+# Set-Präsentation im Shop-Stil
 
 Stil nach deinem Beispiel: hellgrauer Studio-Hintergrund, die Decke hängt auf einem Holzbügel an einem Wandknauf, alle Teile glatt und mit viel Abstand angeordnet.
 
@@ -16,3 +16,16 @@ Generator: `tools/make_set_shop.py <ordner> <ausgabe>` (Artikelnummer nur, wenn 
 Für **Galaxus und Amazon** gibt es eigene Bilder auf reinweissem Hintergrund: `posts/marktplatz-galaxus-amazon/`.
 
 **Bitte prüfen:** Schrift „Princess“, Perlenkette, Gingham und Spitzenkragen sind sehr nah am Original. Kleine Abweichungen sind möglich, z.B. beim Etikett im Kragen.
+
+## Alle Sets
+
+| Set | Dateien |
+|---|---|
+| Rosa „Princess“ (Gingham, Perlenkette) | `set_rosa_quadratisch / _hochformat / _querformat` |
+| Rosa „Hello“ Schmetterling (Ripp, Lochspitze) | `set_hello_schmetterling_quadratisch` |
+| Creme Teddy (Bärengesicht, beige Streifen) | `set_teddy_creme_quadratisch` |
+| Little Bear (Aquarell-Bären, „Hello Little Bear“) | `set_little_bear_quadratisch` |
+| Hello World (Creme, ockerfarbene Blätter) | `set_hello_world_blatt_quadratisch` |
+
+Jeweils in `mit_logo/` (sunnozy oben links) und `ohne_logo/`. Originalfotos liegen in `original/`.
+Fremde Logos auf den Holzbügeln sind wegretuschiert.
