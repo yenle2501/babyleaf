@@ -18,3 +18,15 @@ Realistic close-up home video, the baby hugs the plush teddy ring rattle, wiggle
 ## Danach
 Die fertigen Clips (je 8 s) mir hier schicken. Ich schneide sie im sunnozy-Stil: kleiner Text, Farblook, Endkarte mit Logo.
 Beim Posten das Label «Mit KI erstellt» setzen.
+
+## Ergebnis: «sonntagmorgen» (aus 3 Flow-Clips)
+| Datei | Format | Länge |
+|---|---|---|
+| `reel_sonntagmorgen_9x16.mp4` | Reel / Story 1080×1920 | 18 s |
+| `feed_sonntagmorgen_4x5.mp4` | Feed 1080×1350 | 18 s |
+
+Ablauf: Baby schläft und kuschelt mit dem Hasen (Zoom), dann Nahaufnahme vom Gesicht, dann Schnitt: Baby wacht auf, lächelt und strampelt, zum Schluss die Endkarte mit Logo.
+Bearbeitung: harte Schnitte, gleicher Soft-Look wie Paket 6, feines Filmkorn gegen den glatten KI-Look, leichte Handkamera-Bewegung, kleiner Text «sonntagmorgen 🤍🤍».
+Ton: stumm. In Instagram einen ruhigen Sound wählen. Der Flow-Ton wurde weggelassen, weil KI-Babygeräusche oft unecht klingen.
+Rohclips: `flow-roh/`. Generator: `tools/make_flow_reel.py`.
+Caption-Vorschlag: sonntagmorgen 🤍 Kuscheln, aufwachen, lächeln. Strampler «Hello World». #sunnozy #sonntagmorgen #babyschweiz #newborn
