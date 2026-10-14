@@ -37,3 +37,5 @@ Für **Galaxus und Amazon** gibt es eigene Bilder auf reinweissem Hintergrund: `
 
 Jeweils in `mit_logo/` (sunnozy oben links) und `ohne_logo/`. Originalfotos liegen in `original/`.
 Fremde Logos auf den Holzbügeln sind wegretuschiert.
+
+**Korrigiert:** Bei «Gänseblümchen» und «Love Dad Mom» hatte die erste Version einen Kurzarm-Body. Laut Originalfoto ist es ein Langarm-Body; beide Präsentationen sind neu erstellt.
