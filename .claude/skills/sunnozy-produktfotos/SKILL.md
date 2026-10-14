@@ -21,8 +21,10 @@ Dateinamen beschreibend: `set_<farbe/motiv>` (z.B. `set_teddy_creme`). Artikelnu
 - Skripte in `sunnozy-content/tools/`:
   - `make_set_shop.py <roh-ordner> <ausgabe> [artikelnummer]`: Logo-/Ohne-Logo-Versionen. Keine Artikelnummer angeben.
   - `make_marktplatz.py <png-ordner> <ausgabe> [fuellgrad] [groesse]`: reinweisses Hauptbild aus freigestelltem PNG. Prüft die Ecken auf 255 und gibt den Füllgrad aus.
-  - `make_einzelteile.py <set.png> <ausgabe> [paar_abstand] [namen,kommagetrennt]`: zerlegt das freigestellte Hauptbild in Einzelteile, fasst Paare wie Socken und Fäustlinge zusammen und erzeugt einen Kontaktbogen. Braucht `scipy` (`pip install scipy`).
-  - `retusche_kreis.py <bild> <x> <y> <radius>`: kleine runde Stelle wegretuschieren, z.B. fremde Logos auf Bügeln.
+  - `make_einzelteile.py <set.png> <ausgabe> [paar_abstand|-] [namen,kommagetrennt|-] [schnitt]`: zerlegt das freigestellte Hauptbild in Einzelteile, trennt verschmolzene Kleider, fasst Paare wie Socken und Fäustlinge zusammen und erzeugt einen Kontaktbogen. Name `x` überspringt ein Teil. `schnitt` = Schnittlinien in PNG-Pixeln (`"x1,y1,x2,y2,...;..."`) für flächig überlappende Ärmel. Braucht `scipy` (`pip install scipy`).
+  - `retusche_holz.py <bild> <x> <y> <radius>`: fremdes Logo auf dem Holzbügel entfernen, nur Holzpixel, Kante bleibt scharf (bevorzugt).
+  - `retusche_kreis.py <bild> <x> <y> <radius>`: kleine runde Stelle wegretuschieren (Median/Blur, verwischt Kanten).
+  - `spiegel_ergaenzen.py <set.png> <aus.png> "<polygon>" [links|rechts]`: verdeckten Ärmel eines symmetrischen Teils durch Spiegeln ergänzen.
 
 ## Ablauf
 
@@ -36,7 +38,9 @@ Stil-Referenz für die Bügel-Präsentation (bereits in Canva): **`MAHX8MIuH4w`*
 > Premium e-commerce set presentation in exactly the style of the second reference image: light grey-white seamless studio background, soft diffused light, very soft shadows, all items smooth and wrinkle-free, spaced generously. Items exactly from the <Set-Beschreibung> in the first reference: on the left the <Decke/Strampler> folded over a plain light wooden hanger (no logo on hanger) on a small wall knob; <weitere Teile mit Position>. No text, no logos, true colours, sharp catalogue quality.
 
 **Marktplatz** (`SQUARE_1_1`, Referenz `[set-foto]`):
-> Amazon-style main product image: the complete <Set> from the reference image laid flat from directly above on a plain pure white background, no hanger, no props, no text, no logos. All items fully visible, smooth, wrinkle-free, arranged neatly and compactly to fill most of the square: <alle Teile einzeln beschreiben>. Even studio light, very soft contact shadows, true colours, sharp.
+> Amazon-style main product image: the complete <Set> from the reference image laid flat from directly above on a plain pure white background, no hanger, no props, no text, no logos. All items fully visible, smooth, wrinkle-free, arranged in a tidy grid with a clear gap of white space between every item, no item touching or overlapping another, filling most of the square: <alle Teile einzeln beschreiben>. Even studio light, very soft contact shadows, true colours, sharp.
+
+Der Teil „clear gap … no item touching or overlapping“ ist wichtig: Dann lassen sich in Schritt 6 **alle** Teile pixelgenau ausschneiden, ohne Einzelteile neu zu generieren.
 
 Jedes Teil konkret beschreiben, also Farbe, Print, Stickerei und Schrift. Dann übernimmt die KI die Details treuer.
 
@@ -59,15 +63,18 @@ cd sunnozy-content
 python3 tools/make_set_shop.py <roh> posts/produktfotos-set-praesentation          # mit_logo/ohne_logo
 python3 tools/make_marktplatz.py <freigestellt> posts/marktplatz-galaxus-amazon/hauptbild
 ```
-**Bügel prüfen:** Die KI kopiert oft das „N“-Logo der fremden Marke aus der Stil-Referenz auf den Bügel. Den Bügel heranzoomen und das Logo bei Bedarf mit `retusche_kreis.py` entfernen, dann `make_set_shop.py` erneut laufen lassen.
+**Bügel prüfen:** Die KI kopiert oft das „N“-Logo bzw. einen runden Stempel der fremden Marke aus der Stil-Referenz auf den Bügel (Mitte, direkt unter dem Haken). Alle Bügel ausschneiden und vergrössert nebeneinander ansehen, z.B. Ausschnitt `(165,235,315,385)` bei 1264 px. Logo mit `retusche_holz.py` entfernen (Radius ≈ 30), vorher/nachher vergleichen, dann `make_set_shop.py` laufen lassen. Für viele Sets: `make_set_shop.py` auf einen Ordner nur mit den neuen Bildern anwenden.
 
 ### 6. Einzelteile
 ```bash
 python3 tools/make_einzelteile.py posts/marktplatz-galaxus-amazon/freigestellt/<set>.png <tmp>
 ```
-Den Kontaktbogen `<set>_uebersicht.jpg` ansehen:
+Erst ohne Namen laufen lassen, Kontaktbogen `<set>_uebersicht.jpg` ansehen, Teile zählen, dann mit Namen in Lesereihenfolge erneut ausführen. Prüfen:
+- **Teile mit Abstand** (neuer Prompt): werden automatisch getrennt. Socken- und Fäustlingspaare werden zusammengefasst (gleiche Form, nebeneinander).
+- **Ärmel berühren sich flächig** (Body + Strampler als ein Teil): Ausschnitt mit Pixelraster vergrössern, Kante des oben liegenden Teils suchen und als `schnitt` übergeben. Danach kontrollieren, dass kein Saum (1–2 px) des Nachbarteils mehr dranhängt, sonst Linie 2–3 px verschieben.
+- **Verdeckter Ärmel** nach dem Schnitt (z.B. Body-Ärmel unter dem Strampler): das Teil mit Name `x` überspringen, mit `spiegel_ergaenzen.py` rekonstruieren und einzeln durch `make_einzelteile.py <png> <ausgabe> - body` schicken.
 - **Frei liegende Teile** wie Mütze, Socken, Fäustlinge, Rassel oder Lätzchen werden pixelgenau getrennt. Das ist am besten, weil sie identisch zum Hauptbild sind.
-- **Zusammengeklebte, überlappende Kleidungsstücke** (Decke + Strampler + Body) lassen sich nicht trennen. Diese Teile einzeln mit `generate-image` neu erzeugen, mit dem ungeschnittenen Marktplatz-Bild als Referenz:
+- **Stark überlappende Kleidungsstücke** (alter Prompt ohne Abstand: Decke + Strampler + Body übereinander) lassen sich nicht trennen. Diese Teile einzeln mit `generate-image` neu erzeugen, mit dem ungeschnittenen Marktplatz-Bild als Referenz:
   > E-commerce single product photo: ONLY the <Teil mit Details> from the reference image, exactly identical in colour and details, laid flat from directly above, centred, filling most of the square, plain pure white background, no other items, no props, no text, soft even light, very soft contact shadow, sharp.
 
   Danach wie Schritt 3 bis 5 vorgehen: `remove-background`, exportieren, dann `make_marktplatz.py <png-ordner> <ausgabe> 0.85`.

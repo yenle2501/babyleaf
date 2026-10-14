@@ -8,6 +8,14 @@
 | `hauptbild/set_teddy_creme.jpg` | Creme Teddy-Set: Decke, Body, Strampler, Mütze, Socken, Fäustlinge, Rassel, Beissring, Lätzchen (9 Teile) |
 | `hauptbild/set_little_bear.jpg` | Little Bear: Strampler, Body, Mütze, Lätzchen, Fäustlinge (5 Teile) |
 | `hauptbild/set_hello_world_blatt.jpg` | Hello World: Strampler, Jäckchen, Hose + Oberteil, Lätzchen, Body, Mütze, Fäustlinge |
+| `hauptbild/set_love_dad_mom.jpg` | Weiss „I ♥ Dad Mom“: Kapuzentuch, Strampler, Body, Hose, Knotenmütze, Lätzchen (6 Teile) |
+| `hauptbild/set_lila_hase.jpg` | Lila Hase mit Blümchen: Kapuzentuch, Strampler, Body, Hose, Knotenmütze, Lätzchen (6 Teile) |
+| `hauptbild/set_gaensebluemchen.jpg` | Rosa Gänseblümchen „It's a baby girl“: Kapuzentuch, Body, Strampler, Mütze, Socken, Rassel, Fäustlinge, Lätzchen (8 Teile) |
+| `hauptbild/set_wal_blau.jpg` | Hellblau Wal „Sea vibes“: Knotenmütze, Body, Strampler, Lätzchen, Fäustlinge, Socken, Schmusetuch, Kapuzentuch (8 Teile) |
+| `hauptbild/set_bauernhof.jpg` | Bauernhof „Happy Baby“: Knotenmütze, Rassel Kuh, Strampler, Body, Socken, Fäustlinge, Lätzchen, Kapuzentuch (8 Teile) |
+| `hauptbild/set_prinzessin_krone.jpg` | Creme/Rosa „Little Princess“: Mütze, Socken, Kapuzentuch, Body, Strampler, Fäustlinge, Schmusetuch Krone, Lätzchen (8 Teile) |
+| `hauptbild/set_hase_rosa.jpg` | Rosa Hasen „Little one“: Knotenmütze, Rassel Hase, Strampler, Body, Fäustlinge, Socken, Lätzchen, Kapuzentuch (8 Teile) |
+| `hauptbild/set_best_family.jpg` | Beige/Creme „Best family“ Teddy: Kapuzentuch, Body, Strampler, Mütze mit Öhrchen, Fäustlinge, Socken, Rassel Bär, Lätzchen (8 Teile) |
 
 **Erfüllt die Vorgaben fürs Hauptbild:**
 - Hintergrund reinweiss RGB 255/255/255 (geprüft, auch in den Ecken)
