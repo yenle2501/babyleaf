@@ -33,3 +33,11 @@ Format: **2048 × 2048 px**, JPG. Das ist die Shopify-Empfehlung: quadratisch, Z
 Nicht gemacht: «Princess» Langarm 3er, weil das Set ausverkauft ist (Lager 0).
 
 Neu erzeugen: Einzelteile als `<teile>/<set>/<nr>.png` ablegen, dann `python3 tools/make_kaskade.py <teile> posts/shopify-hauptbilder-kaskade`. Die Reihenfolge der Teile steht in `SETS` im Skript.
+
+## In Shopify übernommen (15.10.2026)
+
+Alle 19 Bilder sind als **erstes Bild (Hauptbild)** in den Produkten gesetzt: Upload über Staged Upload, dann `productUpdate` und `productReorderMedia`. Danach geprüft: Bei allen 19 Produkten ist das neue Bild das Hauptbild, Status READY, 2048 × 2048 px.
+- Es wurde **nichts gelöscht**. Die bisherigen Fotos sind eine Position nach hinten gerutscht (jedes Produkt hat jetzt 1 Bild mehr).
+- Dateiname in Shopify: `sunnozy-hauptbild-<set>.jpg`, Alt-Text: «<Produkt> – alle Teile im Überblick».
+- **Rückgängig machen:** in Shopify beim Produkt das Bild `sunnozy-hauptbild-…` löschen oder nach hinten ziehen. Dann ist das alte Hauptbild wieder vorne.
+- Vorher-/Nachher-Übersicht: `../shopify-check_seite1–3.jpg`
