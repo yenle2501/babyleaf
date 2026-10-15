@@ -11,8 +11,14 @@ Vorbild: Pinterest-Anzeige von Modest Roots (Bildschirmaufnahme 15.10.).
   danach beginnt die Woche wieder mit Montag (ersetzt das Logo oben)
 - Botschaft: ein Teil für jeden Tag der Woche, alles passt zusammen
 
-**sunnozy-Version**: Kombi-Set «Growing up strong» (echte Freisteller, keine KI) – Body beige «D», Body grau,
-Jogginghose salbei, Body salbei, Jogginghose taupe, Jogginghose beige; oben das sunnozy-Logo, Tage auf Deutsch.
+**sunnozy-Version** (Update 15.10.: Sets aus T-Shirt + Hose): 3 Sets, je T-Shirt und Hose nebeneinander auf dem Zifferblatt –
+Sommer-Set «Krokodil» (gestreiftes T-Shirt + Krokodil-Shorts), Sommer-Set «Be Brave» (Bären-T-Shirt + Bären-Shorts),
+Erstausstattung «Hello World» (Blätter-T-Shirt + Hose). Oben das sunnozy-Logo, Tage auf Deutsch.
+
+Freisteller in `teile/` (aus den echten Shop-Fotos, Canva-Hintergrundentfernung, T-Shirt und Shorts per Farbe getrennt).
+Beim «Be Brave»-T-Shirt war der Saum im Shop-Foto von den Shorts verdeckt: der schlichte Melange-Stoff wurde nach unten
+verlängert und eine Saumnaht ergänzt (Print und Form unverändert). Am rechten Rand der Be-Brave-Shorts (dort lag der Body
+darüber) wurde ein schmaler Streifen gespiegelt ergänzt.
 
 | Datei | Format | Für |
 |---|---|---|
@@ -20,9 +26,8 @@ Jogginghose salbei, Body salbei, Jogginghose taupe, Jogginghose beige; oben das 
 | `pin_wochen_uhr_2x3.mp4` | 1000×1500, 8,7 s | Pinterest Video-Pin |
 | `*_standbild.jpg` | wie oben | Titelbild / statischer Pin |
 
-Stumm (ruhige Musik in der App wählen). Für ein anderes Set nur die Liste `TEILE` in
-`tools/make_wochenuhr_reel.py` anpassen (6 Freisteller) und neu laufen lassen.
+Stumm (ruhige Musik in der App wählen). Neu erstellen: `python3 tools/make_wochenuhr_reel.py posts/paket-15-wochen-uhr/teile posts/paket-15-wochen-uhr`
+(andere Sets: Liste `TEILE` im Skript anpassen, 6 Freisteller).
 
-**Caption-Vorschlag:** Montag bis Sonntag – ein Set, das jeden Tag passt 🤍 Bodys und Hosen in Naturtönen, alles kombinierbar.
-Kombi-Set «Growing up strong» jetzt auf sunnozy.ch
+**Caption-Vorschlag:** Montag bis Sonntag – T-Shirt + Hose, und der Tag ist angezogen 🤍 Sommer-Sets «Krokodil» & «Be Brave» und «Hello World» jetzt auf sunnozy.ch
 #sunnozy #babykleidung #babyset #capsulewardrobe #babybasics #babyschweiz

@@ -6,10 +6,12 @@ Uhrzeigersinn von Position zu Position; wo er hinzeigt, ersetzt der Wochentag (S
 alle ~0,9 s. Nach Sonntag verschwinden die Teile (ruhiger leerer Grund), dann kurz die Wortmarke in gesperrten
 Grossbuchstaben, danach beginnt die Woche neu mit Montag (ersetzt das Monogramm oben).
 
-sunnozy-Version: Kombi-Set «Growing up strong» (echte Freisteller, Bodys + Jogginghosen in Naturtoenen).
+sunnozy-Version: 3 Sets aus T-Shirt + Hose (Sommer-Sets Krokodil und Be Brave, Hello World), echte Produktfotos;
+je Set liegen T-Shirt und Hose nebeneinander auf dem Zifferblatt.
 Ausgabe: Reel 9:16 (1080x1920) und Pin 2:3 (1000x1500) als mp4 + Standbild.
 
 Aufruf: python3 make_wochenuhr_reel.py <freisteller-ordner> <ausgabe-ordner>
+  Freisteller fuer diese Version: posts/paket-15-wochen-uhr/teile/
 """
 import sys, os, math, subprocess
 import numpy as np
@@ -25,13 +27,14 @@ FPS, TAG = 30, 0.9
 TAGE = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag']
 # Position 0 = oben (Logo), dann im Uhrzeigersinn; Winkel in Grad (0 = 12 Uhr), wie im Vorbild verteilt
 WINKEL = [0, 52, 100, 150, 210, 260, 308]
-TEILE = [None,                                   # 0: Logo / Montag
-         'growing_up_strong_kurzarm5/05',        # 1: Body grau
-         'jogginghose5/01',                      # 2: Jogginghose salbei
-         'growing_up_strong_kurzarm5/03',        # 3: Body salbei
-         'jogginghose5/05',                      # 4: Jogginghose taupe
-         'jogginghose5/02',                      # 5: Jogginghose beige
-         'growing_up_strong_kurzarm5/01']        # 6: Body beige «D»
+TEILE = [None,                       # 0: Logo / Montag
+         'krokodil_tshirt',          # 1: Sommer-Set Krokodil - T-Shirt
+         'krokodil_shorts',          # 2:                       Shorts
+         'be_brave_tshirt',          # 3: Sommer-Set Be Brave  - T-Shirt
+         'be_brave_shorts',          # 4:                       Shorts
+         'hello_world_hose',         # 5: Hello World           - Hose
+         'hello_world_tshirt']       # 6:                       T-Shirt
+HOSE_SKALA = 0.86                    # Hosen etwas kleiner als Shirts, wie in echt
 
 
 def load_logo(width, col=(60, 58, 60)):
@@ -99,7 +102,7 @@ def bild(W, H, S, ims, tag, produkte=True, logo_oben=True, wortmarke=False):
 
 def render(W, H, name):
     S = setup(W, H)
-    ims = [None] + [teil(t, S['box']) for t in TEILE[1:]]
+    ims = [None] + [teil(t, int(S['box'] * (HOSE_SKALA if ('hose' in t or 'shorts' in t) else 1))) for t in TEILE[1:]]
     # Ablauf: Mo..So je 0,9 s, Teile weg (0,6 s), Wortmarke (0,9 s), Montag (0,9 s) -> nahtlose Schleife
     folge = [(bild(W, H, S, ims, t), TAG) for t in range(7)]
     folge += [(bild(W, H, S, ims, None, produkte=False), 0.6), (bild(W, H, S, ims, None, wortmarke=True), 0.9),
