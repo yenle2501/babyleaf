@@ -52,3 +52,13 @@ Fremde Logos auf den Holzbügeln sind wegretuschiert.
 | Bauernhof, Best family, Gänseblümchen, Hase rosa, Lila Hase, Love Dad Mom, Prinzessin Krone, Wal | nicht im Shop | – |
 
 Alte Fotos sind nicht gelöscht, nur eine Position nach hinten gerutscht. Dateiname in Shopify: `sunnozy-set-…-praesentation.jpg`.
+
+## Neue Sets (15.10.2026)
+
+| Set | Teile (8) | Dateien |
+|---|---|---|
+| Little and Loved – Rosa mit Gänsen | Strampler, Body «little and loved», Jäckchen mit Gans, T-Shirt, Hose, Lätzchen «Mommy's little alarm duck!», Mütze, Fäustlinge | `set_little_and_loved_gans_rosa_quadratisch.jpg` |
+| Hello World – Creme mit Blättern | Strampler, Body «hello world», Jäckchen «hello», T-Shirt, Hose, Lätzchen «hello I'm new here», Mütze, Fäustlinge | `set_hello_world_creme_quadratisch.jpg` (ersetzt `set_hello_world_blatt_…`, dort fehlte das T-Shirt) |
+
+Mit KI erstellt (Vorlage: Fotos der Nutzerin in `original/`). Vor dem Upload Teile, Prints und Farben mit dem echten Produkt abgleichen.
+Für den Shop gibt es die Präsentationen zusätzlich mit reinweissem Hintergrund in `../shopify-hauptbilder-weiss/`.

@@ -35,3 +35,12 @@ Bitte daher vor dem Hochladen prüfen:
 - Kleine Abweichungen im Kragen-Etikett sind möglich.
 
 Weitere Galaxus/Amazon-Bilder (Bild 2–7) dürfen Details, Massangaben oder Lifestyle zeigen. Dafür eignen sich z.B. die Fotos aus `posts/produktfotos-set-praesentation/ohne_logo/`.
+
+## Neue Sets (15.10.2026)
+
+| Set | Hauptbild | Einzelteile (`einzelteile/<set>/`) |
+|---|---|---|
+| Little and Loved – Rosa mit Gänsen | `hauptbild/set_little_and_loved_gans_rosa.jpg` | strampler, body, jaeckchen, shirt, hose, laetzchen, muetze, faeustlinge |
+| Hello World – Creme mit Blättern | `hauptbild/set_hello_world_blatt_creme.jpg` | strampler, body, jaeckchen, shirt, hose, laetzchen, muetze, faeustlinge |
+
+Beide 2000×2000, Ecken 255, Füllgrad 88 %. Mit KI erstellt.

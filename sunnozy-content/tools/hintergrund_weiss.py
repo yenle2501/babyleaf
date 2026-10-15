@@ -13,7 +13,7 @@ Dann gilt das Produkt aus der Maske als unantastbar; was ausserhalb liegt und ni
 
 Aufruf: python3 hintergrund_weiss.py <eingabe> <ausgabe> [maske.png]
 """
-import sys
+import os, sys
 import numpy as np
 from PIL import Image, ImageFilter
 from scipy import ndimage as ndi
@@ -46,8 +46,12 @@ cand = (satf <= stol) & (np.abs(warm - np.median(bw)) <= wtol) & (Ls >= bg - TOL
 if MASK:
     m = Image.open(MASK).convert('RGBA').getchannel('A').resize((W, H), Image.LANCZOS)
     prod = np.asarray(m.filter(ImageFilter.MinFilter(3)).filter(ImageFilter.GaussianBlur(0.7))).astype(np.float32) / 255
-    # Logo, Knauf usw.: deutlich dunkler als jeder Schatten oder kraeftig farbig (Schatten bleiben Hintergrund)
-    fremd = ndi.binary_opening(((Ls < bg - TOL) | (satf > 25)) & (prod < 0.5), iterations=1)
+    # Logo, Knauf usw.: deutlich dunkler als jeder Schatten oder anderer Farbton als der Grund. Schatten haben den
+    # gleichen Farbton wie der Grund (nur dunkler) und bleiben Hintergrund, auch bei beigem oder farbigem Studio-Grund.
+    ton = ndi.uniform_filter(a, (5, 5, 1)) / np.maximum(Ls, 1)[..., None]
+    rand = np.concatenate([ton[:8].reshape(-1, 3), ton[-8:].reshape(-1, 3), ton[:, :8].reshape(-1, 3), ton[:, -8:].reshape(-1, 3)])
+    dton = np.abs(ton - np.median(rand, 0)).max(2)
+    fremd = ndi.binary_opening(((Ls < bg - TOL) | (dton > float(os.environ.get("TON", "0.06")))) & (prod < 0.5), iterations=1)
     fremd = ndi.gaussian_filter(ndi.binary_dilation(fremd, iterations=2).astype(np.float32), 1.0)
     keep = np.maximum(prod, fremd)
     region = keep < 0.5
@@ -60,18 +64,24 @@ else:
     region = ndi.binary_opening(region, iterations=1)
     keep = 1 - ndi.gaussian_filter(ndi.binary_dilation(region, iterations=1).astype(np.float32), 1.2)
 
-# lokale Hintergrundhelligkeit pro Kanal (normierte Faltung nur ueber reine Hintergrundpixel)
-pure = region & (np.abs(Ls - bg) <= 6)
-f = 8  # verkleinert rechnen (der Verlauf ist sehr weich), dann hochskalieren
-ps = pure[::f, ::f].astype(np.float32); sig = max(H, W) / 25 / f
-wsum = ndi.gaussian_filter(ps, sig)
-bgmap = np.stack([ndi.gaussian_filter(a[::f, ::f, c] * ps, sig) / np.maximum(wsum, 1e-3) for c in range(3)], 2)
-bgmap[wsum < 1e-3] = bg
+# lokale Hintergrundhelligkeit pro Kanal: helles Perzentil der Hintergrundpixel in grossem Fenster (Schatten und
+# Produkt zaehlen nicht), damit auch Verlaeufe oder zwei Grautoene im selben Bild sauber auf 255 kommen
+f = 8
+ar = a[::f, ::f] * region[::f, ::f, None]
+size = max(3, int(max(H, W) / 24 / f))
+bgmap = np.stack([ndi.percentile_filter(ar[..., c], 80, size=size) for c in range(3)], 2)
+bgmap[bgmap.min(2) < 100] = bg
+bgmap = np.stack([ndi.gaussian_filter(bgmap[..., c], size / 3) for c in range(3)], 2)
 bgmap = ndi.zoom(bgmap, (H / bgmap.shape[0], W / bgmap.shape[1], 1), order=1)[:H, :W]
 white = np.clip(a / np.maximum(bgmap, 1) * 255, 0, 255)
 
 k = keep[..., None]
 res = a * k + white * (1 - k)
+# schmaler Bildrand: Hintergrund dort immer reinweiss (Randeffekte der Schaetzung, Rahmenlinien im Original)
+rb = max(4, int(max(H, W) * 0.02))
+edge_band = np.zeros((H, W), bool); edge_band[:rb] = edge_band[-rb:] = True; edge_band[:, :rb] = edge_band[:, -rb:] = True
+clean = ndi.gaussian_filter((edge_band & (keep < 0.05)).astype(np.float32), 2)[..., None]
+res = res * (1 - clean) + 255 * clean
 Image.fromarray(res.round().astype(np.uint8)).save(out, quality=95, subsampling=0)
 c = res[[4, 4, -5, -5], [4, -5, 4, -5]].round().astype(int)
 print(out, f'bg {bg:.0f} -> Ecken', [tuple(x) for x in c], f'Hintergrund {region.mean() * 100:.0f} %')
