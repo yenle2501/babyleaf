@@ -62,3 +62,15 @@ Alte Fotos sind nicht gelöscht, nur eine Position nach hinten gerutscht. Datein
 
 Mit KI erstellt (Vorlage: Fotos der Nutzerin in `original/`). Vor dem Upload Teile, Prints und Farben mit dem echten Produkt abgleichen.
 Für den Shop gibt es die Präsentationen zusätzlich mit reinweissem Hintergrund in `../shopify-hauptbilder-weiss/`.
+
+## Neue Sets (15.10.2026, Runde 2)
+
+| Set | Teile | Datei (`mit_logo/`, `ohne_logo/`) |
+|---|---|---|
+| Hund – Creme/Beige | 8: Strampler «I ♥ DOGS», Mütze mit Öhrchen, Langarm-Body, Fäustlinge, Plüsch-Hündchen, Söckchen, Lätzchen «HUG ME!», Kapuzentuch «Home is where the Dog is» | `set_hund_creme_quadratisch.jpg` |
+| Weltall – Hellblau/Weiss | 8: Strampler mit Planeten/Sonnen, Mütze, Langarm-Body mit Planet, Kapuzentuch «Little one», Fäustlinge, Sonnen-Rassel, Söckchen, Lätzchen mit Planet | `set_weltall_hellblau_quadratisch.jpg` |
+| Waldbär – Creme | 5: Strampler mit Bären und Bäumen, Mütze, Ripp-Body mit Bär, Fäustlinge, Lätzchen «Little Bear» | `set_waldbaer_creme_quadratisch.jpg` |
+| Teddy – Rosa mit Pünktchen | 5: Ripp-Strampler gepunktet, Mütze mit Bommel, Ripp-Body Teddy auf Wolke, Fäustlinge, Lätzchen «Little Bear» | `set_teddy_rosa_punkte_quadratisch.jpg` |
+| Smile – Salbeigrün | 3: Ripp-Strampler «You make me happy», Knotenmütze, Kapuzentuch «SMILE» | `set_smile_gruen_quadratisch.jpg` |
+
+Mit KI erstellt (Vorlage in `original/`, Artikelnummern aus den Lieferantenbildern nicht übernommen). Vor dem Upload Teile, Prints und Farben mit dem echten Produkt abgleichen.
