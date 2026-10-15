@@ -39,3 +39,16 @@ Jeweils in `mit_logo/` (sunnozy oben links) und `ohne_logo/`. Originalfotos lieg
 Fremde Logos auf den Holzbügeln sind wegretuschiert.
 
 **Korrigiert:** Bei «Gänseblümchen» und «Love Dad Mom» hatte die erste Version einen Kurzarm-Body. Laut Originalfoto ist es ein Langarm-Body; beide Präsentationen sind neu erstellt.
+
+## In Shopify als Hauptbild gesetzt (15.10.2026)
+
+| Bild (`mit_logo/`) | Shopify-Produkt | Status |
+|---|---|---|
+| `set_rosa_quadratisch.jpg` | Erstausstattung-Set «Princess» – Rosa, 8-teilig | Hauptbild ✔ |
+| `set_hello_schmetterling_quadratisch.jpg` | Erstausstattung-Set «Hello» – Rosa, 6-teilig | Hauptbild ✔ |
+| `set_little_bear_quadratisch.jpg` | Erstausstattung-Set «Hello Little Bear» – Creme, 5-teilig | Hauptbild ✔ |
+| `set_teddy_creme_quadratisch.jpg` | Erstausstattung-Set «Teddybär» – Creme, 8-teilig | **offen:** Bild zeigt 9 Teile (Beissring und Rassel getrennt) |
+| `set_hello_world_blatt_quadratisch.jpg` | Erstausstattung-Set «Hello World» – Creme, 8-teilig | **offen:** Bild zeigt 7 Teile (kein T-Shirt) |
+| Bauernhof, Best family, Gänseblümchen, Hase rosa, Lila Hase, Love Dad Mom, Prinzessin Krone, Wal | nicht im Shop | – |
+
+Alte Fotos sind nicht gelöscht, nur eine Position nach hinten gerutscht. Dateiname in Shopify: `sunnozy-set-…-praesentation.jpg`.
