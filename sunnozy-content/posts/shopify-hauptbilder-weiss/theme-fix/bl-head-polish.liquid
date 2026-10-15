@@ -1,0 +1,178 @@
+{% comment %} bl-head-polish v2 (sunnozy): Rendert die <style>-Blöcke aus bl-theme-polish ZUSÄTZLICH im <head>, damit der ERSTE Frame korrekt aussieht (vorher blitzten Theme-Originalzustände auf: dunkler Announcement-Balken, UPPERCASE-Nav, alte Filter, 1-Spalten-Grid — polish lädt erst am Body-Ende). Automatisch synchron: capture + split, keine Kopie zu pflegen. Die <script>-Teile von polish werden hier bewusst NICHT ausgegeben (laufen nur im Body). Zusatz: 3-Spalten-Collection-Grid CSS-only ab erstem Frame. {% endcomment %}
+{%- capture blp -%}{%- render 'bl-theme-polish' -%}{%- endcapture -%}
+{%- assign teile = blp | split: '<style>' -%}
+{%- for t in teile offset: 1 -%}
+<style>{{ t | split: '</style>' | first }}</style>
+{%- endfor -%}
+<style>
+  /* 3-Spalten-Collection ab erstem Frame (CSS-only; das JS setzt html.bl-col erst später) */
+  @media screen and (min-width: 990px) {
+    html:has(main[data-template^='collection']) .product-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+  }
+</style>
+
+{% comment %} --- sunnozy Produktbilder: randlos + fluid (v1, FINAL 84) ---
+  Problem in FINAL 78: Die Galerie-Einstellung "constrain_to_viewport" deckelt die Bildhoehe auf
+  die Fensterhoehe. Die Kachel (li.product-media-container) bleibt aber quadratisch und so breit
+  wie die Grid-Spalte -> das Bild sass links, rechts blieb ein weisser Streifen. Zusaetzlich haben
+  hochformatige Motive die 1:1-Kachel nie in der Breite gefuellt (.product-media haelt das
+  Original-Seitenverhaeltnis).
+  Fix 1: Zwischencontainer und Bild fuellen die Kachel immer komplett (cover).
+  Fix 2: Galeriebreite als clamp() statt fixer Pixel -> waechst mit der Bildschirmbreite.
+  Mobil (< 750px) bleibt alles wie gehabt (4:5 + contain aus bl-theme-polish).
+  FINAL 106: Desktop ebenfalls contain statt cover - Set-Hauptbilder wurden links/rechts angeschnitten.
+{% endcomment %}
+<style>
+  :root {
+    --snz-media-max: clamp(360px, 44vw, 760px);   /* Bildbreite waechst mit dem Viewport */
+    --snz-thumbs-col: 92px;                       /* Thumbnail-Leiste 76px + 16px Abstand */
+    --snz-details-max: clamp(380px, 26vw, 520px); /* Textspalte waechst mit */
+  }
+
+  /* --- Fix 1: Bild fuellt die Kachel randlos (Desktop/Tablet) --- */
+  @media screen and (min-width: 750px) {
+    html body media-gallery .product-media-container:not(.dialog-zoomed-gallery *) {
+      max-height: none !important;
+    }
+    html body media-gallery .product-media-container:not(.dialog-zoomed-gallery *) .product-media-constraint-wrapper,
+    html body media-gallery .product-media-container:not(.dialog-zoomed-gallery *) .product-media {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: 100% !important;
+      max-height: none !important;
+      aspect-ratio: auto !important;
+    }
+    html body media-gallery .product-media-container:not(.dialog-zoomed-gallery *) .product-media > img,
+    html body media-gallery .product-media-container:not(.dialog-zoomed-gallery *) img.product-media__image {
+      width: 100% !important;
+      height: 100% !important;
+      max-height: none !important;
+      object-fit: contain !important;   /* FINAL 106: ganzes Bild sichtbar statt angeschnitten (Bilder haben weissen Grund) */
+      background: #FFFFFF;
+    }
+  }
+
+  /* --- Fix 2: Galerie- und Textspalte skalieren mit der Bildschirmbreite --- */
+  @media screen and (min-width: 990px) {
+    html body .product-information__grid.product-information--media-left {
+      grid-template-columns: calc(var(--snz-media-max) + var(--snz-thumbs-col)) minmax(0, var(--snz-details-max)) !important;
+      justify-content: center !important;
+    }
+    html body .product-information__grid.product-information--media-right {
+      grid-template-columns: minmax(0, var(--snz-details-max)) calc(var(--snz-media-max) + var(--snz-thumbs-col)) !important;
+      justify-content: center !important;
+    }
+    html body .product-information__grid .product-details {
+      max-width: var(--snz-details-max) !important;
+    }
+  }
+</style>
+
+{% comment %} --- sunnozy Primaer-Buttons: schwarz mit Rose-Hover (portiert aus 202830152023, v1 FINAL 85) ---
+  Der Hauptteil laeuft ueber die Theme-Variablen, die assets/base.css auf .button mappt.
+  Der ATC-Button braucht zusaetzlich die dreifache Klassennotation (Spezifitaet 0,3,3) + !important,
+  weil bl-extra.liquid und bl-head.liquid ihn auf ATC-Rot #A64B40 setzen.
+  Nicht angefasst: Shop-Pay-Button (Farbe von Shopify vorgegeben), Footer-Formular-Button
+  (dunkelgruen), Sale-Preise, Merklisten-Herz und Versandbalken (bleiben ATC-Rot).
+{% endcomment %}
+<style>
+  :root,
+  .color-scheme-1,
+  .color-scheme-2,
+  .color-scheme-3,
+  .color-scheme-4,
+  .color-scheme-5 {
+    --color-primary-button-background: #000000;
+    --color-primary-button-text: #FFFFFF;
+    --color-primary-button-border: #000000;
+    --color-primary-button-hover-background: #F0D7CE;
+    --color-primary-button-hover-text: #233029;
+    --color-primary-button-hover-border: #F0D7CE;
+  }
+  .color-scheme-2 {
+    --color-primary-button-border: #FFF8F2;
+  }
+
+  html body button.add-to-cart-button.add-to-cart-button.add-to-cart-button,
+  html body .bl-sticky-atc button {
+    background: #000000 !important;
+    background-image: none !important;
+    color: #FFFFFF !important;
+    border-color: #000000 !important;
+    box-shadow: 0 5px 16px -4px rgba(0, 0, 0, 0.28) !important;
+  }
+  html body button.add-to-cart-button.add-to-cart-button.add-to-cart-button *,
+  html body .bl-sticky-atc button * {
+    color: #FFFFFF !important;
+    fill: currentColor;
+  }
+  html body button.add-to-cart-button.add-to-cart-button.add-to-cart-button:hover,
+  html body .bl-sticky-atc button:hover {
+    background: #F0D7CE !important;
+    background-image: none !important;
+    color: #233029 !important;
+    border-color: #F0D7CE !important;
+    box-shadow: 0 7px 20px -5px rgba(35, 48, 41, 0.28) !important;
+  }
+  html body button.add-to-cart-button.add-to-cart-button.add-to-cart-button:hover *,
+  html body .bl-sticky-atc button:hover * {
+    color: #233029 !important;
+  }
+</style>
+
+{% comment %} --- sunnozy Rabatt-Badge auf dem Produktbild (v1, FINAL 94) ---
+  Wunsch: Prozent-Badge unten links auf dem Bild (schwarz, weisse Schrift, eckig), darunter
+  roter Aktionspreis + durchgestrichener Originalpreis - wie bei grossen Modehaendlern.
+  Das Badge selbst rendert blocks/_product-card-gallery.liquid schon (.bl-ca-badge--sale, "−20 %",
+  aus compare_at_price berechnet). bl-karten-ca blendet es aus (display:none !important,
+  Spezifitaet 0,1,3) - hier mit hoeherer Spezifitaet (0,3,3) wieder eingeblendet.
+  Die doppelte Rabattangabe in der Meta-Zeile unter dem Bild entfaellt dafuer.
+  Gilt automatisch fuer jedes Produkt mit Vergleichspreis (aktuell Bodys -20 %, Mulltuecher -24 %).
+{% endcomment %}
+<style>
+  html body product-card .product-badges:has(.bl-ca-badge--sale) {
+    position: absolute !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: 2;
+  }
+  html body product-card .product-badges .product-badges__badge.bl-ca-badge--sale {
+    display: inline-flex !important;
+    align-items: center;
+    margin: 0 !important;
+    padding: 5px 10px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: #000000 !important;
+    color: #FFFFFF !important;
+    font-family: var(--font-body--family) !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+  }
+  html body .bl-ca-meta .bl-ca-sale,
+  html body .bl-ca-meta .bl-ca-sale + .bl-ca-punkt,
+  html body .bl-ca-meta .bl-ca-punkt:has(+ .bl-ca-sale) {
+    display: none !important;
+  }
+  html body product-card product-price .price__sale:not(.price__hidden) .compare-at-price {
+    text-decoration: line-through !important;
+  }
+  @media screen and (max-width: 749px) {
+    html body product-card .product-badges .product-badges__badge.bl-ca-badge--sale {
+      padding: 4px 8px !important;
+      font-size: 13px !important;
+    }
+  }
+</style>
+
+{% comment %} Versand-Freigrenze 59 + Position des «Passt dazu»-Blocks — Details im Snippet. {% endcomment %}
+{%- render 'bl-versand-59' -%}

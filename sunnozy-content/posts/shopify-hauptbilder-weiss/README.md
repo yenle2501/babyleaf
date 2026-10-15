@@ -20,3 +20,11 @@ Neu als Hauptbild (bisher kein Präsentationsbild im Shop): Teddybär (Bild zeig
 Shop sagt 8-teilig), Hello World und Little and Loved (beide neu erstellt am 15.10., je 8 Teile wie im Shop).
 
 Zusatzbilder: siehe `../shopify-zusatzbilder-weiss/`.
+
+## Theme-Fix: Hauptbild ganz sichtbar (15.10.2026)
+
+Auf der Produktseite (Desktop) wurde das quadratische Hauptbild links/rechts angeschnitten, weil
+`snippets/bl-head-polish.liquid` (Fix 1) die Galerie-Bilder mit `object-fit: cover` füllt.
+Im neuen Theme **«sunnozy FINAL 106 – Hauptbild ganz sichtbar»** (Kopie von FINAL 104) steht dort `contain`
+plus weisser Hintergrund. Mobil war schon `contain`, Zoom-Ansicht und Kollektionskarten sind unverändert.
+Vorher/Nachher-Screenshots und die geänderte Datei in `theme-fix/`. Veröffentlichen im Shopify-Admin.
