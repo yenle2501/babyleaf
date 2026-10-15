@@ -2,7 +2,7 @@
 
 Grosse Teile (Decke, Strampler, Body, Jaeckchen, Hose) schraeg gestaffelt links, kleine Teile (Muetze, Laetzchen,
 Rassel, Socken, Faeustlinge) als zweite, kleinere Staffel rechts. Alle Teile in realistischem Groessenverhaeltnis
-(ungefaehre Hoehe in cm). Quelle: freigestellte echte Shop-Fotos, Ausgabe 2048 x 2048 JPG, hellgrau.
+(ungefaehre Hoehe in cm). Quelle: freigestellte echte Shop-Fotos, Ausgabe 2048 x 2048 JPG, reinweiss (BG=r,g,b als Umgebungsvariable).
 
 Aufruf: python3 make_kaskade_set.py <teile-ordner> <ausgabe-ordner> [nur_set ...]
 """
@@ -12,7 +12,8 @@ from PIL import Image, ImageFilter
 src, out = sys.argv[1:3]
 only = set(sys.argv[3:])
 os.makedirs(out, exist_ok=True)
-SIZE, BG, FILL = 2048, (244, 244, 245), 0.88
+SIZE, FILL = 2048, 0.88
+BG = tuple(int(v) for v in os.environ.get("BG", "255,255,255").split(","))
 PX_CM = 16  # Pixel pro cm vor dem Einpassen
 
 CM = {'decke': 52, 'strampler': 56, 'body': 38, 'jaeckchen': 30, 'shirt': 28, 'hose': 40,

@@ -2,7 +2,8 @@
 
 Vorbild: Pinterest/aboutyou-Bild der Nutzerin (4 Ripp-Bodys mit Rueschen auf hellgrauem Grund).
 Quelle: freigestellte Einzelbilder (PNG mit Alpha) der echten Produktfotos aus Shopify, also keine KI-Veraenderung.
-Ausgabe: 2048 x 2048 px JPG (Shopify-Empfehlung, quadratisch, Zoom-faehig), Hintergrund hellgrau wie im Vorbild.
+Ausgabe: 2048 x 2048 px JPG (Shopify-Empfehlung, quadratisch, Zoom-faehig), Hintergrund reinweiss wie die
+uebrigen Shop-Fotos (anderer Ton per Umgebungsvariable, z.B. BG=244,244,245 fuer das Hellgrau des Vorbilds).
 
 Aufruf: python3 make_kaskade.py <teile-ordner> <ausgabe-ordner> [nur_set ...]
   <teile-ordner>/<set>/<nr>.png  (Nummern wie in SETS unten, Reihenfolge = hinten -> vorne)
@@ -15,7 +16,7 @@ src, out = sys.argv[1:3]
 only = set(sys.argv[3:])
 os.makedirs(out, exist_ok=True)
 SIZE = 2048
-BG = (244, 244, 245)
+BG = tuple(int(v) for v in os.environ.get("BG", "255,255,255").split(","))
 FILL = 0.86  # Anteil der Bildflaeche, den das Set einnimmt (laengere Seite)
 
 # Set -> Teile (hinten -> vorne); Eintrag 'set/nr' oder ('set/nr', drehung_grad)
