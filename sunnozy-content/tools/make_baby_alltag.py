@@ -14,7 +14,7 @@ Erzeugt aus ki-roh/ (Canva, Vorlagen = echte sunnozy-Setfotos):
 
 Aufruf: python3 make_baby_alltag.py <paket-ordner>
 """
-import sys, os, math, subprocess
+import sys, os, math, json, subprocess
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
@@ -187,16 +187,16 @@ def reel_neu(W=1080, H=1920):
         n, d, lab, (a, b) = NEU[i]; u = (t - starts[i]) / d
         c = fuellen(ims[n], W, H, a + (b - a) * ease(u), 0.5, 1.0 + 0.06 * u).convert('RGBA')
         if i == 0:
-            hook(c, ['NEU BEI', 'SUNNOZY'], H * 0.42, 118)
+            hook(c, NEU_HOOK, H * 0.42, 118)
             f = ImageFont.truetype(SERIF_IT, 72); dd = ImageDraw.Draw(c)
-            sh = Image.new('RGBA', c.size, (0, 0, 0, 0)); ImageDraw.Draw(sh).text((W / 2, H * 0.42 + 190), 'für die ersten Tage', font=f, fill=(30, 20, 15, 140), anchor='mm')
+            sh = Image.new('RGBA', c.size, (0, 0, 0, 0)); ImageDraw.Draw(sh).text((W / 2, H * 0.42 + 190), NEU_UNTER, font=f, fill=(30, 20, 15, 140), anchor='mm')
             c.alpha_composite(sh.filter(ImageFilter.GaussianBlur(6)))
-            dd.text((W / 2, H * 0.42 + 190), 'für die ersten Tage', font=f, fill='white', anchor='mm')
+            dd.text((W / 2, H * 0.42 + 190), NEU_UNTER, font=f, fill='white', anchor='mm')
         elif lab:
             etikett(c, lab, H * 0.62)
         return c
-    schreiben(bild, round(dauer * FPS), W, H, 'reel_neu_bei_sunnozy_9x16')
-    bild(0.8).convert('RGB').save(os.path.join(pak, 'reel_neu_bei_sunnozy_9x16_standbild.jpg'), quality=93)
+    schreiben(bild, round(dauer * FPS), W, H, REEL_NEU)
+    bild(0.8).convert('RGB').save(os.path.join(pak, REEL_NEU + '_standbild.jpg'), quality=93)
 
 
 # Reel 2: Set (Flatlay oder Studio-Praesentation) -> Baby traegt es
@@ -205,6 +205,20 @@ PAARE = [('flatlay_teddy_creme', 'baby_teddy_creme', 'TEDDY'),
          ('praes:set_weltall_hellblau', 'baby_weltall_hellblau', 'WELTALL'),
          ('praes:set_smile_gruen', 'baby_smile_gruen', 'SMILE')]
 T_SET, T_BABY, T_WISCH = 1.1, 1.6, 0.2
+NEU_HOOK, NEU_UNTER = ['NEU BEI', 'SUNNOZY'], 'für die ersten Tage'
+LOOK_HOOK = ['VOM SET', 'ZUM LIEBLINGS-', 'LOOK']
+REEL_NEU, REEL_LOOK = 'reel_neu_bei_sunnozy_9x16', 'reel_vom_set_zum_look_9x16'
+
+# weitere Pakete: <paket>/inhalt.json ueberschreibt Bilder, Ablauf und Texte (siehe paket-18-baby-alltag-2)
+_cfg = os.path.join(pak, 'inhalt.json')
+if os.path.exists(_cfg):
+    _c = json.load(open(_cfg, encoding='utf-8'))
+    FOTOS = _c.get('fotos', FOTOS)
+    NEU = [(n, d, lab, tuple(fx)) for n, d, lab, fx in _c.get('neu', NEU)]
+    PAARE = [tuple(p) for p in _c.get('paare', PAARE)]
+    NEU_HOOK, NEU_UNTER = _c.get('neu_hook', NEU_HOOK), _c.get('neu_unter', NEU_UNTER)
+    LOOK_HOOK = _c.get('look_hook', LOOK_HOOK)
+    REEL_NEU, REEL_LOOK = _c.get('reel_neu_name', REEL_NEU), _c.get('reel_look_name', REEL_LOOK)
 
 
 def set_bild(n, W, H):
@@ -238,7 +252,7 @@ def reel_look(W=1080, H=1920):
     def bild(t):
         if t < T_HOOK:
             c = fuellen(babys[0], W, H, 0.5, 0.5, 1.12 - 0.05 * t / T_HOOK).convert('RGBA')
-            hook(c, ['VOM SET', 'ZUM LIEBLINGS-', 'LOOK'], H * 0.42, 104)
+            hook(c, LOOK_HOOK, H * 0.42, 104)
             return c
         if t >= ende:
             c = endkarte(W, H)
@@ -255,8 +269,8 @@ def reel_look(W=1080, H=1920):
         v = (u - T_SET) / T_BABY
         c = fuellen(babys[i], W, H, 0.5, 0.5, 1.08 - 0.06 * v).convert('RGBA'); etikett(c, PAARE[i][2], H * 0.62)
         return c
-    schreiben(bild, round(dauer * FPS), W, H, 'reel_vom_set_zum_look_9x16')
-    bild(0.8).convert('RGB').save(os.path.join(pak, 'reel_vom_set_zum_look_9x16_standbild.jpg'), quality=93)
+    schreiben(bild, round(dauer * FPS), W, H, REEL_LOOK)
+    bild(0.8).convert('RGB').save(os.path.join(pak, REEL_LOOK + '_standbild.jpg'), quality=93)
 
 
 if __name__ == '__main__':

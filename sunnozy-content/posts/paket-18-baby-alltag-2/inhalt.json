@@ -1,0 +1,17 @@
+{
+  "fotos": ["baby_little_princess_rosa", "flatlay_little_princess_rosa", "baby_i_love_you_dad",
+            "flatlay_i_love_you_dad", "baby_blumen", "flatlay_blumen"],
+  "neu_hook": ["3 NEUE", "SETS"],
+  "neu_unter": "für kleine Sonnenscheine",
+  "neu": [["baby_little_princess_rosa", 2.2, null, [0.5, 0.5]],
+          ["flatlay_little_princess_rosa", 1.3, "LITTLE PRINCESS", [0.2, 0.8]],
+          ["baby_i_love_you_dad", 1.3, "I LOVE YOU DAD", [0.35, 0.65]],
+          ["flatlay_i_love_you_dad", 1.3, "I LOVE YOU DAD", [0.8, 0.2]],
+          ["baby_blumen", 1.3, "BLUMENWIESE", [0.6, 0.4]],
+          ["flatlay_blumen", 1.3, "BLUMENWIESE", [0.2, 0.8]]],
+  "paare": [["flatlay_little_princess_rosa", "baby_little_princess_rosa", "LITTLE PRINCESS"],
+            ["flatlay_i_love_you_dad", "baby_i_love_you_dad", "I LOVE YOU DAD"],
+            ["flatlay_blumen", "baby_blumen", "BLUMENWIESE"]],
+  "reel_neu_name": "reel_3_neue_sets_9x16",
+  "reel_look_name": "reel_vom_set_zum_look_teil2_9x16"
+}
