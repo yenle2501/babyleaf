@@ -1,0 +1,297 @@
+<title>sunnozy Markenplan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&display=swap">
+<style>
+/* Layout: ruhige Brand-Book-Spalte auf Creme, Kapitel durch Fraunces-Titel, Rosé-Flächen nur für Kernaussagen */
+:root {
+  --bg: #fdfcfa;          /* creme */
+  --ink: #233029;         /* wald */
+  --muted: rgba(35, 48, 41, 0.68);
+  --tile: #f4efe8;        /* ca-kachel */
+  --rose: #fbf3ef;        /* trust-rose */
+  --rose-strong: #ead3c9; /* rose */
+  --sage: #7a8b6f;        /* salbei */
+  --rost: #b44a40;        /* nur für Geld */
+  --line: rgba(35, 48, 41, 0.14);
+  --display: "Fraunces", Georgia, "Times New Roman", serif;
+  --body: "Nunito Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1b2520; --ink: #f3eee6; --muted: rgba(243, 238, 230, 0.72); --tile: #24312a;
+    --rose: #2c3530; --rose-strong: #4a3a35; --sage: #afc0a0; --rost: #ec9887; --line: rgba(243, 238, 230, 0.16);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1b2520; --ink: #f3eee6; --muted: rgba(243, 238, 230, 0.72); --tile: #24312a;
+  --rose: #2c3530; --rose-strong: #4a3a35; --sage: #afc0a0; --rost: #ec9887; --line: rgba(243, 238, 230, 0.16);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55; }
+.wrap { max-width: 860px; margin: 0 auto; padding-block: 48px 72px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; text-wrap: balance; margin: 0; letter-spacing: 0; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; }
+h2 { font-size: 1.6rem; line-height: 1.2; margin-bottom: 12px; }
+h3 { font-size: 1.15rem; line-height: 1.3; margin-bottom: 6px; }
+p { margin: 0; max-width: 66ch; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage); }
+.lead { font-size: 1.15rem; color: var(--muted); max-width: 60ch; }
+section { display: grid; gap: 16px; padding-block: 36px; border-top: 1px solid var(--line); }
+header.top { display: grid; gap: 14px; padding-bottom: 32px; }
+.claim { background: var(--rose); border-radius: 10px; padding: 24px clamp(18px, 4vw, 32px); display: grid; gap: 10px; }
+.claim .gross { font-family: var(--display); font-size: clamp(1.5rem, 4vw, 2.1rem); line-height: 1.2; font-weight: 600; }
+.claim p { color: var(--muted); }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+.fact { background: var(--tile); border-radius: 8px; padding: 14px 16px; display: grid; gap: 2px; min-width: 0; }
+.fact b { font-family: var(--display); font-size: 1.7rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.fact span { font-size: 14px; color: var(--muted); }
+.bars { display: grid; gap: 8px; }
+.bar { display: grid; grid-template-columns: 150px 1fr 28px; align-items: center; gap: 10px; font-size: 14px; }
+.bar i { display: block; height: 14px; background: var(--sage); border-radius: 0 7px 7px 0; }
+.bar em { font-style: normal; font-variant-numeric: tabular-nums; text-align: right; }
+.note { font-size: 13px; color: var(--muted); }
+.pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.pillar { border: 1px solid var(--line); border-radius: 10px; padding: 18px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.pillar .q { font-family: var(--display); font-size: 1.25rem; font-weight: 600; }
+.pillar p { font-size: 15px; color: var(--muted); }
+.pillar .proof { font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--sage); }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.box { background: var(--tile); border-radius: 10px; padding: 18px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.box ul, .list { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.box li, .list li { font-size: 15px; }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 15px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+th { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+td b { font-weight: 700; }
+.camp { display: grid; gap: 14px; }
+.camp article { border-left: 3px solid var(--sage); padding: 4px 0 4px 18px; display: grid; gap: 8px; }
+.camp .when { font-size: 13px; font-weight: 600; color: var(--sage); letter-spacing: 0.04em; text-transform: uppercase; }
+.timeline { display: grid; gap: 0; }
+.step { display: grid; grid-template-columns: 112px 1fr; gap: 14px; padding: 12px 0; border-bottom: 1px dashed var(--line); }
+.step .t { font-weight: 700; font-variant-numeric: tabular-nums; }
+.step p { font-size: 15px; }
+.money { color: var(--rost); font-weight: 700; }
+.dont { display: flex; flex-wrap: wrap; gap: 8px; }
+.dont span { border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; font-size: 14px; color: var(--muted); }
+.todo { counter-reset: n; display: grid; gap: 10px; list-style: none; padding: 0; margin: 0; }
+.todo li { counter-increment: n; display: grid; grid-template-columns: 32px 1fr; gap: 10px; align-items: start; }
+.todo li::before { content: counter(n); font-family: var(--display); font-weight: 600; font-size: 1.2rem; color: var(--sage); }
+.todo b { display: block; }
+.todo span { color: var(--muted); font-size: 15px; }
+footer { padding-top: 28px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+@media (max-width: 520px) { .bar { grid-template-columns: 110px 1fr 24px; } .step { grid-template-columns: 1fr; gap: 4px; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">sunnozy · Marke & Kampagnen · Oktober 2026</div>
+    <h1>Wofür sunnozy stehen soll und wie Kundinnen wiederkommen</h1>
+    <p class="lead">Analyse Deiner ersten 15 Bestellungen, das Markenversprechen, zwei Zielgruppen, drei Kampagnen und ein Ablauf, der aus Erstkäuferinnen Stammkundinnen macht.</p>
+  </header>
+
+  <div class="claim">
+    <div class="eyebrow">Das Markenversprechen</div>
+    <div class="gross">Alles drin für kleine Sonnenscheine.</div>
+    <p>sunnozy ist die Schweizer Adresse für die ersten Babymonate: fertig zusammengestellte, weiche Sets, die einfach passen. Schön genug zum Verschenken, fair im Preis, in 2–3 Tagen bei Dir.</p>
+  </div>
+
+  <section>
+    <div class="eyebrow">1 · Was die Zahlen sagen</div>
+    <h2>Heute kauft man bei sunnozy Erstausstattung</h2>
+    <div class="facts">
+      <div class="fact"><b>15</b><span>bezahlte Bestellungen seit 23.8.</span></div>
+      <div class="fact"><b>CHF 41.78</b><span>Ø Bestellwert</span></div>
+      <div class="fact"><b>15 von 15</b><span>Bestellungen mit Erstausstattung</span></div>
+      <div class="fact"><b>6 von 15</b><span>mit mehreren Sets im Korb</span></div>
+      <div class="fact"><b>3 von 15</b><span>nach Deutschland</span></div>
+      <div class="fact"><b>0</b><span>Wiederkäuferinnen bisher</span></div>
+    </div>
+    <h3>Verkaufte Erstausstattungs-Sets (24 Stück)</h3>
+    <div class="bars" role="img" aria-label="Verkaufte Sets: Hello Rosa 8, Princess 4, Teddybär 4, Little and Loved 3, Hello Little Bear 3, Hello World 2">
+      <div class="bar"><span>«Hello» Rosa</span><i style="width:100%"></i><em>8</em></div>
+      <div class="bar"><span>«Princess»</span><i style="width:50%"></i><em>4</em></div>
+      <div class="bar"><span>«Teddybär»</span><i style="width:50%"></i><em>4</em></div>
+      <div class="bar"><span>«Little and Loved»</span><i style="width:37.5%"></i><em>3</em></div>
+      <div class="bar"><span>«Hello Little Bear»</span><i style="width:37.5%"></i><em>3</em></div>
+      <div class="bar"><span>«Hello World»</span><i style="width:25%"></i><em>2</em></div>
+    </div>
+    <p class="note">Quelle: Shopify, Bestellungen #1001–#1018. Nicht gezählt: drei am 4.10. rückerstattete Bestellungen (vermutlich Tests). Die 19 Body-, Hosen- und Kombi-Sets kamen zusammen nur einmal in einen Korb, Halstücher, Mulltücher und Geschenksets nur als Beigabe.</p>
+    <div class="two">
+      <div class="box">
+        <h3>Was das bedeutet</h3>
+        <ul>
+          <li>sunnozy hat schon <b>ein klares Produkt</b>, das die Leute wollen: das Komplett-Set. Das ist die Marke, nicht das Sortiment.</li>
+          <li>Viele kaufen <b>mehrere Sets auf einmal</b> (bis 4). Das spricht für Geschenke, Zwillinge oder Vorrat in mehreren Grössen.</li>
+          <li>11 der 15 Bestellungen kamen in den ersten zwölf Oktobertagen. Die Nachfrage ist da, sobald Du sichtbar bist.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Die Herausforderung</h3>
+        <ul>
+          <li>Erstausstattung kauft man <b>einmal pro Baby</b>. Wiederkauf passiert nicht von selbst.</li>
+          <li>Der Ø Bestellwert liegt bei <span class="money">CHF 41.78</span>, knapp unter der Gratisversand-Grenze von <span class="money">CHF 50</span>. Nur 6 Bestellungen haben sie erreicht.</li>
+          <li>Mit Komplett-Sets ab <span class="money">CHF 28.40</span> bist Du sehr günstig. Das zieht, kann aber «billig» wirken, wenn Auftritt und Verpackung nicht mithalten.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">2 · Positionierung</div>
+    <h2>Drei Gedanken, die man mit sunnozy verbinden soll</h2>
+    <p>Wer an Babykleidung denkt, soll bei sunnozy diese drei Sätze im Kopf haben. Jedes Bild, jeder Text und jedes Paket zahlt auf einen davon ein.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="q">«Da ist alles drin.»</div>
+        <p>Fertig abgestimmte Sets statt Einzelteile suchen. Werdende Eltern sparen Zeit und Nerven, Schenkende haben sofort das Richtige.</p>
+        <div class="proof">Beweis: 5–8 Teile pro Set, alles im Bild</div>
+      </div>
+      <div class="pillar">
+        <div class="q">«Fühlt sich gut an.»</div>
+        <p>Weiche Baumwolle auf zarter Babyhaut, ruhige Farben, schöne Details. Das, was Eltern beim Auspacken als Erstes anfassen.</p>
+        <div class="proof">Beweis: Nahaufnahmen von Stoff, Nähten, Knöpfen</div>
+      </div>
+      <div class="pillar">
+        <div class="q">«Von hier und persönlich.»</div>
+        <p>Ein kleiner Schweizer Shop mit echten Menschen dahinter. Schnell geliefert, ehrlich beraten, liebevoll eingepackt.</p>
+        <div class="proof">Beweis: 2–3 Werktage · Gratisversand ab CHF 50 · Du vor der Kamera</div>
+      </div>
+    </div>
+    <div class="two">
+      <div class="box">
+        <h3>So klingt sunnozy</h3>
+        <ul>
+          <li>warm, ruhig, ehrlich, ein bisschen verspielt (wie das Logo)</li>
+          <li>Du-Form, Schweizer Schreibweise, kurze Sätze</li>
+          <li>zeigt statt behauptet: Fotos, Teile-Anzahl, echte Kundinnen</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Das ist sunnozy nicht</h3>
+        <div class="dont"><span>Ramsch-Discounter</span><span>laute Rabattschlachten</span><span>Glitzer-Influencer</span><span>abgehobene Luxus-Boutique</span><span>erfundene Bewertungen</span></div>
+        <p class="note">Preis ist ein Vorteil, aber nicht die Botschaft. Sag «fair», nie «billig».</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">3 · Für wen</div>
+    <h2>Zwei Käuferinnen, zwei Botschaften</h2>
+    <div class="two">
+      <div class="box">
+        <h3>Werdende Eltern</h3>
+        <p class="note">Schwangerschaftsmonat 5–9, im «Nestbau-Modus», Schweiz</p>
+        <ul>
+          <li><b>Will:</b> nichts vergessen, wenig Aufwand, Qualität für die Haut</li>
+          <li><b>Botschaft:</b> «Die ersten Wochen? Schon erledigt.»</li>
+          <li><b>Kanal:</b> Meta-Anzeigen, Instagram-Reels, Kliniklisten-Checklisten</li>
+          <li><b>Wiederkauf über:</b> nächste Grösse, Bodys, Mulltücher</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Schenkende</h3>
+        <p class="note">Gotti, Götti, Grosseltern, Freundinnen, Arbeitskolleginnen</p>
+        <ul>
+          <li><b>Will:</b> ein Geschenk, das sicher gefällt, schön aussieht, schnell kommt</li>
+          <li><b>Botschaft:</b> «Das schönste Hallo für ein neues Baby.»</li>
+          <li><b>Kanal:</b> Meta-Anzeigen, Pinterest, Weihnachten und Geburten im Umfeld</li>
+          <li><b>Wiederkauf über:</b> die nächste Geburt im Freundeskreis</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">4 · Kampagnen</div>
+    <h2>Drei Kampagnen, eine Marke</h2>
+    <div class="camp">
+      <article>
+        <div class="when">Ab sofort · Neukundinnen</div>
+        <h3>«Alles drin»</h3>
+        <p>Die Karussell-Anzeigen im Next-Stil (alle Sets mit Preis), dazu die Reels «Vom Set zum Lieblings-Look» und «3 neue Sets». Ein Bild, ein Preis, ein Versprechen.</p>
+        <p class="note">Messen: Kosten pro Kauf, Klickrate, Anteil Bestellungen ≥ CHF 50</p>
+      </article>
+      <article>
+        <div class="when">November–Dezember · Schenkende</div>
+        <h3>«Das schönste Hallo»</h3>
+        <p>Erstausstattung als Geburts- und Weihnachtsgeschenk: Geschenkverpackung mit Grusskarte als Option im Shop, Reel «Weihnachts-Wunschliste», Anzeigen an Freundinnen und Familie junger Eltern. Zweites Set zum Weiterschenken mit kleinem Bundle-Vorteil.</p>
+        <p class="note">Messen: Anteil Bestellungen mit Geschenkoption, Sets pro Bestellung</p>
+      </article>
+      <article>
+        <div class="when">Laufend · Stammkundinnen</div>
+        <h3>«Wachsen mit sunnozy»</h3>
+        <p>Das Baby wächst, sunnozy wächst mit: Wer eine Erstausstattung kauft, bekommt zur richtigen Zeit die nächste Grösse vorgeschlagen (Body-Sets, Hosen, Kombi-Sets). Das Sortiment, das heute kaum verkauft wird, wird so zum zweiten Kauf.</p>
+        <p class="note">Messen: Wiederkaufrate nach 90 Tagen, Umsatz mit Body- und Kombi-Sets</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">5 · Damit sie wiederkommen</div>
+    <h2>Der Weg nach dem ersten Kauf</h2>
+    <p>Wiederkauf entsteht nicht durch Rabatte, sondern durch gute Erinnerungen und den richtigen Anstoss zur richtigen Zeit. Die Reihenfolge folgt dem Alter des Babys.</p>
+    <div class="timeline">
+      <div class="step"><div class="t">Tag 0</div><p><b>Bestätigung mit einer Frage:</b> «Wann kommt Dein Baby auf die Welt?» (Feld im Checkout oder kurze Umfrage nach dem Kauf). Damit stimmen alle späteren Mails.</p></div>
+      <div class="step"><div class="t">Im Paket</div><p><b>Das Auspack-Erlebnis:</b> Seidenpapier, Dankeskarte mit persönlicher Unterschrift, Pflegetipps, ein Code für die nächste Bestellung und ein zweiter Code zum Weitergeben an eine Freundin, für beide ein Vorteil.</p></div>
+      <div class="step"><div class="t">Tag 14</div><p><b>Bitte um ein Foto:</b> «Zeig uns Deinen kleinen Sonnenschein» mit Erlaubnis zum Teilen. Daraus entsteht das Story-Highlight «Eure Babys», der stärkste Vertrauensbeweis.</p></div>
+      <div class="step"><div class="t">Baby 2 Monate</div><p><b>«Bald passt die nächste Grösse»:</b> Body-Sets und Hosen in 3–6 Monaten, passend zur Farbe des gekauften Sets.</p></div>
+      <div class="step"><div class="t">Baby 5 Monate</div><p><b>Sommer oder Winter:</b> saisonale Sets (Sommer-Sets, Langarm-Bodys), dazu Mulltücher und Söckchen als Alltagsnachschub.</p></div>
+      <div class="step"><div class="t">Jederzeit</div><p><b>Geschenk-Erinnerung:</b> «Kennst Du jemanden, der bald ein Baby bekommt?» mit dem Weiterempfehlungs-Code. So wird jede Kundin zur Schenkenden.</p></div>
+      <div class="step"><div class="t">1. Geburtstag</div><p><b>Gratulation</b> mit kleinem Geschenk zum Jubiläum, nicht mit Rabattdruck.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">6 · Schnelle Hebel im Shop</div>
+    <h2>Bestellwert über CHF 50 bringen</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Hebel</th><th>Was genau</th><th>Warum</th></tr></thead>
+        <tbody>
+          <tr><td><b>Versandbalken</b></td><td>z.B. «Noch CHF 8.60 bis zum Gratisversand» im Warenkorb, mit passenden Ergänzungen (Mulltücher, Söckchen, Halstücher)</td><td>Ø CHF 41.78 liegt knapp darunter</td></tr>
+          <tr><td><b>Set + Zubehör</b></td><td>«Komplett-Start»: Erstausstattung + Mulltücher-Set als Bundle</td><td>Mulltücher lagen schon in 3 von 15 Bestellungen mit im Korb</td></tr>
+          <tr><td><b>Zwei Sets</b></td><td>«Eins behalten, eins verschenken» als feste Kombination</td><td>40 % der Bestellungen enthalten bereits mehrere Sets</td></tr>
+          <tr><td><b>Grössenleiter</b></td><td>Auf jeder Erstausstattungs-Seite «Das passt als Nächstes» mit Body-Sets in der nächsten Grösse</td><td>macht den zweiten Kauf sichtbar</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">7 · Nächste 30 Tage</div>
+    <h2>Was ich als Erstes umsetzen würde</h2>
+    <ol class="todo">
+      <li><div><b>Dankeskarte und Paketbeilage gestalten</b><span>Karte im sunnozy-Look mit Wiederkauf- und Weiterempfehlungs-Code. Kann ich sofort entwerfen.</span></div></li>
+      <li><div><b>Geburtstermin beim Kauf abfragen</b><span>Ohne dieses Datum gibt es keine Mails zur richtigen Zeit.</span></div></li>
+      <li><div><b>Mail-Ablauf in Shopify Email/Flow einrichten</b><span>Danke → Foto-Bitte → «nächste Grösse». Texte kann ich schreiben.</span></div></li>
+      <li><div><b>Kampagne «Alles drin» starten</b><span>Die Meta-Karussells sind fertig. Klein starten, nach einer Woche Gewinner-Set skalieren.</span></div></li>
+      <li><div><b>Geschenkoption für Weihnachten</b><span>Geschenkverpackung + Grusskarte im Shop, Kampagne «Das schönste Hallo» ab Anfang November.</span></div></li>
+      <li><div><b>Einmal pro Woche Du vor der Kamera</b><span>«Diese Woche bei sunnozy»: Pakete packen, neue Sets zeigen. Echtheit schlägt jede Anzeige.</span></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="eyebrow">8 · Woran Du Erfolg erkennst</div>
+    <h2>Fünf Zahlen, monatlich anschauen</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Kennzahl</th><th>Heute</th><th>Ziel bis Ende Januar</th></tr></thead>
+        <tbody>
+          <tr><td>Ø Bestellwert</td><td>CHF 41.78</td><td>über CHF 50</td></tr>
+          <tr><td>Wiederkaufrate (90 Tage)</td><td>0 %</td><td>erste 5–10 %</td></tr>
+          <tr><td>Bestellungen mit Body- oder Kombi-Set</td><td>1 von 15</td><td>jede 5. Bestellung</td></tr>
+          <tr><td>Kundinnen-Fotos mit Erlaubnis</td><td>0</td><td>10</td></tr>
+          <tr><td>Bestellungen über Weiterempfehlungs-Code</td><td>0</td><td>erste 5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Die Ziele sind Startwerte für einen jungen Shop. Nach drei Monaten mit echten Zahlen neu setzen.</p>
+  </section>
+
+  <footer>Grundlage: Shopify-Bestellungen #1001–#1018 (Stand 16.10.2026), Versandregeln und Preise aus Shopify, sunnozy-Designsystem. Keine Zahlen geschätzt; Ziele sind Vorschläge.</footer>
+</div>
