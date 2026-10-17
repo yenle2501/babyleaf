@@ -1,6 +1,8 @@
 # Shopify-Hauptbilder klarer (alle 53 aktiven Produkte)
 
-**Status: Vorschlag, noch nicht in Shopify.** Erst nach Deinem OK werden die Bilder ersetzt.
+**Status: In Shopify übernommen am 17.10.2026** (52 von 53). Per `fileUpdate` an derselben Media-ID ersetzt: Position, Alt-Text und Titel sind gleich geblieben. Danach geprüft: alle 52 READY, 2048 px, Live-Bild entspricht der Datei.
+
+**Nicht ersetzt:** «I Like Flying» Langarm-Body 3er. Dort hattest Du das Hauptbild inzwischen selbst geändert (13_6.jpg), das bleibt so.
 
 ## Befund
 
@@ -34,6 +36,6 @@ Schärfen holt heraus, was im Bild steckt, kann aber keine Details erzeugen, die
 
 Am weichsten sind: Mulltücher 90×100 (Verpackungsfotos), Söckchen «Tier & Natur» (744 px), «Princess» Langarm-Body (922 px), Body-Sets «Little Love», «Little One» und «Sweet Friends».
 
-## Hochladen (nach OK)
+## Rückgängig machen
 
-Per `fileUpdate` an derselben Media-ID: Position, Alt-Text und Titel bleiben gleich, nur das Bild wird ersetzt.
+Die bisherigen Bilder liegen in `../shopify-backup-hauptbilder-vor-klar/<handle>.jpg`. Zurück geht es genauso: hochladen und per `fileUpdate` an dieselbe Media-ID (siehe `produkte.json`).

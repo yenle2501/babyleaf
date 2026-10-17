@@ -2,7 +2,7 @@
 
 Sechs Mails für Shopify Email und Shopify Flow. Ton nach dem Designsystem: Du-Form, warm und ruhig, Schweizer Schreibweise, keine Emojis, keine erfundenen Versprechen.
 
-Platzhalter: `{Vorname}`, `{Setname}` (z.B. Erstausstattung-Set «Teddybär»). Die Codes **DANKE10** und **HALLOBABY** müssen vor dem Versand in Shopify angelegt werden, genau wie auf der Dankeskarte.
+Platzhalter: `{Vorname}`, `{Setname}` (z.B. Erstausstattung-Set «Teddybär»). Die Codes **DANKE10** und **HALLOBABY** sind in Shopify angelegt (17.10.2026), genau wie auf der Dankeskarte.
 
 ## Einrichten
 

@@ -22,7 +22,7 @@ Teil des Markenplans (`strategie/sunnozy-markenplan.html`). Idee: Die echten Tei
 
 ## Vor dem Einsatz prüfen
 
-- **Codes anlegen:** Die Codes **DANKE10** (10 % auf die nächste Bestellung) und **HALLOBABY** (10 % auf die erste Bestellung, zum Weitergeben) sind auf Karte und in den Mails, existieren in Shopify aber noch nicht. Andere Namen? Dann neu erzeugen: `python3 tools/make_dankeskarte.py posts/kampagne-alles-drin/dankeskarte CODE1 CODE2`.
+- **Codes (in Shopify angelegt am 17.10.2026):** **DANKE10** = 10 %, nur für Kundinnen mit mindestens einer Bestellung, einmal pro Person. **HALLOBABY** = 10 %, für alle, einmal pro Person (wie WILLKOMMEN10). Beide nicht mit anderen Rabatten kombinierbar, ohne Enddatum.
 - **Teddybär:** Im Shop steht «8-teilig», die Einzelbilder zeigen 9 Teile. Rassel und Beissring sind deshalb als ein Teil zusammengefasst. Bitte prüfen, wie Du sie zählst.
 - **Hello Rosa:** Strampler, Body und Hose überlappen sich im Shopbild. Sie erscheinen deshalb als eine Kachel, zusammen sind es die 6 Teile laut Shop.
 - **Bilder:** Die Einzelbilder stammen aus den Marktplatz-Bildern, teils KI-unterstützt. Prints und Farben mit dem echten Set vergleichen.
