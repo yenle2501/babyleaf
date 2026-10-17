@@ -1,0 +1,255 @@
+<title>sunnozy Werbeplan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&display=swap">
+<style>
+/* Layout: Brand-Book-Spalte auf Creme wie der Markenplan; Phasen als Zeitleiste, Einstellungen als Tabellen zum Abhaken */
+:root {
+  --bg: #fdfcfa; --ink: #233029; --muted: rgba(35, 48, 41, 0.68); --tile: #f4efe8; --rose: #fbf3ef;
+  --sage: #7a8b6f; --rost: #b44a40; --line: rgba(35, 48, 41, 0.14); --field: #ffffff;
+  --display: "Fraunces", Georgia, "Times New Roman", serif;
+  --body: "Nunito Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #1b2520; --ink: #f3eee6; --muted: rgba(243, 238, 230, 0.72); --tile: #24312a; --rose: #2c3530;
+    --sage: #afc0a0; --rost: #ec9887; --line: rgba(243, 238, 230, 0.16); --field: #24312a; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #1b2520; --ink: #f3eee6; --muted: rgba(243, 238, 230, 0.72); --tile: #24312a; --rose: #2c3530;
+  --sage: #afc0a0; --rost: #ec9887; --line: rgba(243, 238, 230, 0.16); --field: #24312a; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55; }
+.wrap { max-width: 880px; margin: 0 auto; padding-block: 48px 72px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2rem, 5vw, 2.9rem); line-height: 1.1; }
+h2 { font-size: 1.55rem; line-height: 1.2; }
+h3 { font-size: 1.12rem; line-height: 1.3; }
+p { margin: 0; max-width: 68ch; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage); }
+.lead { font-size: 1.12rem; color: var(--muted); }
+header.top { display: grid; gap: 14px; padding-bottom: 28px; }
+section { display: grid; gap: 16px; padding-block: 34px; border-top: 1px solid var(--line); }
+.claim { background: var(--rose); border-radius: 10px; padding: 22px clamp(18px, 4vw, 30px); display: grid; gap: 8px; }
+.claim .gross { font-family: var(--display); font-size: clamp(1.35rem, 3.6vw, 1.8rem); line-height: 1.25; font-weight: 600; }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; min-width: 600px; font-size: 15px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+th { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+td b { font-weight: 700; }
+.pill { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; padding: 2px 10px; border-radius: 999px; background: var(--tile); white-space: nowrap; }
+.pill.jetzt { background: var(--sage); color: var(--bg); }
+.steps { list-style: none; counter-reset: s; margin: 0; padding: 0; display: grid; gap: 10px; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 30px 1fr; gap: 10px; }
+.steps li::before { content: counter(s); font-family: var(--display); font-weight: 600; font-size: 1.15rem; color: var(--sage); }
+.steps li span { color: var(--muted); font-size: 15px; display: block; }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.box { background: var(--tile); border-radius: 10px; padding: 18px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.box ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; font-size: 15px; }
+code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 13px; background: var(--tile); padding: 1px 6px; border-radius: 4px; word-break: break-all; }
+.calc { border: 1px solid var(--line); border-radius: 10px; padding: 18px; display: grid; gap: 14px; }
+.calc .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+.calc label { display: grid; gap: 4px; font-size: 14px; color: var(--muted); }
+.calc input { font: inherit; color: var(--ink); background: var(--field); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font-variant-numeric: tabular-nums; }
+.calc input:focus-visible { outline: 2px solid var(--sage); outline-offset: 1px; }
+.result { display: flex; flex-wrap: wrap; gap: 12px; }
+.result div { background: var(--tile); border-radius: 8px; padding: 12px 16px; display: grid; gap: 2px; min-width: 0; flex: 1 1 200px; }
+.result b { font-family: var(--display); font-size: 1.6rem; font-variant-numeric: tabular-nums; }
+.result span { font-size: 14px; color: var(--muted); }
+.note { font-size: 13px; color: var(--muted); }
+.phase { border-left: 3px solid var(--sage); padding: 2px 0 2px 18px; display: grid; gap: 10px; }
+.phase .when { font-size: 13px; font-weight: 700; color: var(--sage); letter-spacing: 0.04em; text-transform: uppercase; }
+.warn { background: var(--rose); border-radius: 10px; padding: 16px 18px; display: grid; gap: 6px; font-size: 15px; }
+footer { padding-top: 26px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); display: grid; gap: 6px; }
+footer a { color: var(--ink); }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">sunnozy · Werbeplan · ab 19. Oktober 2026</div>
+    <h1>Wo Du Werbung schaltest, was Du zeigst und wie Du es einrichtest</h1>
+    <p class="lead">Ein Plan für die ersten acht Wochen: klein starten, messen und erst dann mehr ausgeben. Alle Bilder und Reels dafür sind schon fertig.</p>
+  </header>
+
+  <div class="claim">
+    <div class="eyebrow">Kurz gesagt</div>
+    <div class="gross">Mit CHF 10 pro Tag auf Instagram und Facebook starten, Google Shopping gratis mitnehmen und Pinterest erst zur Geschenkzeit dazunehmen.</div>
+    <p class="note">Erster Monat: rund CHF 300–350 Werbebudget. Mehr erst, wenn eine Bestellung über Werbung weniger kostet, als sie Dir einbringt (Rechner unten).</p>
+  </div>
+
+  <section>
+    <div class="eyebrow">1 · Kanäle</div>
+    <h2>Wo Werbung für sunnozy Sinn macht</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Kanal</th><th>Wofür</th><th>Start</th><th>Budget</th></tr></thead>
+        <tbody>
+          <tr><td><b>Instagram & Facebook</b> (Meta)</td><td>Neue Kundinnen finden: werdende Eltern und Schenkende. Hier läuft die Kampagne «Alles drin».</td><td><span class="pill jetzt">sofort</span></td><td>CHF 10/Tag</td></tr>
+          <tr><td><b>Google Shopping, gratis</b></td><td>Wer «Erstausstattung Baby Set» sucht, sieht Deine Sets mit Bild und Preis. Kostet nichts.</td><td><span class="pill jetzt">sofort</span></td><td>CHF 0</td></tr>
+          <tr><td><b>Google, bezahlt</b> (Performance Max)</td><td>Mehr Sichtbarkeit in Google-Suche, Shopping und YouTube</td><td><span class="pill">ab Woche 4</span></td><td>CHF 5–8/Tag</td></tr>
+          <tr><td><b>Pinterest</b></td><td>Geschenkideen und Babyzimmer-Planung, ideal für «Das schönste Hallo»</td><td><span class="pill">ab November</span></td><td>CHF 5/Tag</td></tr>
+          <tr><td><b>TikTok</b></td><td>Lohnt sich erst, wenn Du regelmässig selbst filmst (Pakete packen, Auspacken)</td><td><span class="pill">später</span></td><td>–</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">2 · Zuerst rechnen</div>
+    <h2>Wie viel darf eine Bestellung über Werbung kosten?</h2>
+    <p>Das ist die wichtigste Zahl im ganzen Plan. Trag Deine echten Kosten ein. Der Ø Bestellwert von CHF 41.78 stammt aus Deinen ersten 15 Bestellungen.</p>
+    <form class="calc" id="rechner" autocomplete="off">
+      <div class="grid">
+        <label for="umsatz">Ø Bestellwert (CHF)<input id="umsatz" type="number" step="0.01" min="0" value="41.78"></label>
+        <label for="einkauf">Einkauf der Ware pro Bestellung (CHF)<input id="einkauf" type="number" step="0.01" min="0" value="" placeholder="z.B. 12.00"></label>
+        <label for="verpackung">Verpackung + Karte (CHF)<input id="verpackung" type="number" step="0.01" min="0" value="" placeholder="z.B. 1.50"></label>
+        <label for="versand">Versandkosten, die Du trägst (CHF)<input id="versand" type="number" step="0.01" min="0" value="" placeholder="z.B. 3.00"></label>
+        <label for="gebuehr">Zahlungsgebühren (%)<input id="gebuehr" type="number" step="0.1" min="0" value="2.9"></label>
+      </div>
+      <div class="result" aria-live="polite">
+        <div><b id="maxcpa">–</b><span>höchstens pro Bestellung für Werbung (Break-even)</span></div>
+        <div><b id="ziel">–</b><span>Ziel mit Gewinn (die Hälfte davon)</span></div>
+      </div>
+      <p class="note" id="hinweis">Trag den Einkaufspreis ein, dann erscheint das Ergebnis. Liegen die Kosten pro Kauf in Meta über dem ersten Wert, verlierst Du mit jeder Bestellung Geld (ausser die Kundin kauft wieder).</p>
+    </form>
+  </section>
+
+  <section>
+    <div class="eyebrow">3 · Einrichten (einmalig, ein Abend, kostenlos)</div>
+    <h2>Shopify mit Meta und Google verbinden</h2>
+    <div class="two">
+      <div class="box">
+        <h3>Instagram & Facebook</h3>
+        <ol class="steps">
+          <li><div>In Shopify unter <b>Vertriebskanäle</b> die App <b>«Facebook & Instagram»</b> installieren.<span>Kostenlos, von Meta selbst.</span></div></li>
+          <li><div>Verbinden: Business-Konto, Facebook-Seite, Instagram <b>@sunnozy.ch</b> und Werbekonto.<span>Werbekonto in CHF, Zeitzone Zürich.</span></div></li>
+          <li><div><b>Datenfreigabe auf «Maximal»</b> stellen.<span>Damit misst Meta Käufe zuverlässig (Pixel und Conversions API).</span></div></li>
+          <li><div><b>Katalog</b> synchronisieren und prüfen, ob alle Sets freigegeben sind.<span>Im Commerce Manager. Die neuen, klaren Hauptbilder werden übernommen.</span></div></li>
+          <li><div>Domain <b>sunnozy.ch</b> im Business-Manager bestätigen.</div></li>
+          <li><div>Zahlungsmethode hinterlegen und ein <b>Ausgabenlimit</b> fürs Werbekonto setzen (z.B. CHF 400).<span>Sicherheitsnetz, falls etwas falsch eingestellt ist.</span></div></li>
+        </ol>
+      </div>
+      <div class="box">
+        <h3>Google (gratis zuerst)</h3>
+        <ol class="steps">
+          <li><div>In Shopify die App <b>«Google & YouTube»</b> installieren.</div></li>
+          <li><div><b>Merchant Center</b> verbinden, Land <b>Schweiz</b>.</div></li>
+          <li><div><b>Versand und Rückgabe</b> eintragen: CHF 5.90, gratis ab CHF 50, 2–3 Werktage.<span>Ohne diese Angaben lehnt Google Produkte ab.</span></div></li>
+          <li><div>Produkte freigeben. Nach einigen Tagen erscheinen sie in Google Shopping, <b>kostenlos</b>.</div></li>
+          <li><div>Erst ab Woche 4: bezahlte Kampagne (Performance Max) mit CHF 5–8/Tag.</div></li>
+        </ol>
+        <h3>Pinterest (ab November)</h3>
+        <ol class="steps">
+          <li><div>App <b>«Pinterest»</b> in Shopify installieren, Katalog und Tag verbinden.</div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">4 · Kampagne «Alles drin» · ab Mo 19.10.</div>
+    <h2>Die erste Meta-Kampagne, Einstellung für Einstellung</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Einstellung</th><th>Wert</th><th>Warum</th></tr></thead>
+        <tbody>
+          <tr><td>Kampagnenziel</td><td><b>Umsatz</b></td><td>Meta sucht Leute, die wahrscheinlich kaufen</td></tr>
+          <tr><td>Kampagnentyp</td><td><b>Advantage+-Umsatzkampagne</b></td><td>Meta verteilt Budget und Zielgruppe selbst; für kleine Budgets am einfachsten</td></tr>
+          <tr><td>Conversion</td><td>Kauf, über den Shopify-Pixel</td><td></td></tr>
+          <tr><td>Budget</td><td><b>CHF 10 pro Tag</b> auf Kampagnenebene</td><td>genug zum Lernen, klein genug für einen Test</td></tr>
+          <tr><td>Land</td><td><b>Schweiz</b></td><td>Deutschland (3 von 15 Bestellungen) später als eigener Test</td></tr>
+          <tr><td>Zielgruppe</td><td>Advantage+-Zielgruppe; als Vorschlag Alter 22–45</td><td>Breit lassen, Meta findet Eltern und Schenkende selbst</td></tr>
+          <tr><td>Platzierungen</td><td>Advantage+ (automatisch)</td><td>Feed, Storys und Reels mit passendem Format</td></tr>
+          <tr><td>Link</td><td><code>sunnozy.ch/collections/…</code> bzw. die Produktseite<br>plus <code>?utm_source=meta&amp;utm_medium=paid&amp;utm_campaign=alles-drin</code></td><td>So siehst Du in Shopify, welche Bestellungen von der Werbung kommen</td></tr>
+          <tr><td>Call-to-Action</td><td>«Jetzt einkaufen»</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>Drei Anzeigen in der Kampagne</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Anzeige</th><th>Dateien</th><th>Text (primärer Text)</th></tr></thead>
+        <tbody>
+          <tr><td><b>A · Karussell</b><br>6 Sets im Next-Stil</td><td><code>posts/meta-ads-erstausstattung/karussell_*_1x1.jpg</code><br>für Storys: <code>story_*_9x16.jpg</code></td><td>Alles für die ersten Wochen, mit einem Klick. Erstausstattungs-Sets, liebevoll aufeinander abgestimmt. Gratisversand in der ganzen Schweiz ab CHF 50.</td></tr>
+          <tr><td><b>B · Reel</b><br>«Alles drin», 6 Sets</td><td><code>posts/kampagne-alles-drin/reel_alles_drin_6_sets_9x16.mp4</code></td><td>Baby unterwegs? Diese Sets haben alles, was ein Neugeborenes braucht, von Strampler bis Mützchen. Ab CHF 28.40.</td></tr>
+          <tr><td><b>C · Reel</b><br>«Alles drin», Princess</td><td><code>posts/kampagne-alles-drin/reel_alles_drin_princess_9x16.mp4</code></td><td>Das perfekte Geschenk zur Geburt: 8 Teile, alles drin, in 2–3 Werktagen bei Dir.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Überschriften und Links pro Karussell-Karte stehen in <code>posts/meta-ads-erstausstattung/README.md</code>. Beim Karussell-Format «Katalog» kann Meta Preise und Bestand automatisch aus Shopify ziehen.</p>
+    <div class="warn">
+      <b>Bevor Du startest</b>
+      <span>«Hello» Rosa ist Dein Bestseller, hat aber nur noch 2 Stück, genau wie «Hello Little Bear». Diese beiden Karussell-Karten erst nach dem Nachbestellen einschalten, sonst bezahlst Du Klicks auf ausverkaufte Produkte.</span>
+      <span>In Anzeigen die echten Produktbilder verwenden (Karussell, «Alles drin»), nicht die KI-Babybilder. Wer ein Set kauft, soll genau das bekommen, was die Anzeige zeigt.</span>
+    </div>
+    <h3>Die ersten 7 Tage: nichts ändern</h3>
+    <p>Meta braucht etwa eine Woche zum Lernen. Wer in dieser Zeit Budget, Texte oder Zielgruppe ändert, startet das Lernen neu. Danach siehst Du im Werbeanzeigenmanager, welche der drei Anzeigen am günstigsten verkauft.</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">5 · Zeitplan</div>
+    <h2>Die nächsten acht Wochen</h2>
+    <div class="phase">
+      <div class="when">Woche 1 · 19.–25. Oktober</div>
+      <p><b>Einrichten und starten:</b> Shopify mit Meta und Google verbinden, Kampagne «Alles drin» mit CHF 10/Tag einschalten. Parallel läuft der Contentplan Woche 1 (inkl. Coming-soon-Teaser) organisch.</p>
+    </div>
+    <div class="phase">
+      <div class="when">Woche 2</div>
+      <p><b>Erste Auswertung:</b> schwächste Anzeige pausieren. Teaser-Reel «Coming soon» in der Instagram-App mit «Beitrag bewerben» anschieben (Ziel: Profilbesuche, CHF 5/Tag, 5 Tage), damit vor dem Launch mehr Leute folgen.</p>
+    </div>
+    <div class="phase">
+      <div class="when">Woche 3–4</div>
+      <p><b>Skalieren, wenn es sich rechnet:</b> Liegen die Kosten pro Kauf unter Deinem Zielwert, Budget um 20 % pro Woche erhöhen (nicht mehr auf einmal). Google Performance Max mit CHF 5–8/Tag dazunehmen. Neue Sets am Launch-Tag als neue Anzeige in «Alles drin» aufnehmen.</p>
+    </div>
+    <div class="phase">
+      <div class="when">November–Dezember</div>
+      <p><b>Kampagne «Das schönste Hallo»:</b> Geschenk-Anzeigen (Geschenkverpackung, Weihnachten, Geburt im Freundeskreis) auf Meta und Pinterest, CHF 5–10/Tag zusätzlich. Letzter Bestelltermin für Weihnachten in Anzeigen nennen, sobald Du ihn festlegst.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">6 · Jeden Montag, 10 Minuten</div>
+    <h2>Was Du anschaust und was Du dann tust</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Zahl im Werbeanzeigenmanager</th><th>Gut</th><th>Wenn nicht</th></tr></thead>
+        <tbody>
+          <tr><td><b>Kosten pro Kauf</b></td><td>unter Deinem Zielwert aus dem Rechner</td><td>Anzeige mit den höchsten Kosten pausieren, neue Variante testen</td></tr>
+          <tr><td><b>Link-Klickrate (CTR)</b></td><td>über 1 %</td><td>unter 0,8 % nach 1500 Impressionen: Bild oder ersten Satz austauschen</td></tr>
+          <tr><td><b>Frequenz</b></td><td>unter 3</td><td>darüber sehen Leute die Anzeige zu oft: neues Motiv einsetzen</td></tr>
+          <tr><td><b>Warenkorb, aber kein Kauf</b></td><td>wenige</td><td>viele: Versandkosten und Lieferzeit auf der Produktseite deutlicher zeigen</td></tr>
+          <tr><td><b>Bestellungen mit Werbe-Link</b> (Shopify, Analysen → Marketing)</td><td>steigen</td><td>keine nach 2 Wochen und CHF 140: Angebot oder Bilder überdenken, nicht mehr Budget</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Ehrlicher Hinweis: Mit CHF 10 pro Tag sind die Zahlen in den ersten Tagen noch zufällig. Entscheide frühestens nach 7 Tagen und etwa CHF 70 Ausgaben.</p>
+  </section>
+
+  <footer>
+    <span>Grundlage: Shopify-Bestellungen #1001–#1018, Preise, Lager und Versandregeln aus Shopify (Stand 17.10.2026), Material in <code>posts/meta-ads-erstausstattung</code>, <code>posts/kampagne-alles-drin</code> und <code>content/1.week</code>.</span>
+    <span>Menübezeichnungen bei Meta und Google ändern sich gelegentlich; im Zweifel in der Hilfe von <a href="https://www.facebook.com/business/help" rel="noopener">Meta Business</a> und <a href="https://help.shopify.com/de" rel="noopener">Shopify</a> nachsehen. Pinterest-Werbekonten sind in der Schweiz direkt verfügbar (<a href="https://help.pinterest.com/business/article/promoted-pins-overview" rel="noopener">Pinterest-Hilfe</a>).</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var ids = ['umsatz', 'einkauf', 'verpackung', 'versand', 'gebuehr'];
+  var f = function (v) { return 'CHF ' + v.toFixed(2); };
+  function rechnen() {
+    var v = {};
+    ids.forEach(function (id) { v[id] = parseFloat(document.getElementById(id).value); });
+    var hinweis = document.getElementById('hinweis');
+    if (isNaN(v.einkauf) || isNaN(v.umsatz)) {
+      document.getElementById('maxcpa').textContent = '–'; document.getElementById('ziel').textContent = '–'; return;
+    }
+    var db = v.umsatz - v.einkauf - (v.verpackung || 0) - (v.versand || 0) - v.umsatz * (v.gebuehr || 0) / 100;
+    document.getElementById('maxcpa').textContent = f(Math.max(0, db));
+    document.getElementById('ziel').textContent = f(Math.max(0, db / 2));
+    hinweis.textContent = db <= 0
+      ? 'Nach Abzug aller Kosten bleibt pro Bestellung nichts übrig. Werbung lohnt sich so nicht; zuerst Preis oder Kosten anpassen.'
+      : 'Liegen die Kosten pro Kauf in Meta über ' + f(db) + ', verlierst Du mit jeder Bestellung Geld (ausser die Kundin kauft wieder).';
+  }
+  ids.forEach(function (id) { document.getElementById(id).addEventListener('input', rechnen); });
+  document.getElementById('rechner').addEventListener('submit', function (e) { e.preventDefault(); });
+  rechnen();
+})();
+</script>
