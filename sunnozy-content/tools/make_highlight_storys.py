@@ -100,8 +100,6 @@ def zentrieren(c):
 
 def fuss(d, ki=False):
     d.text((W / 2, BOTTOM - 20), 'sunnozy.ch', font=F('nunitosans-700.ttf', 30), fill=SALBEI, anchor='ms')
-    if ki:
-        d.text((W / 2, BOTTOM + 22), 'Produktbild mit KI erstellt', font=F('nunitosans-400.ttf', 22), fill=(150, 156, 152), anchor='ms')
 
 
 def kopf(c, d, ic, eyebrow, y=TOP + 10, gross=150):

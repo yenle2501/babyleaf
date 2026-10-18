@@ -54,6 +54,6 @@ Bild: `vorschau_profil.jpg` oder ein Karussell mit den Intro-Storys (jeweils `st
 
 ## Bitte prüfen
 - **Bewertungen:** Die Texte sind wörtlich übernommen, auch kleine Fehler wie «Schnelle Versand». Bei der englischen Bewertung steht die Übersetzung darunter. «Verifizierter Kauf» steht nur dort, wo Judge.me es so anzeigt.
-- **Produktbilder** sind mit KI erstellt, das steht klein auf jeder Produkt-Story.
+- **Produktbilder:** Auf Wunsch ohne Hinweis «Produktbild mit KI erstellt».
 - **«Über uns»** nennt Baden, wie auf Deiner Website. Stimmt das so für Instagram?
 - **Preise** sind bewusst nicht in den Storys, weil Highlights lange stehen bleiben.
