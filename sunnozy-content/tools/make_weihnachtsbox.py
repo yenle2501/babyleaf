@@ -1,31 +1,34 @@
-"""Meta-/Pinterest-Anzeigen fuer die Kampagne «Weihnachts-Geschenkbox» (Schenkende: Gotti, Goetti, Grosseltern).
+"""Anzeigen und Shopify-Hauptbilder fuer die Kampagne «Weihnachts-Geschenkbox» (Schenkende: Gotti, Goetti, Grosseltern).
 
-Vorbild: Pinterest-Pins «Weihnachten Geschenkbox Baby»: offene Geschenkbox mit Seidenpapier, Inhalt ordentlich
-gefaltet und gerollt, Tannenzweige, Zapfen, Kugeln, Lichterkette, Geschenkanhaenger; oben eine kurze Headline,
-unten Name und Inhalt der Box. Die Fotos sind mit Canva-KI aus dem Box-Foto der Nutzerin und den Shop-Bildern der
-Kombi-Sets erzeugt (`posts/kampagne-weihnachtsbox/ki-roh/`).
+Vorbild (Pinterest-Pin der Nutzerin): offene Geschenkbox auf weissem Grund, zerknuelltes Seidenpapier, die Teile von
+Hand locker hineingelegt, keine Deko. Deshalb sind die Anzeigen ruhig: Foto gross, darunter in kleiner Schrift Name,
+Inhalt und Preis, kein Verlauf, kein grosser Button. Die Fotos sind mit Canva-KI aus dem Box-Foto der Nutzerin und
+den Shop-Bildern der Sets erzeugt (`posts/kampagne-weihnachtsbox/fotos/`).
 
-Je Box: 4:5 (1080x1350, Feed), 1:1 (1080x1080, Karussell), 9:16 (1080x1920, Storys/Reels) und eine Uebersicht
-aller Boxen (4:5 und 1:1). Preise erst eintragen, wenn sie feststehen (`PREIS`), sonst erscheint nur der Inhalt.
+Je Box: 4:5 (1080x1350, Feed), 1:1 (1080x1080, Karussell), 9:16 (1080x1920, Storys) und Shopify-Hauptbild
+(2048x2048, Logo oben links). Dazu eine Uebersicht aller Boxen (4:5). Preise: `strategie/preiskalkulation-weihnachtsbox.md`.
 
-Aufruf: python3 make_weihnachtsbox.py <ki-roh-ordner> <ausgabe-ordner>
+Aufruf: python3 make_weihnachtsbox.py <fotos-ordner> <ausgabe-ordner>
 """
 import os, sys
 import numpy as np
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 src, out = sys.argv[1:3]
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FONT = lambda n, s: ImageFont.truetype(os.path.join(ROOT, 'fonts', n), int(s))
-CREME, WALD, SALBEI, ROSE = (253, 250, 246), (35, 48, 41), (122, 139, 111), (184, 120, 128)
+WALD, GRAU = (35, 48, 41), (110, 112, 106)
 
-# (Datei, Name, Inhalt)
-BOXEN = [('box_mum_dad_me', '«Mum Dad Me»', '5 Bodys + 5 Leggings'),
-         ('box_lovely_little_girl', '«Lovely Little Girl»', '3 Bodys + 5 Leggings'),
-         ('box_growing_up_strong', '«Growing up strong»', '5 Bodys + 5 Jogginghosen'),
-         ('box_i_love_my_mummy', '«I love my Mummy»', '3 Bodys + 3 Halstücher')]
-PREIS = {}          # z.B. {'box_mum_dad_me': '34.90'}, sobald die Boxpreise feststehen
-LABEL, HEADLINE, ZEILE = 'WEIHNACHTS-GESCHENKBOX', 'Das schönste Hallo unterm Baum', 'Fürs Gottikind, Grosskind und alle Kleinen'
+# (Datei, Name, Inhalt, Preis)
+BOXEN = [('box_mum_dad_me', '«Mum Dad Me»', '5 Bodys + 5 Leggings', '42.90'),
+         ('box_lovely_little_girl', '«Lovely Little Girl»', '3 Bodys + 5 Leggings', '39.90'),
+         ('box_growing_up_strong', '«Growing up strong»', '5 Bodys + 5 Jogginghosen', '42.90'),
+         ('box_i_love_my_mummy', '«I love my Mummy»', '3 Bodys + 3 Halstücher', '29.90'),
+         ('box_dino', '«Dino»', '3 Bodys + 3 Mulltücher', '39.90'),
+         ('box_dinosaur', '«Dinosaur»', '5 Bodys + 5 Jogginghosen', '42.90'),
+         ('box_little_one', '«Little One»', '5 Bodys + 3 Mulltücher', '44.90'),
+         ('box_i_like_flying', '«I like flying»', '3 Bodys + 5 Leggings', '39.90')]
+TITEL = 'Weihnachts-Geschenkbox'
 
 
 def load_logo(width, col=WALD):
@@ -36,118 +39,90 @@ def load_logo(width, col=WALD):
     return L.resize((width, round(L.height * width / L.width)), Image.LANCZOS)
 
 
-def verlauf(c, y0, y1, oben=True, stark=238):
-    """Creme-Verlauf ueber das Foto legen (oben: deckend -> transparent, unten umgekehrt)."""
-    h = y1 - y0
-    a = np.linspace(stark, 0, h) if oben else np.linspace(0, stark, h)
-    a = np.clip(a * 1.15, 0, stark) if not oben else a
-    m = Image.fromarray(np.repeat(a[:, None], c.width, 1).astype(np.uint8))
-    c.paste(Image.new('RGB', (c.width, h), CREME), (0, y0), m)
+def leinwand(im, W, H, h, y, f=60):
+    """Foto auf Hoehe h skaliert bei y einsetzen. Der Grund ist ein weicher Verlauf aus den vier Bildecken (dort ist
+    nur der weisse Studio-Grund), so laeuft er nahtlos bis an den Rand weiter, ohne Rosa von der Box."""
+    a = np.asarray(im).astype(float); k = 40
+    ecken = np.array([[np.median(a[:k, :k].reshape(-1, 3), 0), np.median(a[:k, -k:].reshape(-1, 3), 0)],
+                      [np.median(a[-k:, :k].reshape(-1, 3), 0), np.median(a[-k:, -k:].reshape(-1, 3), 0)]])
+    ty, tx = np.linspace(0, 1, H)[:, None, None], np.linspace(0, 1, W)[None, :, None]
+    g = (ecken[0, 0] * (1 - tx) + ecken[0, 1] * tx) * (1 - ty) + (ecken[1, 0] * (1 - tx) + ecken[1, 1] * tx) * ty
+    c = Image.fromarray(np.clip(g, 0, 255).astype(np.uint8))
+    w = round(im.width * h / im.height); t = im.resize((w, h), Image.LANCZOS)
+    m = Image.new('L', (w, h), 0); ImageDraw.Draw(m).rectangle([f, f, w - f, h - f], fill=255)
+    c.paste(t, ((W - w) // 2, y), m.filter(ImageFilter.GaussianBlur(f / 2)))
+    return c
 
 
-def gesperrt(d, xy, text, font, fill, sp):
-    w = sum(d.textlength(ch, font=font) for ch in text) + sp * (len(text) - 1); x = xy[0] - w / 2
-    for ch in text:
-        d.text((x, xy[1]), ch, font=font, fill=fill, anchor='lm'); x += d.textlength(ch, font=font) + sp
+def zeilen(d, W, y, box, k=1.0):
+    _, name, inhalt, preis = box
+    d.text((W / 2, y), f'{TITEL} {name}', font=FONT('fraunces-600.ttf', 40 * k), fill=WALD, anchor='ms')
+    d.text((W / 2, y + 50 * k), f'{inhalt}  ·  fertig verpackt  ·  CHF {preis}', font=FONT('nunitosans-600.ttf', 27 * k), fill=GRAU, anchor='ms')
 
 
-def knopf(d, mitte, y, text, k=1.0):
-    f = FONT('nunitosans-800.ttf', 30 * k); w = d.textlength(text, font=f) + 70 * k; h = 66 * k
-    d.rounded_rectangle([mitte - w / 2, y, mitte + w / 2, y + h], radius=h / 2, fill=WALD)
-    d.text((mitte, y + h / 2 + 1), text, font=f, fill=CREME, anchor='mm')
-
-
-def foto(name, W, H, oben=0):
-    """Foto deckend auf W x H bringen (mittig), oben ab Zeile `oben` (in Originalpixeln) beginnen."""
-    im = Image.open(os.path.join(src, name + '.jpg')).convert('RGB')
-    s = max(W / im.width, H / (im.height - oben))
-    im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
-    x = (im.width - W) // 2; y = min(int(oben * s), im.height - H)
-    return im.crop((x, y, x + W, y + H))
-
-
-def kopf(c, d, W, y, gross=60):
-    gesperrt(d, (W / 2, y), LABEL, FONT('nunitosans-800.ttf', 24), ROSE, 6)
-    d.text((W / 2, y + 82), HEADLINE, font=FONT('fraunces-600.ttf', gross), fill=WALD, anchor='ms')
-    d.text((W / 2, y + 128), ZEILE, font=FONT('nunitosans-600.ttf', 28), fill=SALBEI, anchor='ms')
-
-
-def fuss(c, d, W, y, box, knopf_y=None):
-    name, titel, inhalt = box
-    d.text((W / 2, y), 'Geschenkbox ' + titel, font=FONT('fraunces-600.ttf', 46), fill=WALD, anchor='ms')
-    zeile = inhalt + '  ·  fertig verpackt' + (f'  ·  CHF {PREIS[name]}' if name in PREIS else '')
-    d.text((W / 2, y + 46), zeile, font=FONT('nunitosans-700.ttf', 28), fill=WALD, anchor='ms')
-    if knopf_y:
-        knopf(d, W / 2, knopf_y, 'Jetzt verschenken')
+def foto(box):
+    return Image.open(os.path.join(src, box[0] + '.jpg')).convert('RGB')
 
 
 def feed(box, W=1080, H=1350):
-    c = foto(box[0], W, H, oben=20); d = ImageDraw.Draw(c)
-    verlauf(c, 0, 330); verlauf(c, H - 330, H, oben=False)
-    d = ImageDraw.Draw(c)
-    kopf(c, d, W, 62)
-    fuss(c, d, W, H - 160, box, knopf_y=H - 96)
+    c = leinwand(foto(box), W, H, 1215, 0); d = ImageDraw.Draw(c)
+    zeilen(d, W, H - 82, box)
     return c
 
 
 def quadrat(box, W=1080, H=1080):
-    c = foto(box[0], W, H, oben=150); d = ImageDraw.Draw(c)
-    verlauf(c, 0, 250, stark=232); verlauf(c, H - 220, H, oben=False)
-    d = ImageDraw.Draw(c)
-    gesperrt(d, (W / 2, 50), LABEL, FONT('nunitosans-800.ttf', 22), ROSE, 6)
-    d.text((W / 2, 122), HEADLINE, font=FONT('fraunces-600.ttf', 54), fill=WALD, anchor='ms')
-    fuss(c, d, W, H - 80, box)
+    c = leinwand(foto(box), W, H, 960, 0); d = ImageDraw.Draw(c)
+    zeilen(d, W, H - 66, box, 0.9)
     return c
 
 
 def story(box, W=1080, H=1920):
     """9:16: oben 14 % und unten 20 % frei von wichtigem Inhalt (Instagram-Bedienelemente)."""
-    c = Image.new('RGB', (W, H), CREME)
-    f = foto(box[0], W, 1339)
-    top = 330
-    c.paste(f, (0, top))
-    verlauf(c, top, top + 120, stark=255)
-    verlauf(c, top + 1339 - 160, top + 1339, oben=False, stark=255)
-    d = ImageDraw.Draw(c)
-    d.rectangle([0, top + 1339, W, H], fill=CREME)
-    kopf(c, d, W, 220, gross=62)
-    fuss(c, d, W, 1640, box, knopf_y=1712)
+    c = leinwand(foto(box), W, H, 1300, 300); d = ImageDraw.Draw(c)
+    d.text((W / 2, 250), TITEL, font=FONT('fraunces-600.ttf', 50), fill=WALD, anchor='ms')
+    d.text((W / 2, 1660), box[1], font=FONT('fraunces-600.ttf', 44), fill=WALD, anchor='ms')
+    d.text((W / 2, 1712), f'{box[2]}  ·  fertig verpackt  ·  CHF {box[3]}', font=FONT('nunitosans-600.ttf', 29), fill=GRAU, anchor='ms')
     return c
 
 
-def uebersicht(W, H):
-    """Alle Boxen im Raster, Headline oben, Logo unten."""
-    c = Image.new('RGB', (W, H), CREME); d = ImageDraw.Draw(c)
-    oben = 170 if H > W else 140
-    gesperrt(d, (W / 2, 58), LABEL + 'EN', FONT('nunitosans-800.ttf', 24), ROSE, 6)
-    d.text((W / 2, 132 if H > W else 122), HEADLINE, font=FONT('fraunces-600.ttf', 58 if H > W else 52), fill=WALD, anchor='ms')
-    unten = 150 if H > W else 70
-    g = 16; kw = (W - 3 * g) // 2; kh = (H - oben - unten - g) // 2
-    f = FONT('nunitosans-800.ttf', 24)
+def shopify(box, N=2048):
+    """Quadratisches Hauptbild wie die uebrigen Shop-Hauptbilder: Box mittig, Logo oben links (Position wie
+    `hauptbild_logo.py`)."""
+    c = leinwand(foto(box), N, N, int(N * 0.97), int(N * 0.015), f=90)
+    L = load_logo(int(N * 0.198), (122, 108, 104)); c.paste(L, (int(N * 0.035), int(N * 0.031)), L)
+    return c
+
+
+def uebersicht(W=1080, H=1350):
+    """Alle Boxen im Raster 2 x 4 fuer eine Kollektions-Anzeige."""
+    im0 = foto(BOXEN[0])
+    c = leinwand(im0, W, H, H, 0); d = ImageDraw.Draw(c)
+    d.rectangle([0, 0, W, H], fill=(244, 242, 239))
+    d.text((W / 2, 92), TITEL + 'en', font=FONT('fraunces-600.ttf', 52), fill=WALD, anchor='ms')
+    d.text((W / 2, 140), 'Ganze Sets, von Hand eingepackt  ·  ab CHF 29.90', font=FONT('nunitosans-600.ttf', 27), fill=GRAU, anchor='ms')
+    g, oben = 12, 172
+    kw = (W - 3 * g) // 2; kh = (H - oben - 4 * g) // 4
+    f = FONT('nunitosans-700.ttf', 22)
     for i, box in enumerate(BOXEN):
         x, y = g + (i % 2) * (kw + g), oben + (i // 2) * (kh + g)
-        im = Image.open(os.path.join(src, box[0] + '.jpg')).convert('RGB')
-        s = max(kw / im.width, kh / im.height); im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
-        ox = (im.width - kw) // 2; oy = int((im.height - kh) * 0.45)
-        c.paste(im.crop((ox, oy, ox + kw, oy + kh)), (x, y))
-        t = box[1]; w = d.textlength(t, font=f) + 36
-        d.rounded_rectangle([x + 14, y + kh - 58, x + 14 + w, y + kh - 14], radius=22, fill=CREME)
-        d.text((x + 32, y + kh - 36), t, font=f, fill=WALD, anchor='lm')
-    if H > W:
-        knopf(d, W / 2, H - 120, 'Jetzt verschenken')
-    else:
-        lg = load_logo(150); c.paste(lg, ((W - lg.width) // 2, H - 52), lg)
+        im = foto(box); s = kw / im.width
+        im = im.resize((kw, round(im.height * s)), Image.LANCZOS)
+        oy = int(im.height * 0.5 - kh / 2)
+        c.paste(im.crop((0, oy, kw, oy + kh)), (x, y))
+        t = f'{box[1]}  CHF {box[3]}'; w = d.textlength(t, font=f) + 28
+        d.rounded_rectangle([x + 10, y + kh - 44, x + 10 + w, y + kh - 10], radius=17, fill=(255, 255, 255))
+        d.text((x + 24, y + kh - 27), t, font=f, fill=WALD, anchor='lm')
     return c
 
 
 if __name__ == '__main__':
-    for fmt in ('4x5', '1x1', '9x16'):
+    for fmt in ('4x5', '1x1', '9x16', 'shopify'):
         os.makedirs(os.path.join(out, fmt), exist_ok=True)
     for box in BOXEN:
         n = box[0]
         feed(box).save(os.path.join(out, '4x5', f'{n}_4x5.jpg'), quality=94)
         quadrat(box).save(os.path.join(out, '1x1', f'{n}_1x1.jpg'), quality=94)
         story(box).save(os.path.join(out, '9x16', f'{n}_9x16.jpg'), quality=94)
+        shopify(box).save(os.path.join(out, 'shopify', f'geschenkbox-{n[4:].replace("_", "-")}.jpg'), quality=95)
         print(n)
-    uebersicht(1080, 1350).save(os.path.join(out, '4x5', 'alle_boxen_4x5.jpg'), quality=94)
-    uebersicht(1080, 1080).save(os.path.join(out, '1x1', 'alle_boxen_1x1.jpg'), quality=94)
+    uebersicht().save(os.path.join(out, '4x5', 'alle_boxen_4x5.jpg'), quality=94)
