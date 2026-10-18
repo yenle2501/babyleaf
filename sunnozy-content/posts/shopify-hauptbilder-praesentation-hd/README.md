@@ -19,4 +19,4 @@ Vorbild ist das Teddybär-Bild der Nutzerin aus ChatGPT: warmer, heller Studio-G
 - Mit KI erstellt: Prints, Stickereien und Farben bitte mit dem echten Set vergleichen.
 - Teddybär: Im Bild sind 9 Teile, im Titel steht «8-teilig».
 
-**Status:** wartet auf Freigabe. In Shopify ist noch nichts geändert.
+**Status:** In Shopify als Hauptbild übernommen am 18.10.2026 (alle 6, Bild-ID, Alt-Text und Position unverändert). Die alten Bilder liegen in `../shopify-backup-hauptbilder-vor-chatgpt-stil/`.
