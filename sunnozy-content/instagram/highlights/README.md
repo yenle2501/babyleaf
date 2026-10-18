@@ -21,3 +21,7 @@ Stil nach Deinem Beispiel: feine Strichzeichnung mit zartem Aquarell in Beige un
 
 Die Zeichnungen sind mit KI erstellt (Canva), es sind Illustrationen, keine Produktfotos.
 Neu erzeugen: `python3 tools/make_highlights.py instagram/highlights`
+
+## Storys für die Highlights
+`storys/<highlight>/` enthält 38 Storys (1080 × 1920) zu den 8 Covern. `uebersicht_storys.jpg` zeigt alle auf einen Blick, `texte.md` Reihenfolge, Link-Sticker und den Feed-Post.
+Neu erzeugen: `python3 tools/make_highlight_storys.py instagram/highlights`
