@@ -49,3 +49,16 @@ Zahlen aus Shopify Analytics (90 Tage). Die Seiten wurden gelesen, nichts wurde 
 5. Bewertungen nach oben: «5,0 von 5 Sternen aus 13 Bewertungen». Laufband «Hier findest Du uns auch».
 
 Nicht geprüft: echte Darstellung im Browser, Checkout und Zahlungsarten, Ladezeit, Newsletter-Mails, Werbekosten.
+
+## Umgesetzt am 18.10.2026
+
+- **Statt-Preise:** bei allen 23 betroffenen Produkten (70 Varianten) gelöscht. Damit verschwinden auch die «−20 %»- und «−24 %»-Badges auf den Bildern, denn sie werden aus dem Vergleichspreis berechnet. Die alten Werte liegen in `posts/shopify-backup-preise/vergleichspreise_vor_18-10-2026.csv`.
+- **Theme-Kopie «sunnozy FINAL 107 – ohne Sale, neue Leiste, Set-Startbild»** (Kopie von FINAL 106, noch nicht veröffentlicht):
+  - **Leiste:** nur noch «Gratisversand in der Schweiz ab CHF 50 · Versand innert 1–2 Werktagen · 14 Tage Rückgabe». «−20 % auf alle Bodys» ist entfernt.
+  - **Startbild 1:** Baby im Set, «Erstausstattung, die einfach passt.», Button «Sets ansehen» → Erstausstattung.
+  - **Startbild 2:** Mulltücher (früher das Sale-Bild), «Mulltücher aus Musselin».
+  - **Startbild 3:** Bodys, unverändert.
+  - **Automatischer Bildwechsel:** aus.
+  - **Abgeschwächter Bildschleier** (damit das helle Set-Bild nicht verblasst): wandert mit dem Set-Bild auf Slide 1.
+  - Vorschau: https://sunnozy.ch/?preview_theme_id=207454601559 (Screenshots `vorschau-final-107-*.png`)
+- **Kollektions- und Produkttexte** auf «%», «Rabatt» und «Aktion» geprüft: kein Sale-Text gefunden.
