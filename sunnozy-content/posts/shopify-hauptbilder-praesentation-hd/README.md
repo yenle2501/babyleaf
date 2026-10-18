@@ -1,22 +1,24 @@
-# Shopify-Hauptbilder Erstausstattung: Präsentation in 2048 px
+# Shopify-Hauptbilder Erstausstattung: neu aus den Einzelteilen gebaut (2048 px)
 
-Die neuen Hauptbilder zeigen die Set-Präsentation mit hellgrauem Studio-Hintergrund, Holzbügel und sunnozy-Logo (`produktfotos-set-praesentation/mit_logo`). Sie sollen die Bilder auf reinweissem Hintergrund ersetzen, die heute im Shop sind.
+Die neuen Hauptbilder sind im Stil der Set-Präsentation gestaltet: hellgrauer Studio-Hintergrund, Decke oder Strampler auf einem Holzbügel am Wandknauf, die übrigen Teile luftig daneben, weiche Schatten und das sunnozy-Logo oben links.
 
-**Qualität:** Die Bilder sind neu ab den KI-Rohdateien (1264 px) gerechnet, auf 2048 × 2048 px. Das ist die Grösse, die Shopify empfiehlt. Die bisherigen `mit_logo`-Dateien hatten nur 1080 px.
+**Darum sind sie scharf:** Die alte Präsentation war ein einziges KI-Bild mit 1264 px, darin hatte jedes Teil nur rund 300 px. Jetzt wird jedes Teil einzeln aus seinem 2000-px-Bild (`marktplatz-galaxus-amazon/einzelteile/`) freigestellt und für das Gesamtbild **verkleinert** statt vergrössert. So bleiben Karomuster, Rippen, Spitze und Schrift scharf. Das Endformat ist 2048 × 2048 px, wie von Shopify empfohlen.
 
-Getestet wurde auch ein KI-Hochrechner (Real-ESRGAN). Er glättet aber das Karomuster (Princess), die Lochspitze und die Rippen. Darum ist er nicht verwendet.
+Erstellt mit: `python3 tools/make_set_hauptbild.py <ausgabe> [handle ...]`. Die Anordnung pro Set steht oben im Skript.
 
-Erstellt mit: `python3 tools/make_set_shop.py <ki-roh> <ausgabe> --groesse=2048`
-
-| Datei (`bilder/`) | Shopify-Produkt | Quelle |
+| Datei (`bilder/`) | Shopify-Produkt | Teile |
 |---|---|---|
-| `erstausstattung-set-teddybaer.jpg` | Erstausstattung-Set «Teddybär» | `set_teddy_creme_quadratisch` |
-| `erstausstattung-set-princess.jpg` | Erstausstattung-Set «Princess» | `set_rosa_quadratisch` |
-| `erstausstattung-set-little-and-loved.jpg` | Erstausstattung-Set «Little and Loved» | `set_little_and_loved_gans_rosa_quadratisch` |
-| `erstausstattung-set-hello-world.jpg` | Erstausstattung-Set «Hello World» | `set_hello_world_creme_quadratisch` |
-| `erstausstattung-set-hello-spitze.jpg` | Erstausstattung-Set «Hello» Rosa | `set_hello_schmetterling_quadratisch` |
-| `erstausstattung-set-hello-little-bear.jpg` | Erstausstattung-Set «Hello Little Bear» | `set_little_bear_quadratisch` |
+| `erstausstattung-set-teddybaer.jpg` | Erstausstattung-Set «Teddybär» | 9 Bilder: Decke, Strampler, Body, Mütze, Söckchen, Fäustlinge, Rassel, Beissring, Lätzchen |
+| `erstausstattung-set-princess.jpg` | Erstausstattung-Set «Princess» | 8: Decke, Strampler, Body, Mütze, Fäustlinge, Söckchen, Rassel, Lätzchen |
+| `erstausstattung-set-little-and-loved.jpg` | Erstausstattung-Set «Little and Loved» | 8: Strampler, Body, Jäckchen, T-Shirt, Hose, Mütze, Fäustlinge, Lätzchen |
+| `erstausstattung-set-hello-world.jpg` | Erstausstattung-Set «Hello World» | 8: Strampler, Body, Jäckchen, T-Shirt, Hose, Mütze, Fäustlinge, Lätzchen |
+| `erstausstattung-set-hello-spitze.jpg` | Erstausstattung-Set «Hello» Rosa | 6: Decke, Strampler, Body, Hose, Häubchen, Lätzchen |
+| `erstausstattung-set-hello-little-bear.jpg` | Erstausstattung-Set «Hello Little Bear» | 5: Strampler, Body, Mütze, Fäustlinge, Lätzchen |
 
-`check_vorher_nachher.jpg` zeigt pro Set: das Bild, das jetzt im Shop ist, das neue Bild und einen Detailausschnitt alt (1080 px) gegen neu (2048 px).
+`check_vorher_nachher.jpg` zeigt pro Set das Bild, das jetzt im Shop ist, das neue Bild und je einen Detailausschnitt.
+
+**Hinweise**
+- Mit KI erstellt: Die Einzelteil-Bilder stammen aus den KI-Marktplatzbildern. Prints und Farben bitte mit dem echten Set vergleichen.
+- Teddybär: Rassel und Beissring sind zwei Bilder, im Titel steht «8-teilig».
 
 **Status:** wartet auf Freigabe. In Shopify ist noch nichts geändert.
