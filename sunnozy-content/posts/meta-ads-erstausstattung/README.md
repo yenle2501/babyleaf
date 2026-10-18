@@ -4,7 +4,7 @@
 
 | Element | Vorbild | sunnozy |
 |---|---|---|
-| Produkt | Cardigan am Holzbügel, ruhiger Grund, gross links | Set-Präsentation am Holzbügel, weisser Grund (Shop-Hauptbild, aufbereitet) |
+| Produkt | Cardigan am Holzbügel, ruhiger Grund, gross links | Set-Präsentation am Holzbügel auf warmem Studio-Grund, randlos (neues Shop-Hauptbild vom 18.10., eingebranntes Logo übermalt) |
 | Preis | schwarzes Etikett oben links «CHF13» | «CHF 30.40» usw. (Preise aus Shopify) |
 | Marke | Wortmarke senkrecht im hellgrauen Feld rechts | sunnozy-Logo senkrecht |
 | Versprechen | «FREE DELIVERY & DUTIES PAID» | «GRATISVERSAND AB CHF 50» (Versandregel Schweiz in Shopify) |
@@ -24,8 +24,10 @@
 
 «Hello» und «Hello Little Bear» haben nur noch 2 Stück. Diese Karten besser erst nach dem Nachbestellen schalten (oder an den Schluss des Karussells).
 
+**Update 18.10.2026:** Alle Karten neu aus den Shop-Hauptbildern im ChatGPT-Stil (`posts/shopify-hauptbilder-praesentation-hd/bilder/`). Das Set ist etwa doppelt so gross wie vorher, das Preis-Etikett sitzt auf dem Platz des früheren Logos, die Leinwand hat die Farbe des Studio-Grunds. Damit sieht die Anzeige genau so aus wie das Produkt im Shop.
+
 Preise ändern? In `tools/make_meta_ads.py` (`SETS`) anpassen und neu erzeugen:
-`python3 tools/make_meta_ads.py posts/meta-ads-erstausstattung/quelle posts/meta-ads-erstausstattung`
+`python3 tools/make_meta_ads.py posts/shopify-hauptbilder-praesentation-hd/bilder posts/meta-ads-erstausstattung`
 
 ## Texte für den Werbeanzeigenmanager
 
@@ -54,6 +56,6 @@ Alternativen zum Testen:
 
 **Zielgruppe (Vorschlag):** Schweiz, Frauen und Männer 24–42, Interessen Schwangerschaft, Babyausstattung, Babyparty, Geburt. Zusätzlich «Freunde von Eltern» für Geschenke.
 
-**Hinweis:** Die Bilder sind die Shop-Präsentationen (teils KI-unterstützt erstellt). Meta verlangt keine KI-Kennzeichnung für normale Produktbilder; die Preise müssen aber mit dem Shop übereinstimmen. Bitte vor dem Schalten kurz prüfen.
+**Hinweis:** Die Bilder sind die Shop-Präsentationen (mit KI erstellt, Prints mit dem echten Set vergleichen; Teddybär zeigt 9 Teile, Titel sagt 8). Meta verlangt keine KI-Kennzeichnung für normale Produktbilder; die Preise müssen aber mit dem Shop übereinstimmen. Bitte vor dem Schalten kurz prüfen.
 
 Erstellt mit `tools/make_meta_ads.py`.

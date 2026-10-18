@@ -5,21 +5,24 @@ schwarzes Preis-Etikett mit abgerundeten Ecken («CHF13»), rechts ein schmales 
 senkrecht (von oben nach unten lesbar, sehr gross), darunter in fetten Grossbuchstaben das Versandversprechen und
 klein grau der Hinweis. Kein weiterer Text im Bild - Produktname und «Shop now» liefert Meta unter der Karte.
 
-sunnozy-Version: die Hauptbilder der Sets (Buegel-Praesentation, weisser Grund, Logo oben links entfernt), Preis aus
-Shopify, sunnozy-Logo senkrecht, «GRATISVERSAND AB CHF 50» (Versandregel Schweiz in Shopify) und «Versand in 2–3
-Werktagen». Ausgabe je Set: Karussell-Karte 1:1 (1080x1080) und Story/Reels 9:16 (1080x1920).
+sunnozy-Version (Update 18.10.2026): die neuen Shop-Hauptbilder im ChatGPT-Stil (warmer Studio-Grund, Holzbuegel,
+2048 px, `posts/shopify-hauptbilder-praesentation-hd/bilder`). Das eingebrannte Logo oben links wird mit dem
+Studio-Grund uebermalt, dort sitzt jetzt das Preis-Etikett. Das Bild laeuft randlos, die Leinwand bekommt die Farbe
+des Studio-Grunds, die Kanten werden weich eingeblendet. Preis aus Shopify, sunnozy-Logo, «GRATISVERSAND AB CHF 50»
+(Versandregel Schweiz in Shopify) und «Versand in 2–3 Werktagen».
+Ausgabe je Set: Karussell-Karte 1:1 (1080x1080) und 4:5 (1080x1350), Story/Reels 9:16 (1080x1920).
 
-Aufruf: python3 make_meta_ads.py <quell-ordner> <ausgabe-ordner>
+Aufruf: python3 make_meta_ads.py <quell-ordner> <ausgabe-ordner> [--4x5]
 """
 import os, sys
 import numpy as np
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 src, out = sys.argv[1:3]
 os.makedirs(out, exist_ok=True)
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INTER = '/usr/share/fonts/opentype/inter/Inter-{}.otf'
-PANEL, INK, GRAU = (238, 236, 233), (17, 17, 17), (125, 122, 118)
+PANEL, INK, GRAU = (226, 222, 216), (17, 17, 17), (110, 106, 101)
 
 # (Bild = Shopify-Handle, Dateiname, Preis aus Shopify)
 SETS = [('erstausstattung-set-teddybaer', 'teddybaer', '30.40'),
@@ -38,13 +41,33 @@ def load_logo(height_or_width, col=INK):
     return L.resize((height_or_width, round(L.height * height_or_width / L.width)), Image.LANCZOS)
 
 
-def produkt(handle):
+def hauptbild(handle):
+    """Shop-Hauptbild ohne Logo. Das Logo liegt bei allen sechs Bildern bei x 72-478, y 63-148 (von 2048 px,
+    `hauptbild_logo.py`); die Flaeche wird zwischen dem Grund darueber und darunter verlaufend aufgefuellt."""
     im = Image.open(os.path.join(src, handle + '.jpg')).convert('RGB')
-    s = im.width / 2048
-    im = im.crop((0, int(205 * s), im.width, im.height))          # Logo oben links weg (Inhalt beginnt ab ~220 px)
-    a = np.asarray(im.convert('L')); ys, xs = np.where(a < 246)
-    pad = int(30 * s)
-    return im.crop((max(0, xs.min() - pad), max(0, ys.min() - pad), min(im.width, xs.max() + pad), min(im.height, ys.max() + pad)))
+    a = np.asarray(im).astype(float); s = im.width / 2048
+    x0, x1, y0, y1 = int(56 * s), int(496 * s), int(50 * s), int(164 * s)
+    k = np.ones(41) / 41
+    glatt = lambda z: np.stack([np.convolve(np.pad(z[:, c], 20, mode='edge'), k, 'valid') for c in range(3)], 1)
+    oben, unten = glatt(a[y0 - 10:y0, x0:x1].mean(0)), glatt(a[y1:y1 + 10, x0:x1].mean(0))
+    t = np.linspace(0, 1, y1 - y0)[:, None, None]
+    a[y0:y1, x0:x1] = oben[None] * (1 - t) + unten[None] * t
+    return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
+
+
+def grund(im):
+    """Farbe des Studio-Grunds (Median des Bildrands)."""
+    a = np.asarray(im)
+    rand = np.concatenate([a[:8].reshape(-1, 3), a[-8:].reshape(-1, 3), a[:, :8].reshape(-1, 3), a[:, -8:].reshape(-1, 3)])
+    return tuple(int(v) for v in np.median(rand, axis=0))
+
+
+def einblenden(c, im, xy, size, f=48):
+    """Bild quadratisch einsetzen, Kanten weich in die Leinwand (gleiche Grundfarbe) auslaufen lassen."""
+    t = im.resize((size, size), Image.LANCZOS)
+    m = Image.new('L', (size, size), 0)
+    ImageDraw.Draw(m).rectangle([f, f, size - f, size - f], fill=255)
+    c.paste(t, xy, m.filter(ImageFilter.GaussianBlur(f / 2)))
 
 
 def badge(c, xy, preis, k=1.0):
@@ -71,35 +94,44 @@ def panel(c, x0, x1, y0, y1, k=1.0):
     d.text((x0 + pw / 2, y1 - (y1 - y0) * 0.08), 'Versand in 2–3 Werktagen', font=fs, fill=GRAU, anchor='mm')
 
 
+def band(c, y0, W, H, logo_w=380):
+    """Feld unten (4:5, 9:16): Logo, Versandversprechen, Hinweis, zentriert."""
+    d = ImageDraw.Draw(c); d.rectangle([0, y0, W, H], fill=PANEL)
+    lg = load_logo(logo_w); c.paste(lg, ((W - lg.width) // 2, y0 + 44), lg)
+    ty = y0 + 44 + lg.height + 36
+    d.text((W / 2, ty), 'GRATISVERSAND AB CHF 50', font=ImageFont.truetype(INTER.format('Bold'), 40), fill=INK, anchor='mt')
+    d.text((W / 2, ty + 58), 'Versand in 2–3 Werktagen', font=ImageFont.truetype(INTER.format('Regular'), 27), fill=GRAU, anchor='mt')
+
+
 def karte(handle, preis, W=1080, H=1080):
-    c = Image.new('RGB', (W, H), 'white')
+    im = hauptbild(handle)
+    c = Image.new('RGB', (W, H), grund(im))
     split = int(W * 0.70)
-    p = produkt(handle)
-    m = 22
-    s = min((split - 2 * m) / p.width, (H - 2 * m - 90) / p.height)
-    p = p.resize((round(p.width * s), round(p.height * s)), Image.LANCZOS)
-    c.paste(p, (int((split - p.width) / 2), int(90 + (H - 90 - p.height) / 2)))
+    einblenden(c, im, (0, (H - split) // 2), split)
     panel(c, split, W, 0, H)
     badge(c, (34, 30), preis)
     return c
 
 
+def karte_4x5(handle, preis, W=1080, H=1350):
+    """4:5 fuer den Feed: Set randlos quadratisch oben, Preis auf dem frei gewordenen Logo-Platz, Feld unten."""
+    im = hauptbild(handle)
+    c = Image.new('RGB', (W, H), grund(im))
+    einblenden(c, im, (0, 0), W, f=30)
+    band(c, W, W, H, 300)
+    badge(c, (40, 34), preis)
+    return c
+
+
 def story(handle, preis, W=1080, H=1920):
-    """9:16 fuer Stories/Reels: Set gross oben, graues Band unten mit Logo und Versandversprechen.
-    Oben 14 % und unten 20 % bleiben frei von wichtigem Inhalt (Instagram-Bedienelemente)."""
-    c = Image.new('RGB', (W, H), 'white'); d = ImageDraw.Draw(c)
-    band = 1290
-    p = produkt(handle)
-    s = min((W - 60) / p.width, (band - 375 - 30) / p.height)
-    p = p.resize((round(p.width * s), round(p.height * s)), Image.LANCZOS)
-    c.paste(p, (int((W - p.width) / 2), int(375 + (band - 375 - 30 - p.height) / 2)))
-    badge(c, (40, 285), preis, 1.1)
-    d.rectangle([0, band, W, H], fill=PANEL)
-    lg = load_logo(380); c.paste(lg, ((W - lg.width) // 2, band + 40), lg)
-    fb = ImageFont.truetype(INTER.format('Bold'), 40); fs = ImageFont.truetype(INTER.format('Regular'), 27)
-    ty = band + 40 + lg.height + 45
-    d.text((W / 2, ty), 'GRATISVERSAND AB CHF 50', font=fb, fill=INK, anchor='mt')
-    d.text((W / 2, ty + 62), 'Versand in 2–3 Werktagen', font=fs, fill=GRAU, anchor='mt')
+    """9:16 fuer Stories/Reels: Set randlos in voller Breite, Preis-Etikett oben links im Bild, Feld unten mit Logo
+    und Versandversprechen. Oben 14 % bleiben frei (Instagram-Bedienelemente); das Feld beginnt bei 71 %."""
+    im = hauptbild(handle)
+    c = Image.new('RGB', (W, H), grund(im))
+    top = 285
+    einblenden(c, im, (0, top), W, f=40)
+    band(c, top + W, W, H)
+    badge(c, (40, top + 40), preis, 1.1)
     return c
 
 
@@ -107,4 +139,6 @@ if __name__ == '__main__':
     for handle, name, preis in SETS:
         karte(handle, preis).save(os.path.join(out, f'karussell_{name}_1x1.jpg'), quality=95, subsampling=0)
         story(handle, preis).save(os.path.join(out, f'story_{name}_9x16.jpg'), quality=95, subsampling=0)
+        if '--4x5' in sys.argv:
+            karte_4x5(handle, preis).save(os.path.join(out, f'karussell_{name}_4x5.jpg'), quality=95, subsampling=0)
         print(name, preis)
