@@ -6,16 +6,16 @@ Darstellung nach den Vorbildern der Nutzerin: Box von oben, randvoll und von Han
 
 ## Check: die acht Boxen
 
-| Box | Inhalt | Preis | Gewinn* | Shopify (Entwurf) | Lager je Grösse |
+| Box | Inhalt | Preis | Gewinn* | Shopify-ID (Entwurf, in Admin unter Produkte → Typ «Geschenkbox») | Lager je Grösse |
 |---|---|---|---|---|---|
-| «Mum Dad Me» | 5 Langarm-Bodys + 5 Leggings | CHF 42.90 | +16.45 | [Produkt](https://admin.shopify.com/store/sunnozy/products/11293061054807) | 2 / 2 / 2 |
-| «Lovely Little Girl» | 3 Langarm-Bodys + 5 Leggings | CHF 39.90 | +16.58 | [Produkt](https://admin.shopify.com/store/sunnozy/products/11293063250263) | 2 / 2 / 2 |
-| «Growing up strong» | 5 Kurzarm-Bodys + 5 Jogginghosen | CHF 42.90 | +17.18 | [Produkt](https://admin.shopify.com/store/sunnozy/products/11293063348567) | 2 / 2 / 2 |
-| «I love my Mummy» | 3 Langarm-Bodys + 3 Halstücher | CHF 29.90 | +13.00 | [Produkt](https://admin.shopify.com/store/sunnozy/products/11293063414103) | 2 / 2 / 1 |
-| «Dino» | 3 Langarm-Bodys + 3 Mulltücher blau | CHF 39.90 | +15.53 | [Produkt](https://admin.shopify.com/store/sunnozy/products/11293063512407) | 2 / 2 / 1 |
-| «Dinosaur» | 5 Kurzarm-Bodys + 5 Jogginghosen | CHF 42.90 | +17.18 | [Produkt](https://admin.shopify.com/store/sunnozy/products/11293063610711) | 2 / 2 / 2 |
-| «Little One» | 5 Langarm-Bodys + 3 Mulltücher grün | CHF 44.90 | +17.35 | [Produkt](https://admin.shopify.com/store/sunnozy/products/11293063676247) | 2 / 2 / 1 |
-| «I like flying» | 3 Langarm-Bodys + 5 Leggings | CHF 39.90 | +16.58 | [Produkt](https://admin.shopify.com/store/sunnozy/products/11293063741783) | 2 / 2 / 2 |
+| «Mum Dad Me» | 5 Langarm-Bodys + 5 Leggings | CHF 42.90 | +16.45 | ID 11293061054807 | 2 / 2 / 2 |
+| «Lovely Little Girl» | 3 Langarm-Bodys + 5 Leggings | CHF 39.90 | +16.58 | ID 11293063250263 | 2 / 2 / 2 |
+| «Growing up strong» | 5 Kurzarm-Bodys + 5 Jogginghosen | CHF 42.90 | +17.18 | ID 11293063348567 | 2 / 2 / 2 |
+| «I love my Mummy» | 3 Langarm-Bodys + 3 Halstücher | CHF 29.90 | +13.00 | ID 11293063414103 | 2 / 2 / 1 |
+| «Dino» | 3 Langarm-Bodys + 3 Mulltücher blau | CHF 39.90 | +15.53 | ID 11293063512407 | 2 / 2 / 1 |
+| «Dinosaur» | 5 Kurzarm-Bodys + 5 Jogginghosen | CHF 42.90 | +17.18 | ID 11293063610711 | 2 / 2 / 2 |
+| «Little One» | 5 Langarm-Bodys + 3 Mulltücher grün | CHF 44.90 | +17.35 | ID 11293063676247 | 2 / 2 / 1 |
+| «I like flying» | 3 Langarm-Bodys + 5 Leggings | CHF 39.90 | +16.58 | ID 11293063741783 | 2 / 2 / 2 |
 
 \* pro Bestellung einer Box, vor Werbung. Rechnung: `strategie/preiskalkulation-weihnachtsbox.md`.
 
