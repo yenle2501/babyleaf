@@ -1,7 +1,8 @@
 """Shop-Hauptbild eines Erstausstattungs-Sets aus den scharfen Einzelteil-Bildern (2000 px, reinweiss) zusammenbauen.
 
-Stil wie die KI-Präsentationen: hellgrauer Studio-Hintergrund, Decke oder Strampler auf einem Holzbügel
-am Wandknauf, die übrigen Teile luftig daneben, weiche Schatten, sunnozy-Logo oben links.
+Stil nach dem Vorbild der Nutzerin (Teddybär-Set): warmer, heller Studio-Grund, Decke oder Strampler an einem
+Holzbügel mit Wandknauf (assets/buegel_holz.png), die übrigen Teile gross und geordnet daneben, weiche Schatten,
+sunnozy-Logo oben links.
 Jedes Teil wird verkleinert statt vergrössert, deshalb bleiben Print, Rippen und Spitze scharf.
 
 Aufruf: python3 make_set_hauptbild.py <ausgabeordner> [set ...]
@@ -14,34 +15,36 @@ from scipy import ndimage
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEILE = os.path.join(ROOT, 'posts', 'marktplatz-galaxus-amazon', 'einzelteile')
 N = 2048
-BG = (231, 231, 230)
+BG = (238, 236, 232)
+BUEGEL = os.path.join(ROOT, 'assets', 'buegel_holz.png')
+B_HAKEN_X, B_SPITZE_Y, B_DECKE_Y = 338, 186, 400     # Ankerpunkte im Bügel-PNG
 
-# Pro Set: Ordner, Dateipräfix, Teil am Bügel und Kästen (x, y, b, h) in Anteilen der Bildbreite.
-# Das Teil wird in seinen Kasten eingepasst; 'oben' richtet es oben statt mittig aus.
+# Pro Set: Ordner, Dateipräfix, Teil am Bügel und Kästen (x0, y0, x1, y1) in Pixeln eines 1254er-Rasters
+# (Masse des Vorbilds). Jedes Teil wird in seinen Kasten eingepasst.
+R = 1254
 SETS = {
     'erstausstattung-set-teddybaer': ('set_teddy_creme', 'set_teddy_creme_', 'decke', {
-        'decke': (0.04, 0.215, 0.30, 0.56), 'strampler': (0.33, 0.28, 0.31, 0.67),
-        'muetze': (0.36, 0.06, 0.15, 0.17), 'socken': (0.535, 0.075, 0.11, 0.15), 'faeustlinge': (0.665, 0.085, 0.13, 0.13),
-        'beissring': (0.65, 0.255, 0.14, 0.09), 'rassel': (0.81, 0.215, 0.15, 0.14),
-        'body': (0.65, 0.39, 0.31, 0.31), 'laetzchen': (0.69, 0.72, 0.24, 0.22)}),
+        'decke': (25, 420, 400, 1210), 'muetze': (490, 70, 710, 360), 'socken': (755, 140, 900, 320),
+        'faeustlinge': (925, 140, 1170, 320), 'beissring': (835, 330, 1010, 480), 'rassel': (1030, 335, 1180, 505),
+        'strampler': (408, 400, 868, 1190), 'body': (858, 505, 1218, 958), 'laetzchen': (922, 962, 1172, 1210)}),
     'erstausstattung-set-princess': ('set_rosa', 'set_rosa_', 'decke', {
-        'decke': (0.04, 0.215, 0.30, 0.52), 'strampler': (0.34, 0.30, 0.29, 0.60),
-        'muetze': (0.37, 0.06, 0.15, 0.17), 'faeustlinge': (0.545, 0.085, 0.13, 0.13), 'socken': (0.70, 0.07, 0.11, 0.16),
-        'rassel': (0.84, 0.06, 0.12, 0.18), 'body': (0.65, 0.29, 0.31, 0.33), 'laetzchen': (0.69, 0.67, 0.23, 0.23)}),
+        'decke': (25, 420, 400, 1210), 'muetze': (470, 70, 700, 360), 'faeustlinge': (735, 130, 935, 320),
+        'socken': (960, 120, 1080, 330), 'rassel': (1095, 110, 1225, 340),
+        'strampler': (408, 400, 868, 1190), 'body': (858, 400, 1218, 900), 'laetzchen': (900, 920, 1180, 1210)}),
     'erstausstattung-set-little-and-loved': ('set_little_and_loved_gans_rosa', '', 'strampler', {
-        'strampler': (0.03, 0.215, 0.26, 0.70), 'muetze': (0.31, 0.06, 0.18, 0.17), 'faeustlinge': (0.52, 0.08, 0.15, 0.13),
-        'laetzchen': (0.72, 0.05, 0.22, 0.22), 'body': (0.32, 0.29, 0.28, 0.30), 'jaeckchen': (0.63, 0.31, 0.32, 0.29),
-        'shirt': (0.32, 0.63, 0.28, 0.25), 'hose': (0.66, 0.62, 0.25, 0.34)}),
+        'strampler': (25, 330, 405, 1200), 'muetze': (460, 70, 690, 330), 'faeustlinge': (725, 120, 935, 300),
+        'laetzchen': (965, 60, 1215, 390), 'body': (440, 410, 820, 820), 'jaeckchen': (845, 420, 1225, 830),
+        'shirt': (445, 860, 815, 1195), 'hose': (870, 850, 1200, 1225)}),
     'erstausstattung-set-hello-world': ('set_hello_world_blatt_creme', '', 'strampler', {
-        'strampler': (0.03, 0.215, 0.26, 0.70), 'muetze': (0.31, 0.06, 0.18, 0.17), 'faeustlinge': (0.52, 0.08, 0.15, 0.13),
-        'laetzchen': (0.74, 0.05, 0.19, 0.22), 'jaeckchen': (0.32, 0.30, 0.30, 0.28), 'body': (0.65, 0.29, 0.28, 0.31),
-        'shirt': (0.32, 0.63, 0.28, 0.25), 'hose': (0.67, 0.62, 0.24, 0.34)}),
+        'strampler': (25, 330, 405, 1200), 'muetze': (460, 70, 690, 330), 'faeustlinge': (725, 120, 935, 300),
+        'laetzchen': (980, 60, 1200, 390), 'jaeckchen': (430, 420, 820, 810), 'body': (850, 410, 1220, 830),
+        'shirt': (445, 860, 815, 1195), 'hose': (880, 850, 1190, 1225)}),
     'erstausstattung-set-hello-spitze': ('set_hello_schmetterling', 'set_hello_schmetterling_', 'decke', {
-        'decke': (0.03, 0.22, 0.38, 0.70), 'haeubchen': (0.47, 0.07, 0.20, 0.24), 'laetzchen': (0.72, 0.08, 0.26, 0.25),
-        'strampler': (0.42, 0.37, 0.20, 0.59), 'body': (0.62, 0.38, 0.20, 0.34), 'hose': (0.81, 0.38, 0.17, 0.58)}),
+        'decke': (25, 420, 410, 1210), 'haeubchen': (500, 70, 720, 360), 'laetzchen': (800, 80, 1170, 420),
+        'strampler': (430, 420, 850, 1200), 'body': (860, 450, 1220, 840), 'hose': (890, 850, 1200, 1220)}),
     'erstausstattung-set-hello-little-bear': ('set_little_bear', 'set_little_bear_', 'strampler', {
-        'strampler': (0.03, 0.215, 0.40, 0.75), 'muetze': (0.53, 0.06, 0.24, 0.24), 'body': (0.44, 0.34, 0.30, 0.38),
-        'laetzchen': (0.76, 0.36, 0.21, 0.30), 'faeustlinge': (0.58, 0.76, 0.24, 0.18)}),
+        'strampler': (15, 360, 660, 1235), 'muetze': (690, 110, 950, 400), 'faeustlinge': (975, 150, 1230, 380),
+        'body': (680, 480, 1010, 1080), 'laetzchen': (1015, 600, 1240, 1000)}),
 }
 
 
@@ -73,57 +76,35 @@ def freistellen(path):
 
 
 def einpassen(t, box, oben=False):
-    x, y, w, h = (v * N for v in box)
-    s = min(w / t.width, h / t.height)
-    t = t.resize((round(t.width * s), round(t.height * s)), Image.LANCZOS)
-    return t, (int(x + (w - t.width) / 2), int(y if oben else y + (h - t.height) / 2))
+    x0, y0, x1, y1 = (v * N / R for v in box)
+    w, h = x1 - x0, y1 - y0
+    k = min(w / t.width, h / t.height)
+    t = t.resize((round(t.width * k), round(t.height * k)), Image.LANCZOS)
+    return t, (int(x0 + (w - t.width) / 2), int(y0 if oben else y0 + (h - t.height) / 2))
 
 
-def schatten(c, t, pos, off=(0, 14), blur=22, staerke=0.20):
+def schatten(c, t, pos, off=(10, 16), blur=24, staerke=0.22):
     sh = Image.new('L', (t.width + 120, t.height + 120), 0)
     sh.paste(t.split()[3], (60, 60))
     sh = sh.filter(ImageFilter.GaussianBlur(blur)).point(lambda v: int(v * staerke))
-    dunkel = Image.new('RGB', sh.size, (120, 120, 118))
+    dunkel = Image.new('RGB', sh.size, (150, 140, 128))
     c.paste(dunkel, (pos[0] - 60 + off[0], pos[1] - 60 + off[1]), sh)
 
 
-def buegel(c, cx, y, breite):
-    """Holzbügel mit Messinghaken an einem Wandknauf, 4-fach überabgetastet für saubere Kanten."""
-    k = 4; W = int(breite * 1.3); H = int(N * 0.20)
-    L = Image.new('RGBA', (W * k, H * k), (0, 0, 0, 0)); d = ImageDraw.Draw(L)
-    mx = W * k // 2
-    knopf_y, bar_y = int(H * 0.12) * k, int(H * 0.80) * k
-    r = int(N * 0.013) * k
-    # Haken
-    d.line([(mx, knopf_y + r), (mx, bar_y - int(H * 0.22) * k)], fill=(150, 130, 95, 255), width=int(N * 0.004) * k)
-    d.arc([mx - int(N * 0.018) * k, knopf_y - r // 2, mx + int(N * 0.018) * k, knopf_y + int(N * 0.03) * k],
-          200, 340, fill=(150, 130, 95, 255), width=int(N * 0.004) * k)
-    # Bügel: zwei Arme, leicht gebogen
-    dicke = int(N * 0.012) * k; halb = int(breite / 2) * k
-    top = bar_y - int(H * 0.22) * k
-    for sgn in (-1, 1):
-        pts = []
-        for i in range(41):
-            u = i / 40
-            pts.append((mx + sgn * u * halb, top + (bar_y - top) * (1 - (1 - u) ** 1.8)))
-        for j in range(dicke):
-            sh = j / dicke
-            col = (int(196 + 30 * (1 - sh)), int(158 + 26 * (1 - sh)), int(110 + 22 * (1 - sh)), 255)
-            d.line([(px, py + j) for px, py in pts], fill=col, width=2)
-    d.ellipse([mx - dicke * 0.9, top - dicke * 0.2, mx + dicke * 0.9, top + dicke * 1.4], fill=(205, 168, 118, 255))
-    # Wandknauf
-    d.ellipse([mx - r, knopf_y - r, mx + r, knopf_y + r], fill=(176, 140, 98, 255))
-    d.ellipse([mx - r * 0.55, knopf_y - r * 0.7, mx + r * 0.25, knopf_y - r * 0.05], fill=(214, 184, 140, 255))
-    L = L.resize((W, H), Image.LANCZOS)
-    pos = (int(cx - W / 2), int(y - H * 0.80))
-    schatten(c, L, pos, off=(6, 10), blur=10, staerke=0.25)
-    c.alpha_composite(L, pos)
-    return pos[1] + int(H * 0.80) - int(H * 0.22)   # Oberkante des Bügels
+def buegel(c, t, pos, decke):
+    """Holzbügel hinter das Teil setzen. Decke: liegt über der Stange. Strampler: Bügel steckt in den Schultern."""
+    B = Image.open(BUEGEL)
+    k = t.width / 555 if decke else t.width * 0.78 / B.width
+    B = B.resize((round(B.width * k), round(B.height * k)), Image.LANCZOS)
+    x = pos[0] + t.width // 2 - round(B_HAKEN_X * k)
+    y = pos[1] - round((B_DECKE_Y if decke else B_SPITZE_Y + 25) * k)
+    schatten(c, B, (x, y), off=(8, 12), blur=10, staerke=0.18)
+    c.alpha_composite(B, (x, y))
 
 
 def hintergrund():
     yy, xx = np.mgrid[0:N, 0:N] / N
-    licht = 1 + 0.025 * (1 - ((xx - 0.45) ** 2 + (yy - 0.35) ** 2) * 2)
+    licht = 1.018 - 0.03 * (0.6 * xx + 0.4 * yy)       # links oben etwas heller, wie im Vorbild
     a = np.clip(np.array(BG)[None, None, :] * licht[..., None], 0, 255).astype(np.uint8)
     return Image.fromarray(a, 'RGB').convert('RGBA')
 
@@ -141,14 +122,12 @@ def bauen(handle):
     c = hintergrund()
     for name, box in kaesten.items():
         t = freistellen(os.path.join(TEILE, ordner, prefix + name + '.jpg'))
-        t, pos = einpassen(t, box, oben=(name == am_buegel))
+        t, pos = einpassen(t, box, oben=(name == am_buegel and name != 'decke'))
+        if name == am_buegel:
+            buegel(c, t, pos, decke=(name == 'decke'))
         schatten(c, t, pos)
         c.alpha_composite(t, pos)
-        if name == am_buegel:
-            strampler = name == 'strampler'
-            buegel(c, pos[0] + t.width // 2, pos[1] + t.height * (0.075 if strampler else 0.012),
-                   t.width * (0.56 if strampler else 0.86))
-    lg = logo(int(N * 0.2)); c.alpha_composite(lg, (int(N * 0.035), int(N * 0.03)))
+    lg = logo(int(N * 0.205)); c.alpha_composite(lg, (int(N * 0.033), int(N * 0.028)))
     return c.convert('RGB')
 
 

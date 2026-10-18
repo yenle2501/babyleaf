@@ -1,6 +1,6 @@
 # Shopify-Hauptbilder Erstausstattung: neu aus den Einzelteilen gebaut (2048 px)
 
-Die neuen Hauptbilder sind im Stil der Set-Präsentation gestaltet: hellgrauer Studio-Hintergrund, Decke oder Strampler auf einem Holzbügel am Wandknauf, die übrigen Teile luftig daneben, weiche Schatten und das sunnozy-Logo oben links.
+Die neuen Hauptbilder folgen dem Vorbild der Nutzerin (Teddybär-Set aus ChatGPT): warmer, heller Studio-Grund, Decke oder Strampler an einem Holzbügel mit Wandknauf, die übrigen Teile gross und geordnet daneben, weiche Schatten und das sunnozy-Logo oben links. Der Holzbügel ist aus diesem Vorbild freigestellt (`assets/buegel_holz.png`).
 
 **Darum sind sie scharf:** Die alte Präsentation war ein einziges KI-Bild mit 1264 px, darin hatte jedes Teil nur rund 300 px. Jetzt wird jedes Teil einzeln aus seinem 2000-px-Bild (`marktplatz-galaxus-amazon/einzelteile/`) freigestellt und für das Gesamtbild **verkleinert** statt vergrössert. So bleiben Karomuster, Rippen, Spitze und Schrift scharf. Das Endformat ist 2048 × 2048 px, wie von Shopify empfohlen.
 
