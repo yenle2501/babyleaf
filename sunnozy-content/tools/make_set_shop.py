@@ -1,11 +1,14 @@
 """Set-Praesentationsfotos fuer Shop/Instagram: nachschaerfen + Logo oben links (Artikelnummer nur wenn angegeben).
 
-Aufruf: python3 make_set_shop.py <ki-roh-ordner> <ausgabeordner> [<artikelnummer>]
+Aufruf: python3 make_set_shop.py <ki-roh-ordner> <ausgabeordner> [<artikelnummer>] [--groesse=2048]
+--groesse: kurze Bildseite in Pixel (Standard 1080 fuer Instagram, 2048 fuer Shopify)
 """
 import sys, os, glob
 here = os.path.dirname(os.path.abspath(__file__))
-src_dir, out = sys.argv[1:3]
-art = sys.argv[3] if len(sys.argv) > 3 else ''
+groesse = int(next((a.split('=')[1] for a in sys.argv[1:] if a.startswith('--groesse=')), 1080))
+args = [a for a in sys.argv[1:] if not a.startswith('--groesse=')]
+src_dir, out = args[:2]
+art = args[2] if len(args) > 2 else ''
 s = open(os.path.join(here, 'make_viral.py')).read().split('# 1) "Schick das an')[0]
 g = {'__file__': os.path.join(here, 'make_viral.py')}
 sys.argv = ['x', out, out, out]
@@ -17,8 +20,8 @@ for d in ('ohne_logo', 'mit_logo'):
     os.makedirs(os.path.join(out, d), exist_ok=True)
 for f in sorted(glob.glob(os.path.join(src_dir, '*.jpg'))):
     im = Image.open(f).convert('RGB')
-    im = im.resize((im.width * 1080 // min(im.size), im.height * 1080 // min(im.size)), Image.LANCZOS)
-    im = im.filter(ImageFilter.UnsharpMask(radius=1.2, percent=55, threshold=2))
+    im = im.resize((im.width * groesse // min(im.size), im.height * groesse // min(im.size)), Image.LANCZOS)
+    im = im.filter(ImageFilter.UnsharpMask(radius=1.2 * groesse / 1080, percent=55, threshold=2))
     name = os.path.basename(f)
     im.save(os.path.join(out, 'ohne_logo', name), quality=95)
     b = im.copy(); d = ImageDraw.Draw(b); w, h = b.size
