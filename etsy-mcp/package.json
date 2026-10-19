@@ -1,0 +1,22 @@
+{
+  "name": "sunnozy-etsy-mcp",
+  "version": "0.1.0",
+  "description": "MCP-Server für den Etsy-Shop sunnozyCH (Etsy Open API v3)",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "sunnozy-etsy-mcp": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "login": "node src/login.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "zod": "^4.6.7"
+  }
+}

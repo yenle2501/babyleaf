@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "sunnozy-etsy": {
+      "command": "node",
+      "args": ["etsy-mcp/src/index.js"]
+    }
+  }
+}
