@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "ricardo": {
+      "command": "node",
+      "args": ["ricardo-mcp/src/server.js"]
+    }
+  }
+}
