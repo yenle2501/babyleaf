@@ -65,4 +65,4 @@ Quelle: `reports/Instagram Stil oneve und Blossom Pear.md`. Die Instagram-Feeds 
 ---
 
 ## Hausstil „Handschrift“ (von der Inhaberin gewählt, Okt. 2026)
-Baby-Foto vollflächig, darauf **ein** Satz in Handschrift (Caveat, weiss, leicht schräg, weicher Schatten) im unteren Drittel, sunnozy-Logo klein in Weiss unten Mitte. Keine Textboxen, keine Grafik-Karten, keine Memes. Sätze zum Weiterleiten oder Markieren („Schick das …“, „Für die Freundin, die …“, „Markier eine Mama …“). Generator: `tools/make_handschrift.py`.
+Baby-Foto vollflächig, darauf **ein** Satz in Handschrift (**Sacramento**, weiss, klein geschrieben, gerade oder ganz leicht schräg, weicher Schatten) im unteren Drittel, sunnozy-Logo klein in Weiss unten Mitte. Keine Textboxen, keine Grafik-Karten, keine Memes. Sätze zum Weiterleiten oder Markieren („Schick das …“, „Für die Freundin, die …“, „Markier eine Mama …“). Generator: `tools/make_handschrift.py`.

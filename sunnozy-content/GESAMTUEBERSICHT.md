@@ -47,7 +47,7 @@ Quellen: `marke.md`, `strategie/sunnozy-markenplan.html`, `wettbewerb-stil.md`, 
 
 **Farben:** Creme `#F6F0E8` · Sand `#E3D5C3` · Zartrosa `#EBCFCB` · Mauve `#B89AA0` · Staubblau `#A9BCCB`. Eine Akzentfarbe pro Bild, Farben der Konkurrenz nicht kopieren.
 
-**Schriften:** Fraunces (Titel), Nunito Sans (Text), Caveat (Handschrift). Liegen in `fonts/`.
+**Schriften:** Fraunces (Titel), Nunito Sans (Text), **Sacramento (Handschrift auf allen Social-Media-Posts, ausser Anzeigen)**. Liegen in `fonts/`. Vorschau: `strategie/schrift_social_vorschau.jpg`. Caveat ist nicht mehr Hausschrift.
 
 **Bildregeln (nach oneve und Blossom & Pear)**
 - Kein Text auf Produkt- und Babyfotos. Die Stickerei («mum dad me», «i love mummy!») ist die Headline.
@@ -59,7 +59,7 @@ Quellen: `marke.md`, `strategie/sunnozy-markenplan.html`, `wettbewerb-stil.md`, 
 - Text nur auf Info-Folien (Grössen, Pflege, Set-Inhalt): höchstens 15 Wörter, Mauve auf Creme
 - Logo klein, immer unten Mitte. Letzte Karussell-Folie und letzte Reel-Szene = Logo.
 
-**Hausstil «Handschrift»** (von Dir gewählt): Babyfoto vollflächig, ein Satz in Handschrift (Caveat, weiss) im unteren Drittel, Logo klein. Sätze zum Weiterleiten: «Schick das …», «Für die Freundin, die …», «Markier eine Mama …».
+**Hausstil «Handschrift»** (von Dir gewählt): Babyfoto vollflächig, ein Satz in Handschrift (Sacramento, weiss, klein geschrieben wie «winter is here») im unteren Drittel, Logo klein. Sätze zum Weiterleiten: «Schick das …», «Für die Freundin, die …», «Markier eine Mama …».
 
 **Safe Sleep (immer):** Schlafende Babys nur in Rückenlage, keine losen Decken oder Tücher am Gesicht, keine Gegenstände auf schlafenden Babys.
 
