@@ -25,7 +25,7 @@ def form(text):
             z = '  '.join(w.replace(' ', '') for w in re.split(r'\s{2,}', z.strip()))
         buchstaben = [c for c in z if c.isalpha()]
         if len(buchstaben) > 1 and all(c.isupper() for c in buchstaben):
-            z = z.lower()
+            z = re.sub(r'\bchf\b', 'CHF', z.lower())  # Waehrung bleibt gross
         zeilen.append(z)
     return '\n'.join(zeilen)
 
