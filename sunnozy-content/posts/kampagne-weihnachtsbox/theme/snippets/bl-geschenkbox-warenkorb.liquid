@@ -1,0 +1,69 @@
+{%- comment -%}
+  bl-geschenkbox-warenkorb (sunnozy, 19.10.2026)
+  Warenkorb-Seite und Warenkorb-Schublade: Eine personalisierte Geschenkbox erscheint als EINE Zeile mit Gesamtpreis.
+  Die Sets der Box (Zeilen mit Eigenschaft _Geschenkbox, ohne «Inhalt») werden ausgeblendet; die Box-Zeile (mit «Inhalt»)
+  zeigt die Summe aller Zeilen der Box, ohne Einzelpreis und ohne Mengenwahl. Der Papierkorb entfernt die ganze Box.
+  Die Zeilen bleiben im Warenkorb einzeln bestehen (Lagerbestand der Sets wird korrekt abgebucht).
+  Grundlage: /cart.js und die data-key-Attribute der Horizon-Warenkorbzeilen; laeuft nach jedem Neuzeichnen erneut.
+  Aufruf in layout/theme.liquid vor </body>: {% render 'bl-geschenkbox-warenkorb' %}
+{%- endcomment -%}
+<style>
+  .bl-gb-teil { display: none !important; }
+  .bl-gb-box .cart-items__unit-price-wrapper, .bl-gb-box quantity-selector-component, .bl-gb-box .quantity-selector, .bl-gb-box .volume-pricing-info { display: none !important; }
+</style>
+<script>
+  (() => {
+    if (window.blGbWarenkorb) return; window.blGbWarenkorb = true;
+    const basis = (window.Shopify && window.Shopify.routes && window.Shopify.routes.root) || '/';
+    const geld = (c) => `CHF ${(c / 100).toFixed(2)}`;
+    const zeilen = (k) => document.querySelectorAll(`[data-key="${CSS.escape(k)}"]`);
+    let signatur = '', gruppen = [];
+
+    async function laden() {
+      const r = await fetch(`${basis}cart.js`, { headers: { Accept: 'application/json' } });
+      const cart = await r.json(); const g = {};
+      cart.items.forEach((it) => {
+        const id = it.properties && it.properties._Geschenkbox; if (!id) return;
+        const gr = g[id] || (g[id] = { box: null, teile: [], summe: 0, keys: [] });
+        gr.summe += it.final_line_price; gr.keys.push(it.key);
+        if (it.properties.Inhalt) gr.box = it; else gr.teile.push(it);
+      });
+      gruppen = Object.values(g);
+    }
+
+    function anwenden() {
+      gruppen.forEach((gr) => {
+        if (!gr.box) return;
+        gr.teile.forEach((t) => zeilen(t.key).forEach((z) => z.classList.add('bl-gb-teil')));
+        zeilen(gr.box.key).forEach((z) => {
+          z.classList.add('bl-gb-box');
+          const p = z.querySelector('.cart-items__price text-component');
+          if (p && p.textContent.trim() !== geld(gr.summe)) { p.setAttribute('value', geld(gr.summe)); p.textContent = geld(gr.summe); }
+          const weg = z.querySelector('.cart-items__remove');
+          if (weg) weg.dataset.blBoxWeg = gr.keys.join(',');
+        });
+      });
+    }
+
+    async function pruefen() {
+      const s = [...document.querySelectorAll('[data-key]')].map((z) => z.dataset.key).join('|');
+      if (!s) return;
+      if (s !== signatur) { signatur = s; await laden(); }
+      anwenden();
+    }
+
+    // Papierkorb der Box-Zeile: alle Zeilen der Box entfernen (vor dem Horizon-Handler abfangen)
+    document.addEventListener('click', async (e) => {
+      const b = e.target.closest('[data-bl-box-weg]'); if (!b) return;
+      e.preventDefault(); e.stopImmediatePropagation(); b.disabled = true;
+      const updates = {}; b.dataset.blBoxWeg.split(',').forEach((k) => { updates[k] = 0; });
+      await fetch(`${basis}cart/update.js`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ updates }) });
+      location.reload();
+    }, true);
+
+    let t;
+    new MutationObserver(() => { clearTimeout(t); t = setTimeout(pruefen, 60); }).observe(document.documentElement, { childList: true, subtree: true });
+    document.addEventListener('DOMContentLoaded', pruefen);
+    pruefen();
+  })();
+</script>
