@@ -1,5 +1,6 @@
 {%- comment -%}
   Personalisierte Geschenkbox (sunnozy): Sets auswaehlen, Karte, Name und Wunschtext.
+  Summe: nur der Totalpreis (Sets + Box) wird angezeigt.
   v2 (19.10.2026): zwei Dropdowns mit Mehrfachauswahl (1. Produkte, 2. Groessen). Daraus entsteht die Liste
   «Deine Auswahl»: jede Kombination Produkt + Groesse mit Haekchen und Anzahl (- / +), einzeln entfernbar.
   Produkte ohne Groessen (nur eine Variante, z.B. Mulltuecher, Halstuecher) erscheinen immer als «Einheitsgrösse».
@@ -67,8 +68,6 @@
   </label>
 
   <div class="bl-gbk__summe">
-    <span>Sets: <strong class="bl-gbk__s-sets">–</strong></span>
-    <span>Geschenkbox, Karte und Einpacken: <strong>{{ box_variant.price | money }}</strong></span>
     <span class="bl-gbk__total">Total: <strong class="bl-gbk__s-total">{{ box_variant.price | money }}</strong></span>
   </div>
   <button type="button" class="button bl-gbk__knopf">Box in den Warenkorb</button>
@@ -218,9 +217,7 @@
 
     function rechnen() {
       const g = gewaehlt();
-      const stueck = g.reduce((a, x) => a + x.menge, 0);
       const summe = g.reduce((a, x) => a + x.preis * x.menge, 0);
-      root.querySelector('.bl-gbk__s-sets').textContent = stueck ? `${stueck} · ${geld(summe)}` : '–';
       root.querySelector('.bl-gbk__s-total').textContent = geld(summe + boxPreis);
     }
 
