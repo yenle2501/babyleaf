@@ -91,3 +91,10 @@ Vorbild oykami.ch. Datei `theme/snippets/bl-newsletter-popup.liquid`, eingebunde
   eingeloggte Abonnentinnen. «Nein danke», X oder Esc: 14 Tage Ruhe. Nach der Anmeldung nie mehr.
 - Geht mit FINAL 107 live. Testen: https://sunnozy.ch/?preview_theme_id=207454601559 (neues privates Fenster).
 - Tipp: In Shopify Messaging eine Willkommens-E-Mail mit dem Code für Kundinnen mit Tag `popup-willkommen` einrichten.
+
+## Bewertungen (Judge.me) unter Preis (Theme FINAL 107, noch nicht live)
+
+Neues Snippet `theme/snippets/bl-bewertungen-kurz.liquid`, als Block «Bewertungen kurz (unter Preis)» in der Gruppe «Header»
+von `templates/product.json` (nach Preis und Versandinfo, vor Grösse und Warenkorb). Zeigt bis zu 3 Judge.me-Bewertungen
+als Karten (Handy: seitlich wischen) und «Alle N Bewertungen lesen», das zum ausführlichen Bewertungs-Abschnitt unten springt.
+Ohne Bewertungen erscheint nichts. Vorschau: `theme/bewertungen_vorschau_*.png`.

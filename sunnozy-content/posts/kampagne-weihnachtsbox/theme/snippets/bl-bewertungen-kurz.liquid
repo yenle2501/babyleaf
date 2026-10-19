@@ -1,0 +1,76 @@
+{% liquid
+  # bl-i18n: Texte je Sprache (de = Original)
+  case request.locale.iso_code
+    when 'en'
+      assign t_von5 = 'out of 5 stars'
+      assign t_titel = 'What customers say'
+      assign t_alle_a = 'Read all'
+      assign t_alle_b = 'reviews'
+      assign t_anonym = 'Anonymous'
+      assign t_verif = 'Verified buyer'
+    when 'fr'
+      assign t_von5 = 'sur 5 étoiles'
+      assign t_titel = 'Ce que disent nos clientes'
+      assign t_alle_a = 'Lire les'
+      assign t_alle_b = 'avis'
+      assign t_anonym = 'Anonyme'
+      assign t_verif = 'Achat vérifié'
+    else
+      assign t_von5 = 'von 5 Sternen'
+      assign t_titel = 'Das sagen unsere Kundinnen'
+      assign t_alle_a = 'Alle'
+      assign t_alle_b = 'Bewertungen lesen'
+      assign t_anonym = 'Anonym'
+      assign t_verif = 'Verifizierter Kauf'
+  endcase
+%}{% comment %}
+  bl-bewertungen-kurz v1 (sunnozy, 19.10.2026)
+  Kompakte Bewertungs-Leiste direkt unter Preis und Versandinfo (Gruppe «Header» in templates/product.json):
+  bis zu 3 Judge.me-Bewertungen als Karten (Handy: seitlich wischen), darunter «Alle N Bewertungen lesen» -> #bl-bewertungen.
+  Daten wie bl-bewertungen: product.metafields.judgeme.review_widget_data (Judge.me). Ohne Bewertungen: nichts.
+  Das ausfuehrliche Widget (bl-bewertungen + Judge.me) bleibt unten im eigenen Abschnitt.
+{% endcomment %}
+{%- liquid
+  assign bk_d = product.metafields.judgeme.review_widget_data.value
+  assign bk_n = bk_d.number_of_reviews | default: 0 | plus: 0
+-%}
+{%- if bk_n > 0 and bk_d.reviews.size > 0 -%}
+<div class="bl-bk">
+  <p class="bl-bk__titel">{{ t_titel }}</p>
+  <div class="bl-bk__reihe">
+    {%- for r in bk_d.reviews limit: 3 -%}
+      {%- liquid
+        assign r_name = r.reviewer_name | escape
+        if r.is_anonymous_reviewer
+          assign r_name = t_anonym
+        endif
+        assign r_pct = r.rating | times: 20
+        assign r_text = r.body_html | strip_html | strip | truncate: 150
+      -%}
+      <a class="bl-bk__karte" href="#bl-bewertungen" data-bl-sterne>
+        <span class="bl-bk__sterne" style="--bl-fill: {{ r_pct }}%;" role="img" aria-label="{{ r.rating }} {{ t_von5 }}"></span>
+        {%- if r.title != blank -%}<span class="bl-bk__kopf">{{ r.title | strip | escape }}</span>{%- endif -%}
+        <span class="bl-bk__text">{{ r_text }}</span>
+        <span class="bl-bk__name">{{ r_name }}{% if r.verified_buyer %} · {{ t_verif }}{% endif %}</span>
+      </a>
+    {%- endfor -%}
+  </div>
+  <a class="bl-bk__alle" href="#bl-bewertungen" data-bl-sterne>{{ t_alle_a }} {{ bk_n }} {{ t_alle_b }}</a>
+</div>
+<style>
+  .bl-bk { width: 100%; display: grid; gap: 10px; margin-top: 4px; }
+  div:has(> .bl-bk) { width: 100%; align-self: stretch; }
+  .bl-bk__titel { margin: 0; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #233029; }
+  .bl-bk__reihe { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 1fr); gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 2px; }
+  .bl-bk__reihe::-webkit-scrollbar { display: none; }
+  .bl-bk__karte { scroll-snap-align: start; display: flex; flex-direction: column; gap: 6px; padding: 12px 14px; background: #f6f0e8; border-radius: 10px; color: #233029; text-decoration: none; font-size: 14px; line-height: 1.4; }
+  .bl-bk__sterne { position: relative; display: inline-block; width: max-content; font-size: 15px; line-height: 1; letter-spacing: 1px; white-space: nowrap; }
+  .bl-bk__sterne::before { content: "\2605\2605\2605\2605\2605"; color: #DDD6CC; }
+  .bl-bk__sterne::after { content: "\2605\2605\2605\2605\2605"; position: absolute; top: 0; left: 0; width: var(--bl-fill, 0%); overflow: hidden; color: #E8A33D; }
+  .bl-bk__kopf { font-weight: 700; }
+  .bl-bk__text { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .bl-bk__name { margin-top: auto; font-size: 12px; color: #5F6E56; }
+  .bl-bk__alle { justify-self: start; font-size: 14px; color: #233029; text-decoration: underline; text-underline-offset: 2px; }
+  @media (max-width: 749px) { .bl-bk__reihe { grid-auto-columns: 78%; } }
+</style>
+{%- endif -%}
