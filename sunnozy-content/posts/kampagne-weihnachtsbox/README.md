@@ -108,3 +108,12 @@ Ohne Bewertungen erscheint nichts. Vorschau: `theme/bewertungen_vorschau_*.png`.
   Der Menüpunkt «Geschenkboxen» erscheint im Live-Shop erst mit Theme FINAL 107.
 - Achtung Lager: Box-Bestand ist nicht mit dem Set-Bestand verknüpft (Boxen je 2 pro Grösse). Nach jeder Box-Bestellung
   die enthaltenen Sets von Hand abbuchen oder die Shopify-Bundles-App nutzen.
+
+## Update 19.10.2026 (2)
+
+- Personalisierte Geschenkbox v2: Dropdown «Produkte» und Dropdown «Grössen» mit Mehrfachauswahl, darunter «Deine Auswahl»
+  mit Häkchen, Anzahl (− / +) und ×. Halstücher mit Design-Varianten erscheinen je Design als eigener Eintrag.
+- Footer-Menü «Sortiment» in FINAL 107: neues Menü `unser-sortiment-geschenkboxen` (mit Geschenkboxen, ohne Sale %).
+  Das Live-Menü `unser-sortiment` bleibt unverändert.
+- Die personalisierte Box ist wieder **Entwurf**, bis FINAL 107 veröffentlicht ist (das Live-Theme hat den Konfigurator nicht).
+  Nach dem Veröffentlichen von FINAL 107: Produkt «Personalisierte Geschenkbox» wieder auf Aktiv stellen.
