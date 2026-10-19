@@ -55,19 +55,35 @@ Neu erzeugen:
 
 ## Meta-Anzeigen
 
-**Kampagne:** «Das schönste Hallo – Weihnachten», Ziel Umsatz, ab Anfang November bis zum letzten Bestelltermin, CHF 5–10/Tag zusätzlich zu «Alles drin». Advantage+-Zielgruppe, Schweiz, Vorschlag 25–65.
-**Anzeige A:** Karussell mit den 8 Boxen (`1x1/`), Link je Karte auf das Produkt.
-**Anzeige B:** Einzelbild «Mum Dad Me» oder «Dino» (`4x5/` + `9x16/`).
-**Anzeige C:** Übersicht `4x5/alle_boxen_4x5.jpg`, Link auf eine Kollektion «Weihnachts-Geschenkboxen».
+Bilder: `meta-ads/` (erzeugt mit `python3 tools/make_meta_ads_geschenkbox.py posts/kampagne-weihnachtsbox`), Stil wie die
+Set-Anzeigen: Preis-Etikett oben links, sunnozy-Feld, Gratisversand ab CHF 50. Fotos scharf (Real-ESRGAN, 2272 px).
+
+| Datei | Format | Einsatz |
+|---|---|---|
+| `karussell_00_uebersicht_1x1.jpg` | 1:1 | erste Karte im Karussell, Link `/collections/geschenkboxen` |
+| `karussell_<box>_1x1.jpg` (8) | 1:1 | Karussell-Karten, Link aufs jeweilige Produkt |
+| `karussell_personalisiert_1x1.jpg` | 1:1 | letzte Karte, Link auf die personalisierte Box |
+| `feed_<box>_4x5.jpg` (8 + personalisiert) | 4:5 | Einzelbild-Anzeigen im Feed |
+| `story_<box>_9x16.jpg` (8 + personalisiert) | 9:16 | Stories/Reels (oben 14 % und unten frei für Instagram) |
+
+**Kampagne:** «Das schönste Hallo – Weihnachten», Ziel Umsatz, Anfang November bis letzter Bestelltermin (ca. 18.12.),
+CHF 5–10/Tag. Advantage+-Zielgruppe, Schweiz, 25–65. Placements Advantage+ (Feed 4:5, Stories 9:16 automatisch).
+
+**Anzeige A – Karussell:** Übersicht → 8 Boxen → personalisierte Box. Karten-Überschrift = Boxname, Beschreibung = Preis.
+**Anzeige B – Einzelbilder:** «Mum Dad Me», «Dinosaur», «Little One» (4:5 + 9:16), die drei stärksten Motive testen.
+**Anzeige C – Personalisiert:** `feed_personalisiert_4x5.jpg` + `story_personalisiert_9x16.jpg`.
 
 **Primärtext (Varianten):**
-> Das schönste Hallo unterm Baum. Ganze Sets aus weicher Baumwolle, von Hand verpackt, mit Weihnachtskarte. Fürs Gottikind, Grosskind und alle Kleinen.
+> Das schönste Hallo unterm Baum 🎁 Ganze Sets aus weicher Baumwolle, von Hand in die rosa Box gepackt – mit Weihnachtskarte. Fürs Gottikind, Grosskind und alle Kleinen. Ab CHF 29.90.
 
-> Noch kein Geschenk fürs Gottikind? Unsere Weihnachts-Geschenkboxen sind fertig verpackt und in 2–3 Werktagen bei Dir. Ab CHF 29.90.
+> Noch kein Geschenk fürs Gottikind? Unsere Weihnachts-Geschenkboxen kommen fertig verpackt, mit Karte, in 1–2 Werktagen. Gratisversand ab CHF 50.
+
+> Stell Deine eigene Geschenkbox zusammen: Sets wählen, Grösse wählen, Name und Wunschtext auf die Karte – wir packen alles liebevoll ein. Box, Karte und Einpacken CHF 15.
 
 > Zwei Gottikinder? Mit zwei Boxen ist der Versand gratis.
 
-**Überschrift:** «Weihnachts-Geschenkbox «Name»» · **Beschreibung:** «Fertig verpackt, mit Karte» · **Button:** «Jetzt einkaufen»
+**Überschriften:** «Weihnachts-Geschenkbox «Name»» · «Fertig verpackt mit Karte» · «Deine Box, Dein Gruss» (personalisiert)
+**Beschreibung:** «Ganze Sets · Gratisversand ab CHF 50» · **Button:** «Jetzt einkaufen»
 
 ## Vor dem Freischalten prüfen
 
