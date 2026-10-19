@@ -77,3 +77,17 @@ Neu erzeugen:
 - [ ] Box-Material (Karton, Seidenpapier, Satinband, Karte) einkaufen; Kosten in der Preiskalkulation nachtragen (Annahme CHF 1.50).
 - [ ] Karte drucken lassen (`karte/karte_druck.pdf`, Anhängerform mit Loch stanzen lassen).
 - [ ] Letzten Bestelltermin für Weihnachten festlegen und in Shop und Anzeigen nennen.
+
+## Newsletter-Pop-up «Willkommensgeschenk» (Theme FINAL 107, noch nicht live)
+
+Vorbild oykami.ch. Datei `theme/snippets/bl-newsletter-popup.liquid`, eingebunden in `layout/theme.liquid` von FINAL 107
+(`{% render 'bl-newsletter-popup' %}` nach `whatsapp-bubble`, nicht im Theme-Editor). Vorschau: `theme/popup_vorschau_*.png`.
+
+- Titel «Für Dich – ein kleines Willkommensgeschenk ♡», Felder Vorname und E-Mail, Knopf «Jetzt 10 % Gutschein abholen»,
+  «Nein danke, im Moment nicht», X oben rechts, Hinweis «Abmeldung jederzeit möglich» mit Link zur Datenschutzerklärung.
+- Anmeldung über das Shopify-Kundenformular: Kundin mit Marketing-Einwilligung, Tags `newsletter`, `popup-willkommen`.
+- Danach zeigt das Pop-up den Code **WILLKOMMEN10** (10 % auf die erste Bestellung, einmal pro Kundin, aktiv in Shopify) mit «Kopieren».
+- Erscheint nach 8 Sekunden, aber erst wenn das Cookie-Banner weg ist. Nicht im Warenkorb, Konto und Login, nicht für
+  eingeloggte Abonnentinnen. «Nein danke», X oder Esc: 14 Tage Ruhe. Nach der Anmeldung nie mehr.
+- Geht mit FINAL 107 live. Testen: https://sunnozy.ch/?preview_theme_id=207454601559 (neues privates Fenster).
+- Tipp: In Shopify Messaging eine Willkommens-E-Mail mit dem Code für Kundinnen mit Tag `popup-willkommen` einrichten.

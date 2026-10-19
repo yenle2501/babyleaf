@@ -1,0 +1,111 @@
+{%- comment -%}
+  Newsletter-Pop-up «Willkommensgeschenk» (sunnozy), Vorbild oykami.ch.
+  Vorname + E-Mail -> Shopify-Kundenformular (Marketing-Einwilligung, Tags newsletter, popup-willkommen).
+  Nach dem Absenden zeigt das Pop-up den Code WILLKOMMEN10 (10 %, einmal pro Kundin, in Shopify angelegt).
+  Erscheint nach 8 s, nicht im Warenkorb/Konto, nicht fuer angemeldete Abonnentinnen.
+  «Nein danke» oder X: 14 Tage Ruhe; nach der Anmeldung nie mehr.
+  Aufruf in layout/theme.liquid vor </body>: {% render 'bl-newsletter-popup' %}
+{%- endcomment -%}
+{%- liquid
+  assign code = 'WILLKOMMEN10'
+  assign zeigen = true
+  if customer and customer.accepts_marketing
+    assign zeigen = false
+  endif
+  if template.name == 'cart' or request.page_type == 'customers/account' or request.page_type == 'customers/login'
+    assign zeigen = false
+  endif
+-%}
+{%- if zeigen -%}
+<div class="bl-nl" id="bl-nl" hidden role="dialog" aria-modal="true" aria-labelledby="bl-nl-titel">
+  <div class="bl-nl__schleier" data-bl-nl-zu></div>
+  <div class="bl-nl__karte">
+    <button type="button" class="bl-nl__x" data-bl-nl-zu aria-label="Schliessen">&times;</button>
+    {%- form 'customer', id: 'bl-nl-form', class: 'bl-nl__form' -%}
+      {%- if form.posted_successfully? -%}
+        <p class="bl-nl__titel" id="bl-nl-titel">Danke, schön bist Du da ♡</p>
+        <p class="bl-nl__text">Dein Willkommensgeschenk: <strong>10 % auf Deine erste Bestellung</strong>. Gib den Code an der Kasse ein.</p>
+        <div class="bl-nl__code"><span>{{ code }}</span><button type="button" class="bl-nl__kopie" data-code="{{ code }}">Kopieren</button></div>
+        <button type="button" class="bl-nl__knopf" data-bl-nl-zu data-bl-nl-fertig>Jetzt einkaufen</button>
+        <span data-bl-nl-erfolg hidden></span>
+      {%- else -%}
+        <p class="bl-nl__titel" id="bl-nl-titel">Für Dich – ein kleines Willkommensgeschenk ♡</p>
+        <p class="bl-nl__text">Trag Dich für unseren Newsletter ein und sichere Dir <strong>10 % Rabatt</strong> auf Deine erste Bestellung. Freu Dich auf liebevoll verpackte Geschenkideen, neue Sets und kleine Überraschungen für die ersten Babymonate.</p>
+        <input type="hidden" name="contact[tags]" value="newsletter,popup-willkommen">
+        <input type="hidden" name="contact[accepts_marketing]" value="true">
+        <label class="bl-nl__label" for="bl-nl-vorname">Vorname</label>
+        <input class="bl-nl__feld" id="bl-nl-vorname" type="text" name="contact[first_name]" placeholder="Dein Vorname" autocomplete="given-name">
+        <input class="bl-nl__feld" id="bl-nl-mail" type="email" name="contact[email]" placeholder="E-Mail" autocomplete="email" required aria-label="E-Mail">
+        {%- if form.errors -%}
+          <div class="bl-nl__fehler" data-bl-nl-fehler>{{ form.errors | default_errors }}</div>
+        {%- endif -%}
+        <button type="submit" class="bl-nl__knopf">Jetzt 10 % Gutschein abholen</button>
+        <button type="button" class="bl-nl__nein" data-bl-nl-zu>Nein danke, im Moment nicht</button>
+        <p class="bl-nl__klein">Abmeldung jederzeit möglich. <a href="/pages/datenschutz">Datenschutz</a></p>
+      {%- endif -%}
+    {%- endform -%}
+  </div>
+</div>
+
+<style>
+  .bl-nl[hidden] { display: none; }
+  .bl-nl { position: fixed; inset: 0; z-index: 2147483000; display: flex; align-items: flex-end; justify-content: center; }
+  .bl-nl__schleier { position: absolute; inset: 0; background: rgb(0 0 0 / .45); animation: bl-nl-ein .25s ease; }
+  .bl-nl__karte { position: relative; width: 100%; max-width: 520px; background: #fff; color: #111;
+    border-radius: 28px 28px 0 0; padding: 40px 28px 28px; text-align: center; max-height: 92vh; overflow: auto;
+    animation: bl-nl-hoch .35s ease; }
+  @media (min-width: 750px) { .bl-nl { align-items: center; } .bl-nl__karte { border-radius: 24px; padding: 48px 40px 32px; } }
+  .bl-nl__x { position: absolute; top: 14px; right: 18px; background: none; border: 0; font-size: 34px; line-height: 1; cursor: pointer; color: #111; }
+  .bl-nl__titel { font-size: 1.6rem; font-weight: 700; line-height: 1.2; margin: 0 0 14px; }
+  .bl-nl__text { margin: 0 0 22px; line-height: 1.45; }
+  .bl-nl__form { display: grid; gap: 12px; text-align: left; }
+  .bl-nl__form > .bl-nl__titel, .bl-nl__form > .bl-nl__text, .bl-nl__klein { text-align: center; }
+  .bl-nl__label { font-weight: 700; letter-spacing: .08em; }
+  .bl-nl__feld { width: 100%; padding: 16px 18px; font: inherit; font-size: 16px; border: 1px solid #555; border-radius: 0; background: #fff; }
+  .bl-nl__knopf { width: 100%; padding: 16px; border: 0; border-radius: 999px; background: #111; color: #fff; font: inherit; font-weight: 700; letter-spacing: .08em; cursor: pointer; margin-top: 6px; }
+  .bl-nl__nein { background: none; border: 0; font: inherit; font-weight: 700; letter-spacing: .1em; font-size: .85rem; padding: 10px; cursor: pointer; color: #111; }
+  .bl-nl__klein { font-size: .75rem; opacity: .65; margin: 0; }
+  .bl-nl__klein a { color: inherit; }
+  .bl-nl__fehler { color: #a3262a; margin: 0; font-size: .9rem; }
+  .bl-nl__code { display: flex; align-items: center; justify-content: space-between; gap: 10px; border: 2px dashed #111; padding: 12px 16px; font-size: 1.3rem; font-weight: 700; letter-spacing: .12em; }
+  .bl-nl__kopie { background: #f6f0e8; border: 0; padding: 8px 12px; font: inherit; font-size: .8rem; letter-spacing: .05em; cursor: pointer; }
+  @keyframes bl-nl-hoch { from { transform: translateY(40px); opacity: 0; } to { transform: none; opacity: 1; } }
+  @keyframes bl-nl-ein { from { opacity: 0; } to { opacity: 1; } }
+</style>
+
+<script>
+  (() => {
+    const el = document.getElementById('bl-nl');
+    if (!el) return;
+    const KEY = 'bl-nl-status';
+    const lesen = () => { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; } };
+    const schreiben = (v) => { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {} };
+    const zeigen = () => { el.hidden = false; document.documentElement.style.overflow = 'hidden'; };
+    const zu = () => { el.hidden = true; document.documentElement.style.overflow = ''; };
+
+    const erfolg = el.querySelector('[data-bl-nl-erfolg]');
+    const fehler = el.querySelector('[data-bl-nl-fehler]');
+    const nachAbsenden = /customer_posted=true/.test(location.search) || location.hash === '#bl-nl-form';
+    if (erfolg) { schreiben({ angemeldet: true }); zeigen(); }
+    else if (fehler && nachAbsenden) { zeigen(); }
+    else {
+      const s = lesen();
+      const ruhe = s.zu && Date.now() - s.zu < 14 * 864e5;
+      // Erst nach der Cookie-Wahl, damit das Pop-up nicht ueber dem Cookie-Banner liegt
+      const bannerOffen = () => { const b = document.getElementById('shopify-pc__banner'); return !!b && b.offsetHeight > 0; };
+      const warten = () => { if (bannerOffen()) setTimeout(() => (bannerOffen() ? warten() : setTimeout(zeigen, 3000)), 1000); else zeigen(); };
+      if (!s.angemeldet && !ruhe) setTimeout(warten, 8000);
+    }
+
+    el.addEventListener('click', (e) => {
+      const k = e.target.closest('.bl-nl__kopie');
+      if (k) { navigator.clipboard && navigator.clipboard.writeText(k.dataset.code); k.textContent = 'Kopiert ✓'; return; }
+      if (e.target.closest('[data-bl-nl-zu]')) {
+        if (!erfolg) schreiben({ ...lesen(), zu: Date.now() });
+        zu();
+      }
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !el.hidden) { if (!erfolg) schreiben({ ...lesen(), zu: Date.now() }); zu(); } });
+  })();
+</script>
+{%- endif -%}
