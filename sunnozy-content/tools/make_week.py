@@ -4,6 +4,7 @@ Aufruf: python3 make_week.py <logo.webp> <ordner mit baby-fotos> <ordner mit pac
 """
 import sys, os, math
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
+import instagram_schrift  # noqa: F401  Hausschrift Sacramento fuer alle Instagram-Posts (nicht Anzeigen)
 import numpy as np
 
 logo_src, photo_dir, pack_dir, out = sys.argv[1:5]

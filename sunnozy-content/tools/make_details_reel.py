@@ -10,6 +10,7 @@ Aufruf: python3 make_details_reel.py <ausgabe.mp4> <shot1> <shot2> ... [--text "
 import sys, os, math, subprocess
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
+import instagram_schrift  # noqa: F401  Hausschrift Sacramento fuer alle Instagram-Posts (nicht Anzeigen)
 
 args = sys.argv[1:]
 TEXT = 'kleine Details, die ich nie vergessen will'

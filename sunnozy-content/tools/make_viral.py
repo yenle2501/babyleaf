@@ -5,13 +5,14 @@ Schriften und Logo liegen in sunnozy-content/fonts und sunnozy-content/logo-sunn
 """
 import sys, os, math, random
 from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageChops
+import instagram_schrift  # noqa: F401  Hausschrift Sacramento fuer alle Instagram-Posts (nicht Anzeigen)
 import numpy as np
 
 photo_dir, pack_dir, out = sys.argv[1:4]
 os.makedirs(out, exist_ok=True)
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FD = os.path.join(ROOT, 'fonts')
-HAND, SERI, SERR = (os.path.join(FD, f) for f in ('sacramento.ttf', 'cormorant.ttf', 'cormorantR.ttf')  # Handschrift fuer Social-Posts: Sacramento (Okt. 2026, Wunsch der Nutzerin))
+HAND, SERI, SERR = (os.path.join(FD, f) for f in ('sacramento.ttf', 'cormorant.ttf', 'cormorantR.ttf'))  # Handschrift fuer Social-Posts: Sacramento (Okt. 2026)
 SANS = '/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf'
 F = lambda p, s: ImageFont.truetype(p, s)
 W, H = 1080, 1350
@@ -94,7 +95,7 @@ def place(canvas, obj, cx, cy, width, rot=0, shadow=True):
 
 def hand(img, xy, text, size, fill=OFF, anchor='la', rot=0, shadow=True, spacing=0):
     """Handschrift direkt ins Bild, optional leicht gedreht und mit weichem Schatten."""
-    f = F(HAND, int(size * 1.25))  # Sacramento laeuft kleiner als Caveat
+    f = F(HAND, size)
     tmp = Image.new('RGBA', (img.width, img.height), (0, 0, 0, 0)); d = ImageDraw.Draw(tmp)
     d.multiline_text(xy, text, font=f, fill=fill + (255,), anchor=anchor, spacing=spacing or int(size * 0.15), align='center' if anchor[0] == 'm' else 'left')
     if rot: tmp = tmp.rotate(rot, center=xy, resample=Image.BICUBIC)

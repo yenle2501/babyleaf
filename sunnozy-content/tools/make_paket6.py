@@ -11,6 +11,7 @@ Aufruf: python3 make_paket6.py <feed-fotos 4:5> <fotos 9:16> <ausgabe>
 import sys, os, math, subprocess
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
+import instagram_schrift  # noqa: F401  Hausschrift Sacramento fuer alle Instagram-Posts (nicht Anzeigen)
 
 feed_src, tall_src, out = sys.argv[1:4]
 HERE = os.path.dirname(os.path.abspath(__file__))

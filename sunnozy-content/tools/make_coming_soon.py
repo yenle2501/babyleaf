@@ -9,6 +9,7 @@ Aufruf: python3 make_coming_soon.py <ausgabe-ordner>
 import os, sys, subprocess
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
+import instagram_schrift  # noqa: F401,E401  Hausschrift Sacramento fuer alle Instagram-Posts (nicht Anzeigen)
 
 out = sys.argv[1]
 os.makedirs(out, exist_ok=True)
@@ -43,9 +44,11 @@ def load_logo(width, col=WALD):
 
 
 def gesperrt(d, xy, text, font, fill, sp):
-    w = sum(d.textlength(ch, font=font) for ch in text) + sp * (len(text) - 1); x = xy[0] - w / 2
-    for ch in text:
-        d.text((x, xy[1]), ch, font=font, fill=fill, anchor='lm'); x += d.textlength(ch, font=font) + sp
+    # Instagram-Hausschrift Sacramento: Schreibschrift nicht sperren, sondern als ganzes Wort klein schreiben
+    t = instagram_schrift.form(text.lower() if text.isupper() else text)
+    font = font.font_variant(size=int(font.size * 1.5))  # Kleinbuchstaben in Schreibschrift laufen kleiner
+    w = d.textlength(t, font=font)
+    d.text(xy, t, font=font, fill=fill, anchor='mm')
 
 
 def ease(x):

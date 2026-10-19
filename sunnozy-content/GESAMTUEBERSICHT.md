@@ -47,7 +47,7 @@ Quellen: `marke.md`, `strategie/sunnozy-markenplan.html`, `wettbewerb-stil.md`, 
 
 **Farben:** Creme `#F6F0E8` · Sand `#E3D5C3` · Zartrosa `#EBCFCB` · Mauve `#B89AA0` · Staubblau `#A9BCCB`. Eine Akzentfarbe pro Bild, Farben der Konkurrenz nicht kopieren.
 
-**Schriften:** Fraunces (Titel), Nunito Sans (Text), **Sacramento (Handschrift auf allen Social-Media-Posts, ausser Anzeigen)**. Liegen in `fonts/`. Vorschau: `strategie/schrift_social_vorschau.jpg`. Caveat ist nicht mehr Hausschrift.
+**Schriften:** Fraunces (Titel), Nunito Sans (Text), **Sacramento für ALLE Texte auf Instagram-Posts (Feed, Karussell, Storys, Reels), ausser Anzeigen**; Fraunces/Nunito nur noch für Anzeigen, Shop und Druck. Liegen in `fonts/`. Vorschau: `strategie/schrift_social_vorschau.jpg`. Caveat ist nicht mehr Hausschrift. Technik: Instagram-Generatoren binden `tools/instagram_schrift.py` ein, das jede Schrift automatisch durch Sacramento ersetzt.
 
 **Bildregeln (nach oneve und Blossom & Pear)**
 - Kein Text auf Produkt- und Babyfotos. Die Stickerei («mum dad me», «i love mummy!») ist die Headline.
@@ -56,7 +56,7 @@ Quellen: `marke.md`, `strategie/sunnozy-markenplan.html`, `wettbewerb-stil.md`, 
   - **B Ganz nah:** Ripp, Schleife oder Stickerei füllt mindestens ⅔ des Bildes
   - **C Baby-Moment:** wach, in Rückenlage oder auf dem Arm, Fensterlicht, Gesicht teilweise abgewandt
 - Fensterlicht, leicht warm, Sättigung −10 bis −20, immer dasselbe Preset
-- Text nur auf Info-Folien (Grössen, Pflege, Set-Inhalt): höchstens 15 Wörter, Mauve auf Creme
+- Text nur auf Info-Folien (Grössen, Pflege, Set-Inhalt): höchstens 15 Wörter, Mauve auf Creme, in Sacramento, eher klein geschrieben (keine GROSSBUCHSTABEN, kein Sperrsatz)
 - Logo klein, immer unten Mitte. Letzte Karussell-Folie und letzte Reel-Szene = Logo.
 
 **Hausstil «Handschrift»** (von Dir gewählt): Babyfoto vollflächig, ein Satz in Handschrift (Sacramento, weiss, klein geschrieben wie «winter is here») im unteren Drittel, Logo klein. Sätze zum Weiterleiten: «Schick das …», «Für die Freundin, die …», «Markier eine Mama …».

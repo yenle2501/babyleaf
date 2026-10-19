@@ -4,6 +4,7 @@ Aufruf: python3 make_trend.py <logo.webp> <ordner mit baby-fotos> <ausgabeordner
 """
 import sys, os, math, re
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
+import instagram_schrift  # noqa: F401  Hausschrift Sacramento fuer alle Instagram-Posts (nicht Anzeigen)
 import numpy as np
 
 logo_src, photo_dir, out = sys.argv[1:4]
