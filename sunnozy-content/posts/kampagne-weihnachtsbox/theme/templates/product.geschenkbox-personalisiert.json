@@ -41,7 +41,7 @@
               "type": "text",
               "name": "Kurztext",
               "settings": {
-                "text": "<p>Du wählst die Sets, wir packen sie von Hand in die rosa Geschenkbox: mit Seidenpapier, Weihnachtskarte, Namen und Deinem Gruss. Preis: gewählte Sets + CHF 15 für Box, Karte und Einpacken.</p>",
+                "text": "<p>Du wählst die Sets, wir packen sie von Hand in die rosa Geschenkbox: mit Seidenpapier, Weihnachtskarte, Namen und Deinem Gruss.</p>",
                 "type_preset": "rte"
               },
               "blocks": {}
