@@ -1,0 +1,96 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-information",
+      "blocks": {
+        "media-gallery": {
+          "type": "_product-media-gallery",
+          "static": true,
+          "settings": {
+            "media_presentation": "grid",
+            "media_columns": "one",
+            "large_first_image": true,
+            "aspect_ratio": "adapt",
+            "media_fit": "contain",
+            "zoom": true,
+            "hide_variants": true,
+            "constrain_to_viewport": true
+          },
+          "blocks": {}
+        },
+        "product-details": {
+          "type": "_product-details",
+          "static": true,
+          "settings": {
+            "gap": 20,
+            "sticky_details_desktop": false,
+            "padding-block-start": 24,
+            "padding-block-end": 24
+          },
+          "blocks": {
+            "titel": {
+              "type": "text",
+              "name": "Product title",
+              "settings": {
+                "text": "<h1>{{ closest.product.title }}</h1>",
+                "type_preset": "h3"
+              },
+              "blocks": {}
+            },
+            "intro": {
+              "type": "text",
+              "name": "Kurztext",
+              "settings": {
+                "text": "<p>Du wählst die Sets, wir packen sie von Hand in die rosa Geschenkbox: mit Seidenpapier, Weihnachtskarte, Namen und Deinem Gruss. Preis: gewählte Sets + CHF 15 für Box, Karte und Einpacken.</p>",
+                "type_preset": "rte"
+              },
+              "blocks": {}
+            },
+            "konfigurator": {
+              "type": "custom-liquid",
+              "name": "Geschenkbox-Konfigurator",
+              "settings": {
+                "custom_liquid": "{% render 'bl-geschenkbox-konfigurator', product: product %}"
+              },
+              "blocks": {}
+            },
+            "versand": {
+              "type": "custom-liquid",
+              "name": "Versandinfo",
+              "settings": {
+                "custom_liquid": "{% render 'bl-versandinfo', product: product %}"
+              },
+              "blocks": {}
+            },
+            "beschreibung": {
+              "type": "text",
+              "name": "Product description",
+              "settings": {
+                "text": "{{ closest.product.description }}",
+                "type_preset": "rte"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "titel",
+            "intro",
+            "konfigurator",
+            "versand",
+            "beschreibung"
+          ]
+        }
+      },
+      "settings": {
+        "content_width": "content-center-aligned",
+        "desktop_media_position": "left",
+        "equal_columns": true,
+        "gap": 48,
+        "enable_sticky_add_to_cart": false
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

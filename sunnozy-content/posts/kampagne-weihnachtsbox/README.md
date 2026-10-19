@@ -21,6 +21,23 @@ Darstellung nach den Vorbildern der Nutzerin: Box von oben, randvoll und von Han
 
 **In Shopify angelegt (19.10.2026):** Status **Entwurf**, Typ «Geschenkbox», Hersteller sunnozy, Grössen 0–3 / 3–6 / 6–9 Monate, SKU `SNZ-XBOX-<BOX>-<GRÖSSE>`, Lager wird gezählt. Bilder: 1. Hauptbild 2048 px (Logo oben links), 2. Foto der Box. Beschreibung mit Inhalt, Verpackung, Material, Versand.
 
+## Shopify: Tab «Geschenkboxen» und personalisierte Box (19.10.2026)
+
+| Was | Stand |
+|---|---|
+| Kollektion **«Geschenkboxen»** (`/collections/geschenkboxen`) | angelegt, im Onlineshop freigegeben, enthält die 8 Boxen + die personalisierte Box (alle noch **Entwurf**, deshalb für Kundinnen noch leer) |
+| Produkt **«Personalisierte Geschenkbox»** (`/products/personalisierte-geschenkbox`, ID 11293187211607) | Entwurf, CHF 15 (Box, Seidenpapier, Karte, Einpacken), Lager nicht gezählt, Vorlage `geschenkbox-personalisiert` |
+| Kollektion **«Geschenkbox Auswahl»** (`geschenkbox-auswahl`) | automatisch: alle Body-Sets, Hosen-Sets, Mulltücher und Halstücher-3er-Sets; liefert die Auswahl im Konfigurator |
+| Menü **«Hauptmenü mit Geschenkboxen»** (`main-menu-geschenkboxen`) | neu: Geschenkboxen + alle bisherigen Tabs. Das Live-Menü `main-menu` ist **unverändert**. |
+| Theme **FINAL 107** (unveröffentlicht) | Header nutzt das neue Menü; neue Vorlage `templates/product.geschenkbox-personalisiert.json` und `snippets/bl-geschenkbox-konfigurator.liquid` (Kopie in `theme/`) |
+
+**So funktioniert die personalisierte Box:** Die Kundin hakt Sets an und wählt pro Set die Grösse (nur verfügbare). Danach wählt sie, ob die Weihnachtskarte beiliegt (inklusive), und gibt Name und Wunschtext ein (max. 200 Zeichen). Der Total-Preis rechnet live: gewählte Sets + CHF 15. «Box in den Warenkorb» legt alle Sets **und** die Box in den Warenkorb. Die Box trägt die Eigenschaften Inhalt, Karte, Name und Wunschtext; diese erscheinen in der Bestellung. Alle Teile einer Box haben dieselbe versteckte Nummer `_Geschenkbox`. Der Lagerbestand der Sets wird normal abgebucht.
+
+**Live gehen (Reihenfolge):**
+1. FINAL 107 in der Vorschau prüfen: Tab, Kollektion und die personalisierte Box. Dafür die Box kurz auf «Aktiv» stellen, sonst ist sie in der Vorschau nicht sichtbar.
+2. FINAL 107 veröffentlichen. Erst dann gibt es den Tab und den Konfigurator; im heutigen Live-Theme FINAL 106 hätte die Box keinen Konfigurator.
+3. Die 9 Geschenkbox-Produkte auf «Aktiv» stellen.
+
 ## Dateien
 
 | Ordner | Was | Wo |

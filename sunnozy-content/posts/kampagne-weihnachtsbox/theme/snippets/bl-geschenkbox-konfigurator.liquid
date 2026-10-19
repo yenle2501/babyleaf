@@ -1,0 +1,139 @@
+{%- comment -%}
+  Personalisierte Geschenkbox (sunnozy): Sets auswaehlen, Karte, Name und Wunschtext.
+  Legt die gewaehlten Sets und die Box (Produkt mit Preis CHF 15 fuer Box, Seidenpapier, Karte, Einpacken)
+  zusammen in den Warenkorb. Alle Teile einer Box tragen dieselbe versteckte Eigenschaft _Geschenkbox,
+  die Box selbst traegt Inhalt, Karte, Name und Wunschtext als sichtbare Eigenschaften.
+  Auswahl: Kollektion «geschenkbox-auswahl» (Body-Sets, Hosen-Sets, Mulltuecher, Halstuecher).
+  Aufruf: {% render 'bl-geschenkbox-konfigurator', product: product %}
+{%- endcomment -%}
+{%- assign auswahl = collections['geschenkbox-auswahl'] -%}
+{%- assign box_variant = product.selected_or_first_available_variant -%}
+<div class="bl-gbk" data-box-variant="{{ box_variant.id }}" data-box-price="{{ box_variant.price }}" data-currency="{{ cart.currency.iso_code }}">
+  <p class="bl-gbk__schritt">1. Sets auswählen</p>
+  <p class="bl-gbk__hinweis">Wähle ein oder mehrere Sets und jeweils die Grösse. Alles kommt zusammen in eine Box.</p>
+
+  <div class="bl-gbk__raster">
+    {%- for p in auswahl.products limit: 60 -%}
+      {%- if p.available -%}
+        {%- assign v1 = p.first_available_variant -%}
+        <div class="bl-gbk__set" data-titel="{{ p.title | escape }}">
+          <label class="bl-gbk__wahl">
+            <input type="checkbox" class="bl-gbk__check">
+            {%- if p.featured_image -%}
+              <img src="{{ p.featured_image | image_url: width: 400 }}" alt="{{ p.featured_image.alt | default: p.title | escape }}" width="200" height="200" loading="lazy">
+            {%- endif -%}
+            <span class="bl-gbk__titel">{{ p.title }}</span>
+            <span class="bl-gbk__preis">{{ v1.price | money }}</span>
+          </label>
+          {%- if p.has_only_default_variant -%}
+            <select class="bl-gbk__variante" hidden><option value="{{ v1.id }}" data-preis="{{ v1.price }}" selected>{{ v1.title }}</option></select>
+          {%- else -%}
+            <select class="bl-gbk__variante" aria-label="Grösse für {{ p.title | escape }}">
+              {%- for v in p.variants -%}
+                {%- if v.available -%}<option value="{{ v.id }}" data-preis="{{ v.price }}">{{ v.title }}</option>{%- endif -%}
+              {%- endfor -%}
+            </select>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <p class="bl-gbk__schritt">2. Karte und Gruss</p>
+  <label class="bl-gbk__zeile"><input type="checkbox" class="bl-gbk__karte" checked> Weihnachtskarte «Merry Christmas» beilegen (inklusive)</label>
+  <label class="bl-gbk__feld">Name (für wen ist die Box?)
+    <input type="text" class="bl-gbk__name" maxlength="40" placeholder="z.B. Lina">
+  </label>
+  <label class="bl-gbk__feld">Dein Wunschtext für die Karte
+    <textarea class="bl-gbk__text" maxlength="200" rows="3" placeholder="z.B. Frohe Weihnachten, kleine Lina! Dein Gotti"></textarea>
+    <small class="bl-gbk__zaehler">0 / 200</small>
+  </label>
+
+  <div class="bl-gbk__summe">
+    <span>Sets: <strong class="bl-gbk__s-sets">–</strong></span>
+    <span>Geschenkbox, Karte und Einpacken: <strong>{{ box_variant.price | money }}</strong></span>
+    <span class="bl-gbk__total">Total: <strong class="bl-gbk__s-total">{{ box_variant.price | money }}</strong></span>
+  </div>
+  <button type="button" class="button bl-gbk__knopf">Box in den Warenkorb</button>
+  <p class="bl-gbk__fehler" role="alert" hidden></p>
+</div>
+
+<style>
+  .bl-gbk { display: grid; gap: 14px; }
+  .bl-gbk__schritt { font-weight: 700; margin: 8px 0 0; }
+  .bl-gbk__hinweis { margin: 0; opacity: .75; font-size: .92em; }
+  .bl-gbk__raster { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  @media (min-width: 990px) { .bl-gbk__raster { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .bl-gbk__set { border: 1px solid rgb(0 0 0 / .12); border-radius: 8px; padding: 8px; display: grid; gap: 6px; background: #fff; }
+  .bl-gbk__set.ist-gewaehlt { border-color: #233029; box-shadow: 0 0 0 1px #233029; }
+  .bl-gbk__wahl { display: grid; gap: 4px; cursor: pointer; position: relative; }
+  .bl-gbk__wahl input { position: absolute; top: 6px; left: 6px; width: 20px; height: 20px; accent-color: #233029; }
+  .bl-gbk__wahl img { width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; background: #fff; }
+  .bl-gbk__titel { font-size: .85em; line-height: 1.3; }
+  .bl-gbk__preis { font-size: .85em; font-weight: 700; }
+  .bl-gbk__variante { width: 100%; padding: 6px; font-size: .85em; }
+  .bl-gbk__zeile { display: flex; gap: 8px; align-items: center; }
+  .bl-gbk__feld { display: grid; gap: 4px; }
+  .bl-gbk__feld input, .bl-gbk__feld textarea { width: 100%; padding: 10px; font: inherit; border: 1px solid rgb(0 0 0 / .25); border-radius: 6px; }
+  .bl-gbk__zaehler { opacity: .6; justify-self: end; }
+  .bl-gbk__summe { display: grid; gap: 4px; padding: 12px; background: #f6f0e8; border-radius: 8px; }
+  .bl-gbk__total { font-size: 1.1em; }
+  .bl-gbk__knopf { width: 100%; }
+  .bl-gbk__fehler { color: #a3262a; margin: 0; }
+</style>
+
+<script>
+  (() => {
+    const root = document.currentScript.previousElementSibling.previousElementSibling;
+    if (!root || !root.classList.contains('bl-gbk')) return;
+    const waehrung = root.dataset.currency || 'CHF';
+    const boxPreis = Number(root.dataset.boxPreis || root.dataset.boxPrice || 0);
+    const geld = (c) => `${waehrung} ${(c / 100).toFixed(2)}`;
+    const sets = [...root.querySelectorAll('.bl-gbk__set')];
+    const text = root.querySelector('.bl-gbk__text');
+    const fehler = root.querySelector('.bl-gbk__fehler');
+
+    function gewaehlt() {
+      return sets.filter((s) => s.querySelector('.bl-gbk__check').checked).map((s) => {
+        const opt = s.querySelector('.bl-gbk__variante').selectedOptions[0];
+        return { id: Number(opt.value), preis: Number(opt.dataset.preis), name: s.dataset.titel, groesse: opt.textContent.trim() };
+      });
+    }
+
+    function rechnen() {
+      const g = gewaehlt();
+      const summe = g.reduce((a, x) => a + x.preis, 0);
+      sets.forEach((s) => s.classList.toggle('ist-gewaehlt', s.querySelector('.bl-gbk__check').checked));
+      root.querySelector('.bl-gbk__s-sets').textContent = g.length ? `${g.length} · ${geld(summe)}` : '–';
+      root.querySelector('.bl-gbk__s-total').textContent = geld(summe + boxPreis);
+    }
+
+    root.addEventListener('change', rechnen);
+    text.addEventListener('input', () => { root.querySelector('.bl-gbk__zaehler').textContent = `${text.value.length} / 200`; });
+
+    root.querySelector('.bl-gbk__knopf').addEventListener('click', async (e) => {
+      const g = gewaehlt();
+      fehler.hidden = true;
+      if (!g.length) { fehler.textContent = 'Bitte wähle mindestens ein Set für die Box.'; fehler.hidden = false; return; }
+      const nr = `GB-${Date.now().toString(36).toUpperCase()}`;
+      const name = root.querySelector('.bl-gbk__name').value.trim();
+      const wunsch = text.value.trim();
+      const boxEig = { 'Inhalt': g.map((x) => `${x.name} (${x.groesse})`).join('; '),
+                       'Karte': root.querySelector('.bl-gbk__karte').checked ? 'Ja' : 'Nein', '_Geschenkbox': nr };
+      if (name) boxEig['Name'] = name;
+      if (wunsch) boxEig['Wunschtext'] = wunsch;
+      const items = g.map((x) => ({ id: x.id, quantity: 1, properties: { '_Geschenkbox': nr } }));
+      items.push({ id: Number(root.dataset.boxVariant), quantity: 1, properties: boxEig });
+      const knopf = e.currentTarget; knopf.disabled = true;
+      try {
+        const basis = (window.Shopify && window.Shopify.routes && window.Shopify.routes.root) || '/';
+        const r = await fetch(`${basis}cart/add.js`, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ items }) });
+        if (!r.ok) { const d = await r.json().catch(() => ({})); throw new Error(d.description || 'Das hat nicht geklappt.'); }
+        window.location.href = `${basis}cart`;
+      } catch (err) {
+        fehler.textContent = err.message; fehler.hidden = false; knopf.disabled = false;
+      }
+    });
+    rechnen();
+  })();
+</script>
