@@ -2,7 +2,8 @@
 
 Je Box: Karussell-Karte 1:1 (Foto links, rechts schmales Feld mit Logo senkrecht, «FERTIG VERPACKT», «mit
 Weihnachtskarte», unten Versandversprechen), Feed 4:5 und Story 9:16 (Foto oben, Feld unten). Oben links das
-schwarze Preis-Etikett. Dazu die personalisierte Box («Stell Deine Box selbst zusammen», Etikett «Box + CHF 15»)
+schwarze Preis-Etikett. Dazu die personalisierte Box («Stell Deine Box selbst zusammen», ohne Preis-Etikett: der Preis
+entsteht erst aus der Auswahl der Kundin)
 und eine Uebersicht aller Boxen als Einstieg ins Karussell.
 Fotos: `posts/kampagne-weihnachtsbox/fotos` (Real-ESRGAN, 2272 px), personalisierte Box: `personalisiert/`.
 
@@ -58,6 +59,8 @@ def flaeche(im, W, H, foto=True):
 
 
 def badge(c, xy, text, k=1.0):
+    if not text:
+        return
     d = ImageDraw.Draw(c); f = IN('SemiBold', 44 * k)
     w = d.textlength(text, font=f); x, y = xy; h = 76 * k; pw = 26 * k
     d.rounded_rectangle([x, y, x + w + 2 * pw, y + h], radius=14 * k, fill=INK)
@@ -136,8 +139,8 @@ if __name__ == '__main__':
         story(im, f'CHF {preis}', f'Geschenkbox «{name}»', f'{inhalt}  ·  mit Weihnachtskarte').save(os.path.join(out, f'story_{k}_9x16.jpg'), quality=94)
         print(k)
     pim = Image.open(os.path.join(camp, 'personalisiert', 'geschenkbox-personalisiert.jpg')).convert('RGB')
-    karte(pim, 'Box + CHF 15', zeilen=('DEINE', 'AUSWAHL'), klein='Name + Wunschtext').save(os.path.join(out, 'karussell_personalisiert_1x1.jpg'), quality=94)
-    feed(pim, 'Box + CHF 15', 'Stell Deine Box selbst zusammen', 'Sets wählen · Name & Wunschtext auf der Karte').save(os.path.join(out, 'feed_personalisiert_4x5.jpg'), quality=94)
-    story(pim, 'Box + CHF 15', 'Stell Deine Box selbst zusammen', 'Sets wählen · Name & Wunschtext').save(os.path.join(out, 'story_personalisiert_9x16.jpg'), quality=94)
+    karte(pim, None, zeilen=('DEINE', 'AUSWAHL'), klein='Name + Wunschtext').save(os.path.join(out, 'karussell_personalisiert_1x1.jpg'), quality=94)
+    feed(pim, None, 'Stell Deine Box selbst zusammen', 'Sets wählen · Name & Wunschtext auf der Karte').save(os.path.join(out, 'feed_personalisiert_4x5.jpg'), quality=94)
+    story(pim, None, 'Stell Deine Box selbst zusammen', 'Sets wählen · Name & Wunschtext').save(os.path.join(out, 'story_personalisiert_9x16.jpg'), quality=94)
     uebersicht().save(os.path.join(out, 'karussell_00_uebersicht_1x1.jpg'), quality=94)
     print('fertig')

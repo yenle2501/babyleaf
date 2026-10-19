@@ -78,7 +78,7 @@ CHF 5–10/Tag. Advantage+-Zielgruppe, Schweiz, 25–65. Placements Advantage+ (
 
 > Noch kein Geschenk fürs Gottikind? Unsere Weihnachts-Geschenkboxen kommen fertig verpackt, mit Karte, in 1–2 Werktagen. Gratisversand ab CHF 50.
 
-> Stell Deine eigene Geschenkbox zusammen: Sets wählen, Grösse wählen, Name und Wunschtext auf die Karte – wir packen alles liebevoll ein. Box, Karte und Einpacken CHF 15.
+> Stell Deine eigene Geschenkbox zusammen: Sets wählen, Grösse wählen, Name und Wunschtext auf die Karte – wir packen alles liebevoll ein. Der Preis ergibt sich aus Deiner Auswahl.
 
 > Zwei Gottikinder? Mit zwei Boxen ist der Versand gratis.
 
