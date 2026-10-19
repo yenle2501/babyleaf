@@ -98,3 +98,13 @@ Neues Snippet `theme/snippets/bl-bewertungen-kurz.liquid`, als Block «Bewertung
 von `templates/product.json` (nach Preis und Versandinfo, vor Grösse und Warenkorb). Zeigt bis zu 3 Judge.me-Bewertungen
 als Karten (Handy: seitlich wischen) und «Alle N Bewertungen lesen», das zum ausführlichen Bewertungs-Abschnitt unten springt.
 Ohne Bewertungen erscheint nichts. Vorschau: `theme/bewertungen_vorschau_*.png`.
+
+## Live geschaltet (19.10.2026, auf Wunsch der Nutzerin)
+
+- Alle 8 Boxen haben jetzt Fotos ohne Satinband (Dinosaur, Little One, I like flying neu aus Canva). Hauptbild und Foto
+  der Box in Shopify ersetzt (gleiche Medien-IDs, neue Datei).
+- Alle 9 Produkte (8 Boxen + personalisierte Box) sind **aktiv** und im Onlineshop veröffentlicht. Sie stehen in der
+  Kollektion «Geschenkboxen» (`/collections/geschenkboxen`) und sind über Suche und Link auch im Live-Shop erreichbar.
+  Der Menüpunkt «Geschenkboxen» erscheint im Live-Shop erst mit Theme FINAL 107.
+- Achtung Lager: Box-Bestand ist nicht mit dem Set-Bestand verknüpft (Boxen je 2 pro Grösse). Nach jeder Box-Bestellung
+  die enthaltenen Sets von Hand abbuchen oder die Shopify-Bundles-App nutzen.
