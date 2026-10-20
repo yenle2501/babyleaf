@@ -36,3 +36,4 @@ prinzessin_krone Handyfoto-Stil ; MAHYlp-Js8Q
 rosa Handyfoto-Stil ; MAHYl2NkNIA
 smile_gruen Handyfoto-Stil ; MAHYl3ppF50
 teddy_rosa_punkte Handyfoto-Stil ; MAHYl8epvIc
+wal_blau Handyfoto-Stil ; MAHYl0donDs
