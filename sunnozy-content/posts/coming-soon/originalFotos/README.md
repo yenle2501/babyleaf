@@ -51,3 +51,5 @@ Zu «Little Princess» Wickelbody-Set, Gerippt beige, «Sweet Home» und Kätzch
 | Weltall hellblau «Little one», 8 Teile (Studio) | Kapuzentuch, Body mit Planet, Strampler, Mütze «You are my universe», Söckchen, Rassel Sonne, Fäustlinge, Lätzchen |
 | Wal «Sea vibes» hellblau, 8 Teile (gibt es schon als `set_wal_blau`) | Kapuzentuch «Just swimming», Body, Strampler, Knotenmütze, Schmusetuch Wal, Söckchen, Fäustlinge, Lätzchen Wal |
 | Dino «Cool Dude» creme, 6 Teile (Studio) | Kapuzentuch «Here comes trouble», Strampler, Body, Fusshose, Dino-Mütze, Lätzchen |
+| Bauernhof «Happy Baby», 7 Teile (gibt es schon als `set_bauernhof`) | Kapuzentuch, Body, Strampler, Knotenmütze, Rassel Kuh, Fäustlinge, Lätzchen «Hi Friends» |
+| Hase lila «little and cute», 6 Teile (Studio) | Kapuzentuch mit Spitze, Strampler mit Spitzenkragen, Body lila, Fusshose, Knotenmütze, Lätzchen |
