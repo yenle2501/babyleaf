@@ -9,6 +9,10 @@ Lieferantenfotos, so wie Du sie geschickt hast (nur von WebP in JPG umgewandelt)
 | `eisbaer_tannen_taupe_flatlay.jpg` | Eisbär, Taupe mit Tannen | Strampler taupe mit Tannen, Kurzarm-Body creme mit Eisbär und Bärchen «I love you mommy», Knotenmütze taupe mit Tannen, Fäustlinge taupe mit Tannen, Lätzchen creme mit Bärchen-Etikett |
 | `waldbaer_creme_flatlay.jpg` | Waldbär, Creme mit Bären und Tannen | Strampler creme mit Wald-Print, gerippter Kurzarm-Body mit Bär und Tanne, Mütze mit Wald-Print, Fäustlinge mit Wald-Print, gerippter Lätzchen «Little Bear» |
 | `waldbaer_creme_verpackung.jpg` | dasselbe Set in der Verpackung (Vorder- und Rückseite) | |
+| `princess_rosa_karo_teddy_flatlay.jpg` | «Princess» rosa mit Teddy (ist schon im Shop als «Princess») | Kapuzentuch «Princess», Body mit Perlenkette, Strampler rosa kariert mit Spitzenkragen, Mütze mit Öhrchen, Fäustlinge, Söckchen, Rassel Teddy, Lätzchen |
+| `teddybaer_creme_flatlay.jpg` | «Teddybär» creme (ist schon im Shop als «Teddybär») | Kapuzentuch, Body, Strampler, Knotenmütze, Söckchen, Beissring, Rassel Teddy, Fäustlinge, Lätzchen |
+| `best_family_teddy_flatlay_1.jpg`, `_2.jpg` | «Best family» Teddy beige/creme (gibt es schon unter `../../produktfotos-set-praesentation/`) | Kapuzentuch, Body, Strampler, Mütze mit Öhrchen, Fäustlinge, Söckchen, Rassel Teddy, Lätzchen |
+| `hase_rosa_giesskanne_flatlay.jpg` | Hase rosa «I love Mummy» / «little one» (gibt es schon als `set_hase_rosa`) | Kapuzentuch, Body mit Giesskanne, Strampler mit Hasen-Print, Knotenmütze, Fäustlinge, Söckchen, Rassel Hase, Lätzchen |
 
 ## Noch nicht gespeichert (bitte nochmals schicken)
 
@@ -34,7 +38,6 @@ Diese Fotos kamen während einer laufenden Antwort und liegen deshalb nicht als 
 | Strampler 3er-Set Kirschen | weinrot gerippt «Smile» (Rücken «i love my mummy»), altrosa «You are the best», weiss mit Kirschen |
 | «I love you Dad», hellblau | Wickelbody mit Schnurrbart, Fusshose mit Fliegen und Hüten, Knotenmütze |
 | «Cute Bear» rosa gerippt | Wickelbody mit zwei Teddys, Fusshose creme mit Teddys, Knotenmütze |
-| «Best family» Teddy, beige/creme, 8 Teile (gibt es schon unter `../../produktfotos-set-praesentation/`) | Kapuzentuch, Body, Strampler, Mütze mit Öhrchen, Fäustlinge, Söckchen, Rassel Teddy, Lätzchen |
 | «Hello» Schmetterling rosa gerippt (ist schon im Shop als «Hello» mit Spitze) | Kapuzentuch, Strampler, Body mit Spitzenkragen, Fusshose, Häubchen, Lätzchen |
 
 Zu «Little Princess» Wickelbody-Set, Gerippt beige, «Sweet Home» und Kätzchen/Tulpen gibt es je ein zweites Foto (Studio, heller Grund).
