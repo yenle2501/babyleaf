@@ -29,3 +29,4 @@ hello_world_blatt Handyfoto-Stil ; MAHYlQZZbdA
 hello_world_creme Handyfoto-Stil ; MAHYleLrtSk
 hund_creme Handyfoto-Stil ; MAHYlc64k2o
 lila_hase Handyfoto-Stil ; MAHYlZfyrJE
+little_and_loved_gans_rosa Handyfoto-Stil ; MAHYluDhTsQ
