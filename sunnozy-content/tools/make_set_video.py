@@ -11,6 +11,7 @@ Look nach dem sunnozy-Designsystem (Creme, Waldgruen, Fraunces, Nunito Sans, eck
 
 Aufruf: python3 make_set_video.py <clip.mp4> <ausgabe-ohne-endung> [--set=gaensebluemchen] [--preis=30.40]
 --set: Schluessel aus SETS (Standard little_princess)
+--kamera=schwenk|mitte, --etikett_4x5=oben_rechts|mitte|unten: Einstellung des Sets fuer diesen Clip ueberschreiben
 --preis: Set ist im Shop -> Preis statt «Coming soon»
 Erzeugt <ausgabe>_9x16.mp4, <ausgabe>_4x5.mp4 und je ein _standbild.jpg.
 """
@@ -146,6 +147,8 @@ def video(clip, W, H, preis, pfad, vorschau=None, st=SETS['little_princess']):
     # Instagram-Fusszeile), 4:5 oben rechts auf dem Bettlaken
     if hoch:
         pos_etikett = (W / 2, 1250)
+    elif st['etikett_4x5'] == 'mitte':
+        pos_etikett = (W / 2, H * 0.58)
     elif st['etikett_4x5'] == 'unten':
         pos_etikett = (W / 2, H - 60 * k - 80 * k)
     else:
@@ -242,7 +245,10 @@ def video(clip, W, H, preis, pfad, vorschau=None, st=SETS['little_princess']):
 if __name__ == '__main__':
     clip, out = sys.argv[1:3]
     preis = next((a.split('=')[1] for a in sys.argv[3:] if a.startswith('--preis=')), '')
-    st = SETS[next((a.split('=')[1] for a in sys.argv[3:] if a.startswith('--set=')), 'little_princess')]
+    st = dict(SETS[next((a.split('=')[1] for a in sys.argv[3:] if a.startswith('--set=')), 'little_princess')])
+    for a in sys.argv[3:]:                       # pro Clip anpassbar: --kamera=mitte, --etikett_4x5=unten
+        if a.startswith('--kamera=') or a.startswith('--etikett_4x5='):
+            key, val = a[2:].split('='); st[key] = val
     os.makedirs(os.path.dirname(out) or '.', exist_ok=True)
     video(clip, 1080, 1920, preis, out + '_9x16', st=st)
     video(clip, 1080, 1350, preis, out + '_4x5', st=st)
