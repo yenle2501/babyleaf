@@ -62,3 +62,12 @@ Nicht geprüft: echte Darstellung im Browser, Checkout und Zahlungsarten, Ladeze
   - **Abgeschwächter Bildschleier** (damit das helle Set-Bild nicht verblasst): wandert mit dem Set-Bild auf Slide 1.
   - Vorschau: https://sunnozy.ch/?preview_theme_id=207454601559 (Screenshots `vorschau-final-107-*.png`)
 - **Kollektions- und Produkttexte** auf «%», «Rabatt» und «Aktion» geprüft: kein Sale-Text gefunden.
+
+## Umgesetzt am 20.10.2026
+
+- **Personalisierte Geschenkbox in FINAL 107 versteckt** (nur dieses Theme, Live-Theme 106 unverändert):
+  - Neues Snippet `snippets/bl-geschenkbox-versteckt.liquid` blendet die Produktkarte «Personalisierte Geschenkbox» überall aus: Kollektionen (auch Geschenkboxen), Suche, Empfehlungen, Karussells.
+  - Eingebunden über eine Zeile am Ende von `snippets/bl-dropdown-pfeil.liquid`.
+  - Das Produkt selbst bleibt aktiv. Die Seite /products/personalisierte-geschenkbox ist per direktem Link weiterhin erreichbar, der Warenkorb-Code für Boxen bleibt drin.
+  - Die 8 Weihnachts-Geschenkboxen und der Menüpunkt «Geschenkboxen» bleiben sichtbar.
+  - **Wieder einblenden:** die Render-Zeile in `bl-dropdown-pfeil.liquid` löschen.
