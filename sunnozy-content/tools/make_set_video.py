@@ -9,7 +9,8 @@ Ablauf (ca. 14 s, stumm, Ton waehlst Du in Instagram):
    Ohne Preis ist das Set noch nicht im Shop: dann Stempel «COMING SOON» und «Bald auf sunnozy.ch».
 Look nach dem sunnozy-Designsystem (Creme, Waldgruen, Fraunces, Nunito Sans, eckige Kacheln, keine Emojis).
 
-Aufruf: python3 make_set_video.py <clip.mp4> <ausgabe-ohne-endung> [--preis=30.40]
+Aufruf: python3 make_set_video.py <clip.mp4> <ausgabe-ohne-endung> [--set=gaensebluemchen] [--preis=30.40]
+--set: Schluessel aus SETS (Standard little_princess)
 --preis: Set ist im Shop -> Preis statt «Coming soon»
 Erzeugt <ausgabe>_9x16.mp4, <ausgabe>_4x5.mp4 und je ein _standbild.jpg.
 """
@@ -23,12 +24,21 @@ FONT = lambda n: os.path.join(ROOT, 'fonts', n)
 CREME, WALD, KACHEL, SALBEI, GRAU = (253, 252, 250), (35, 48, 41), (244, 239, 232), (122, 139, 111), (110, 118, 113)
 FPS = 30
 
-# Set «Little Princess» mit Krone (noch nicht im Shop, darum ohne Preis, solange keiner angegeben ist)
-SET_TITEL = '«Little Princess»'
-SET_BILD = os.path.join(POSTS, 'produktfotos-set-praesentation', 'ki-roh', 'set_prinzessin_krone_quadratisch.jpg')
-ET = os.path.join(POSTS, 'marktplatz-galaxus-amazon', 'einzelteile', 'set_prinzessin_krone')
-TEILE = [('kapuzentuch', 'Kapuzentuch'), ('strampler', 'Strampler'), ('body', 'Body'), ('muetze', 'Mütze'),
-         ('schmusetuch', 'Schmusetuch'), ('laetzchen', 'Lätzchen'), ('socken', 'Söckchen'), ('faeustlinge', 'Fäustlinge')]
+# Sets (noch nicht im Shop, darum «Coming soon», solange kein Preis angegeben ist).
+# kamera 'schwenk': 9:16-Ausschnitt faehrt von links nach rechts (Baby -> Schmusetuch); 'mitte': fester Ausschnitt
+# in der Mitte mit leichtem Zoom. etikett_4x5 'oben_rechts' oder 'unten' (je nachdem, wo das Gesicht nicht ist).
+SETS = {
+    'little_princess': dict(
+        titel='«Little Princess»', ordner='set_prinzessin_krone', kamera='schwenk', etikett_4x5='oben_rechts',
+        teile=[('kapuzentuch', 'Kapuzentuch'), ('strampler', 'Strampler'), ('body', 'Body'), ('muetze', 'Mütze'),
+               ('schmusetuch', 'Schmusetuch'), ('laetzchen', 'Lätzchen'), ('socken', 'Söckchen'), ('faeustlinge', 'Fäustlinge')]),
+    'gaensebluemchen': dict(
+        titel='«Gänseblümchen»', ordner='set_gaensebluemchen', kamera='mitte', etikett_4x5='unten',
+        teile=[('kapuzentuch', 'Kapuzentuch'), ('strampler', 'Strampler'), ('body', 'Body'), ('muetze', 'Mütze'),
+               ('rassel', 'Rassel'), ('laetzchen', 'Lätzchen'), ('socken', 'Söckchen'), ('faeustlinge', 'Fäustlinge')]),
+}
+SET_BILD = lambda st: os.path.join(POSTS, 'produktfotos-set-praesentation', 'ki-roh', st['ordner'] + '_quadratisch.jpg')
+ET = lambda st: os.path.join(POSTS, 'marktplatz-galaxus-amazon', 'einzelteile', st['ordner'])
 
 T_CLIP, T_SET, T_TEIL, T_END = 6.0, 1.7, 0.45, 2.8
 
@@ -119,12 +129,13 @@ def etikett(c, mitte, zeile1, zeile2, u, W):
     c.paste(Image.alpha_composite(c.convert('RGBA'), lay).convert('RGB'))
 
 
-def video(clip, W, H, preis, pfad, vorschau=None):
+def video(clip, W, H, preis, pfad, vorschau=None, st=SETS['little_princess']):
+    SET_TITEL = st['titel']
     frames = clip_frames(clip)
     fh, fw = frames.shape[1:3]
     hoch = H / W > fh / fw                       # 9:16: Ausschnitt schmaler als der Clip -> Schwenk
-    set_bild = Image.open(SET_BILD).convert('RGB')
-    teile = [(freistellen(os.path.join(ET, f'set_prinzessin_krone_{n}.jpg')), lab) for n, lab in TEILE]
+    set_bild = Image.open(SET_BILD(st)).convert('RGB')
+    teile = [(freistellen(os.path.join(ET(st), f"{st['ordner']}_{n}.jpg")), lab) for n, lab in st['teile']]
     n = len(teile)
     t_set = T_CLIP + 0.35; t_teile = t_set + T_SET; t_end = t_teile + n * T_TEIL + 0.3
     dauer = t_end + T_END
@@ -133,7 +144,12 @@ def video(clip, W, H, preis, pfad, vorschau=None):
     boxes = raster(n, W, oben + 210 * k, H - (640 if hoch else 230) * k, pro=3 if hoch else 4)
     # Etikett auf dem Video: nie ueber dem Babygesicht. 9:16 ueber den Beinen (unter dem Gesicht, ueber der
     # Instagram-Fusszeile), 4:5 oben rechts auf dem Bettlaken
-    pos_etikett = (W / 2, 1250) if hoch else (W - 50 * k - 310 * k, 30 * k + 80 * k)
+    if hoch:
+        pos_etikett = (W / 2, 1250)
+    elif st['etikett_4x5'] == 'unten':
+        pos_etikett = (W / 2, H - 60 * k - 80 * k)
+    else:
+        pos_etikett = (W - 50 * k - 310 * k, 30 * k + 80 * k)
 
     def clip_bild(t):
         a = frames[min(len(frames) - 1, int(t * FPS))]
@@ -141,8 +157,12 @@ def video(clip, W, H, preis, pfad, vorschau=None):
         if hoch:
             cw = fh * W / H
             u = ease(t / T_CLIP) if t < T_CLIP else 1
-            x = 0.02 * fw + u * (fw - cw - 0.02 * fw)          # vom Baby zum Schmusetuch
-            im = im.crop((round(x), 0, round(x + cw), fh))
+            if st['kamera'] == 'schwenk':
+                x = 0.02 * fw + u * (fw - cw - 0.02 * fw)      # vom Baby zum Schmusetuch
+                im = im.crop((round(x), 0, round(x + cw), fh))
+            else:                                             # Mitte, langsam 6 % naeher
+                z = 1 + 0.06 * u; w2, h2 = cw / z, fh / z
+                im = im.crop((round((fw - w2) / 2), round((fh - h2) * 0.3), round((fw + w2) / 2), round((fh - h2) * 0.3 + h2)))
         else:
             ch = fw * H / W
             y = (fh - ch) / 2
@@ -222,6 +242,7 @@ def video(clip, W, H, preis, pfad, vorschau=None):
 if __name__ == '__main__':
     clip, out = sys.argv[1:3]
     preis = next((a.split('=')[1] for a in sys.argv[3:] if a.startswith('--preis=')), '')
+    st = SETS[next((a.split('=')[1] for a in sys.argv[3:] if a.startswith('--set=')), 'little_princess')]
     os.makedirs(os.path.dirname(out) or '.', exist_ok=True)
-    video(clip, 1080, 1920, preis, out + '_9x16')
-    video(clip, 1080, 1350, preis, out + '_4x5')
+    video(clip, 1080, 1920, preis, out + '_9x16', st=st)
+    video(clip, 1080, 1350, preis, out + '_4x5', st=st)

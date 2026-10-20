@@ -20,8 +20,8 @@ Alle Videos sind 14,8 s lang und stumm, den Sound wählst Du in Instagram. `*_st
 ## Vor dem Posten prüfen
 
 - **Coming soon:** Das Set ist noch nicht in Shopify, darum steht «Coming soon» statt eines Preises im Video. Sobald es im Shop ist, mit Preis neu erzeugen (dann steht «Neu bei sunnozy» und der Preis statt «Coming soon»):
-  `python3 tools/make_set_video.py posts/neues-set-little-princess/original/baby_clip_a.mp4 posts/neues-set-little-princess/reel_little_princess_a --preis=30.40` (für b und c gleich)
-- **Name:** Im Shop gibt es schon «Princess» (rosa, Teddy). «Little Princess» steht so auf dem Lätzchen. Wenn das neue Set im Shop anders heisst, `SET_TITEL` in `tools/make_set_video.py` anpassen.
+  `python3 tools/make_set_video.py posts/neues-set-little-princess/original/baby_clip_a.mp4 posts/neues-set-little-princess/reel_little_princess_a --set=little_princess --preis=30.40` (für b und c gleich)
+- **Name:** Im Shop gibt es schon «Princess» (rosa, Teddy). «Little Princess» steht so auf dem Lätzchen. Wenn das neue Set im Shop anders heisst, `titel` in `SETS` in `tools/make_set_video.py` anpassen.
 - **KI-Video:** Das Baby ist KI-generiert. Der Body im Video hat die Schleife, aber nicht die Schrift «Make a Wish» wie der echte Body. Instagram und Facebook verlangen bei realistisch wirkenden KI-Videos die Kennzeichnung: beim Posten «KI-Info» bzw. «Mit KI erstellt» einschalten. Im Video selbst steht kein Hinweis.
 - Die Holzkarte «1 Monat» stammt aus dem Clip und gehört nicht zum Set.
 
