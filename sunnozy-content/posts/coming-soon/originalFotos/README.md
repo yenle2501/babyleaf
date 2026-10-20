@@ -13,6 +13,11 @@ Lieferantenfotos, so wie Du sie geschickt hast (nur von WebP in JPG umgewandelt)
 | `teddybaer_creme_flatlay.jpg` | «Teddybär» creme (ist schon im Shop als «Teddybär») | Kapuzentuch, Body, Strampler, Knotenmütze, Söckchen, Beissring, Rassel Teddy, Fäustlinge, Lätzchen |
 | `best_family_teddy_flatlay_1.jpg`, `_2.jpg` | «Best family» Teddy beige/creme (gibt es schon unter `../../produktfotos-set-praesentation/`) | Kapuzentuch, Body, Strampler, Mütze mit Öhrchen, Fäustlinge, Söckchen, Rassel Teddy, Lätzchen |
 | `hase_rosa_giesskanne_flatlay.jpg` | Hase rosa «I love Mummy» / «little one» (gibt es schon als `set_hase_rosa`) | Kapuzentuch, Body mit Giesskanne, Strampler mit Hasen-Print, Knotenmütze, Fäustlinge, Söckchen, Rassel Hase, Lätzchen |
+| `hase_rosa_giesskanne_studio.jpg` | Hase rosa, zweites Foto (Studio) | wie oben |
+| `gaensebluemchen_apricot_beautiful_buegel.jpg` | Gänseblümchen apricot «Beautiful», 3 Teile | Wickelbody apricot mit Rüschen und Schleife, Fusshose mit Gänseblümchen, Mütze mit Gänseblümchen |
+| `blumen_musselin_buegel.jpg` | Blumen Musselin, 3 Teile | Wickelbody Musselin mit Streublumen, Fusshose Musselin, Haarband mit Schleife (Holzring ist Deko) |
+| `weltall_hellblau_little_one_buegel.jpg` | Weltall hellblau «Little one», 3 Teile | Wickelbody hellblau gerippt mit Planet, Fusshose weiss mit Weltall-Print, Knotenmütze |
+| `born_in_2027_rosa_flatlay.jpg` | «Born in 2027» rosa, 6 Teile | Kapuzentuch, Strampler rosa mit Heissluftballons, Body «Born in 2027», Fusshose, Knotenmütze, Lätzchen |
 
 ## Noch nicht gespeichert (bitte nochmals schicken)
 
