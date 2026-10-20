@@ -1,7 +1,7 @@
 """Set-Video aus einem Baby-Clip (z.B. Grok-KI-Video, 848x1072, 10 s) fuer ein neues Set: Reel 9:16 und Feed 4:5.
 
 Ablauf (ca. 14 s, stumm, Ton waehlst Du in Instagram):
-1. Baby-Clip, 6 s. Ein Creme-Etikett «COMING SOON» (oder «NEU BEI SUNNOZY» mit Preis) + Setname, ab 3,2 s «Für die ersten Wochen».
+1. Baby-Clip, 6 s (oder mehrere Clips hintereinander, je ein Etikett). Ein Creme-Etikett «COMING SOON» (oder «NEU BEI SUNNOZY» mit Preis) + Setname, ab 3,2 s «Für die ersten Wochen».
    Im 9:16 faehrt der Ausschnitt langsam vom Baby zum Schmusetuch (der Clip ist breiter als 9:16).
 2. Das ganze Set (Praesentationsbild) mit «Was steckt drin?».
 3. Die Teile erscheinen nacheinander als Kacheln mit Namen und Zaehler.
@@ -9,8 +9,10 @@ Ablauf (ca. 14 s, stumm, Ton waehlst Du in Instagram):
    Ohne Preis ist das Set noch nicht im Shop: dann Stempel «COMING SOON» und «Bald auf sunnozy.ch».
 Look nach dem sunnozy-Designsystem (Creme, Waldgruen, Fraunces, Nunito Sans, eckige Kacheln, keine Emojis).
 
-Aufruf: python3 make_set_video.py <clip.mp4> <ausgabe-ohne-endung> [--set=gaensebluemchen] [--preis=30.40]
+Aufruf: python3 make_set_video.py <clip.mp4[,clip2.mp4...]> <ausgabe-ohne-endung> [--set=gaensebluemchen] [--preis=30.40]
 --set: Schluessel aus SETS (Standard little_princess)
+Mehrere Clips (kommagetrennt) werden mit Ueberblendung aneinandergehaengt, je clip.mp4:start:dauer:kamera:etikett_4x5,
+z.B. d.mp4:3:5:mitte:mitte,c.mp4:0.5:5.5:schwenk:oben_rechts
 --kamera=schwenk|mitte, --etikett_4x5=oben_rechts|mitte|unten: Einstellung des Sets fuer diesen Clip ueberschreiben
 --preis: Set ist im Shop -> Preis statt «Coming soon»
 Erzeugt <ausgabe>_9x16.mp4, <ausgabe>_4x5.mp4 und je ein _standbild.jpg.
@@ -106,12 +108,12 @@ def kachel(c, im, lab, box, alpha=1.0, skala=1.0, schrift=24):
         d.text((x + w / 2, y + h - lh / 2 - 2), lab, font=f('nunitosans-600.ttf', schrift), fill=WALD, anchor='mm')
 
 
-def clip_frames(pfad):
-    """Alle Frames des Clips als RGB-Arrays (auf 30 fps gebracht)."""
+def clip_frames(pfad, start=0.0, dauer=T_CLIP):
+    """Frames des Clips ab `start` fuer `dauer` Sekunden als RGB-Arrays (auf 30 fps gebracht)."""
     p = subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height',
                         '-of', 'csv=p=0', pfad], capture_output=True, text=True, check=True)
     w, h = map(int, p.stdout.strip().split(',')[:2])
-    raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', pfad, '-t', str(T_CLIP + 0.2), '-vf', f'fps={FPS}',
+    raw = subprocess.run(['ffmpeg', '-v', 'error', '-ss', str(start), '-i', pfad, '-t', str(dauer + 0.2), '-vf', f'fps={FPS}',
                           '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], capture_output=True, check=True).stdout
     return np.frombuffer(raw, np.uint8).reshape(-1, h, w, 3)
 
@@ -130,37 +132,52 @@ def etikett(c, mitte, zeile1, zeile2, u, W):
     c.paste(Image.alpha_composite(c.convert('RGBA'), lay).convert('RGB'))
 
 
-def video(clip, W, H, preis, pfad, vorschau=None, st=SETS['little_princess']):
+XF = 0.5                                         # Ueberblendung zwischen zwei Clips (s)
+
+
+def video(clips, W, H, preis, pfad, vorschau=None, st=SETS['little_princess']):
+    """clips: Pfad eines Clips oder Liste von dicts {pfad, start, dauer, kamera, etikett_4x5} (werden mit
+    Ueberblendung aneinandergehaengt; kamera/etikett_4x5 fehlen -> Einstellung des Sets)."""
     SET_TITEL = st['titel']
-    frames = clip_frames(clip)
-    fh, fw = frames.shape[1:3]
+    if isinstance(clips, str):
+        clips = [dict(pfad=clips)]
+    k = W / 1080
+    segs, t0 = [], 0.0
+    for cl in clips:
+        dauer = cl.get('dauer', T_CLIP)
+        fr = clip_frames(cl['pfad'], cl.get('start', 0.0), dauer)
+        segs.append(dict(frames=fr, t0=t0, dauer=dauer, kamera=cl.get('kamera', st['kamera']),
+                         etikett=cl.get('etikett_4x5', st['etikett_4x5'])))
+        t0 += dauer - XF
+    T_VIDEO = t0 + XF
+    fh, fw = segs[0]['frames'].shape[1:3]
     hoch = H / W > fh / fw                       # 9:16: Ausschnitt schmaler als der Clip -> Schwenk
     set_bild = Image.open(SET_BILD(st)).convert('RGB')
     teile = [(freistellen(os.path.join(ET(st), f"{st['ordner']}_{n}.jpg")), lab) for n, lab in st['teile']]
     n = len(teile)
-    t_set = T_CLIP + 0.35; t_teile = t_set + T_SET; t_end = t_teile + n * T_TEIL + 0.3
+    t_set = T_VIDEO + 0.35; t_teile = t_set + T_SET; t_end = t_teile + n * T_TEIL + 0.3
     dauer = t_end + T_END
-    k = W / 1080
     oben = 300 if hoch else 70                   # 9:16: Instagram-Kopfzeile frei lassen
     boxes = raster(n, W, oben + 210 * k, H - (640 if hoch else 230) * k, pro=3 if hoch else 4)
-    # Etikett auf dem Video: nie ueber dem Babygesicht. 9:16 ueber den Beinen (unter dem Gesicht, ueber der
-    # Instagram-Fusszeile), 4:5 oben rechts auf dem Bettlaken
-    if hoch:
-        pos_etikett = (W / 2, 1250)
-    elif st['etikett_4x5'] == 'mitte':
-        pos_etikett = (W / 2, H * 0.58)
-    elif st['etikett_4x5'] == 'unten':
-        pos_etikett = (W / 2, H - 60 * k - 80 * k)
-    else:
-        pos_etikett = (W - 50 * k - 310 * k, 30 * k + 80 * k)
 
-    def clip_bild(t):
-        a = frames[min(len(frames) - 1, int(t * FPS))]
-        im = Image.fromarray(a)
+    def pos_etikett(sg):
+        """Etikett auf dem Video: nie ueber dem Babygesicht. 9:16 ueber den Beinen (unter dem Gesicht, ueber der
+        Instagram-Fusszeile), 4:5 je nach Clip oben rechts, in der Mitte oder unten."""
+        if hoch:
+            return (W / 2, 1250)
+        if sg['etikett'] == 'mitte':
+            return (W / 2, H * 0.58)
+        if sg['etikett'] == 'unten':
+            return (W / 2, H - 60 * k - 80 * k)
+        return (W - 50 * k - 310 * k, 30 * k + 80 * k)
+
+    def seg_bild(sg, lt):
+        fr = sg['frames']
+        im = Image.fromarray(fr[min(len(fr) - 1, max(0, int(lt * FPS)))])
         if hoch:
             cw = fh * W / H
-            u = ease(t / T_CLIP) if t < T_CLIP else 1
-            if st['kamera'] == 'schwenk':
+            u = ease(lt / sg['dauer'])
+            if sg['kamera'] == 'schwenk':
                 x = 0.02 * fw + u * (fw - cw - 0.02 * fw)      # vom Baby zum Schmusetuch
                 im = im.crop((round(x), 0, round(x + cw), fh))
             else:                                             # Mitte, langsam 6 % naeher
@@ -173,17 +190,31 @@ def video(clip, W, H, preis, pfad, vorschau=None, st=SETS['little_princess']):
         im = im.resize((W, H), Image.LANCZOS)
         return im.filter(ImageFilter.UnsharpMask(radius=1.4, percent=50, threshold=2))
 
+    def aktiv(t):
+        return max(i for i, sg in enumerate(segs) if t >= sg['t0'] or i == 0)
+
+    def clip_bild(t):
+        i = aktiv(t); sg = segs[i]
+        c = seg_bild(sg, t - sg['t0'])
+        if i > 0 and t < sg['t0'] + XF:                   # Ueberblendung vom vorherigen Clip
+            vg = segs[i - 1]
+            c = Image.blend(seg_bild(vg, t - vg['t0']), c, ease((t - sg['t0']) / XF))
+        return c
+
+    # Etiketten: bei einem Clip Wechsel nach 3,2 s, bei mehreren pro Clip ein Etikett
+    wechsel = 3.2 if len(segs) == 1 else segs[1]['t0'] + XF
+
     def bild(t):
-        if t < T_CLIP:
+        if t < T_VIDEO:
             c = clip_bild(t)
-            u1 = ease((t - 0.3) / 0.5) * (1 - ease((t - 2.9) / 0.3))
-            u2 = ease((t - 3.2) / 0.5) * (1 - ease((t - T_CLIP + 0.35) / 0.3))
-            etikett(c, pos_etikett, 'NEU BEI SUNNOZY' if preis else 'COMING SOON', 'Set ' + SET_TITEL, u1, W)
-            etikett(c, pos_etikett, 'ERSTAUSSTATTUNG', 'Für die ersten Wochen', u2, W)
+            u1 = ease((t - 0.3) / 0.5) * (1 - ease((t - wechsel + 0.3) / 0.3))
+            u2 = ease((t - wechsel) / 0.5) * (1 - ease((t - T_VIDEO + 0.35) / 0.3))
+            etikett(c, pos_etikett(segs[0]), 'NEU BEI SUNNOZY' if preis else 'COMING SOON', 'Set ' + SET_TITEL, u1, W)
+            etikett(c, pos_etikett(segs[aktiv(max(t, wechsel))]), 'ERSTAUSSTATTUNG', 'Für die ersten Wochen', u2, W)
             return c
         if t < t_set:                            # weiche Blende Video -> Creme
-            u = ease((t - T_CLIP) / 0.35)
-            return Image.blend(clip_bild(T_CLIP - 0.04), Image.new('RGB', (W, H), CREME), u)
+            u = ease((t - T_VIDEO) / 0.35)
+            return Image.blend(clip_bild(T_VIDEO - 0.04), Image.new('RGB', (W, H), CREME), u)
         c = Image.new('RGB', (W, H), CREME); d = ImageDraw.Draw(c)
         if t < t_teile:                          # ganzes Set
             u = ease((t - t_set) / 0.4)
@@ -243,7 +274,18 @@ def video(clip, W, H, preis, pfad, vorschau=None, st=SETS['little_princess']):
 
 
 if __name__ == '__main__':
-    clip, out = sys.argv[1:3]
+    clip_arg, out = sys.argv[1:3]
+    clip = []
+    for teil in clip_arg.split(','):             # mehrere Clips: a.mp4:3:5:mitte:mitte,b.mp4:0.5:5.5
+        z = teil.split(':')
+        cl = dict(pfad=z[0])
+        if len(z) > 2:
+            cl.update(start=float(z[1]), dauer=float(z[2]))
+        if len(z) > 3 and z[3]:
+            cl['kamera'] = z[3]
+        if len(z) > 4 and z[4]:
+            cl['etikett_4x5'] = z[4]
+        clip.append(cl)
     preis = next((a.split('=')[1] for a in sys.argv[3:] if a.startswith('--preis=')), '')
     st = dict(SETS[next((a.split('=')[1] for a in sys.argv[3:] if a.startswith('--set=')), 'little_princess')])
     for a in sys.argv[3:]:                       # pro Clip anpassbar: --kamera=mitte, --etikett_4x5=unten
