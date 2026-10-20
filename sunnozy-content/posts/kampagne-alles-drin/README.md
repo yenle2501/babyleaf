@@ -4,15 +4,17 @@ Teil des Markenplans (`strategie/sunnozy-markenplan.html`). Idee: Die echten Tei
 
 ## Dateien
 
+**Abgeglichen mit Shopify am 20.10.2026:** Die Preise stimmen mit dem Shop überein, Statt-Preise gibt es keine mehr. Die Reels zeigen im Einstieg und im Sammel-Reel die aktuellen Shop-Hauptbilder (`shopify-hauptbilder-praesentation-hd`, ohne Logo), `uebersicht_reels.jpg` zeigt die Einstiege aller Reels.
+
 | Set | Preis | Feed-Foto 4:5 | Reel 9:16 |
 |---|---|---|---|
 | Teddybär | CHF 30.40 | `foto_alles_drin_teddybaer_4x5.jpg` | `reel_alles_drin_teddybaer_9x16.mp4` (9,3 s) |
 | Princess | CHF 30.40 | `foto_alles_drin_princess_4x5.jpg` | `reel_alles_drin_princess_9x16.mp4` (9,3 s) |
 | Little and Loved | CHF 30.40 | `foto_alles_drin_little_and_loved_4x5.jpg` | `reel_alles_drin_little_and_loved_9x16.mp4` (9,3 s) |
 | Hello World | CHF 29.40 | `foto_alles_drin_hello_world_4x5.jpg` | `reel_alles_drin_hello_world_9x16.mp4` (9,3 s) |
-| Hello Rosa | CHF 30.40 | `foto_alles_drin_hello_rosa_4x5.jpg` | `reel_alles_drin_hello_rosa_9x16.mp4` (6,9 s) |
+| Hello (Rosa) | CHF 30.40 | `foto_alles_drin_hello_rosa_4x5.jpg` | `reel_alles_drin_hello_rosa_9x16.mp4` (6,9 s) |
 | Hello Little Bear | CHF 28.40 | `foto_alles_drin_hello_little_bear_4x5.jpg` | `reel_alles_drin_hello_little_bear_9x16.mp4` (7,5 s) |
-| Alle 6 Sets | ab CHF 28.40 | | `reel_alles_drin_6_sets_9x16.mp4` (11,7 s): «Baby unterwegs?» → 6 Sets → «Alles drin.» |
+| Alle 6 Sets | ab CHF 28.40 | | `reel_alles_drin_6_sets_9x16.mp4` (11,7 s): «Baby unterwegs?» → 6 Sets → «Alles drin.» (Schluss: Gratisversand ab CHF 50 · Versand in 1–2 Werktagen) |
 
 `*_standbild.jpg` sind die Titelbilder der Reels. Die Reels sind stumm, den Sound wählst Du in Instagram oder Meta.
 
@@ -29,7 +31,7 @@ Teil des Markenplans (`strategie/sunnozy-markenplan.html`). Idee: Die echten Tei
 
 ## Bildunterschrift (Vorschlag)
 
-> Alles drin für die ersten Wochen. Strampler, Body, Mützchen und mehr, fertig aufeinander abgestimmt. Ab CHF 28.40, in 2–3 Werktagen bei Dir, Gratisversand in der Schweiz ab CHF 50.
+> Alles drin für die ersten Wochen. Strampler, Body, Mützchen und mehr, fertig aufeinander abgestimmt. Ab CHF 28.40, Versand innert 1–2 Werktagen, Gratisversand in der Schweiz ab CHF 50.
 > sunnozy.ch
 > #sunnozy #erstausstattung #babyschweiz #geburtsgeschenk #neugeboren #babyset
 

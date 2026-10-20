@@ -9,7 +9,7 @@ Aufruf: python3 make_alles_drin.py <ausgabe-ordner>
 """
 import os, sys, math, subprocess
 import numpy as np
-from PIL import Image, ImageDraw, ImageFont, ImageChops
+from PIL import Image, ImageDraw, ImageFont, ImageChops, ImageFilter
 
 out = sys.argv[1]
 os.makedirs(out, exist_ok=True)
@@ -43,6 +43,7 @@ SETS = [
     ('hello_little_bear', '«Hello Little Bear»', '28.40', 5, 'erstausstattung-set-hello-little-bear',
      et('set_little_bear', 'strampler', 'body', 'muetze', 'laetzchen', 'faeustlinge')),
 ]
+HAUPT = os.path.join(POSTS, 'shopify-hauptbilder-praesentation-hd', 'bilder')   # aktuelle Shopify-Hauptbilder (seit 18.10.2026)
 HELLO_ROSA_TEILE = os.environ.get('HELLO_ROSA_TEILE', os.path.join(POSTS, 'kampagne-alles-drin', 'teile_hello_rosa'))  # aus dem Shopbild geschnitten
 
 
@@ -77,6 +78,30 @@ def kacheln_laden(s):
                 (freistellen(os.path.join(d, 'hello_rosa_teil_01.jpg')), 'Häubchen'),
                 (freistellen(os.path.join(d, 'hello_rosa_teil_02.jpg')), 'Lätzchen')]
     return [(kombi(p) if len(p) > 1 else freistellen(p[0]), lab) for p, lab in s[5]]
+
+
+def hauptbild(handle):
+    """Aktuelles Shop-Hauptbild ohne Logo: das Logo oben links (bei 2048 px etwa x 71-478, y 63-148) wird mit dem
+    Studio-Grund direkt darueber übermalt, weiche Kante. Das Bild bleibt so gross wie im Shop (nichts abgeschnitten)."""
+    im = Image.open(os.path.join(HAUPT, handle + '.jpg')).convert('RGB')
+    k = im.width / 2048
+    x0, y0, x1, y1 = (round(v * k) for v in (50, 48, 500, 168))
+    streifen = np.asarray(im.crop((x0, round(12 * k), x1, round(42 * k)))).astype(float).mean(axis=0)
+    fuell = Image.fromarray(np.repeat(streifen[None], y1 - y0, axis=0).astype(np.uint8))
+    maske = Image.new('L', (x1 - x0, y1 - y0), 0)
+    ImageDraw.Draw(maske).rectangle((8, 8, x1 - x0 - 9, y1 - y0 - 9), fill=255)
+    im.paste(fuell, (x0, y0), maske.filter(ImageFilter.GaussianBlur(4 * k)))
+    return im
+
+
+def foto_karte(c, im, mitte, breite):
+    """Shopfoto als Karte auf den Creme-Grund setzen (Studio-Grund des Fotos bleibt sichtbar), feiner Schatten."""
+    t = im.resize((round(breite), round(im.height * breite / im.width)), Image.LANCZOS)
+    x, y = int(mitte[0] - t.width / 2), int(mitte[1] - t.height / 2)
+    sh = Image.new('L', (t.width + 80, t.height + 80), 0)
+    ImageDraw.Draw(sh).rectangle((40, 40, 40 + t.width, 40 + t.height), fill=60)
+    c.paste(Image.new('RGB', sh.size, (205, 198, 188)), (x - 40, y - 30), sh.filter(ImageFilter.GaussianBlur(18)))
+    c.paste(t, (x, y))
 
 
 def multiply(c, im, xy):
@@ -154,8 +179,7 @@ def ease(x):
 
 def reel(s, teile, W=1080, H=1920):
     name, titel, preis, anzahl, handle = s[:5]
-    haupt = Image.open(os.path.join(POSTS, 'shopify-hauptbilder-klar', 'bilder', handle + '.jpg')).convert('RGB')
-    haupt = haupt.crop((0, int(205 * haupt.width / 2048), haupt.width, haupt.height))   # Logo oben weg
+    haupt = hauptbild(handle)
     T_HOOK, T_TEIL, T_END = 1.6, 0.6, 2.6
     n = len(teile); t_grid = T_HOOK; t_end = T_HOOK + n * T_TEIL + 0.3
     dauer = t_end + T_END
@@ -167,9 +191,7 @@ def reel(s, teile, W=1080, H=1920):
         if t < T_HOOK:
             # Hook: ganzes Set, langsam rein, Frage
             z = 1.0 + 0.06 * t / T_HOOK
-            sk = min(W * 0.9 / haupt.width, H * 0.46 / haupt.height) * z
-            im = haupt.resize((round(haupt.width * sk), round(haupt.height * sk)), Image.LANCZOS)
-            multiply(c, im, ((W - im.width) // 2, int(H * 0.6 - im.height / 2)))
+            foto_karte(c, haupt, (W / 2, H * 0.62), W * 0.84 * z)
             d.text((W / 2, H * 0.27), 'Was steckt drin?', font=f('fraunces-600.ttf', 92), fill=WALD, anchor='mm')
             gesperrt(d, (W / 2, H * 0.27 + 95), 'ERSTAUSSTATTUNG ' + titel.upper(), f('nunitosans-700.ttf', 26), SALBEI, 3)
             return c
@@ -220,8 +242,7 @@ def schreiben(bild, dauer, W, H, pfad):
 
 # ---------------- Sammel-Reel: alle 6 Sets ----------------
 def sammel_reel(W=1080, H=1920):
-    sets = [(s, Image.open(os.path.join(POSTS, 'shopify-hauptbilder-klar', 'bilder', s[4] + '.jpg')).convert('RGB')) for s in SETS]
-    sets = [(s, im.crop((0, int(205 * im.width / 2048), im.width, im.height))) for s, im in sets]
+    sets = [(s, hauptbild(s[4])) for s in SETS]
     T_HOOK, T_SET, T_END = 1.8, 1.25, 2.4
     dauer = T_HOOK + len(sets) * T_SET + T_END
 
@@ -235,15 +256,13 @@ def sammel_reel(W=1080, H=1920):
         if t >= T_HOOK + len(sets) * T_SET:
             d.text((W / 2, H * 0.36), 'Alles drin.', font=f('fraunces-600.ttf', 110), fill=WALD, anchor='mm')
             d.text((W / 2, H * 0.36 + 110), '6 Erstausstattungs-Sets ab CHF 28.40', font=f('nunitosans-600.ttf', 40), fill=WALD, anchor='mm')
-            d.text((W / 2, H * 0.36 + 168), 'Gratisversand ab CHF 50  ·  2–3 Werktage', font=f('nunitosans-400.ttf', 32), fill=GRAU, anchor='mm')
+            d.text((W / 2, H * 0.36 + 168), 'Gratisversand ab CHF 50  ·  Versand in 1–2 Werktagen', font=f('nunitosans-400.ttf', 32), fill=GRAU, anchor='mm')
             lg = load_logo(330); c.paste(lg, ((W - lg.width) // 2, int(H * 0.36 + 260)), lg)
             return c
         i = int((t - T_HOOK) / T_SET); u = (t - T_HOOK - i * T_SET) / T_SET
         s, im = sets[i]
         z = 1.0 + 0.05 * u
-        sk = min(W * 0.94 / im.width, H * 0.48 / im.height) * z
-        im2 = im.resize((round(im.width * sk), round(im.height * sk)), Image.LANCZOS)
-        multiply(c, im2, ((W - im2.width) // 2, int(H * 0.56 - im2.height / 2)))
+        foto_karte(c, im, (W / 2, H * 0.6), W * 0.86 * z)
         gesperrt(d, (W / 2, H * 0.22), 'ERSTAUSSTATTUNG ' + s[1].upper(), f('nunitosans-700.ttf', 28), SALBEI, 3)
         d.text((W / 2, H * 0.22 + 80), f'{s[3]} Teile  ·  CHF {s[2]}', font=f('fraunces-600.ttf', 64), fill=WALD, anchor='mm')
         return c
