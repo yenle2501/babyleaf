@@ -7,7 +7,7 @@ hase_rosa MAHYjZrMu6Y ; MAHYjukPph8
 hello_schmetterling MAHYjRi28rI ; MAHYjt-mLMc
 hello_world_blatt MAHYja8iPjw ; MAHYjlxVxkk
 hello_world_creme MAHYjYGECYs ; MAHYjm2QKUU
-hund_creme MAHYjbtSLC4
+hund_creme MAHYjbtSLC4 ; MAHYjk2VVHA (Studio-Stil, verworfen)
 lila_hase MAHYjRWmhSs
 little_and_loved_gans_rosa MAHYjUZaNK0
 little_bear MAHYjWqVrPU
@@ -19,3 +19,4 @@ teddy_rosa_punkte MAHYjWQrRWg
 wal_blau MAHYjSZR8ag
 waldbaer_creme MAHYjdsi6A0
 weltall_hellblau MAHYjQDlcls
+teddy_creme Handyfoto-Stil (neu, gewuenscht 20.10.) ; MAHYk0gMwjo
