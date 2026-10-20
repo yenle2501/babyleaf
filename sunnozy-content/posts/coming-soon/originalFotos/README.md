@@ -46,3 +46,8 @@ Diese Fotos kamen während einer laufenden Antwort und liegen deshalb nicht als 
 | «Hello» Schmetterling rosa gerippt (ist schon im Shop als «Hello» mit Spitze) | Kapuzentuch, Strampler, Body mit Spitzenkragen, Fusshose, Häubchen, Lätzchen |
 
 Zu «Little Princess» Wickelbody-Set, Gerippt beige, «Sweet Home» und Kätzchen/Tulpen gibt es je ein zweites Foto (Studio, heller Grund).
+| «I love Dad Mom» weiss gerippt, 6 Teile | Kapuzentuch, Strampler mit Schrift-Print, Body «I ♥ Dad Mom», Fusshose «Love», Knotenmütze, Lätzchen |
+| Gänseblümchen apricot «It's a baby girl», 8 Teile | Kapuzentuch, Body, Strampler mit Rüschen, Mütze, Söckchen, Beissring Blume, Fäustlinge, Lätzchen «happy» |
+| Weltall hellblau «Little one», 8 Teile (Studio) | Kapuzentuch, Body mit Planet, Strampler, Mütze «You are my universe», Söckchen, Rassel Sonne, Fäustlinge, Lätzchen |
+| Wal «Sea vibes» hellblau, 8 Teile (gibt es schon als `set_wal_blau`) | Kapuzentuch «Just swimming», Body, Strampler, Knotenmütze, Schmusetuch Wal, Söckchen, Fäustlinge, Lätzchen Wal |
+| Dino «Cool Dude» creme, 6 Teile (Studio) | Kapuzentuch «Here comes trouble», Strampler, Body, Fusshose, Dino-Mütze, Lätzchen |
