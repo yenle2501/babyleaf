@@ -4,6 +4,10 @@ Format: A6 105 x 148 mm + 3 mm Beschnitt rundum = 111 x 154 mm, 300 dpi (1311 x 
 5 mm innerhalb des Endformats. Vorderseite: Dank + Platz fuer die Unterschrift. Rueckseite: Code fuer die naechste
 Bestellung, Code zum Weitergeben, Bitte um ein Foto, Wasch-Tipp. Look nach dem sunnozy-Designsystem.
 
+Dazu ein A4-Bogen fuer den Drucker zuhause: 4 Karten in echter A6-Groesse (2 x 2, ohne Beschnitt), Vorder- und
+Rueckseite als 2 Seiten. Geschnitten wird nur einmal quer und einmal laengs durch die Mitte. Weil Heimdrucker am
+Blattrand etwa 4 mm nicht bedrucken, liegt die rosé Flaeche auf der Rueckseite dort als Kasten mit Abstand zum Rand.
+
 Aufruf: python3 make_dankeskarte.py <ausgabe-ordner> [CODE_WIEDER] [CODE_WEITERGEBEN]
 """
 import os, sys
@@ -89,7 +93,7 @@ def code_box(d, x, y, breite, code):
     return y + h
 
 
-def rueckseite():
+def rueckseite(rose_einzug=0):
     c = Image.new('RGB', (W, H), CREME); d = ImageDraw.Draw(c)
     x0 = SAFE + 2 * MM; breite = W - 2 * x0
     ft, fb, fs = FONT('fraunces-600.ttf', pt(13.5)), FONT('nunitosans-400.ttf', pt(9.5)), FONT('nunitosans-400.ttf', pt(8))
@@ -104,8 +108,11 @@ def rueckseite():
     d.text((x0, yb), 'Bald ein Baby im Freundeskreis?', font=ft, fill=WALD, anchor='lt'); yb += pt(13.5) * 1.5
     yb = absatz(d, x0, yb, 'Gib diesen Code weiter: 10 % auf die erste Bestellung für Deine Freundin.', fb, GRAU, breite)
     box_bottom = yb + 2 * MM + 13 * MM + 6 * MM
-    rose = Image.new('RGB', (W, int(box_bottom - box_top)), ROSE)
-    c.paste(rose, (0, int(box_top)))
+    if rose_einzug:                              # A4-Bogen: Kasten statt randloser Flaeche
+        e = BLEED + rose_einzug
+        d.rounded_rectangle([e, box_top, W - e, box_bottom], radius=2 * MM, fill=ROSE)
+    else:
+        c.paste(Image.new('RGB', (W, int(box_bottom - box_top)), ROSE), (0, int(box_top)))
     d = ImageDraw.Draw(c)
     yb = y
     d.text((x0, yb), 'Bald ein Baby im Freundeskreis?', font=ft, fill=WALD, anchor='lt'); yb += pt(13.5) * 1.5
@@ -135,6 +142,19 @@ def schnittmarken(im):
     return v
 
 
+def a4_bogen(karte):
+    """4 gleiche Karten (Beschnitt weg = 105 x 148 mm) auf A4 hoch, 2 x 2, Stoss an Stoss. Jede Zelle ist 105 x 148,5 mm
+    (A4 geviertelt), die Karte sitzt mittig darin, darum genügen zwei Schnitte durch die Blattmitte."""
+    k = karte.crop((round(BLEED), round(BLEED), round(BLEED) + round(105 * MM), round(BLEED) + round(148 * MM)))
+    A4 = (round(210 * MM), round(297 * MM))
+    b = Image.new('RGB', A4, CREME)
+    zw, zh = A4[0] / 2, A4[1] / 2
+    for i in range(2):
+        for j in range(2):
+            b.paste(k, (round(i * zw + (zw - k.width) / 2), round(j * zh + (zh - k.height) / 2)))
+    return b
+
+
 if __name__ == '__main__':
     v, r = vorderseite(), rueckseite()
     v.save(os.path.join(out, 'dankeskarte_A6_vorderseite.png'), dpi=(DPI, DPI))
@@ -142,4 +162,15 @@ if __name__ == '__main__':
     v.save(os.path.join(out, 'dankeskarte_A6_druck.pdf'), save_all=True, append_images=[r], resolution=DPI)
     p = Image.new('RGB', (W * 2 + 60, H), (230, 230, 230)); p.paste(schnittmarken(v), (0, 0)); p.paste(schnittmarken(r), (W + 60, 0))
     p.resize((p.width // 2, p.height // 2), Image.LANCZOS).save(os.path.join(out, 'dankeskarte_vorschau.jpg'), quality=90)
-    print(W, H)
+    # A4-Bogen fuer zuhause
+    bv, br = a4_bogen(v), a4_bogen(rueckseite(rose_einzug=5 * MM))
+    bv.save(os.path.join(out, 'dankeskarte_A4_4er_bogen.pdf'), save_all=True, append_images=[br], resolution=DPI)
+    vs = Image.new('RGB', (bv.width * 2 + 80, bv.height), (230, 230, 230)); vs.paste(bv, (0, 0)); vs.paste(br, (bv.width + 80, 0))
+    dv = ImageDraw.Draw(vs)
+    for x0 in (0, bv.width + 80):                # Schnittlinien nur in der Vorschau
+        for y in range(0, bv.height, 30):
+            dv.line([(x0 + bv.width / 2, y), (x0 + bv.width / 2, y + 15)], fill=(200, 60, 60), width=3)
+        for x in range(0, bv.width, 30):
+            dv.line([(x0 + x, bv.height / 2), (x0 + x + 15, bv.height / 2)], fill=(200, 60, 60), width=3)
+    vs.resize((vs.width // 3, vs.height // 3), Image.LANCZOS).save(os.path.join(out, 'dankeskarte_A4_vorschau.jpg'), quality=90)
+    print(W, H, bv.size)

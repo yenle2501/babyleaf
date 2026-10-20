@@ -20,6 +20,14 @@ Teil des Markenplans (`strategie/sunnozy-markenplan.html`). Idee: Die echten Tei
 
 **Dankeskarte** (`dankeskarte/`): A6 hoch, 105 × 148 mm + 3 mm Beschnitt, 300 dpi. `dankeskarte_A6_druck.pdf` hat 2 Seiten (Vorder- und Rückseite) und kann direkt in die Druckerei. Die rote Linie in `dankeskarte_vorschau.jpg` zeigt das Endformat und wird nicht gedruckt.
 
+**Dankeskarte zuhause auf A4 drucken:** `dankeskarte/dankeskarte_A4_4er_bogen.pdf` hat 2 Seiten, Seite 1 mit 4 Vorderseiten und Seite 2 mit 4 Rückseiten. Jede Karte ist genau A6 (105 × 148 mm). So druckst Du:
+1. Grösse auf «Tatsächliche Grösse» oder 100 % stellen, nicht «An Seite anpassen».
+2. Beidseitig drucken und an der langen Kante wenden. Wenn Dein Drucker nicht beidseitig druckt: Seite 1 drucken, das Blatt umgedreht wieder einlegen, dann Seite 2 drucken.
+3. Papier: 250–300 g/m², matt (z. B. Karton für Einladungskarten).
+4. Einmal quer und einmal längs genau durch die Mitte schneiden, dann hast Du 4 Karten.
+
+`dankeskarte_A4_vorschau.jpg` zeigt beide Seiten, die roten Linien sind die Schnitte und werden nicht gedruckt. Der Drucker lässt am Blattrand etwa 4 mm weiss. Das sieht man auf dem cremefarbenen Grund kaum, darum ist die rosé Fläche auf der Rückseite hier ein Kasten mit Abstand zum Rand.
+
 **Mail-Texte:** `strategie/mail-ablauf.md`
 
 ## Vor dem Einsatz prüfen
