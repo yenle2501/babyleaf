@@ -31,3 +31,10 @@ Diese Fotos kamen während einer laufenden Antwort und liegen deshalb nicht als 
 | Dino «Cool Dude», creme mit Regenbogen | Strampler, Body, Fusshose, Dino-Mütze, Kapuzentuch «Here comes trouble», Lätzchen |
 | Kätzchen und Tulpen, 2 Strampler + Mütze | Strampler mit Kätzchen, Strampler mit Tulpen und Bubikragen, Mütze |
 | «Sweet Home» beige, 2 Strampler + Mütze | Strampler mit Häuschen-Print, gestreifter Strampler «Sweet Home», Mütze mit Öhrchen |
+| Strampler 3er-Set Kirschen | weinrot gerippt «Smile» (Rücken «i love my mummy»), altrosa «You are the best», weiss mit Kirschen |
+| «I love you Dad», hellblau | Wickelbody mit Schnurrbart, Fusshose mit Fliegen und Hüten, Knotenmütze |
+| «Cute Bear» rosa gerippt | Wickelbody mit zwei Teddys, Fusshose creme mit Teddys, Knotenmütze |
+| «Best family» Teddy, beige/creme, 8 Teile (gibt es schon unter `../../produktfotos-set-praesentation/`) | Kapuzentuch, Body, Strampler, Mütze mit Öhrchen, Fäustlinge, Söckchen, Rassel Teddy, Lätzchen |
+| «Hello» Schmetterling rosa gerippt (ist schon im Shop als «Hello» mit Spitze) | Kapuzentuch, Strampler, Body mit Spitzenkragen, Fusshose, Häubchen, Lätzchen |
+
+Zu «Little Princess» Wickelbody-Set, Gerippt beige, «Sweet Home» und Kätzchen/Tulpen gibt es je ein zweites Foto (Studio, heller Grund).
