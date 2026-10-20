@@ -1,14 +1,16 @@
 """Set-Video aus einem Baby-Clip (z.B. Grok-KI-Video, 848x1072, 10 s) fuer ein neues Set: Reel 9:16 und Feed 4:5.
 
 Ablauf (ca. 14 s, stumm, Ton waehlst Du in Instagram):
-1. Baby-Clip, 6 s. Oben ein Creme-Etikett «NEU BEI SUNNOZY» + Setname, ab 3,2 s «Für die ersten Wochen».
+1. Baby-Clip, 6 s. Ein Creme-Etikett «COMING SOON» (oder «NEU BEI SUNNOZY» mit Preis) + Setname, ab 3,2 s «Für die ersten Wochen».
    Im 9:16 faehrt der Ausschnitt langsam vom Baby zum Schmusetuch (der Clip ist breiter als 9:16).
 2. Das ganze Set (Praesentationsbild) mit «Was steckt drin?».
 3. Die Teile erscheinen nacheinander als Kacheln mit Namen und Zaehler.
 4. Schluss: «Alles drin.», Teile-Anzahl, Preis (nur wenn angegeben), Gratisversand, Logo, sunnozy.ch.
+   Ohne Preis ist das Set noch nicht im Shop: dann Stempel «COMING SOON» und «Bald auf sunnozy.ch».
 Look nach dem sunnozy-Designsystem (Creme, Waldgruen, Fraunces, Nunito Sans, eckige Kacheln, keine Emojis).
 
 Aufruf: python3 make_set_video.py <clip.mp4> <ausgabe-ohne-endung> [--preis=30.40]
+--preis: Set ist im Shop -> Preis statt «Coming soon»
 Erzeugt <ausgabe>_9x16.mp4, <ausgabe>_4x5.mp4 und je ein _standbild.jpg.
 """
 import os, sys, math, subprocess
@@ -128,7 +130,7 @@ def video(clip, W, H, preis, pfad, vorschau=None):
     dauer = t_end + T_END
     k = W / 1080
     oben = 300 if hoch else 70                   # 9:16: Instagram-Kopfzeile frei lassen
-    boxes = raster(n, W, oben + 210 * k, H - (470 if hoch else 230) * k, pro=3 if hoch else 4)
+    boxes = raster(n, W, oben + 210 * k, H - (640 if hoch else 230) * k, pro=3 if hoch else 4)
     # Etikett auf dem Video: nie ueber dem Babygesicht. 9:16 ueber den Beinen (unter dem Gesicht, ueber der
     # Instagram-Fusszeile), 4:5 oben rechts auf dem Bettlaken
     pos_etikett = (W / 2, 1250) if hoch else (W - 50 * k - 310 * k, 30 * k + 80 * k)
@@ -153,7 +155,7 @@ def video(clip, W, H, preis, pfad, vorschau=None):
             c = clip_bild(t)
             u1 = ease((t - 0.3) / 0.5) * (1 - ease((t - 2.9) / 0.3))
             u2 = ease((t - 3.2) / 0.5) * (1 - ease((t - T_CLIP + 0.35) / 0.3))
-            etikett(c, pos_etikett, 'NEU BEI SUNNOZY', 'Set ' + SET_TITEL, u1, W)
+            etikett(c, pos_etikett, 'NEU BEI SUNNOZY' if preis else 'COMING SOON', 'Set ' + SET_TITEL, u1, W)
             etikett(c, pos_etikett, 'ERSTAUSSTATTUNG', 'Für die ersten Wochen', u2, W)
             return c
         if t < t_set:                            # weiche Blende Video -> Creme
@@ -186,12 +188,20 @@ def video(clip, W, H, preis, pfad, vorschau=None):
             d = ImageDraw.Draw(c)
             u = ease((t - t_end) / 0.4)
             mix = lambda col: tuple(int(CREME[j] + (col[j] - CREME[j]) * u) for j in range(3))
-            y = boxes[-1][1] + boxes[-1][3] + 80 * k
+            y = boxes[-1][1] + boxes[-1][3] + 70 * k
             zeile = f'{n} Teile  ·  CHF {preis}' if preis else f'{n} Teile, fertig aufeinander abgestimmt'
             d.text((W / 2, y), zeile, font=f('nunitosans-700.ttf', 40 * k), fill=mix(WALD), anchor='mm')
-            d.text((W / 2, y + 58 * k), 'Gratisversand ab CHF 50  ·  sunnozy.ch', font=f('nunitosans-400.ttf', 28 * k), fill=mix(GRAU), anchor='mm')
+            if not preis:                        # noch nicht im Shop: Stempel «COMING SOON»
+                fs = f('nunitosans-800.ttf', 30 * k); txt = 'COMING SOON'; sp = 6 * k
+                tw = sum(d.textlength(ch, font=fs) for ch in txt) + sp * (len(txt) - 1)
+                bx0, by0 = W / 2 - tw / 2 - 34 * k, y + 50 * k
+                d.rectangle([bx0, by0, W - bx0, by0 + 64 * k], fill=mix(WALD))
+                gesperrt(d, (W / 2, by0 + 33 * k), txt, fs, mix(CREME) if u > 0.5 else mix(WALD), sp)
+                y += 104 * k
+            unten = 'Gratisversand ab CHF 50  ·  sunnozy.ch' if preis else 'Bald auf sunnozy.ch  ·  Gratisversand ab CHF 50'
+            d.text((W / 2, y + 58 * k), unten, font=f('nunitosans-400.ttf', 28 * k), fill=mix(GRAU), anchor='mm')
             lg = load_logo(int(230 * k)); lg.putalpha(lg.getchannel('A').point(lambda v: int(v * u)))
-            c.paste(lg, (int((W - lg.width) / 2), int(y + 110 * k)), lg)
+            c.paste(lg, (int((W - lg.width) / 2), int(y + 105 * k)), lg)
         return c
 
     if vorschau:                                 # nur Einzelbilder zum Pruefen

@@ -12,14 +12,14 @@ Alle Videos sind 14,8 s lang und stumm, den Sound wählst Du in Instagram. `*_st
 
 ## Ablauf
 
-1. **0–6 s Baby-Clip.** Ein Etikett blendet ein: «NEU BEI SUNNOZY / Set «Little Princess»», dann «Für die ersten Wochen». Das Etikett liegt nie über dem Gesicht, im 9:16 über den Beinen, im 4:5 oben rechts. Im 9:16 fährt der Ausschnitt langsam vom Baby zum Kronen-Schmusetuch.
+1. **0–6 s Baby-Clip.** Ein Etikett blendet ein: «COMING SOON / Set «Little Princess»», dann «Für die ersten Wochen». Das Etikett liegt nie über dem Gesicht, im 9:16 über den Beinen, im 4:5 oben rechts. Im 9:16 fährt der Ausschnitt langsam vom Baby zum Kronen-Schmusetuch.
 2. **«Was steckt drin?»** mit dem ganzen Set.
 3. **Die 8 Teile** erscheinen nacheinander: Kapuzentuch, Strampler, Body, Mütze, Schmusetuch, Lätzchen, Söckchen, Fäustlinge.
-4. **«Alles drin.»** mit «8 Teile, fertig aufeinander abgestimmt», «Gratisversand ab CHF 50 · sunnozy.ch» und Logo.
+4. **«Alles drin.»** mit «8 Teile, fertig aufeinander abgestimmt», Stempel «COMING SOON», «Bald auf sunnozy.ch · Gratisversand ab CHF 50» und Logo.
 
 ## Vor dem Posten prüfen
 
-- **Preis:** Das Set ist noch nicht in Shopify, darum steht kein Preis im Video. Sobald es im Shop ist, mit Preis neu erzeugen:
+- **Coming soon:** Das Set ist noch nicht in Shopify, darum steht «Coming soon» statt eines Preises im Video. Sobald es im Shop ist, mit Preis neu erzeugen (dann steht «Neu bei sunnozy» und der Preis statt «Coming soon»):
   `python3 tools/make_set_video.py posts/neues-set-little-princess/original/baby_clip_a.mp4 posts/neues-set-little-princess/reel_little_princess_a --preis=30.40` (für b und c gleich)
 - **Name:** Im Shop gibt es schon «Princess» (rosa, Teddy). «Little Princess» steht so auf dem Lätzchen. Wenn das neue Set im Shop anders heisst, `SET_TITEL` in `tools/make_set_video.py` anpassen.
 - **KI-Video:** Das Baby ist KI-generiert. Der Body im Video hat die Schleife, aber nicht die Schrift «Make a Wish» wie der echte Body. Instagram und Facebook verlangen bei realistisch wirkenden KI-Videos die Kennzeichnung: beim Posten «KI-Info» bzw. «Mit KI erstellt» einschalten. Im Video selbst steht kein Hinweis.
@@ -27,7 +27,7 @@ Alle Videos sind 14,8 s lang und stumm, den Sound wählst Du in Instagram. `*_st
 
 ## Bildunterschrift (Vorschlag)
 
-> Neu bei sunnozy: das Set «Little Princess». Kapuzentuch, Strampler, Body, Mütze, Schmusetuch mit Krone, Lätzchen, Söckchen und Fäustlinge, fertig aufeinander abgestimmt. Gratisversand in der Schweiz ab CHF 50.
+> Coming soon: das Set «Little Princess». Kapuzentuch, Strampler, Body, Mütze, Schmusetuch mit Krone, Lätzchen, Söckchen und Fäustlinge, fertig aufeinander abgestimmt. Bald auf sunnozy.ch, Gratisversand in der Schweiz ab CHF 50.
 > sunnozy.ch
 > #sunnozy #erstausstattung #babyschweiz #geburtsgeschenk #neugeboren #babyset
 
