@@ -4,14 +4,16 @@
 
 | Element | Vorbild | sunnozy |
 |---|---|---|
-| Produkt | Cardigan am Holzbügel, ruhiger Grund, gross links | Set-Präsentation am Holzbügel, weisser Grund (Shop-Hauptbild, aufbereitet) |
+| Produkt | Cardigan am Holzbügel, ruhiger Grund, gross links | Set-Präsentation am Holzbügel auf hellem Studio-Grund: das aktuelle Shop-Hauptbild in 2048 px, ganz sichtbar und mit Abstand zum Rand |
 | Preis | schwarzes Etikett oben links «CHF13» | «CHF 30.40» usw. (Preise aus Shopify) |
 | Marke | Wortmarke senkrecht im hellgrauen Feld rechts | sunnozy-Logo senkrecht |
 | Versprechen | «FREE DELIVERY & DUTIES PAID» | «GRATISVERSAND AB CHF 50» (Versandregel Schweiz in Shopify) |
-| Kleingedrucktes | «T&Cs apply» | «Versand in 2–3 Werktagen» (Standardversand Schweiz) |
+| Kleingedrucktes | «T&Cs apply» | «Versand in 1–2 Werktagen» (wie die Leiste im Shop) |
 | Unter der Karte | Produktname + «Shop now» (von Meta) | Überschrift + «Jetzt einkaufen» (in Meta eintragen, siehe unten) |
 
 ## Dateien
+
+**Überarbeitet am 20.10.2026:** Die Bilder kamen vorher aus den alten, unscharfen Shopbildern, und einzelne Teile reichten bis an den Bildrand. Jetzt stammen sie aus den aktuellen Shop-Hauptbildern (`quelle/` = `shopify-hauptbilder-praesentation-hd/bilder/`). Das ganze Set ist sichtbar, mit mindestens 34 px Abstand zum Rand, und der Grund läuft nahtlos bis an den Rand. Die Preise sind mit Shopify abgeglichen.
 
 | Set | Preis | Lager | Karussell 1:1 | Story/Reels 9:16 |
 |---|---|---|---|---|
@@ -35,7 +37,7 @@ Preise ändern? In `tools/make_meta_ads.py` (`SETS`) anpassen und neu erzeugen:
 > Alles für die ersten Wochen, mit einem Klick 🧸 Erstausstattungs-Sets, liebevoll aufeinander abgestimmt. Gratisversand in der ganzen Schweiz ab CHF 50.
 
 Alternativen zum Testen:
-> Das perfekte Geschenk zur Geburt 🎁 Komplette Erstausstattung ab CHF 28.40, schnell geliefert in 2–3 Werktagen.
+> Das perfekte Geschenk zur Geburt 🎁 Komplette Erstausstattung ab CHF 28.40, Versand innert 1–2 Werktagen.
 
 > Baby unterwegs? 👶 Diese Sets haben alles, was ein Neugeborenes braucht, von Strampler bis Mützchen.
 
