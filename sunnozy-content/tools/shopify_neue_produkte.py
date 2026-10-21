@@ -250,7 +250,9 @@ P = [
      ['hose', 'bär', 'neutral'], 'ACTIVE'),
 ]
 
-SKUKEY = lambda k: 'SNZ-' + k.upper().replace('-', '')[:14]
+# 'gaensebluemchen-8' und 'gaensebluemchen-beautiful' ergeben gekürzt denselben Schlüssel
+SKU_FEST = {'gaensebluemchen-8': 'SNZ-GAENSEBL8TLG'}
+SKUKEY = lambda k: SKU_FEST.get(k) or 'SNZ-' + k.upper().replace('-', '')[:14]
 GESCHL = {'m': ['mädchen'], 'j': ['junge'], 'u': ['mädchen', 'junge', 'unisex']}
 
 
@@ -275,7 +277,8 @@ def bildtext(pfad):
     if 'einzelteile' not in pfad:
         return 'Weissbild' if 'hauptbild_weiss' in pfad else 'Set aus 100 % Baumwolle'
     n = os.path.basename(pfad)[:-4]
-    n = n.split('_', 2)[-1] if n.startswith('set_') else n            # set_hase_rosa_body -> body
+    ordner = os.path.basename(os.path.dirname(pfad))
+    n = n[len(ordner) + 1:] if n.startswith(ordner + '_') else n      # set_hase_rosa_body -> body
     woerter = []
     for w in n.split('_'):
         if w not in ('segelboote', 'true'):                            # echte oe/ue, keine Umlaute
