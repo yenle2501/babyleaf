@@ -88,6 +88,14 @@ Das Theme **«sunnozy FINAL 108 – Neue Produkte & Menü»** ist eine Kopie des
 | Strampler-Set | [Strampler-Set «Kätzchen & Tulpen» – 2 Strampler mit Mütze](https://sunnozy.ch/products/strampler-set-kaetzchen-tulpen) | 19.90 | 3 | 4 | Mädchen | aktiv | 11303494811991 |
 | Strampler-Set | [Strampler-Set «Sweet Home» – 2 Strampler mit Mütze](https://sunnozy.ch/products/strampler-set-sweet-home) | 19.90 | 3 | 4 | Unisex | aktiv | 11303495991639 |
 
+## Bilder
+
+Am 21.10.2026 wurden 126 Einzelteilbilder der neuen Sets in Shopify durch die geschärften Versionen ersetzt (`tools/schaerfe_einzelteile.py`), Titel und Alt-Texte unverändert.
+
+## Rabatte
+
+- «20 % auf alle Bodys (bis 2.11.)»: automatisch, Kollektion Body-Sets, 21.10.–2.11.2026 23:59
+
 ## Offen
 
 - **Nur KI-Bilder:** Knotenmützen «Bär», Born in 2027 Hellblau und Strampler «Avocado» – mit der echten Ware vergleichen.

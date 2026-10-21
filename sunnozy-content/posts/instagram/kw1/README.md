@@ -4,7 +4,7 @@ Umsetzung des Content-Plans von @Alex (21.10.2026). Erzeugt mit `tools/make_kw1.
 
 ## Zuerst klären
 
-- [ ] **20 %-Rabatt auf Bodys ist in Shopify NICHT angelegt** (Stand 21.10.: nur Codes WILLKOMMEN10, SUNNOZY5, WELCOME5, DANKE5, DANKE10, HALLOBABY). Automatischen Rabatt «20 % auf alle Body-Sets» bis 2.11., 23:59 anlegen, sonst Do-Reel und So-Story **nicht** posten.
+- [x] **20 %-Rabatt auf Bodys** ist seit 21.10. in Shopify aktiv: automatischer Rabatt «20 % auf alle Bodys (bis 2.11.)» auf die Kollektion Body-Sets (15 Produkte), endet 2.11., 23:59 Schweizer Zeit.
 - [ ] **Bewertungen:** Das Bild vom Mittwoch zeigt nur «5,0» und den einen Satz aus dem Plan. Für die Mittwoch-Story 2 echte Bewertungen als Screenshot machen.
 - [ ] **Blog-Checkliste:** Die Di-Caption verweist auf «die ganze Checkliste auf sunnozy.ch im Blog». Prüfen, ob der Artikel online ist, sonst den Satz streichen.
 - [ ] **KI-Bilder:** Die Szenen im Box-Reel (Mo) und im Halloween-Reel (Sa) sind mit Canva-KI erzeugt. Inhalt der Box mit der echten «Mum Dad Me»-Box vergleichen. Wenn Du die Box selbst filmst, ist das noch besser.
@@ -16,7 +16,7 @@ Umsetzung des Content-Plans von @Alex (21.10.2026). Erzeugt mit `tools/make_kw1.
 | Mo 26.10. | 19:30 | Reel, 12,8 s | `reels/mo_reel_geschenkboxen.mp4` (Titelbild `mo_reel_cover.jpg`) |
 | Di 27.10. | 12:00 | Karussell, 8 Folien | `feed/di_karussell_01.jpg` … `_08.jpg` |
 | Mi 28.10. | 19:30 | Bild | `feed/mi_bewertung_5-0.jpg` |
-| Do 29.10. | 19:30 | Reel, 10 s | `reels/do_reel_body-endspurt.mp4` (nur mit Rabatt im Shop) |
+| Do 29.10. | 19:30 | Reel, 10 s | `reels/do_reel_body-endspurt.mp4` |
 | Fr 30.10. | 12:00 | Karussell, 10 Folien | `feed/fr_karussell_01.jpg` … `_10.jpg` |
 | Sa 31.10. | 10:00 | Reel, 7 s | `reels/sa_reel_halloween-dino.mp4` |
 | So 1.11. | ganzer Tag | nur Stories | `stories/story_so_letzter-tag.jpg` |
@@ -55,8 +55,6 @@ Du hast schon ein sunnozy-Teil zu Hause? Schreib uns in die Kommentare, welches.
 #sunnozych #babykleidung #babyschweiz #kundenstimmen
 
 ### Do 29.10. – Reel: Endspurt 20 % auf Bodys
-*Nur posten, wenn der Rabatt im Shop läuft.*
-
 20 % auf alle Babybodys, nur noch bis Montag, 2. November.
 
 Gerippt, mit Herzchen, Dino oder Princess: 100 % Baumwolle, Druckknöpfe, im 3er- oder 5er-Set.
@@ -95,7 +93,7 @@ Die Story-Bilder lassen unten freien Platz für den Sticker. Den Sticker setzt D
 | Do | `story_do_countdown.jpg` | Countdown «20 % endet» bis 2.11., 23:59 (Mitte) und Link-Sticker sunnozy.ch (darunter) | vorher das Reel teilen |
 | Fr | `story_fr_quiz-bodys.jpg` | Quiz: 3–4 / **6–8** (richtig) / 12+ (Mitte) | Karussell teilen, eine Box offen filmen |
 | Sa | `story_sa_umfrage-halloween.jpg` | Umfrage «Ja!» / «Body reicht» (unten) | |
-| So | `story_so_letzter-tag.jpg` | Link-Sticker sunnozy.ch (unter den Bodys) | nur mit Rabatt im Shop |
+| So | `story_so_letzter-tag.jpg` | Link-Sticker sunnozy.ch (unter den Bodys) | |
 
 Was gut läuft, kommt ins Highlight «Neu» oder «Bewertungen».
 
