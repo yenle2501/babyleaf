@@ -14,7 +14,14 @@ Danach je Set:
   ads/<set>_meta_9x16.jpg        Story/Reels-Platzierung
 Look nach dem sunnozy-Designsystem: Creme, Waldgruen, Salbei, Fraunces und Nunito Sans, keine Emojis.
 
-Aufruf: python3 make_coming_soon_set.py <set-schluessel> <ausgabeordner>
+Mit KI=<ordner> (Canva-Export: praes_<set>.png, baby_<set>.png, markt_<set>.png) zusaetzlich:
+  praesentation/<set>_praesentation.jpg (+ _ohne_logo)  Holzbuegel-Praesentation 2048 px, Logo oben links
+  marktplatz/<set>_hauptbild_weiss.jpg                   nur Stangen-Sets: KI-Flatlay auf reinweiss 2000 px
+  instagram/<set>_baby_4x5.jpg                           Baby im Set, ohne Text
+  instagram/<set>_baby_coming_soon_4x5.jpg               dasselbe mit Etikett «Coming soon» und Setname
+  ads/<set>_meta_baby_4x5.jpg                            Meta-Feed 4:5 mit Baby-Foto und Versand-Band
+
+Aufruf: [FREI=<ordner>] [KI=<ordner>] python3 make_coming_soon_set.py <set-schluessel> <ausgabeordner>
 """
 import os, sys
 import numpy as np
@@ -206,6 +213,46 @@ def meta_story(foto, W=1080, H=1920):
     return c
 
 
+def weiss_hauptbild(png, S=2000, fill=0.88):
+    """KI-Flatlay auf (fast) weissem Grund -> reinweiss 255, Produkt auf 88 % der laengeren Seite."""
+    a = np.asarray(Image.open(png).convert('RGB')).astype(float)
+    mn = a.min(axis=2)
+    w = np.clip((mn - 236) / (250 - 236), 0, 1)[..., None]          # 236..250 weich nach 255 ziehen
+    a = a * (1 - w) + 255 * w
+    im = Image.fromarray(a.astype(np.uint8))
+    ys, xs = np.where(np.asarray(im.convert('L')) < 248)
+    im = im.crop((xs.min(), ys.min(), xs.max() + 1, ys.max() + 1))
+    k = S * fill / max(im.size)
+    im = im.resize((round(im.width * k), round(im.height * k)), Image.LANCZOS)
+    c = Image.new('RGB', (S, S), (255, 255, 255)); c.paste(im, ((S - im.width) // 2, (S - im.height) // 2))
+    return c.filter(ImageFilter.UnsharpMask(radius=1.2, percent=40, threshold=3))
+
+
+def baby_coming_soon(st, baby, W=1080, H=1350):
+    c = baby.resize((W, H), Image.LANCZOS).filter(ImageFilter.UnsharpMask(radius=1.0, percent=40, threshold=2))
+    lay = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(lay)
+    bw, bh = 640, 190; x0, y0 = (W - bw) / 2, H - 60 - bh
+    d.rectangle([x0, y0, x0 + bw, y0 + bh], fill=CREME + (238,))
+    c = Image.alpha_composite(c.convert('RGBA'), lay).convert('RGB'); d = ImageDraw.Draw(c)
+    stempel(d, (W / 2, y0 + 48), groesse=20)
+    d.text((W / 2, y0 + 112), st['titel'], font=f('fraunces-600.ttf', 50), fill=WALD, anchor='mm')
+    d.text((W / 2, y0 + 160), 'Bald auf sunnozy.ch', font=f('nunitosans-400.ttf', 24), fill=GRAU, anchor='mm')
+    return c
+
+
+def meta_baby(baby, W=1080, H=1350):
+    c = Image.new('RGB', (W, H), 'white'); band = 1150
+    b = baby.resize((W, round(baby.height * W / baby.width)), Image.LANCZOS)
+    c.paste(b.crop((0, (b.height - band) // 2, W, (b.height - band) // 2 + band)), (0, 0))
+    badge(c, (34, 30), 'COMING SOON')
+    d = ImageDraw.Draw(c); d.rectangle([0, band, W, H], fill=PANEL)
+    lg = logo(250, INK); c.paste(lg, (50, int(band + (H - band - lg.height) / 2)), lg)
+    fb = ImageFont.truetype(INTER.format('Bold'), 32); fs = ImageFont.truetype(INTER.format('Regular'), 23)
+    d.text((W - 50, band + 78), 'BALD IM SHOP', font=fb, fill=INK, anchor='rm')
+    d.text((W - 50, band + 128), 'Gratisversand ab CHF 50', font=fs, fill=PGRAU, anchor='rm')
+    return c
+
+
 if __name__ == '__main__':
     key, out = sys.argv[1:3]
     frei_dir = os.environ.get('FREI', '')
@@ -222,4 +269,18 @@ if __name__ == '__main__':
     story(st, roh).save(os.path.join(out, 'instagram', f'{key}_story_9x16.jpg'), quality=94)
     meta_karte(roh).save(os.path.join(out, 'ads', f'{key}_meta_1x1.jpg'), quality=95, subsampling=0)
     meta_story(roh).save(os.path.join(out, 'ads', f'{key}_meta_9x16.jpg'), quality=95, subsampling=0)
+    ki = os.environ.get('KI', '')
+    if ki:
+        os.makedirs(os.path.join(out, 'praesentation'), exist_ok=True)
+        pr = Image.open(os.path.join(ki, f'praes_{key}.png')).convert('RGB').filter(ImageFilter.UnsharpMask(radius=1.4, percent=45, threshold=2))
+        pr.save(os.path.join(out, 'praesentation', f'{key}_praesentation_ohne_logo.jpg'), quality=95)
+        mit_logo(pr).save(os.path.join(out, 'praesentation', f'{key}_praesentation.jpg'), quality=95)
+        mk = os.path.join(ki, f'markt_{key}.png')
+        if os.path.exists(mk):
+            os.makedirs(os.path.join(out, 'marktplatz'), exist_ok=True)
+            weiss_hauptbild(mk).save(os.path.join(out, 'marktplatz', f'{key}_hauptbild_weiss.jpg'), quality=95)
+        baby = Image.open(os.path.join(ki, f'baby_{key}.png')).convert('RGB')
+        baby.resize((1080, 1350), Image.LANCZOS).save(os.path.join(out, 'instagram', f'{key}_baby_4x5.jpg'), quality=94)
+        baby_coming_soon(st, baby).save(os.path.join(out, 'instagram', f'{key}_baby_coming_soon_4x5.jpg'), quality=94)
+        meta_baby(baby).save(os.path.join(out, 'ads', f'{key}_meta_baby_4x5.jpg'), quality=95, subsampling=0)
     print(key)
