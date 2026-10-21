@@ -13,3 +13,8 @@ Ablauf je Set:
 Grundprompt: «Casual authentic smartphone snapshot taken by a parent at home, shot straight from above: a newborn baby
 (fictional) ... wearing EXACTLY the <Teil> from the reference image ... rumpled white duvet, plush toy, natural soft
 daylight, unstaged, candid Pinterest mom aesthetic, not a studio photo, photorealistic, crisp details, no text, no logos.»
+
+## Stand 21.10.2026
+- 18 von 20 Sets fertig (`<set>/baby_<set>_1.jpg`, 2272x2816), Übersicht: `uebersicht.jpg`.
+- **Offen:** `waldbaer_creme` und `weltall_hellblau` – Canva meldete mehrfach «SERVER_GENERIC» (Serverfehler). Später erneut versuchen.
+- Die Studio-Fotos aus dem ersten Versuch wurden durch den Handyfoto-Stil ersetzt.
