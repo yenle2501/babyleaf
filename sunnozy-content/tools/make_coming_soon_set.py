@@ -54,6 +54,11 @@ SETS = {
     'blumen-musselin': dict(titel='«Blumenwiese» Musselin', farbe='Creme mit Blumen', teile=3,
                             foto='blumen_musselin_buegel.jpg', kaesten=[(35, 35, 520, 165), (1605, 1790, 1900, 1892)],
                             liste='Wickelbody, Fusshose, Haarband'),
+    # Lieferantenfotos nur 580 px: Shop-Bild aus der KI-Praesentation statt aus dem Foto
+    'little-princess-wickelbody': dict(titel='«Little Princess»', farbe='Rosa und Creme', teile=3, roh_ki=True,
+                                       liste='Wickelbody, Fusshose, Knotenmütze'),
+    'i-love-you-dad': dict(titel='«I love you Dad»', farbe='Hellblau', teile=3, roh_ki=True,
+                           liste='Wickelbody, Fusshose, Knotenmütze'),
 }
 
 
@@ -259,7 +264,10 @@ if __name__ == '__main__':
     st = SETS[key]
     for sub in ('shop', 'instagram', 'ads'):
         os.makedirs(os.path.join(out, sub), exist_ok=True)
-    if 'frei' in st:
+    if st.get('roh_ki'):
+        roh = Image.open(os.path.join(os.environ['KI'], f'praes_{key}.png')).convert('RGB').filter(
+            ImageFilter.UnsharpMask(radius=1.4, percent=45, threshold=2))
+    elif 'frei' in st:
         roh = shop_aus_freisteller(os.path.join(frei_dir, st['frei']))
     else:
         roh = shop_aus_foto(os.path.join(ORIG, st['foto']), st['kaesten'])

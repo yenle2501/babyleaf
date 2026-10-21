@@ -18,6 +18,8 @@ Lieferantenfotos, so wie Du sie geschickt hast (nur von WebP in JPG umgewandelt)
 | `blumen_musselin_buegel.jpg` | Blumen Musselin, 3 Teile | Wickelbody Musselin mit Streublumen, Fusshose Musselin, Haarband mit Schleife (Holzring ist Deko) |
 | `weltall_hellblau_little_one_buegel.jpg` | Weltall hellblau «Little one», 3 Teile | Wickelbody hellblau gerippt mit Planet, Fusshose weiss mit Weltall-Print, Knotenmütze |
 | `born_in_2027_rosa_flatlay.jpg` | «Born in 2027» rosa, 6 Teile | Kapuzentuch, Strampler rosa mit Heissluftballons, Body «Born in 2027», Fusshose, Knotenmütze, Lätzchen |
+| `little_princess_wickelbody_rosa_buegel.jpg` | «Little Princess» Wickelbody-Set, 3 Teile (aus Paket 18) | Wickelbody rosa mit Krone, Fusshose creme mit Schleifen, Knotenmütze |
+| `i_love_you_dad_hellblau_buegel.jpg` | «I love you Dad», 3 Teile (aus Paket 18) | Wickelbody hellblau mit Schnurrbart, Fusshose mit Fliegen und Hüten, Knotenmütze |
 
 ## Noch nicht gespeichert (bitte nochmals schicken)
 
@@ -28,7 +30,6 @@ Diese Fotos kamen während einer laufenden Antwort und liegen deshalb nicht als 
 | Heissluftballon «Dream big», beige | Wickelbody weiss mit Punkten und Bären im Ballon, Fusshose mit Ballon-Print, Knotenmütze |
 | Turban-Mützen mit Schleife, 3er-Set | altrosa, rosa mit Schleifen-Print, creme mit Herzen |
 | Mützen mit Schleifen, 3er-Set | altrosa, rosa mit Schleifen-Print, creme mit Herzen und Stoffschleife |
-| «Little Princess» Wickelbody-Set | Wickelbody rosa mit Krone, Fusshose creme mit Schleifen, Knotenmütze |
 | «Little Princess» mit Krone, 8 Teile (Originalfoto zum Set in `../little-princess/`) | Kapuzentuch, Body «Make a Wish», Strampler, Mütze, Söckchen, Schmusetuch, Fäustlinge, Lätzchen |
 | Strampler 3er-Set rosa | rosa mit Schleifen, creme mit Tüll-Rüsche, rosa «Little Princess» mit Krone |
 | Weltall «Little one», hellblau, 8 Teile | Kapuzentuch, Body mit Planet, Strampler mit Weltall-Print, Mütze, Söckchen, Rassel Sonne, Fäustlinge, Lätzchen |
@@ -41,7 +42,6 @@ Diese Fotos kamen während einer laufenden Antwort und liegen deshalb nicht als 
 | Kätzchen und Tulpen, 2 Strampler + Mütze | Strampler mit Kätzchen, Strampler mit Tulpen und Bubikragen, Mütze |
 | «Sweet Home» beige, 2 Strampler + Mütze | Strampler mit Häuschen-Print, gestreifter Strampler «Sweet Home», Mütze mit Öhrchen |
 | Strampler 3er-Set Kirschen | weinrot gerippt «Smile» (Rücken «i love my mummy»), altrosa «You are the best», weiss mit Kirschen |
-| «I love you Dad», hellblau | Wickelbody mit Schnurrbart, Fusshose mit Fliegen und Hüten, Knotenmütze |
 | «Cute Bear» rosa gerippt | Wickelbody mit zwei Teddys, Fusshose creme mit Teddys, Knotenmütze |
 | «Hello» Schmetterling rosa gerippt (ist schon im Shop als «Hello» mit Spitze) | Kapuzentuch, Strampler, Body mit Spitzenkragen, Fusshose, Häubchen, Lätzchen |
 

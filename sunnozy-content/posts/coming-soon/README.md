@@ -11,6 +11,8 @@
 | `weltall-hellblau/` | «Little one» Weltall, 3 Teile | Shop, Präsentation, Marktplatz, Instagram, Baby-Fotos, Meta-Ads |
 | `gaensebluemchen-beautiful/` | «Beautiful» Gänseblümchen, 3 Teile | Shop, Präsentation, Marktplatz, Instagram, Baby-Fotos, Meta-Ads |
 | `blumen-musselin/` | «Blumenwiese» Musselin, 3 Teile | Shop, Präsentation, Marktplatz, Instagram, Baby-Fotos, Meta-Ads |
+| `little-princess-wickelbody/` | «Little Princess» Wickelbody-Set, 3 Teile | Shop, Präsentation, Marktplatz, Instagram, Baby-Fotos, Meta-Ads |
+| `i-love-you-dad/` | «I love you Dad» Hellblau, 3 Teile | Shop, Präsentation, Marktplatz, Instagram, Baby-Fotos, Meta-Ads |
 | `originalFotos/` | Lieferantenfotos aller neuen Sets | Liste im README |
 
 `uebersicht_neue_sets.jpg` zeigt Shop-Bild, Instagram-Post, Meta-Anzeige und Marktplatz-Bild der 7 neuen Sets, `uebersicht_ki.jpg` Präsentation, Baby-Post und Baby-Anzeige.
