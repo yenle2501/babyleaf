@@ -64,10 +64,10 @@ Quelle: `reports/Instagram Stil oneve und Blossom Pear.md`. Die Instagram-Feeds 
 
 ---
 
-## Hausstil „Handschrift“ (von der Inhaberin gewählt, Okt. 2026)
+## Hausstil „Handschrift“ (Okt. 2026, ersetzt am 21.10.2026, siehe unten)
 Baby-Foto vollflächig, darauf **ein** Satz in Handschrift (**Sacramento**, weiss, klein geschrieben, gerade oder ganz leicht schräg, weicher Schatten) im unteren Drittel, sunnozy-Logo klein in Weiss unten Mitte. Keine Textboxen, keine Grafik-Karten, keine Memes. Sätze zum Weiterleiten oder Markieren („Schick das …“, „Für die Freundin, die …“, „Markier eine Mama …“). Generator: `tools/make_handschrift.py`.
 
-## Schrift auf Instagram (ab 19.10.2026)
+## Schrift auf Instagram (19.–21.10.2026, ersetzt, siehe unten)
 
 Alle Texte auf Instagram-Posts, Karussells, Storys und Reels in **Sacramento** (`fonts/sacramento.ttf`, Google Fonts, OFL),
 nach dem Vorbild «winter is here»: dünne, verspielte Schreibschrift, weiss auf Foto oder Tinte/Mauve auf Creme,
@@ -75,3 +75,16 @@ klein geschrieben, keine Grossbuchstaben-Zeilen, kein Sperrsatz. Ausnahme: Anzei
 Fraunces/Nunito/Inter, weil Preis und Versand dort schnell lesbar sein müssen. Das Logo bleibt das Logo.
 Generatoren: `import instagram_schrift` (setzt Sacramento automatisch), einzelne Texte: `tools/schrift_social.py`.
 
+
+## Instagram ab 21.10.2026: Produkt im Fokus, keine Schreibschrift (Wunsch der Inhaberin)
+
+Gilt vor allen älteren Regeln oben (Handschrift, Sacramento).
+
+- **Schrift:** keine Schreibschrift. Titel in **Fraunces**, Text, Preise und Infos in **Nunito Sans**, auch in Reels und Storys.
+  `tools/instagram_schrift.py` ist ausgeschaltet; der Import in alten Generatoren macht nichts mehr.
+- **Look:** Das Produkt steht im Mittelpunkt: saubere Produktfotos (Farbstapel, ganz nah, Freisteller auf Creme), Produkt füllt
+  den grössten Teil des Bildes. Wenig Text: ein kurzer Titel pro Bild, Infos (Preis, Inhalt, Grösse) nur auf einer Info-Folie am Schluss.
+  Keine Grafikkarten mit langen Listen, keine Textboxen auf Fotos.
+- **Reels:** aus vorhandenen Shop- und Produktfotos gebaut (Zoom, Farbwechsel, Teil für Teil), nicht selbst gefilmt.
+  7–15 s, Text-Hook in Sekunde 1. Eigene Videos nur, wenn die Inhaberin welche liefert.
+- **Logo:** klein unten Mitte. Farben, Tonalität und Safe Sleep wie oben.

@@ -9,7 +9,6 @@ Formate: Feed 1080x1350, Reels und Stories 1080x1920 (oben 250 px, unten 400 px 
 import os, sys, subprocess
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
-import instagram_schrift  # noqa: Hausschrift Sacramento fuer alle Instagram-Texte (marke.md)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 KW = os.path.join(ROOT, 'posts', 'instagram', 'kw1')
@@ -238,7 +237,7 @@ def kenburns(im, t, z0=1.0, z1=1.08, dx=0.0, dy=0.0):
 
 
 def textband(c, zeilen, y, groesse=64, schrift='fraunces-600.ttf', fill=(255, 255, 255), grund=None):
-    """Hausstil (marke.md): weisse Schreibschrift mit weichem Schatten direkt auf dem Foto, keine Textbox."""
+    """Weisser Text mit weichem Schatten direkt auf dem Foto, keine Textbox (marke.md)."""
     fo = f(schrift, groesse); lh = groesse * 1.35
     sh = Image.new('RGBA', c.size, (0, 0, 0, 0)); ds = ImageDraw.Draw(sh)
     tx = Image.new('RGBA', c.size, (0, 0, 0, 0)); dt = ImageDraw.Draw(tx)

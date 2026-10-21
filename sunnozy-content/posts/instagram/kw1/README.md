@@ -2,7 +2,7 @@
 
 Umsetzung des Content-Plans von @Alex (21.10.2026). Erzeugt mit `tools/make_kw1.py` (`python3 tools/make_kw1.py`, Teile: `feed`, `stories`, `reels`).
 
-Alle Texte sind nach `marke.md` in Sacramento gesetzt (über `tools/instagram_schrift.py`): auf Fotos weiss mit weichem Schatten, auf Creme dunkel, Logo klein unten Mitte.
+Schrift nach `marke.md` (ab 21.10.2026): Titel in Fraunces, Text in Nunito Sans, keine Schreibschrift. Auf Fotos weiss mit weichem Schatten, Logo klein unten Mitte.
 
 ## Zuerst klären
 

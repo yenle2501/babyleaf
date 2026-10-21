@@ -1,4 +1,8 @@
-"""Hausschrift fuer ALLE Instagram-Posts (Feed, Karussell, Storys, Reels): Sacramento. Nicht fuer Anzeigen.
+"""AUSGESCHALTET seit 21.10.2026: Die Inhaberin will auf Instagram keine Schreibschrift mehr, sondern Fraunces + Nunito
+(marke.md, «Schrift auf Instagram»). Der Import bleibt in den Generatoren stehen, macht aber nichts mehr.
+Wieder einschalten nur auf ausdruecklichen Wunsch: Umgebungsvariable SUNNOZY_SCHRIFT_AN=1.
+
+Frueher: Hausschrift fuer ALLE Instagram-Posts (Feed, Karussell, Storys, Reels): Sacramento. Nicht fuer Anzeigen.
 
 Wunsch der Nutzerin (19.10.2026): Schrift wie im Beispiel «winter is here» (duenne, verspielte Schreibschrift).
 Einbinden: als erste Zeile nach den Imports eines Instagram-Generators `import instagram_schrift  # noqa`.
@@ -30,7 +34,7 @@ def form(text):
     return '\n'.join(zeilen)
 
 
-if not os.environ.get('SUNNOZY_SCHRIFT_AUS') and not getattr(ImageFont, '_sunnozy_sacramento', False):
+if os.environ.get('SUNNOZY_SCHRIFT_AN') and not os.environ.get('SUNNOZY_SCHRIFT_AUS') and not getattr(ImageFont, '_sunnozy_sacramento', False):
     _original = ImageFont.truetype
 
     def _truetype(font=None, size=10, *args, **kwargs):
