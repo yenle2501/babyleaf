@@ -16,6 +16,7 @@ Aufruf: python3 make_wochenuhr_reel.py <freisteller-ordner> <ausgabe-ordner>
 import sys, os, math, subprocess
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
+import instagram_schrift  # noqa: F401  Hausschrift Sacramento fuer alle Instagram-Posts (nicht Anzeigen)
 
 src, out = sys.argv[1:3]
 os.makedirs(out, exist_ok=True)

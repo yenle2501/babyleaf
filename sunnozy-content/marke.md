@@ -65,4 +65,13 @@ Quelle: `reports/Instagram Stil oneve und Blossom Pear.md`. Die Instagram-Feeds 
 ---
 
 ## Hausstil „Handschrift“ (von der Inhaberin gewählt, Okt. 2026)
-Baby-Foto vollflächig, darauf **ein** Satz in Handschrift (Caveat, weiss, leicht schräg, weicher Schatten) im unteren Drittel, sunnozy-Logo klein in Weiss unten Mitte. Keine Textboxen, keine Grafik-Karten, keine Memes. Sätze zum Weiterleiten oder Markieren („Schick das …“, „Für die Freundin, die …“, „Markier eine Mama …“). Generator: `tools/make_handschrift.py`.
+Baby-Foto vollflächig, darauf **ein** Satz in Handschrift (**Sacramento**, weiss, klein geschrieben, gerade oder ganz leicht schräg, weicher Schatten) im unteren Drittel, sunnozy-Logo klein in Weiss unten Mitte. Keine Textboxen, keine Grafik-Karten, keine Memes. Sätze zum Weiterleiten oder Markieren („Schick das …“, „Für die Freundin, die …“, „Markier eine Mama …“). Generator: `tools/make_handschrift.py`.
+
+## Schrift auf Instagram (ab 19.10.2026)
+
+Alle Texte auf Instagram-Posts, Karussells, Storys und Reels in **Sacramento** (`fonts/sacramento.ttf`, Google Fonts, OFL),
+nach dem Vorbild «winter is here»: dünne, verspielte Schreibschrift, weiss auf Foto oder Tinte/Mauve auf Creme,
+klein geschrieben, keine Grossbuchstaben-Zeilen, kein Sperrsatz. Ausnahme: Anzeigen (Meta, Pinterest Ads) bleiben in
+Fraunces/Nunito/Inter, weil Preis und Versand dort schnell lesbar sein müssen. Das Logo bleibt das Logo.
+Generatoren: `import instagram_schrift` (setzt Sacramento automatisch), einzelne Texte: `tools/schrift_social.py`.
+

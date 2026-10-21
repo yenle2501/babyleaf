@@ -4,6 +4,7 @@ Kacheln 4:5 (1080x1350). Reihenfolge = Position im Profilraster (oben links -> u
 Aufruf: python3 make_pin_grid.py <baby-fotos> <packshots(drive2)> <drive3> <ausgabeordner>
 """
 import sys, os, math
+import instagram_schrift  # noqa: F401  Hausschrift Sacramento fuer alle Instagram-Posts (nicht Anzeigen)
 here = os.path.dirname(os.path.abspath(__file__))
 baby_dir, pack_dir, d3, out = sys.argv[1:5]
 src = open(os.path.join(here, 'make_viral.py')).read().split('# 1) "Schick das an')[0]

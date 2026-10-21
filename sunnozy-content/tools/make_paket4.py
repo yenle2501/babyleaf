@@ -4,6 +4,7 @@ Handschrift-Posts + Reel "Ein Tag mit dir" mit Handkamera-Bewegung und Filmkorn.
 Aufruf: python3 make_paket4.py <foto-ordner> <ausgabeordner>
 """
 import sys, os, math, subprocess
+import instagram_schrift  # noqa: F401  Hausschrift Sacramento fuer alle Instagram-Posts (nicht Anzeigen)
 here = os.path.dirname(os.path.abspath(__file__))
 gen, out = sys.argv[1:3]
 src = open(os.path.join(here, 'make_pin_grid.py')).read().split('# 1) Marken-Kachel')[0]

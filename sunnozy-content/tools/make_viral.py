@@ -5,13 +5,14 @@ Schriften und Logo liegen in sunnozy-content/fonts und sunnozy-content/logo-sunn
 """
 import sys, os, math, random
 from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageChops
+import instagram_schrift  # noqa: F401  Hausschrift Sacramento fuer alle Instagram-Posts (nicht Anzeigen)
 import numpy as np
 
 photo_dir, pack_dir, out = sys.argv[1:4]
 os.makedirs(out, exist_ok=True)
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FD = os.path.join(ROOT, 'fonts')
-HAND, SERI, SERR = (os.path.join(FD, f) for f in ('caveat.ttf', 'cormorant.ttf', 'cormorantR.ttf'))
+HAND, SERI, SERR = (os.path.join(FD, f) for f in ('sacramento.ttf', 'cormorant.ttf', 'cormorantR.ttf'))  # Handschrift fuer Social-Posts: Sacramento (Okt. 2026)
 SANS = '/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf'
 F = lambda p, s: ImageFont.truetype(p, s)
 W, H = 1080, 1350

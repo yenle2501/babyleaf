@@ -4,6 +4,7 @@ Textfarbe automatisch: weiss mit Schatten auf dunkleren Bildern, warmes Braun au
 Aufruf: python3 make_handschrift_bilder.py <bildordner> <ausgabeordner>
 """
 import sys, os
+import instagram_schrift  # noqa: F401  Hausschrift Sacramento fuer alle Instagram-Posts (nicht Anzeigen)
 import numpy as np
 here = os.path.dirname(os.path.abspath(__file__))
 img_dir, out = sys.argv[1:3]
