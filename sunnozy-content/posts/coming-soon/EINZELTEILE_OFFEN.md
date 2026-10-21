@@ -14,7 +14,7 @@ Einzelbilder auf Reinweiss (2000×2000) liegen je Set in `<set>/marktplatz/einze
 ## Noch offen (Canva-KI, Kontingent gesperrt)
 | Set | Teile |
 |---|---|
-| `gaensebluemchen-beautiful/` | Wickelbody, Fusshose, Knotenmütze |
+| `gaensebluemchen-beautiful/` | Knotenmütze (Wickelbody und Fusshose sind fertig) |
 | `blumen-musselin/` | Wickelbody, Fusshose, Haarband |
 | `little-princess-wickelbody/` | Wickelbody, Fusshose, Knotenmütze |
 | `i-love-you-dad/` | Wickelbody, Fusshose, Knotenmütze |
