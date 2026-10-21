@@ -8,12 +8,12 @@ Einzelbilder auf Reinweiss (2000×2000) liegen je Set in `<set>/marktplatz/einze
 | `turban-muetzen/` | 3 | echtes Foto, freigestellt |
 | `strampler-hund-creme/` | 8 | aus dem Weissbild ausgeschnitten |
 | `strampler-smile-gruen/` | 3 | aus dem Weissbild ausgeschnitten |
+| `weltall-hellblau/` | 3 | KI |
 | 9 Strampler-/Hosen-Sets, Little Bear, Eisbär, Waldbär, Born in 2027, Kirschen | siehe Ordner | KI bzw. ausgeschnitten |
 
 ## Noch offen (Canva-KI, Kontingent gesperrt)
 | Set | Teile |
 |---|---|
-| `weltall-hellblau/` | Wickelbody, Fusshose, Knotenmütze |
 | `gaensebluemchen-beautiful/` | Wickelbody, Fusshose, Knotenmütze |
 | `blumen-musselin/` | Wickelbody, Fusshose, Haarband |
 | `little-princess-wickelbody/` | Wickelbody, Fusshose, Knotenmütze |
