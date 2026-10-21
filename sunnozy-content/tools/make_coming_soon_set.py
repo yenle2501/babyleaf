@@ -65,6 +65,19 @@ SETS = {
                                  liste='Strampler, Body, Mütze, Kapuzentuch, Lätzchen, Schmusetuch, Fäustlinge, Söckchen'),
     'i-love-you-dad': dict(titel='«I love you Dad»', farbe='Hellblau', teile=3, roh_ki=True,
                            liste='Wickelbody, Fusshose, Knotenmütze'),
+    'muetzen-schleifen': dict(titel='Mützen 3er-Set «Schleifen»', farbe='Beere, Altrosa, Creme', teile=3,
+                              foto='muetzen_3er_schleifen.jpg', rand=0.035, kaesten=[(25, 15, 500, 150), (1420, 1740, 1852, 1866), (0, 890, 58, 985), (1795, 890, 1852, 985), (820, 1825, 1040, 1866)],
+                              liste='Mütze Beere, Mütze Altrosa, Mütze Creme mit Stoffschleife'),
+    'turban-muetzen': dict(titel='Turban-Mützen 3er-Set', farbe='Beere, Altrosa, Creme', teile=3,
+                           foto='turban_muetzen_3er_schleife.jpg', rand=0.035, kaesten=[(25, 15, 510, 150), (1560, 1740, 1870, 1865), (0, 890, 58, 985), (1812, 890, 1870, 985), (840, 1825, 1060, 1865)],
+                           liste='Turban Beere, Turban Altrosa, Turban Creme, je mit Knotenschleife'),
+    'heissluftballon-dream-big': dict(titel='«Dream big» Heissluftballon', farbe='Weiss und Beige', teile=3,
+                                      foto='heissluftballon_dream_big_3teilig.jpg', rand=0.035,
+                                      kaesten=[(30, 15, 510, 140), (1570, 1740, 1877, 1845), (0, 880, 66, 975), (1815, 880, 1877, 975), (850, 1815, 1050, 1845)],
+                                      liste='Wickelbody «dream BIG», Fusshose Heissluftballons, Knotenmütze'),
+    'gerippt-beige-baer': dict(titel='«Little Bear» gerippt Beige', farbe='Hafer, gerippt', teile=3,
+                               foto='gerippt_beige_baer_3teilig_buegel.jpg', kaesten=[], zuschnitt=(0, 150, 1440, 1590),
+                               liste='Wickelbody mit Bärchen-Etikett, Fusshose, Mütze mit Öhrchen'),
     'strampler-waldtiere': dict(titel='Strampler 3er-Set «Waldtiere»', farbe='Himbeer und Weiss', teile=3, roh_ki=True,
                                 liste='Strampler Waldtiere, Strampler Eichhörnchen, Strampler Zweige'),
     'strampler-segelboote': dict(titel='Strampler 3er-Set «Segelboote»', farbe='Creme, Taubenblau, Hellblau', teile=3,
@@ -130,8 +143,10 @@ def shop_aus_freisteller(png):
     return c.convert('RGB')
 
 
-def shop_aus_foto(pfad, kaesten):
+def shop_aus_foto(pfad, kaesten, zuschnitt=None, rand=0):
     im = Image.open(pfad).convert('RGB')
+    if zuschnitt:                                       # hochformatige Fotos erst quadratisch zuschneiden
+        im = im.crop(zuschnitt)
     for x0, y0, x1, y1 in kaesten:                      # Logo / Artikelnummer: mit Grund daneben uebermalen
         oben = np.asarray(im.crop((x0, max(0, y0 - 14), x1, max(1, y0 - 2)))).astype(float).mean(axis=0)
         unten = np.asarray(im.crop((x0, min(im.height - 1, y1 + 2), x1, min(im.height, y1 + 14)))).astype(float).mean(axis=0) \
@@ -140,6 +155,8 @@ def shop_aus_foto(pfad, kaesten):
         fuell = Image.fromarray((oben[None] * (1 - t) + unten[None] * t).astype(np.uint8))
         m = Image.new('L', (x1 - x0, y1 - y0), 0); ImageDraw.Draw(m).rectangle((6, 6, x1 - x0 - 7, y1 - y0 - 7), fill=255)
         im.paste(fuell, (x0, y0), m.filter(ImageFilter.GaussianBlur(4)))
+    if rand:                                            # Screenshot-Reste am Rand (Pfeile, Pünktchen) wegschneiden
+        im = im.crop((round(im.width * rand), round(im.height * rand), round(im.width * (1 - rand)), round(im.height * (1 - rand))))
     im = im.resize((N, N), Image.LANCZOS)
     return im.filter(ImageFilter.UnsharpMask(radius=1.4, percent=45, threshold=2))
 
@@ -313,7 +330,7 @@ if __name__ == '__main__':
     elif 'frei' in st:
         roh = shop_aus_freisteller(os.path.join(frei_dir, st['frei']))
     else:
-        roh = shop_aus_foto(os.path.join(ORIG, st['foto']), st['kaesten'])
+        roh = shop_aus_foto(os.path.join(ORIG, st['foto']), st['kaesten'], st.get('zuschnitt'), st.get('rand', 0))
     roh.save(os.path.join(out, 'shop', f'{key}_shop_ohne_logo.jpg'), quality=95)
     mit_logo(roh).save(os.path.join(out, 'shop', f'{key}_shop.jpg'), quality=95)
     feed(st, roh).save(os.path.join(out, 'instagram', f'{key}_feed_4x5.jpg'), quality=94)
