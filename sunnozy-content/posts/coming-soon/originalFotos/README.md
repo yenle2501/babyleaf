@@ -36,6 +36,11 @@ Lieferantenfotos, so wie Du sie geschickt hast (nur von WebP in JPG umgewandelt)
 | `little_princess_wickelbody_rosa_studio.jpg` | «Little Princess» Wickelbody-Set, Studiofoto | wie oben |
 | `little_princess_krone_8teilig.jpg` | «Little Princess» mit Krone, 8 Teile (Videos in `../little-princess/`) | Kapuzentuch, Body «Make a Wish», Strampler, Mütze, Söckchen, Schmusetuch, Fäustlinge, Lätzchen |
 | `gaensebluemchen_baby_girl_8teilig.jpg` | Gänseblümchen «It's a baby girl», 8 Teile (Videos in `../gaensebluemchen/`) | Kapuzentuch, Body, Strampler, Mütze, Söckchen, Rassel, Fäustlinge, Lätzchen |
+| `muetzen_3er_schleifen.jpg` | Mützen 3er-Set «Schleifen» → `../muetzen-schleifen/` | Beere, Altrosa, Creme mit Stoffschleife |
+| `turban_muetzen_3er_schleife.jpg` | Turban-Mützen 3er-Set → `../turban-muetzen/` | Beere, Altrosa, Creme, je mit Knotenschleife |
+| `heissluftballon_dream_big_3teilig.jpg` | «Dream big» → `../heissluftballon-dream-big/` | Wickelbody «dream BIG», Fusshose Heissluftballons, Knotenmütze |
+| `gerippt_beige_baer_3teilig_buegel.jpg` | «Little Bear» gerippt Beige → `../gerippt-beige-baer/` | Wickelbody mit Bärchen-Etikett, Fusshose, Mütze mit Öhrchen |
+| `little_princess_wickelbody_rosa_hd.jpg`, `i_love_you_dad_hellblau_hd.jpg` | dieselben Sets wie oben, in hoher Auflösung (1920 px) | |
 | `weltall_little_one_8teilig.jpg` | Weltall «Little one», 8 Teile | Kapuzentuch, Body mit Planet, Strampler, Mütze, Söckchen, Rassel Sonne, Fäustlinge, Lätzchen |
 
 ## Noch nicht gespeichert (bitte nochmals schicken)
@@ -44,15 +49,9 @@ Diese Fotos kamen während einer laufenden Antwort und liegen deshalb nicht als 
 
 | Produkt (Arbeitsname) | Teile |
 |---|---|
-| Heissluftballon «Dream big», beige | Wickelbody weiss mit Punkten und Bären im Ballon, Fusshose mit Ballon-Print, Knotenmütze |
-| Turban-Mützen mit Schleife, 3er-Set | altrosa, rosa mit Schleifen-Print, creme mit Herzen |
-| Mützen mit Schleifen, 3er-Set | altrosa, rosa mit Schleifen-Print, creme mit Herzen und Stoffschleife |
-| Gerippt beige mit Bärchen-Etikett | Wickelbody, Fusshose, Mütze mit Öhrchen |
 | Hase lila «little and cute» | Strampler mit Spitzenkragen, Body lila, Fusshose, Knotenmütze, Kapuzentuch mit Spitze, Lätzchen |
 | «Cute Bear» rosa gerippt | Wickelbody mit zwei Teddys, Fusshose creme mit Teddys, Knotenmütze |
 | «Hello» Schmetterling rosa gerippt (ist schon im Shop als «Hello» mit Spitze) | Kapuzentuch, Strampler, Body mit Spitzenkragen, Fusshose, Häubchen, Lätzchen |
-
-Zu «Gerippt beige» gibt es ein zweites Foto (Studio, heller Grund).
 
 | Produkt (Arbeitsname) | Teile |
 |---|---|

@@ -25,9 +25,13 @@
 | `strampler-kaetzchen-tulpen/` | «Kätzchen & Tulpen» 2er-Set mit Mütze | Shop, Präsentation, Marktplatz, Einzelteile, Instagram, Baby-Foto, Meta-Ads |
 | `dino-cool-dude/` | «Cool Dude» Dino-Set, 6 Teile | Shop, Präsentation, Marktplatz, Einzelteile, Instagram, Baby-Foto, Meta-Ads |
 | `strampler-rosa-little-princess/` | Strampler 3er-Set «Little Princess» | Shop, Präsentation, Marktplatz, Einzelteile, Instagram, Baby-Foto, Meta-Ads |
+| `muetzen-schleifen/` | Mützen 3er-Set «Schleifen» | Shop (echtes Foto), Präsentation, Marktplatz, Instagram, Meta-Ads |
+| `turban-muetzen/` | Turban-Mützen 3er-Set | Shop (echtes Foto), Marktplatz, Instagram, Meta-Ads |
+| `heissluftballon-dream-big/` | «Dream big» Heissluftballon, 3 Teile | Shop (echtes Foto), Marktplatz, Instagram, Meta-Ads |
+| `gerippt-beige-baer/` | «Little Bear» gerippt Beige, 3 Teile | Shop (echtes Foto), Instagram, Meta-Ads |
 | `originalFotos/` | Lieferantenfotos aller neuen Sets | Liste im README |
 
-`uebersicht_neue_sets.jpg` zeigt Shop-Bild, Instagram-Post, Meta-Anzeige und Marktplatz-Bild der 7 neuen Sets, `uebersicht_ki.jpg` Präsentation, Baby-Post und Baby-Anzeige, `uebersicht_baby_handyfoto.jpg` die Baby-Fotos im Handyfoto-Stil (Stilvorlagen in `assets/referenz-baby-handyfoto/`), `uebersicht_strampler_hosen_neu.jpg` die 9 Strampler- und Hosen-Sets (Shop, Marktplatz, Baby-Post, Feed, Baby-Anzeige).
+`uebersicht_neue_sets.jpg` zeigt Shop-Bild, Instagram-Post, Meta-Anzeige und Marktplatz-Bild der 7 neuen Sets, `uebersicht_ki.jpg` Präsentation, Baby-Post und Baby-Anzeige, `uebersicht_baby_handyfoto.jpg` die Baby-Fotos im Handyfoto-Stil (Stilvorlagen in `assets/referenz-baby-handyfoto/`), `uebersicht_strampler_hosen_neu.jpg` die 9 Strampler- und Hosen-Sets (Shop, Marktplatz, Baby-Post, Feed, Baby-Anzeige), `uebersicht_muetzen_dreambig_gerippt.jpg` die 4 Sets aus echten Fotos.
 
 In jedem Ordner: `original/` mit den Baby-Clips, die Videos, Titelbilder (`*_standbild.jpg`), `uebersicht.jpg` und ein README mit Bildunterschrift und Prüfpunkten. Sobald ein Set im Shop ist, die Videos mit Preis neu erzeugen (Befehl im README des Sets).
 
