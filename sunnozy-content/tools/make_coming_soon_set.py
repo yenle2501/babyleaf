@@ -57,6 +57,8 @@ SETS = {
     # Lieferantenfotos nur 580 px: Shop-Bild aus der KI-Praesentation statt aus dem Foto
     'little-princess-wickelbody': dict(titel='«Little Princess»', farbe='Rosa und Creme', teile=3, roh_ki=True,
                                        liste='Wickelbody, Fusshose, Knotenmütze'),
+    'strampler-kirschen': dict(titel='Strampler 3er-Set «Kirschen»', farbe='Weinrot, Altrosa, Weiss', teile=3, roh_ki=True,
+                               liste='Strampler «Smile», Strampler «You are the best», Strampler mit Kirschen'),
     'i-love-you-dad': dict(titel='«I love you Dad»', farbe='Hellblau', teile=3, roh_ki=True,
                            liste='Wickelbody, Fusshose, Knotenmütze'),
 }
@@ -174,9 +176,16 @@ def foto_flaeche(c, im, box, luft, oben=0):
     p = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
     p = p.filter(ImageFilter.UnsharpMask(radius=1.0, percent=45, threshold=2))
     px, py = (x1 - x0 - p.width) // 2, oben + (y1 - y0 - oben - p.height) // 2
-    rand = np.pad(np.asarray(p), ((py, y1 - y0 - py - p.height), (px, x1 - x0 - px - p.width), (0, 0)), mode='edge')
-    c.paste(Image.fromarray(rand).filter(ImageFilter.GaussianBlur(25)), (x0, y0))
+    a = np.asarray(p)
+    rand = np.pad(a, ((py, y1 - y0 - py - p.height), (px, x1 - x0 - px - p.width), (0, 0)), mode='edge')
     fr = max(8, round(p.width * 0.03))
+    if (np.abs(a[:, :3].astype(int) - np.median(a[:, :3], axis=(0, 1))).max(axis=2) > 40).any() or \
+       (np.abs(a[:, -3:].astype(int) - np.median(a[:, -3:], axis=(0, 1))).max(axis=2) > 40).any():
+        # Produkt reicht bis an den Fotorand: statt Randpixel verlaengern einheitlicher Grund (Median der Ecken)
+        ecken = np.concatenate([a[:20, :20].reshape(-1, 3), a[:20, -20:].reshape(-1, 3), a[-20:, :20].reshape(-1, 3), a[-20:, -20:].reshape(-1, 3)])
+        rand = np.full_like(rand, np.median(ecken, axis=0).astype(np.uint8))
+        fr = 2                                   # harte Kante, sonst blendet das Produkt am Rand aus
+    c.paste(Image.fromarray(rand).filter(ImageFilter.GaussianBlur(25)), (x0, y0))
     m = Image.new('L', p.size, 0); ImageDraw.Draw(m).rectangle((fr, fr, p.width - fr - 1, p.height - fr - 1), fill=255)
     c.paste(p, (x0 + px, y0 + py), m.filter(ImageFilter.GaussianBlur(fr / 2)))
 
@@ -290,5 +299,9 @@ if __name__ == '__main__':
         baby = Image.open(os.path.join(ki, f'baby_{key}.png')).convert('RGB')
         baby.resize((1080, 1350), Image.LANCZOS).save(os.path.join(out, 'instagram', f'{key}_baby_4x5.jpg'), quality=94)
         baby_coming_soon(st, baby).save(os.path.join(out, 'instagram', f'{key}_baby_coming_soon_4x5.jpg'), quality=94)
+        b2 = os.path.join(ki, f'baby2_{key}.png')                # optional zweites Baby-Foto
+        if os.path.exists(b2):
+            Image.open(b2).convert('RGB').resize((1080, 1350), Image.LANCZOS).save(
+                os.path.join(out, 'instagram', f'{key}_baby_2_4x5.jpg'), quality=94)
         meta_baby(baby).save(os.path.join(out, 'ads', f'{key}_meta_baby_4x5.jpg'), quality=95, subsampling=0)
     print(key)

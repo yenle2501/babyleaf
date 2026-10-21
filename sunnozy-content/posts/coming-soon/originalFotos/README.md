@@ -20,6 +20,7 @@ Lieferantenfotos, so wie Du sie geschickt hast (nur von WebP in JPG umgewandelt)
 | `born_in_2027_rosa_flatlay.jpg` | «Born in 2027» rosa, 6 Teile | Kapuzentuch, Strampler rosa mit Heissluftballons, Body «Born in 2027», Fusshose, Knotenmütze, Lätzchen |
 | `little_princess_wickelbody_rosa_buegel.jpg` | «Little Princess» Wickelbody-Set, 3 Teile (aus Paket 18) | Wickelbody rosa mit Krone, Fusshose creme mit Schleifen, Knotenmütze |
 | `i_love_you_dad_hellblau_buegel.jpg` | «I love you Dad», 3 Teile (aus Paket 18) | Wickelbody hellblau mit Schnurrbart, Fusshose mit Fliegen und Hüten, Knotenmütze |
+| `strampler_3er_kirschen.jpg` | Strampler 3er-Set «Kirschen» | weinrot gerippt «Smile» (Rücken «i love my mummy»), altrosa «You are the best», weiss mit Kirschen |
 
 ## Noch nicht gespeichert (bitte nochmals schicken)
 
@@ -41,7 +42,6 @@ Diese Fotos kamen während einer laufenden Antwort und liegen deshalb nicht als 
 | Dino «Cool Dude», creme mit Regenbogen | Strampler, Body, Fusshose, Dino-Mütze, Kapuzentuch «Here comes trouble», Lätzchen |
 | Kätzchen und Tulpen, 2 Strampler + Mütze | Strampler mit Kätzchen, Strampler mit Tulpen und Bubikragen, Mütze |
 | «Sweet Home» beige, 2 Strampler + Mütze | Strampler mit Häuschen-Print, gestreifter Strampler «Sweet Home», Mütze mit Öhrchen |
-| Strampler 3er-Set Kirschen | weinrot gerippt «Smile» (Rücken «i love my mummy»), altrosa «You are the best», weiss mit Kirschen |
 | «Cute Bear» rosa gerippt | Wickelbody mit zwei Teddys, Fusshose creme mit Teddys, Knotenmütze |
 | «Hello» Schmetterling rosa gerippt (ist schon im Shop als «Hello» mit Spitze) | Kapuzentuch, Strampler, Body mit Spitzenkragen, Fusshose, Häubchen, Lätzchen |
 
