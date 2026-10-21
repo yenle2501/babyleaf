@@ -66,15 +66,33 @@ class RRDBNet(nn.Module):
         return self.conv_last(self.lrelu(self.conv_hr(feat)))
 
 
+class SRVGGNetCompact(nn.Module):
+    """Kompaktes Real-ESRGAN (realesr-general-x4v3), rund 10x schneller als RRDBNet."""
+    def __init__(self, nf=64, nc=32):
+        super().__init__()
+        self.body = nn.ModuleList([nn.Conv2d(3, nf, 3, 1, 1), nn.PReLU(nf)])
+        for _ in range(nc):
+            self.body.extend([nn.Conv2d(nf, nf, 3, 1, 1), nn.PReLU(nf)])
+        self.body.append(nn.Conv2d(nf, 3 * 16, 3, 1, 1))
+        self.up = nn.PixelShuffle(4)
+
+    def forward(self, x):
+        out = x
+        for m in self.body:
+            out = m(out)
+        return self.up(out) + F.interpolate(x, scale_factor=4, mode='nearest')
+
+
 S, WEISS = 2000, 250
 MIN_IN, MAX_IN = 400, 800      # Eingangsgrösse für das Netz (Kante des Teils)
 ORIGINAL = 0.25                 # Anteil Originalbild, hält etwas Stoffstruktur
 
 
 def lade(pfad):
-    net = RRDBNet()
     sd = torch.load(pfad, map_location='cpu')
-    net.load_state_dict(sd.get('params_ema', sd), strict=True)
+    sd = sd.get('params_ema', sd.get('params', sd))
+    net = SRVGGNetCompact() if 'body.0.weight' in sd else RRDBNet()
+    net.load_state_dict(sd, strict=True)
     return net.eval()
 
 
