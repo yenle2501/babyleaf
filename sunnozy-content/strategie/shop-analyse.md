@@ -71,3 +71,23 @@ Nicht geprüft: echte Darstellung im Browser, Checkout und Zahlungsarten, Ladeze
   - Das Produkt selbst bleibt aktiv. Die Seite /products/personalisierte-geschenkbox ist per direktem Link weiterhin erreichbar, der Warenkorb-Code für Boxen bleibt drin.
   - Die 8 Weihnachts-Geschenkboxen und der Menüpunkt «Geschenkboxen» bleiben sichtbar.
   - **Wieder einblenden:** die Render-Zeile in `bl-dropdown-pfeil.liquid` löschen.
+
+## Umgesetzt am 21.10.2026: Blog-Artikel
+
+Alle 20 Artikel im Blog «Neuigkeiten» haben jetzt ein Titelbild und eine SEO-Beschreibung.
+
+- **Titelbild ergänzt** bei 12 Artikeln, die keines hatten. Verwendet wurde jeweils das Hauptbild eines Produkts, das im Artikel verlinkt ist, mit eigenem Alt-Text:
+  - babykleidung-waschen: Set «Teddybär»
+  - erstausstattungs-set-kaufen: Set «Hello Little Bear»
+  - herbstbaby-erstausstattung: Langarm-Bodys «Mum Dad Me»
+  - babykleidung-baumwolle-materialien: Kurzarm-Bodys «Growing up strong»
+  - kleines-geschenk-zur-geburt-unter-10-franken: Geschenkset «Rosa Safari»
+  - baby-nachts-anziehen-herbst: Jogginghosen 5er-Set
+  - wickeltisch-einrichten-checkliste: Mulltücher Grün/Natur
+  - baby-soeckchen-groesse-und-anzahl: Söckchen «Spitze & Blümchen»
+  - baby-halstuecher-ratgeber: Halstücher «Cool like Daddy»
+  - baby-zur-taufe-anziehen-herbst: Set «Hello» Rosa
+  - empfindliche-babyhaut-kleidung: Set «Hello World»
+  - weihnachtsgeschenk-fuers-baby-ideen: Weihnachts-Geschenkbox «Dino»
+- **SEO-Titel und SEO-Beschreibung** (Suchmaschinen-Auflistung, max. 60/155 Zeichen) bei 18 Artikeln neu gesetzt. Bei «Musselintücher & Nuscheli» stand noch «gratis ab CHF 39», korrigiert auf CHF 50. «Lieblings-Nuscheli» hatte schon beides und blieb unverändert.
+- Die Texte der Artikel und die Auszüge wurden nicht verändert. Bilder im Text haben weiterhin nur 6 der 20 Artikel.
