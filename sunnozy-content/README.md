@@ -13,6 +13,7 @@ Kanäle: Instagram & TikTok **@sunnozy.ch**, Facebook, Etsy (sunnozyCH), ricardo
 | [`fotos/shotlist.md`](fotos/shotlist.md) | Foto-Shotlist pro Produkt, Setup, Licht, Requisiten |
 | [`ki-prompts/prompts.md`](ki-prompts/prompts.md) | KI-Prompts für Bilder & Videos (Higgsfield, Midjourney u. a.) |
 | [`captions.md`](captions.md) | Caption-Vorlagen, Hashtag-Sets, CTAs (DE/FR) |
+| [`GESAMTUEBERSICHT.md`](GESAMTUEBERSICHT.md) | **Alles zusammengefasst:** Inhalte, Pläne, Werbung, Tipps, Widersprüche, To-dos |
 | [`kalender/content-kalender.csv`](kalender/content-kalender.csv) | 4-Wochen-Redaktionsplan (in Excel/Google Sheets öffnen) |
 
 ## So startest du (Woche 1)

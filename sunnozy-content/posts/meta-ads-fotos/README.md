@@ -1,6 +1,8 @@
 # Meta-Anzeigenbilder (Instagram & Facebook)
 
-Alle Bilder für die Kampagne «Alles drin» (siehe `strategie/sunnozy-werbeplan.html`), nach Format sortiert. Es sind nur echte Produktbilder (Shop-Hauptbilder), keine KI-Babys. Preise und Teile stammen aus Shopify, Stand 17.10.2026.
+Alle Bilder für die Kampagne «Alles drin» (siehe `strategie/sunnozy-werbeplan.html`), nach Format sortiert. Es sind nur Produktbilder (Shop-Hauptbilder), keine KI-Babys. Preise und Teile stammen aus Shopify, Stand 17.10.2026.
+
+**Update 18.10.2026:** Next-Stil, Checkliste und Geschenk sind neu aus den Shop-Hauptbildern im ChatGPT-Stil gebaut (`posts/shopify-hauptbilder-praesentation-hd/bilder/`): warmer Studio-Grund, Holzbügel, Set deutlich grösser. Im Next-Stil läuft das Bild randlos, bei Checkliste und Geschenk sitzt es als Fotokachel mit runden Ecken. Das eingebrannte Logo der Hauptbilder ist übermalt. «Alles drin» (Teile als Kacheln) bleibt unverändert, weil es aus den Einzelteilen gebaut ist.
 
 | Ordner | Format | Wo bei Meta |
 |---|---|---|
@@ -34,7 +36,7 @@ Tipp: In Meta kannst Du pro Anzeige mehrere Formate hinterlegen («Platzierungen
 - **Lager:** «Hello» Rosa und «Hello Little Bear» haben nur 2 Stück. Diese Bilder erst nach dem Nachbestellen schalten.
 - **Preise:** Ändert sich ein Preis, müssen die Bilder neu erzeugt werden:
   - `python3 tools/make_meta_fotos.py posts/meta-ads-fotos` (Checkliste, Geschenk)
-  - `tools/make_meta_ads.py` (Next-Stil)
+  - `python3 tools/make_meta_ads.py posts/shopify-hauptbilder-praesentation-hd/bilder <ordner> --4x5` (Next-Stil 1:1, 4:5, 9:16; danach in `1x1/`, `4x5/`, `9x16/` verschieben)
   - `tools/make_alles_drin.py` (Alles drin)
 - **Geschenkverpackung:** Die Geschenk-Anzeigen versprechen keine Geschenkverpackung. Erst erwähnen, wenn Du sie im Shop anbietest.
 

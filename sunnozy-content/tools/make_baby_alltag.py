@@ -17,6 +17,7 @@ Aufruf: python3 make_baby_alltag.py <paket-ordner>
 import sys, os, math, json, subprocess
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
+import instagram_schrift  # noqa: F401  Hausschrift Sacramento fuer alle Instagram-Posts (nicht Anzeigen)
 
 pak = sys.argv[1]
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -41,12 +42,11 @@ def load_logo(width, col=(74, 62, 56)):
 
 
 def gesperrt(d, xy, text, font, fill, sp, anchor_mitte=True):
-    w = sum(d.textlength(ch, font=font) for ch in text) + sp * (len(text) - 1)
-    x, y = xy
-    if anchor_mitte:
-        x -= w / 2
-    for ch in text:
-        d.text((x, y), ch, font=font, fill=fill, anchor='lm'); x += d.textlength(ch, font=font) + sp
+    # Instagram-Hausschrift Sacramento: Schreibschrift nicht sperren, sondern als ganzes Wort klein schreiben
+    t = instagram_schrift.form(text.lower() if text.isupper() else text)
+    font = font.font_variant(size=int(font.size * 1.5))  # Kleinbuchstaben in Schreibschrift laufen kleiner
+    w = d.textlength(t, font=font)
+    d.text(xy, t, font=font, fill=fill, anchor='mm' if anchor_mitte else 'lm')
     return w
 
 
@@ -54,7 +54,7 @@ def etikett(im, text, cy, k=1.0):
     """Kleines gedecktes Etikett wie «SWADDLE TUTORIAL» im Vorbild."""
     W = im.width; lay = Image.new('RGBA', im.size, (0, 0, 0, 0)); d = ImageDraw.Draw(lay)
     f = ImageFont.truetype(INTER.format('Regular'), int(34 * k)); sp = 3 * k
-    w = sum(d.textlength(ch, font=f) for ch in text) + sp * (len(text) - 1)
+    w = d.textlength(instagram_schrift.form(text.lower() if text.isupper() else text), font=f)
     pw, ph = 30 * k, 26 * k
     d.rectangle([W / 2 - w / 2 - pw, cy - 22 * k - ph / 2, W / 2 + w / 2 + pw, cy + 22 * k + ph / 2], fill=ETIKETT + (225,))
     gesperrt(d, (W / 2, cy), text, f, (255, 255, 255, 255), sp)

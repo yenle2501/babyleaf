@@ -14,6 +14,7 @@ Aufruf: python3 make_farbwechsel_reel.py <teile-ordner> <ausgabe-ordner>
 import sys, os, math, subprocess
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
+import instagram_schrift  # noqa: F401  Hausschrift Sacramento fuer alle Instagram-Posts (nicht Anzeigen)
 
 src, out = sys.argv[1:3]
 os.makedirs(out, exist_ok=True)
@@ -90,9 +91,8 @@ def standbild(W, H, body, hose, L):
     ft = ImageFont.truetype(INTER.format('Medium'), int(46 * k)); fu = ImageFont.truetype(INTER.format('Regular'), int(30 * k))
     fp = ImageFont.truetype(INTER.format('Regular'), int(25 * k))
     # Ueberschrift gesperrt (Buchstabenabstand von Hand)
-    sp = 6 * k; tw = sum(d.textlength(ch, font=ft) for ch in TITEL) + sp * (len(TITEL) - 1); x = (W - tw) / 2
-    for ch in TITEL:
-        d.text((x, L['titel_y']), ch, font=ft, fill=INK); x += d.textlength(ch, font=ft) + sp
+    # Instagram-Hausschrift Sacramento: Titel als ganzes Wort, klein geschrieben, nicht gesperrt
+    d.text((W / 2, L['titel_y']), instagram_schrift.form(TITEL), font=ft, fill=INK, anchor='ma')
     d.text((W / 2, L['unter_y']), UNTER, font=fu, fill=INK, anchor='mt')
     # Hose hinten rechts, Body vorne links (wie im Vorbild)
     bx, by = L['body_xy']; hx, hy = L['hose_xy']

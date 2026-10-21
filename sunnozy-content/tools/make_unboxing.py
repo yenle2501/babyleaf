@@ -8,6 +8,7 @@ Tempo-Wechsel pro Abschnitt, langsamer Schwenk beim Reveal, Endkarte, Originalto
 Aufruf: python3 make_unboxing.py <video.mov> <ausgabeordner>
 """
 import sys, os, subprocess, math
+import instagram_schrift  # noqa: F401  Hausschrift Sacramento fuer alle Instagram-Posts (nicht Anzeigen)
 import numpy as np
 here = os.path.dirname(os.path.abspath(__file__))
 src_video, out = sys.argv[1:3]

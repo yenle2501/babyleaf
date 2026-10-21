@@ -3,17 +3,20 @@
 Motiv «Checkliste» (werdende Eltern): «Erstausstattung? Erledigt.» - das Set als Bild, darunter jedes Teil mit Haken.
 Motiv «Geschenk» (Schenkende): «Das schönste Hallo» auf Rosé, Set, Teile, Preis, Lieferzeit.
 Nur echte Produktbilder (Shop-Hauptbilder), Preise und Teile aus Shopify, Look nach dem sunnozy-Designsystem.
+Update 18.10.2026: Grundlage sind die neuen Hauptbilder im ChatGPT-Stil (warmer Studio-Grund, Holzbuegel). Sie sitzen
+als Fotokachel mit runden Ecken und weichem Schatten auf Creme bzw. Rosé, deutlich groesser als vorher; das
+eingebrannte Logo wird mit dem Studio-Grund uebermalt.
 In Storys bleiben oben 14 % und unten 20 % frei von wichtigem Inhalt (Instagram-Bedienelemente).
 
 Aufruf: python3 make_meta_fotos.py <ausgabe-ordner>
 """
 import os, sys
 import numpy as np
-from PIL import Image, ImageDraw, ImageFont, ImageChops
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 out = sys.argv[1]
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BILDER = os.path.join(ROOT, 'posts', 'shopify-hauptbilder-klar', 'bilder')
+BILDER = os.path.join(ROOT, 'posts', 'shopify-hauptbilder-praesentation-hd', 'bilder')
 FONT = lambda n, s: ImageFont.truetype(os.path.join(ROOT, 'fonts', n), int(s))
 CREME, WALD, SALBEI, GRAU, ROSE = (253, 252, 250), (35, 48, 41), (122, 139, 111), (98, 108, 102), (248, 234, 228)
 
@@ -31,20 +34,31 @@ FORMATE = {'1x1': (1080, 1080), '4x5': (1080, 1350), '9x16': (1080, 1920)}
 
 
 def produkt(handle):
+    """Shop-Hauptbild ohne Logo. Das Logo liegt bei allen Bildern bei x 72-478, y 63-148 (von 2048 px,
+    `hauptbild_logo.py`); die Flaeche wird zwischen dem Grund darueber und darunter verlaufend aufgefuellt."""
     im = Image.open(os.path.join(BILDER, handle + '.jpg')).convert('RGB')
-    im = im.crop((0, int(205 * im.width / 2048), im.width, im.height))           # Logo oben links weg
-    a = np.asarray(im.convert('L')); ys, xs = np.where(a < 246)
-    return im.crop((max(0, xs.min() - 20), max(0, ys.min() - 20), min(im.width, xs.max() + 20), min(im.height, ys.max() + 20)))
+    a = np.asarray(im).astype(float); s = im.width / 2048
+    x0, x1, y0, y1 = int(56 * s), int(496 * s), int(50 * s), int(164 * s)
+    k = np.ones(41) / 41
+    glatt = lambda z: np.stack([np.convolve(np.pad(z[:, c], 20, mode='edge'), k, 'valid') for c in range(3)], 1)
+    oben, unten = glatt(a[y0 - 10:y0, x0:x1].mean(0)), glatt(a[y1:y1 + 10, x0:x1].mean(0))
+    t = np.linspace(0, 1, y1 - y0)[:, None, None]
+    a[y0:y1, x0:x1] = oben[None] * (1 - t) + unten[None] * t
+    return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
 
 
-def setzen(c, im, box):
-    """Produktbild (weisser Grund) in die Box einpassen und per Multiplizieren auf den Grund setzen."""
+def setzen(c, im, box, r=26):
+    """Hauptbild als quadratische Fotokachel mit runden Ecken und weichem Schatten mittig in die Box setzen."""
     x, y, w, h = box
-    s = min(w / im.width, h / im.height)
-    t = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
-    px, py = int(x + (w - t.width) / 2), int(y + (h - t.height) / 2)
-    reg = c.crop((px, py, px + t.width, py + t.height))
-    c.paste(ImageChops.multiply(reg, t), (px, py))
+    n = int(min(w, h))
+    t = im.resize((n, n), Image.LANCZOS)
+    px, py = int(x + (w - n) / 2), int(y + (h - n) / 2)
+    sh = Image.new('L', c.size, 0)
+    ImageDraw.Draw(sh).rounded_rectangle([px, py + 10, px + n, py + n + 10], radius=r, fill=60)
+    c.paste(Image.new('RGB', c.size, WALD), (0, 0), sh.filter(ImageFilter.GaussianBlur(18)))
+    m = Image.new('L', (n, n), 0)
+    ImageDraw.Draw(m).rounded_rectangle([0, 0, n - 1, n - 1], radius=r, fill=255)
+    c.paste(t, (px, py), m)
 
 
 def load_logo(width, col=WALD):
@@ -86,24 +100,24 @@ def motiv_checkliste(s, fmt):
     if fmt == '1x1':
         d.text((60, 120), 'Erstausstattung?', font=ft, fill=WALD, anchor='ls')
         d.text((60, 215), 'Erledigt.', font=ft, fill=SALBEI, anchor='ls')
-        setzen(c, im, (40, 260, 600, 640))
+        setzen(c, im, (50, 252, 600, 612))
         d = ImageDraw.Draw(c)
         checkliste(d, teile, 680, 330, 1, 0, 70, 34)
         y = 945
     elif fmt == '4x5':
         d.text((W / 2, 150), 'Erstausstattung?', font=ft, fill=WALD, anchor='ms')
         d.text((W / 2, 250), 'Erledigt.', font=ft, fill=SALBEI, anchor='ms')
-        setzen(c, im, (90, 290, W - 180, 610))
+        setzen(c, im, (0, 290, W, 670))
         d = ImageDraw.Draw(c)
-        checkliste(d, teile, 150, 960, 2, 430, 62, 32)
+        checkliste(d, teile, 150, 1012, 2, 430, 54, 32)
         y = 1250
     else:
         d.text((W / 2, 400), 'Erstausstattung?', font=FONT('fraunces-600.ttf', 96), fill=WALD, anchor='ms')
         d.text((W / 2, 510), 'Erledigt.', font=FONT('fraunces-600.ttf', 96), fill=SALBEI, anchor='ms')
-        setzen(c, im, (60, 560, W - 120, 700))
+        setzen(c, im, (0, 560, W, 740))
         d = ImageDraw.Draw(c)
-        checkliste(d, teile, 150, 1300, 2, 430, 58, 31)
-        y = 1560
+        checkliste(d, teile, 150, 1356, 2, 430, 52, 31)
+        y = 1580
     zeile = f'{len(teile)} Teile  ·  CHF {preis}  ·  Gratisversand ab CHF 50'
     if fmt == '1x1':          # links buendig, rechts sitzt das Logo
         d.text((60, y), 'ERSTAUSSTATTUNG ' + titel.upper(), font=FONT('nunitosans-700.ttf', 24), fill=SALBEI, anchor='lm')
@@ -125,7 +139,7 @@ def motiv_geschenk(s, fmt):
     gesperrt(d, (W / 2, oben), 'GESCHENK ZUR GEBURT', FONT('nunitosans-700.ttf', 26), SALBEI, 5)
     gr = 92 if fmt != '1x1' else 84
     d.text((W / 2, oben + 110), 'Das schönste Hallo', font=FONT('fraunces-600.ttf', gr), fill=WALD, anchor='ms')
-    bild_h = {'1x1': 610, '4x5': 760, '9x16': 860}[fmt]
+    bild_h = {'1x1': 640, '4x5': 760, '9x16': 860}[fmt]
     setzen(c, im, (70, oben + 150, W - 140, bild_h))
     d = ImageDraw.Draw(c)
     y = oben + 150 + bild_h + 45

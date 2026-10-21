@@ -6,6 +6,7 @@ Folie 2: "Im Bild"-Folie mit der Set-Praesentation auf Creme, Teileanzahl und Sh
 Aufruf: python3 make_paket5.py <foto-ordner> <praesentation-ordner (ohne_logo)> <ausgabeordner>
 """
 import sys, os
+import instagram_schrift  # noqa: F401  Hausschrift Sacramento fuer alle Instagram-Posts (nicht Anzeigen)
 here = os.path.dirname(os.path.abspath(__file__))
 gen, praes, out = sys.argv[1:4]
 src = open(os.path.join(here, 'make_pin_grid.py')).read().split('# 1) Marken-Kachel')[0]

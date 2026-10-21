@@ -10,6 +10,7 @@ Aufruf: python3 make_flow_reel.py <ausgabeordner> <clip1.mp4> <clip2.mp4> <clip3
 import sys, os, math, subprocess
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
+import instagram_schrift  # noqa: F401  Hausschrift Sacramento fuer alle Instagram-Posts (nicht Anzeigen)
 
 out, c1, c2, c3 = sys.argv[1:5]
 here = os.path.dirname(os.path.abspath(__file__))
