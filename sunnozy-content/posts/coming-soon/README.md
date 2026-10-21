@@ -15,7 +15,7 @@
 | `i-love-you-dad/` | «I love you Dad» Hellblau, 3 Teile | Shop, Präsentation, Marktplatz, Instagram, Baby-Fotos, Meta-Ads |
 | `originalFotos/` | Lieferantenfotos aller neuen Sets | Liste im README |
 
-`uebersicht_neue_sets.jpg` zeigt Shop-Bild, Instagram-Post, Meta-Anzeige und Marktplatz-Bild der 7 neuen Sets, `uebersicht_ki.jpg` Präsentation, Baby-Post und Baby-Anzeige.
+`uebersicht_neue_sets.jpg` zeigt Shop-Bild, Instagram-Post, Meta-Anzeige und Marktplatz-Bild der 7 neuen Sets, `uebersicht_ki.jpg` Präsentation, Baby-Post und Baby-Anzeige, `uebersicht_baby_handyfoto.jpg` die Baby-Fotos im Handyfoto-Stil (Stilvorlagen in `assets/referenz-baby-handyfoto/`).
 
 In jedem Ordner: `original/` mit den Baby-Clips, die Videos, Titelbilder (`*_standbild.jpg`), `uebersicht.jpg` und ein README mit Bildunterschrift und Prüfpunkten. Sobald ein Set im Shop ist, die Videos mit Preis neu erzeugen (Befehl im README des Sets).
 

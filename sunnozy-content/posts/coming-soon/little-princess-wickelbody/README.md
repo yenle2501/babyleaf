@@ -7,7 +7,7 @@
 | `shop/` | Shop-Hauptbild 2048×2048 (Holzbügel-Präsentation) mit und ohne sunnozy-Logo |
 | `praesentation/` | dieselbe Präsentation, mit und ohne Logo |
 | `marktplatz/` | Hauptbild Galaxus/Amazon auf Reinweiss 2000×2000 |
-| `instagram/` | Feed 4:5 und Story 9:16 mit «Coming soon», Baby-Foto 4:5 ohne Text und mit Etikett «Coming soon» |
+| `instagram/` | Feed 4:5 und Story 9:16 mit «Coming soon», Baby-Foto 4:5 im Handyfoto-Stil ohne Text und mit Etikett «Coming soon» |
 | `ads/` | Meta-Anzeigen 1:1, 9:16 und 4:5 mit Baby-Foto, «Coming soon», «Bald im Shop» |
 
 **KI-Bilder prüfen:** Prints und Schriften mit dem echten Set vergleichen. Beim Posten der Baby-Fotos «Mit KI erstellt» einschalten.

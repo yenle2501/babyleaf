@@ -53,3 +53,7 @@ Zu «Little Princess» Wickelbody-Set, Gerippt beige, «Sweet Home» und Kätzch
 | Dino «Cool Dude» creme, 6 Teile (Studio) | Kapuzentuch «Here comes trouble», Strampler, Body, Fusshose, Dino-Mütze, Lätzchen |
 | Bauernhof «Happy Baby», 7 Teile (gibt es schon als `set_bauernhof`) | Kapuzentuch, Body, Strampler, Knotenmütze, Rassel Kuh, Fäustlinge, Lätzchen «Hi Friends» |
 | Hase lila «little and cute», 6 Teile (Studio) | Kapuzentuch mit Spitze, Strampler mit Spitzenkragen, Body lila, Fusshose, Knotenmütze, Lätzchen |
+
+## Abgleich vom 21.10.2026
+
+Alle Fotos, die als Datei bei mir angekommen sind, liegen auf GitHub (hier, in `../../produktfotos-set-praesentation/original/`, `../../paket-10-produkte/original/` und `../../paket-18-baby-alltag-2/original/`). Nicht auf GitHub sind nur die Fotos, die während einer laufenden Antwort kamen (Liste oben), plus Bildschirmaufnahmen und Referenz-Screenshots. Die Baby-Vorlagen im Handyfoto-Stil liegen jetzt in `assets/referenz-baby-handyfoto/`.
