@@ -1,7 +1,7 @@
 # Neue Produkte aus der Katalogliste (Oktober 2026)
 
 38 Produkte aus der Produktliste (Google Sheet), angelegt mit `tools/shopify_neue_produkte.py`.
-35 sind aktiv und im Onlineshop. 3 sind Entwürfe ohne Bild, weil es bisher nur kleine Katalogfotos gibt.
+Alle 38 sind aktiv und im Onlineshop. Knotenmützen «Bär», Born in 2027 Hellblau und Strampler «Avocado» haben seit 21.10.2026 KI-Bilder (aus den kleinen Katalogfotos).
 Die drei Sets, die schon im Shop waren, sind nicht doppelt angelegt: Teddybär creme, Princess und Little and Loved.
 
 ## Preiskalkulation
@@ -49,14 +49,14 @@ Das Theme **«sunnozy FINAL 108 – Neue Produkte & Menü»** ist eine Kopie des
 
 | Typ | Produkt | Preis CHF | Grössen | Bilder | Für | Status | Produkt-ID |
 |---|---|---|---|---|---|---|---|
-| Accessoires | [Baby-Knotenmützen 3er-Set «Bär» – Braun, Gestreift & Creme](https://sunnozy.ch/products/baby-knotenmuetzen-3er-set-baer) | 7.90 | 1 | 0 | Unisex | Entwurf | 11303451165015 |
+| Accessoires | [Baby-Knotenmützen 3er-Set «Bär» – Braun, Gestreift & Creme](https://sunnozy.ch/products/baby-knotenmuetzen-3er-set-baer) | 7.90 | 1 | 0 | Unisex | aktiv | 11303451165015 |
 | Accessoires | [Baby-Mützen 3er-Set «Schleifen» – Beere, Altrosa & Creme](https://sunnozy.ch/products/baby-muetzen-3er-set-schleifen) | 5.90 | 1 | 2 | Mädchen | aktiv | 11303451885911 |
 | Accessoires | [Turban-Mützen 3er-Set mit Knotenschleife – Beere, Altrosa & Creme](https://sunnozy.ch/products/turban-muetzen-3er-set-schleife) | 7.90 | 1 | 4 | Mädchen | aktiv | 11303497105751 |
 | Erstausstattungs-Set | [Erstausstattung-Set «Bauernhof» – Creme, 8-teilig](https://sunnozy.ch/products/erstausstattung-set-bauernhof) | 30.90 | 2 | 9 | Unisex | aktiv | 11303453098327 |
 | Erstausstattungs-Set | [Erstausstattung-Set «Beautiful» Gänseblümchen – Apricot, 3-teilig](https://sunnozy.ch/products/erstausstattung-set-beautiful-gaensebluemchen) | 15.90 | 2 | 4 | Mädchen | aktiv | 11303453950295 |
 | Erstausstattungs-Set | [Erstausstattung-Set «Best Family» Teddy – Beige & Creme, 8-teilig](https://sunnozy.ch/products/erstausstattung-set-best-family-teddy) | 30.90 | 2 | 9 | Unisex | aktiv | 11303455916375 |
 | Erstausstattungs-Set | [Erstausstattung-Set «Blumenwiese» Musselin – 3-teilig mit Haarband](https://sunnozy.ch/products/erstausstattung-set-blumenwiese-musselin) | 15.90 | 2 | 2 | Mädchen | aktiv | 11303456276823 |
-| Erstausstattungs-Set | [Erstausstattung-Set «Born in 2027» – Hellblau, 6-teilig](https://sunnozy.ch/products/erstausstattung-set-born-in-2027-blau) | 26.90 | 2 | 0 | Junge | Entwurf | 11303456801111 |
+| Erstausstattungs-Set | [Erstausstattung-Set «Born in 2027» – Hellblau, 6-teilig](https://sunnozy.ch/products/erstausstattung-set-born-in-2027-blau) | 26.90 | 2 | 0 | Junge | aktiv | 11303456801111 |
 | Erstausstattungs-Set | [Erstausstattung-Set «Born in 2027» – Rosa, 6-teilig](https://sunnozy.ch/products/erstausstattung-set-born-in-2027-rosa) | 26.90 | 2 | 4 | Mädchen | aktiv | 11303457685847 |
 | Erstausstattungs-Set | [Erstausstattung-Set «Cool Dude» Dino – Creme, 6-teilig](https://sunnozy.ch/products/erstausstattung-set-dino-cool-dude) | 26.90 | 2 | 6 | Junge | aktiv | 11303458865495 |
 | Erstausstattungs-Set | [Erstausstattung-Set «Dream big» Heissluftballon – Weiss & Beige, 3-teilig](https://sunnozy.ch/products/erstausstattung-set-dream-big-heissluftballon) | 15.90 | 2 | 2 | Unisex | aktiv | 11303460077911 |
@@ -78,7 +78,7 @@ Das Theme **«sunnozy FINAL 108 – Neue Produkte & Menü»** ist eine Kopie des
 | Erstausstattungs-Set | [Erstausstattung-Set «little and cute» Hase – Lila, 6-teilig](https://sunnozy.ch/products/erstausstattung-set-hase-lila) | 26.90 | 2 | 7 | Mädchen | aktiv | 11303467974999 |
 | Hosen-Set | [Baby-Hosen 3er-Set «Bären» – Beige, Braun & Weiss](https://sunnozy.ch/products/baby-hosen-3er-set-baeren) | 13.90 | 3 | 4 | Unisex | aktiv | 11303449887063 |
 | Hosen-Set | [Baby-Hosen 3er-Set «Herzen» – Creme, Altrosa & Rosa](https://sunnozy.ch/products/baby-hosen-3er-set-herzen) | 13.90 | 3 | 4 | Mädchen | aktiv | 11303450804567 |
-| Strampler-Set | [Strampler 3er-Set «Avocado» – Grün & Weiss](https://sunnozy.ch/products/strampler-3er-set-avocado) | 25.90 | 3 | 0 | Unisex | Entwurf | 11303486816599 |
+| Strampler-Set | [Strampler 3er-Set «Avocado» – Grün & Weiss](https://sunnozy.ch/products/strampler-3er-set-avocado) | 25.90 | 3 | 0 | Unisex | aktiv | 11303486816599 |
 | Strampler-Set | [Strampler 3er-Set «Kirschen» – Weinrot, Altrosa & Weiss](https://sunnozy.ch/products/strampler-3er-set-kirschen) | 25.90 | 3 | 4 | Mädchen | aktiv | 11303488061783 |
 | Strampler-Set | [Strampler 3er-Set «Little Princess» – Rosa & Creme](https://sunnozy.ch/products/strampler-3er-set-little-princess) | 25.90 | 3 | 4 | Mädchen | aktiv | 11303489438039 |
 | Strampler-Set | [Strampler 3er-Set «Naturtöne» – Salbei, Creme & Beige](https://sunnozy.ch/products/strampler-3er-set-naturtoene) | 25.90 | 3 | 1 | Unisex | aktiv | 11303491141975 |
@@ -90,7 +90,7 @@ Das Theme **«sunnozy FINAL 108 – Neue Produkte & Menü»** ist eine Kopie des
 
 ## Offen
 
-- **Entwürfe ohne Bild:** Knotenmützen «Bär», Born in 2027 Hellblau und Strampler «Avocado». Sie gehen online, sobald es Bilder gibt.
+- **Nur KI-Bilder:** Knotenmützen «Bär», Born in 2027 Hellblau und Strampler «Avocado» – mit der echten Ware vergleichen.
 - **Einzelteile fehlen teilweise:** Bei einigen Sets gibt es nur das Hauptbild oder das Weissbild (siehe `posts/coming-soon/EINZELTEILE_OFFEN.md`).
 - **KI-Bilder vor dem Verkauf mit der echten Ware vergleichen:** Anzahl Teile, Prints und Farben.
 - **Weitere Verkaufskanäle:** Shop, Google & YouTube, Facebook & Instagram und Pinterest sind noch nicht aktiviert. Das geht in Shopify unter Produkte → Mehrfachauswahl → Verkaufskanäle.
