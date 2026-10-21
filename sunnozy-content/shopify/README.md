@@ -27,12 +27,17 @@ Die Kalkulation steckt in `tools/shopify_neue_produkte.py` (`preis()`). Mit ande
 | Erstausstattung für Mädchen | `erstausstattung-maedchen` | Tag `mädchen-erstausstattung` |
 | Erstausstattung für Jungen | `erstausstattung-junge` | Tag `junge-erstausstattung` |
 | Strampler-Sets | `strampler-sets` | Produkttyp `Strampler-Set` |
+| Mützen | `accessoires-muetzen` | Tag `mütze` |
+| Halstücher | `accessoires-halstuecher` | Tag `Halstücher` |
+| Söckchen | `accessoires-soeckchen` | Tag `Söckchen` |
+| Lätzchen-Sets | `accessoires-laetzchen` | Tag `Lätzchen` |
 
 Unisex-Sets haben beide Tags und erscheinen deshalb in beiden Unterkategorien. Die 6 bestehenden Erstausstattungs-Sets haben die Tags ebenfalls bekommen.
 
-Das neue Menü `main-menu-108` ist eine Kopie von `main-menu-geschenkboxen` mit zwei Änderungen:
-- Erstausstattung hat ein Untermenü: Alle, Für Mädchen, Für Jungen
+Das neue Menü `main-menu-108` ist eine Kopie von `main-menu-geschenkboxen` mit drei Änderungen:
+- Erstausstattung hat ein Untermenü: Für Mädchen, Für Jungen (ein Klick auf Erstausstattung zeigt alle)
 - Neuer Tab Strampler-Sets direkt danach
+- Accessoires hat ein Untermenü: Mützen, Halstücher, Söckchen, Lätzchen-Sets
 
 Das Theme **«sunnozy FINAL 108 – Neue Produkte & Menü»** ist eine Kopie des Live-Themes. Dort zeigt der Header auf `main-menu-108`. Das Live-Theme bleibt unverändert, bis Du 108 veröffentlichst.
 
