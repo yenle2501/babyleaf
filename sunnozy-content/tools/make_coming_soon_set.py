@@ -65,11 +65,38 @@ SETS = {
                                  liste='Strampler, Body, Mütze, Kapuzentuch, Lätzchen, Schmusetuch, Fäustlinge, Söckchen'),
     'i-love-you-dad': dict(titel='«I love you Dad»', farbe='Hellblau', teile=3, roh_ki=True,
                            liste='Wickelbody, Fusshose, Knotenmütze'),
+    'strampler-waldtiere': dict(titel='Strampler 3er-Set «Waldtiere»', farbe='Himbeer und Weiss', teile=3, roh_ki=True,
+                                liste='Strampler Waldtiere, Strampler Eichhörnchen, Strampler Zweige'),
+    'strampler-segelboote': dict(titel='Strampler 3er-Set «Segelboote»', farbe='Creme, Taubenblau, Hellblau', teile=3,
+                                 roh_ki=True, liste='Strampler Segelboote, Strampler «a Dream comes true», '
+                                                    'Strampler «Enjoy every single day»'),
+    'hosen-baeren': dict(titel='Hosen 3er-Set «Bären»', farbe='Beige, Braun, Weiss', teile=3, roh_ki=True,
+                         liste='Hose gestreift, Hose «I love hugs», Hose Bärenköpfe'),
+    'strampler-blumen-hase': dict(titel='«Blumen & Hase» 2er-Set', farbe='Weiss mit Blumen, Rosa', teile=3, roh_ki=True,
+                                  liste='Strampler mit Spitzenkragen, Strampler Hase, Haarband'),
+    'hosen-herzen-rosa': dict(titel='Hosen 3er-Set «Herzen»', farbe='Creme, Altrosa, Rosa', teile=3, roh_ki=True,
+                              liste='Hose Leo-Herzen, Hose «Love more», Hose Herzchen'),
+    'strampler-sweet-home': dict(titel='«Sweet Home» 2er-Set', farbe='Beige, gestreift', teile=3, roh_ki=True,
+                                 liste='Strampler Häuschen, Strampler «sweet HOME», Mütze mit Öhrchen'),
+    'strampler-kaetzchen-tulpen': dict(titel='«Kätzchen & Tulpen» 2er-Set', farbe='Creme mit Flieder', teile=3,
+                                       roh_ki=True, liste='Strampler Kätzchen, Strampler Tulpen, Mütze'),
+    'dino-cool-dude': dict(titel='«Cool Dude» Dino-Set', farbe='Creme', teile=6, roh_ki=True,
+                           liste='Strampler, Body «Cool Dude», Fusshose, Dino-Mütze, Kapuzentuch, Lätzchen'),
+    'strampler-rosa-little-princess': dict(titel='Strampler 3er-Set «Little Princess»', farbe='Altrosa, Creme, Rosa',
+                                           teile=3, roh_ki=True,
+                                           liste='Strampler Schleifen, Strampler Tüll, Strampler «Little Princess»'),
 }
 
 
 def f(name, size):
     return ImageFont.truetype(os.path.join(ROOT, 'fonts', name), int(size))
+
+
+def passt(d, text, name, size, maxw):
+    """Schrift so weit verkleinern, dass der Text in maxw passt."""
+    while size > 16 and d.textlength(text, font=f(name, size)) > maxw:
+        size -= 1
+    return f(name, size)
 
 
 def logo(width, color=(122, 108, 104)):
@@ -155,7 +182,7 @@ def feed(st, foto, W=1080, H=1350):
     d.text((W / 2, 222), f"{st['teile']} Teile  ·  {st['farbe']}", font=f('nunitosans-400.ttf', 30), fill=GRAU, anchor='mm')
     karte(c, foto, (W / 2, 290 + 820 / 2), 820)
     d = ImageDraw.Draw(c)
-    d.text((W / 2, H - 112), st['liste'], font=f('nunitosans-600.ttf', 26), fill=WALD, anchor='mm')
+    d.text((W / 2, H - 112), st['liste'], font=passt(d, st['liste'], 'nunitosans-600.ttf', 26, W - 80), fill=WALD, anchor='mm')
     d.text((W / 2, H - 66), 'Bald auf sunnozy.ch  ·  Gratisversand ab CHF 50', font=f('nunitosans-400.ttf', 24), fill=GRAU, anchor='mm')
     return c
 
@@ -168,7 +195,7 @@ def story(st, foto, W=1080, H=1920):
     d.text((W / 2, 515), f"{st['teile']} Teile  ·  {st['farbe']}", font=f('nunitosans-400.ttf', 34), fill=GRAU, anchor='mm')
     unten = karte(c, foto, (W / 2, 590 + 900 / 2), 900)
     d = ImageDraw.Draw(c)
-    d.text((W / 2, unten + 62), st['liste'], font=f('nunitosans-600.ttf', 30), fill=WALD, anchor='mm')
+    d.text((W / 2, unten + 62), st['liste'], font=passt(d, st['liste'], 'nunitosans-600.ttf', 30, W - 80), fill=WALD, anchor='mm')
     d.text((W / 2, unten + 112), 'Bald auf sunnozy.ch', font=f('nunitosans-400.ttf', 30), fill=GRAU, anchor='mm')
     return c
 
@@ -253,7 +280,10 @@ def baby_coming_soon(st, baby, W=1080, H=1350):
     d.rectangle([x0, y0, x0 + bw, y0 + bh], fill=CREME + (238,))
     c = Image.alpha_composite(c.convert('RGBA'), lay).convert('RGB'); d = ImageDraw.Draw(c)
     stempel(d, (W / 2, y0 + 48), groesse=20)
-    d.text((W / 2, y0 + 112), st['titel'], font=f('fraunces-600.ttf', 50), fill=WALD, anchor='mm')
+    gr = 50
+    while gr > 30 and d.textlength(st['titel'], font=f('fraunces-600.ttf', gr)) > bw - 60:   # lange Titel verkleinern
+        gr -= 2
+    d.text((W / 2, y0 + 112), st['titel'], font=f('fraunces-600.ttf', gr), fill=WALD, anchor='mm')
     d.text((W / 2, y0 + 160), 'Bald auf sunnozy.ch', font=f('nunitosans-400.ttf', 24), fill=GRAU, anchor='mm')
     return c
 

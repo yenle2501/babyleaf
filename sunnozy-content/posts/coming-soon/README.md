@@ -16,9 +16,18 @@
 | `strampler-kirschen/` | Strampler 3er-Set «Kirschen» | Shop, Präsentation, Marktplatz, Einzelteile, Instagram, Baby-Fotos, Meta-Ads |
 | `strampler-smile-gruen/` | «Smile» Salbeigrün, 3 Teile | Shop, Präsentation, Marktplatz, Instagram, Baby-Fotos, Meta-Ads |
 | `strampler-hund-creme/` | «I love Dogs» Creme, 8 Teile | Shop, Präsentation, Marktplatz, Instagram, Baby-Fotos, Meta-Ads |
+| `strampler-waldtiere/` | Strampler 3er-Set «Waldtiere» | Shop, Präsentation, Marktplatz, Einzelteile, Instagram, Baby-Foto, Meta-Ads |
+| `strampler-segelboote/` | Strampler 3er-Set «Segelboote» | Shop, Präsentation, Marktplatz, Einzelteile, Instagram, Baby-Foto, Meta-Ads |
+| `hosen-baeren/` | Hosen 3er-Set «Bären» | Shop, Präsentation, Marktplatz, Einzelteile, Instagram, Baby-Foto, Meta-Ads |
+| `strampler-blumen-hase/` | «Blumen & Hase» 2er-Set mit Haarband | Shop, Präsentation, Marktplatz, Einzelteile, Instagram, Baby-Foto, Meta-Ads |
+| `hosen-herzen-rosa/` | Hosen 3er-Set «Herzen» | Shop, Präsentation, Marktplatz, Einzelteile, Instagram, Baby-Foto, Meta-Ads |
+| `strampler-sweet-home/` | «Sweet Home» 2er-Set mit Mütze | Shop, Präsentation, Marktplatz, Einzelteile, Instagram, Baby-Foto, Meta-Ads |
+| `strampler-kaetzchen-tulpen/` | «Kätzchen & Tulpen» 2er-Set mit Mütze | Shop, Präsentation, Marktplatz, Einzelteile, Instagram, Baby-Foto, Meta-Ads |
+| `dino-cool-dude/` | «Cool Dude» Dino-Set, 6 Teile | Shop, Präsentation, Marktplatz, Einzelteile, Instagram, Baby-Foto, Meta-Ads |
+| `strampler-rosa-little-princess/` | Strampler 3er-Set «Little Princess» | Shop, Präsentation, Marktplatz, Einzelteile, Instagram, Baby-Foto, Meta-Ads |
 | `originalFotos/` | Lieferantenfotos aller neuen Sets | Liste im README |
 
-`uebersicht_neue_sets.jpg` zeigt Shop-Bild, Instagram-Post, Meta-Anzeige und Marktplatz-Bild der 7 neuen Sets, `uebersicht_ki.jpg` Präsentation, Baby-Post und Baby-Anzeige, `uebersicht_baby_handyfoto.jpg` die Baby-Fotos im Handyfoto-Stil (Stilvorlagen in `assets/referenz-baby-handyfoto/`).
+`uebersicht_neue_sets.jpg` zeigt Shop-Bild, Instagram-Post, Meta-Anzeige und Marktplatz-Bild der 7 neuen Sets, `uebersicht_ki.jpg` Präsentation, Baby-Post und Baby-Anzeige, `uebersicht_baby_handyfoto.jpg` die Baby-Fotos im Handyfoto-Stil (Stilvorlagen in `assets/referenz-baby-handyfoto/`), `uebersicht_strampler_hosen_neu.jpg` die 9 Strampler- und Hosen-Sets (Shop, Marktplatz, Baby-Post, Feed, Baby-Anzeige).
 
 In jedem Ordner: `original/` mit den Baby-Clips, die Videos, Titelbilder (`*_standbild.jpg`), `uebersicht.jpg` und ein README mit Bildunterschrift und Prüfpunkten. Sobald ein Set im Shop ist, die Videos mit Preis neu erzeugen (Befehl im README des Sets).
 
