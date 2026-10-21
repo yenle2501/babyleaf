@@ -2,6 +2,8 @@
 
 Umsetzung des Content-Plans von @Alex (21.10.2026). Erzeugt mit `tools/make_kw1.py` (`python3 tools/make_kw1.py`, Teile: `feed`, `stories`, `reels`).
 
+Alle Texte sind nach `marke.md` in Sacramento gesetzt (über `tools/instagram_schrift.py`): auf Fotos weiss mit weichem Schatten, auf Creme dunkel, Logo klein unten Mitte.
+
 ## Zuerst klären
 
 - [x] **20 %-Rabatt auf Bodys** ist seit 21.10. in Shopify aktiv: automatischer Rabatt «20 % auf alle Bodys (bis 2.11.)» auf die Kollektion Body-Sets (15 Produkte), endet 2.11., 23:59 Schweizer Zeit.

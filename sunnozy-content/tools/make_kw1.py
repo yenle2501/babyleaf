@@ -9,6 +9,7 @@ Formate: Feed 1080x1350, Reels und Stories 1080x1920 (oben 250 px, unten 400 px 
 import os, sys, subprocess
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
+import instagram_schrift  # noqa: Hausschrift Sacramento fuer alle Instagram-Texte (marke.md)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 KW = os.path.join(ROOT, 'posts', 'instagram', 'kw1')
@@ -76,10 +77,10 @@ def einsetzen(c, teil, box):
 
 
 def fuss(c, d, text='sunnozy.ch', y=None, farbe=GRAU):
+    """Logo klein unten Mitte (marke.md); text bleibt fuer Aufrufer kompatibel, wird nicht gezeichnet."""
     y = FH - 64 if y is None else y
     L = logo(150, (122, 108, 104))
-    c.paste(L, (60, y - L.height // 2), L)
-    d.text((c.width - 60, y), text, font=f('nunitosans-600.ttf', 26), fill=farbe, anchor='rm')
+    c.paste(L, ((c.width - L.width) // 2, y - L.height // 2), L)
 
 
 def punkte(d, n, i, y, W=FW):
@@ -130,8 +131,8 @@ def di_karussell(out):
         d.text((80, 130), f'{i:02d}', font=f('fraunces-600.ttf', 40), fill=SALBEI, anchor='lm')
         fo = passt(d, titel, 'fraunces-600.ttf', 66, FW - 160)
         d.text((80, 215), titel, font=fo, fill=WALD, anchor='lm')
-        d.rounded_rectangle((80, 280, 80 + d.textlength(menge, font=f('nunitosans-800.ttf', 44)) + 60, 360), radius=40, fill=WALD)
-        d.text((110, 321), menge, font=f('nunitosans-800.ttf', 44), fill=CREME, anchor='lm')
+        d.rounded_rectangle((80, 280, 80 + d.textlength(menge, font=f('nunitosans-800.ttf', 44)) + 60, 360), radius=40, fill=ROSE)
+        d.text((110, 321), menge, font=f('nunitosans-800.ttf', 44), fill=WALD, anchor='lm')
         d.text((80 + d.textlength(menge, font=f('nunitosans-800.ttf', 44)) + 90, 321), '' if 'Paar' in menge else 'Stück', font=f('nunitosans-400.ttf', 34), fill=GRAU, anchor='lm')
         flaeche = (140, 420, FW - 140, 1070)
         d.rounded_rectangle((100, 400, FW - 100, 1090), radius=36, fill=SAND)
@@ -214,8 +215,8 @@ def fr_karussell(out):
         d = ImageDraw.Draw(c)
         d.text((FW / 2, 1100), inhalt, font=f('nunitosans-600.ttf', 38), fill=WALD, anchor='mm')
         pw = d.textlength(f'CHF {preis}', font=f('nunitosans-800.ttf', 40))
-        d.rounded_rectangle((FW / 2 - pw / 2 - 34, 1140, FW / 2 + pw / 2 + 34, 1210), radius=35, fill=WALD)
-        d.text((FW / 2, 1176), f'CHF {preis}', font=f('nunitosans-800.ttf', 40), fill=CREME, anchor='mm')
+        d.rounded_rectangle((FW / 2 - pw / 2 - 34, 1140, FW / 2 + pw / 2 + 34, 1210), radius=35, fill=ROSE)
+        d.text((FW / 2, 1176), f'CHF {preis}', font=f('nunitosans-800.ttf', 40), fill=WALD, anchor='mm')
         punkte(d, n, i, 1250); fuss(c, d, y=FH - 50)
         c.save(os.path.join(out, f'fr_karussell_{i + 1:02d}.jpg'), quality=94)
     c = Image.new('RGB', (FW, FH), ROSE); d = ImageDraw.Draw(c)
@@ -236,16 +237,18 @@ def kenburns(im, t, z0=1.0, z1=1.08, dx=0.0, dy=0.0):
     return im.resize((SW, SH), Image.LANCZOS, box=(cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2))
 
 
-def textband(c, zeilen, y, groesse=64, schrift='fraunces-600.ttf', fill=WALD, grund=CREME + (235,)):
-    d0 = ImageDraw.Draw(c)
-    fo = f(schrift, groesse); lh = groesse * 1.25
-    breite = max(d0.textlength(z, font=fo) for z in zeilen)
-    ov = Image.new('RGBA', c.size, (0, 0, 0, 0)); d = ImageDraw.Draw(ov)
-    h = lh * len(zeilen) + 50
-    d.rounded_rectangle((SW / 2 - breite / 2 - 44, y - 25, SW / 2 + breite / 2 + 44, y + h - 25), radius=34, fill=grund)
+def textband(c, zeilen, y, groesse=64, schrift='fraunces-600.ttf', fill=(255, 255, 255), grund=None):
+    """Hausstil (marke.md): weisse Schreibschrift mit weichem Schatten direkt auf dem Foto, keine Textbox."""
+    fo = f(schrift, groesse); lh = groesse * 1.35
+    sh = Image.new('RGBA', c.size, (0, 0, 0, 0)); ds = ImageDraw.Draw(sh)
+    tx = Image.new('RGBA', c.size, (0, 0, 0, 0)); dt = ImageDraw.Draw(tx)
     for k, z in enumerate(zeilen):
-        d.text((SW / 2, y + lh * k + lh / 2), z, font=fo, fill=fill, anchor='mm')
-    c.alpha_composite(ov)
+        pos = (SW / 2, y + lh * k + lh / 2)
+        if fill[:3] == (255, 255, 255):
+            ds.text((pos[0] + 2, pos[1] + 3), z, font=fo, fill=(30, 22, 18, 235), anchor='mm', stroke_width=6, stroke_fill=(30, 22, 18, 235))
+        dt.text(pos, z, font=fo, fill=fill + (255,) if len(fill) == 3 else fill, anchor='mm')
+    c.alpha_composite(sh.filter(ImageFilter.GaussianBlur(7)))
+    c.alpha_composite(tx)
 
 
 def endkarte(titel, unter, bild=None, fussnote='sunnozy.ch'):
@@ -338,8 +341,8 @@ def body_bild(name, art, datei):
     d = ImageDraw.Draw(c)
     d.text((SW / 2, 1500), f'«{name}»', font=f('fraunces-600.ttf', 66), fill=WALD, anchor='mm')
     d.text((SW / 2, 1572), art, font=f('nunitosans-600.ttf', 36), fill=GRAU, anchor='mm')
-    d.ellipse((SW - 290, 1250, SW - 90, 1450), fill=WALD)
-    d.text((SW - 190, 1350), '–20 %', font=f('nunitosans-800.ttf', 48), fill=CREME, anchor='mm')
+    d.ellipse((SW - 290, 1250, SW - 90, 1450), fill=ROSE)
+    d.text((SW - 190, 1350), '–20 %', font=f('nunitosans-800.ttf', 48), fill=WALD, anchor='mm')
     return c
 
 
@@ -347,7 +350,7 @@ def do_reel(out):
     bilder = [body_bild(*b) for b in BODYS]
 
     def hook(t):
-        c = bilder[0].copy(); textband(c, ['Noch 4 Tage:', '20 % auf alle Bodys'], 290, 66); return c
+        c = bilder[0].copy(); textband(c, ['Noch 4 Tage:', '20 % auf alle Bodys'], 270, 72, fill=WALD); return c
     szenen = [(1.8, hook)] + [(1.0, (lambda im: (lambda t: im))(im)) for im in bilder[1:]] + [(1.0, lambda t: bilder[0])]
     end = endkarte(['20 % auf alle Bodys'], 'bis 2.11. auf sunnozy.ch', None, 'Rabatt im Warenkorb')
     szenen.append((2.2, lambda t: end))

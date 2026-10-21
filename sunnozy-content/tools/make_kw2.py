@@ -35,8 +35,8 @@ def checkliste():
     y = 340
     for titel, unter, _ in LISTE:
         d.rounded_rectangle((90, y, 140, y + 50), radius=10, outline=k.WALD, width=4)
-        d.text((175, y + 10), titel, font=k.f('nunitosans-700.ttf', 40), fill=k.WALD, anchor='lm')
-        d.text((175, y + 56), unter, font=k.f('nunitosans-400.ttf', 30), fill=k.GRAU, anchor='lm')
+        d.text((175, y + 12), titel, font=k.f('nunitosans-700.ttf', 46), fill=k.WALD, anchor='lm')
+        d.text((175, y + 66), unter, font=k.passt(d, unter, 'nunitosans-400.ttf', 36, k.FW - 260), fill=k.GRAU, anchor='lm')
         y += 128
     d.rounded_rectangle((90, y + 10, k.FW - 90, y + 120), radius=24, fill=k.ROSE)
     d.text((k.FW / 2, y + 45), 'Tipp: Viele Spitäler stellen Kleider für die ersten Tage.', font=k.passt(d, 'Tipp: Viele Spitäler stellen Kleider für die ersten Tage.', 'nunitosans-600.ttf', 30, k.FW - 240), fill=k.WALD, anchor='mm')
