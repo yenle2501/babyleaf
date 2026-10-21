@@ -23,6 +23,20 @@ Lieferantenfotos, so wie Du sie geschickt hast (nur von WebP in JPG umgewandelt)
 | `strampler_3er_kirschen.jpg` | Strampler 3er-Set «Kirschen» | weinrot gerippt «Smile» (Rücken «i love my mummy»), altrosa «You are the best», weiss mit Kirschen |
 | `smile_gruen_strampler.jpg` | «Smile» Salbeigrün, 3 Teile | Ripp-Strampler «You make me happy», Kapuzentuch «Smile», Knotenmütze |
 | `hund_creme_strampler.jpg` | «I love Dogs» Creme, 8 Teile | Strampler, Body, Mütze, Kapuzentuch, Lätzchen, Schmusetuch, Fäustlinge, Söckchen |
+| `smile_gruen_strampler_2.jpg` | «Smile» Salbeigrün, zweites Foto | wie oben |
+| `strampler_3er_waldtiere.jpg` | Strampler 3er-Set «Waldtiere» → `../strampler-waldtiere/` | Himbeer mit Waldtieren, Weiss mit Eichhörnchen, Weiss mit Zweigen |
+| `strampler_3er_segelboote.jpg`, `_2.jpg` | Strampler 3er-Set «Segelboote» → `../strampler-segelboote/` | Creme mit Segelbooten, Taubenblau «a Dream comes true», Hellblau «Enjoy every single day» |
+| `hosen_3er_baeren.jpg` | Hosen 3er-Set «Bären» → `../hosen-baeren/` | Beige gestreift, Braun «I love hugs», Weiss mit Bärenköpfen |
+| `strampler_2er_blumen_hase_haarband.jpg` | «Blumen & Hase» → `../strampler-blumen-hase/` | Strampler mit Spitzenkragen, Strampler Hase, Haarband |
+| `hosen_3er_herzen_rosa.jpg` | Hosen 3er-Set «Herzen» → `../hosen-herzen-rosa/` (Foto nur 445 px) | Creme Leo-Herzen, Altrosa «Love more», Rosa mit Herzchen |
+| `strampler_2er_sweet_home_muetze.jpg`, `_2.jpg` | «Sweet Home» → `../strampler-sweet-home/` | Strampler Häuschen, Strampler «sweet HOME», Mütze mit Öhrchen |
+| `strampler_2er_kaetzchen_tulpen_muetze.jpg` | «Kätzchen & Tulpen» → `../strampler-kaetzchen-tulpen/` | Strampler Kätzchen, Strampler Tulpen, Mütze |
+| `dino_cool_dude_6teilig.jpg` | «Cool Dude» Dino → `../dino-cool-dude/` | Strampler, Body, Fusshose, Dino-Mütze, Kapuzentuch, Lätzchen |
+| `strampler_3er_rosa_little_princess.jpg` | Strampler 3er-Set «Little Princess» → `../strampler-rosa-little-princess/` | Rosa Schleifen, Creme Tüll, Rosa «Little Princess» |
+| `little_princess_wickelbody_rosa_studio.jpg` | «Little Princess» Wickelbody-Set, Studiofoto | wie oben |
+| `little_princess_krone_8teilig.jpg` | «Little Princess» mit Krone, 8 Teile (Videos in `../little-princess/`) | Kapuzentuch, Body «Make a Wish», Strampler, Mütze, Söckchen, Schmusetuch, Fäustlinge, Lätzchen |
+| `gaensebluemchen_baby_girl_8teilig.jpg` | Gänseblümchen «It's a baby girl», 8 Teile (Videos in `../gaensebluemchen/`) | Kapuzentuch, Body, Strampler, Mütze, Söckchen, Rassel, Fäustlinge, Lätzchen |
+| `weltall_little_one_8teilig.jpg` | Weltall «Little one», 8 Teile | Kapuzentuch, Body mit Planet, Strampler, Mütze, Söckchen, Rassel Sonne, Fäustlinge, Lätzchen |
 
 ## Noch nicht gespeichert (bitte nochmals schicken)
 
@@ -33,25 +47,18 @@ Diese Fotos kamen während einer laufenden Antwort und liegen deshalb nicht als 
 | Heissluftballon «Dream big», beige | Wickelbody weiss mit Punkten und Bären im Ballon, Fusshose mit Ballon-Print, Knotenmütze |
 | Turban-Mützen mit Schleife, 3er-Set | altrosa, rosa mit Schleifen-Print, creme mit Herzen |
 | Mützen mit Schleifen, 3er-Set | altrosa, rosa mit Schleifen-Print, creme mit Herzen und Stoffschleife |
-| «Little Princess» mit Krone, 8 Teile (Originalfoto zum Set in `../little-princess/`) | Kapuzentuch, Body «Make a Wish», Strampler, Mütze, Söckchen, Schmusetuch, Fäustlinge, Lätzchen |
-| Strampler 3er-Set rosa | rosa mit Schleifen, creme mit Tüll-Rüsche, rosa «Little Princess» mit Krone |
-| Weltall «Little one», hellblau, 8 Teile | Kapuzentuch, Body mit Planet, Strampler mit Weltall-Print, Mütze, Söckchen, Rassel Sonne, Fäustlinge, Lätzchen |
-| Gänseblümchen «It's a baby girl», 8 Teile (Originalfoto zum Set in `../gaensebluemchen/`) | Kapuzentuch, Body, Strampler, Mütze, Söckchen, Rassel, Fäustlinge, Lätzchen |
-| Strampler 3er-Set blau | hellblau «Enjoy every single day», blau gerippt «a Dream comes true», creme mit Segelbooten |
 | Gerippt beige mit Bärchen-Etikett | Wickelbody, Fusshose, Mütze mit Öhrchen |
 | Hase lila «little and cute» | Strampler mit Spitzenkragen, Body lila, Fusshose, Knotenmütze, Kapuzentuch mit Spitze, Lätzchen |
-| Dino «Cool Dude», creme mit Regenbogen | Strampler, Body, Fusshose, Dino-Mütze, Kapuzentuch «Here comes trouble», Lätzchen |
-| Kätzchen und Tulpen, 2 Strampler + Mütze | Strampler mit Kätzchen, Strampler mit Tulpen und Bubikragen, Mütze |
-| «Sweet Home» beige, 2 Strampler + Mütze | Strampler mit Häuschen-Print, gestreifter Strampler «Sweet Home», Mütze mit Öhrchen |
 | «Cute Bear» rosa gerippt | Wickelbody mit zwei Teddys, Fusshose creme mit Teddys, Knotenmütze |
 | «Hello» Schmetterling rosa gerippt (ist schon im Shop als «Hello» mit Spitze) | Kapuzentuch, Strampler, Body mit Spitzenkragen, Fusshose, Häubchen, Lätzchen |
 
-Zu «Little Princess» Wickelbody-Set, Gerippt beige, «Sweet Home» und Kätzchen/Tulpen gibt es je ein zweites Foto (Studio, heller Grund).
+Zu «Gerippt beige» gibt es ein zweites Foto (Studio, heller Grund).
+
+| Produkt (Arbeitsname) | Teile |
+|---|---|
 | «I love Dad Mom» weiss gerippt, 6 Teile | Kapuzentuch, Strampler mit Schrift-Print, Body «I ♥ Dad Mom», Fusshose «Love», Knotenmütze, Lätzchen |
 | Gänseblümchen apricot «It's a baby girl», 8 Teile | Kapuzentuch, Body, Strampler mit Rüschen, Mütze, Söckchen, Beissring Blume, Fäustlinge, Lätzchen «happy» |
-| Weltall hellblau «Little one», 8 Teile (Studio) | Kapuzentuch, Body mit Planet, Strampler, Mütze «You are my universe», Söckchen, Rassel Sonne, Fäustlinge, Lätzchen |
 | Wal «Sea vibes» hellblau, 8 Teile (gibt es schon als `set_wal_blau`) | Kapuzentuch «Just swimming», Body, Strampler, Knotenmütze, Schmusetuch Wal, Söckchen, Fäustlinge, Lätzchen Wal |
-| Dino «Cool Dude» creme, 6 Teile (Studio) | Kapuzentuch «Here comes trouble», Strampler, Body, Fusshose, Dino-Mütze, Lätzchen |
 | Bauernhof «Happy Baby», 7 Teile (gibt es schon als `set_bauernhof`) | Kapuzentuch, Body, Strampler, Knotenmütze, Rassel Kuh, Fäustlinge, Lätzchen «Hi Friends» |
 | Hase lila «little and cute», 6 Teile (Studio) | Kapuzentuch mit Spitze, Strampler mit Spitzenkragen, Body lila, Fusshose, Knotenmütze, Lätzchen |
 

@@ -10,6 +10,6 @@
 | `instagram/` | Feed 4:5 und Story 9:16 mit «Coming soon»; Baby-Foto im Handyfoto-Stil (`_baby_4x5`, Body «Cool Dude», Fusshose und Dino-Mütze), dazu mit Etikett «Coming soon» |
 | `ads/` | Meta-Anzeigen 1:1, 9:16 und 4:5 mit Baby-Foto, «Coming soon», «Bald im Shop» |
 
-**KI-Bilder prüfen:** Präsentation, Marktplatz-Bild, Einzelteile und Baby-Foto sind mit Canva-KI aus dem echten Foto erstellt. Teile, Farben und Prints mit dem echten Set vergleichen. Schrift «Cool Dude» und «here comes TROUBLE!» prüfen; die KI schreibt sie nicht immer sauber. Kleine Fantasie-Etiketten am Kragen sind wegretuschiert. Beim Posten der Baby-Fotos «Mit KI erstellt» einschalten.
+**KI-Bilder prüfen:** Präsentation, Marktplatz-Bild, Einzelteile und Baby-Foto sind mit Canva-KI aus dem echten Foto erstellt. Teile, Farben und Prints mit dem echten Set vergleichen. Schrift «Cool Dude» und «here comes TROUBLE!» prüfen; die KI schreibt sie nicht immer sauber. Kleine Fantasie-Etiketten am Kragen sind wegretuschiert. Das Einzelbild vom Lätzchen fehlt noch (Canva-Kontingent), folgt nach. Beim Posten der Baby-Fotos «Mit KI erstellt» einschalten.
 
 Erstellt mit `KI=<canva-export> tools/make_coming_soon_set.py dino-cool-dude`.
