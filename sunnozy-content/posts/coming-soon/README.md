@@ -14,6 +14,8 @@
 | `little-princess-wickelbody/` | «Little Princess» Wickelbody-Set, 3 Teile | Shop, Präsentation, Marktplatz, Instagram, Baby-Fotos, Meta-Ads |
 | `i-love-you-dad/` | «I love you Dad» Hellblau, 3 Teile | Shop, Präsentation, Marktplatz, Instagram, Baby-Fotos, Meta-Ads |
 | `strampler-kirschen/` | Strampler 3er-Set «Kirschen» | Shop, Präsentation, Marktplatz, Einzelteile, Instagram, Baby-Fotos, Meta-Ads |
+| `strampler-smile-gruen/` | «Smile» Salbeigrün, 3 Teile | Shop, Präsentation, Marktplatz, Instagram, Baby-Fotos, Meta-Ads |
+| `strampler-hund-creme/` | «I love Dogs» Creme, 8 Teile | Shop, Präsentation, Marktplatz, Instagram, Baby-Fotos, Meta-Ads |
 | `originalFotos/` | Lieferantenfotos aller neuen Sets | Liste im README |
 
 `uebersicht_neue_sets.jpg` zeigt Shop-Bild, Instagram-Post, Meta-Anzeige und Marktplatz-Bild der 7 neuen Sets, `uebersicht_ki.jpg` Präsentation, Baby-Post und Baby-Anzeige, `uebersicht_baby_handyfoto.jpg` die Baby-Fotos im Handyfoto-Stil (Stilvorlagen in `assets/referenz-baby-handyfoto/`).

@@ -21,6 +21,8 @@ Lieferantenfotos, so wie Du sie geschickt hast (nur von WebP in JPG umgewandelt)
 | `little_princess_wickelbody_rosa_buegel.jpg` | «Little Princess» Wickelbody-Set, 3 Teile (aus Paket 18) | Wickelbody rosa mit Krone, Fusshose creme mit Schleifen, Knotenmütze |
 | `i_love_you_dad_hellblau_buegel.jpg` | «I love you Dad», 3 Teile (aus Paket 18) | Wickelbody hellblau mit Schnurrbart, Fusshose mit Fliegen und Hüten, Knotenmütze |
 | `strampler_3er_kirschen.jpg` | Strampler 3er-Set «Kirschen» | weinrot gerippt «Smile» (Rücken «i love my mummy»), altrosa «You are the best», weiss mit Kirschen |
+| `smile_gruen_strampler.jpg` | «Smile» Salbeigrün, 3 Teile | Ripp-Strampler «You make me happy», Kapuzentuch «Smile», Knotenmütze |
+| `hund_creme_strampler.jpg` | «I love Dogs» Creme, 8 Teile | Strampler, Body, Mütze, Kapuzentuch, Lätzchen, Schmusetuch, Fäustlinge, Söckchen |
 
 ## Noch nicht gespeichert (bitte nochmals schicken)
 
@@ -36,7 +38,6 @@ Diese Fotos kamen während einer laufenden Antwort und liegen deshalb nicht als 
 | Weltall «Little one», hellblau, 8 Teile | Kapuzentuch, Body mit Planet, Strampler mit Weltall-Print, Mütze, Söckchen, Rassel Sonne, Fäustlinge, Lätzchen |
 | Gänseblümchen «It's a baby girl», 8 Teile (Originalfoto zum Set in `../gaensebluemchen/`) | Kapuzentuch, Body, Strampler, Mütze, Söckchen, Rassel, Fäustlinge, Lätzchen |
 | Strampler 3er-Set blau | hellblau «Enjoy every single day», blau gerippt «a Dream comes true», creme mit Segelbooten |
-| «Smile» grün gerippt | Strampler «You make me happy», Kapuzentuch «Smile», Knotenmütze |
 | Gerippt beige mit Bärchen-Etikett | Wickelbody, Fusshose, Mütze mit Öhrchen |
 | Hase lila «little and cute» | Strampler mit Spitzenkragen, Body lila, Fusshose, Knotenmütze, Kapuzentuch mit Spitze, Lätzchen |
 | Dino «Cool Dude», creme mit Regenbogen | Strampler, Body, Fusshose, Dino-Mütze, Kapuzentuch «Here comes trouble», Lätzchen |

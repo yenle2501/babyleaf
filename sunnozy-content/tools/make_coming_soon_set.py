@@ -59,6 +59,10 @@ SETS = {
                                        liste='Wickelbody, Fusshose, Knotenmütze'),
     'strampler-kirschen': dict(titel='Strampler 3er-Set «Kirschen»', farbe='Weinrot, Altrosa, Weiss', teile=3, roh_ki=True,
                                liste='Strampler «Smile», Strampler «You are the best», Strampler mit Kirschen'),
+    'strampler-smile-gruen': dict(titel='«Smile» Salbeigrün', farbe='Salbeigrün, gerippt', teile=3, roh_ki=True,
+                                  liste='Strampler «You make me happy», Kapuzentuch «Smile», Knotenmütze'),
+    'strampler-hund-creme': dict(titel='«I love Dogs»', farbe='Creme und Beige', teile=8, roh_ki=True,
+                                 liste='Strampler, Body, Mütze, Kapuzentuch, Lätzchen, Schmusetuch, Fäustlinge, Söckchen'),
     'i-love-you-dad': dict(titel='«I love you Dad»', farbe='Hellblau', teile=3, roh_ki=True,
                            liste='Wickelbody, Fusshose, Knotenmütze'),
 }
