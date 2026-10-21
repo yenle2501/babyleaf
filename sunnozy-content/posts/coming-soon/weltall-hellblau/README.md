@@ -4,7 +4,7 @@
 
 | Ordner | Inhalt |
 |---|---|
-| `shop/` | Shop-Hauptbild 2048×2048 mit sunnozy-Logo oben links (`*_shop.jpg`) und ohne Logo (`*_shop_ohne_logo.jpg`) |
+| `shop/` | Shop-Hauptbild 2048×2048 = Holzbügel-Präsentation (wie `praesentation/`), mit und ohne Logo; `_echtes_foto` = bisheriges Stangen-Foto |
 | `marktplatz/` | Hauptbild Galaxus/Amazon auf Reinweiss 2000×2000 (`*_hauptbild_weiss.jpg`), KI-Flatlay aus dem Stangenfoto |
 | `instagram/` | Feed-Post 4:5 und Story 9:16 mit «Coming soon», Setname, Teile-Liste, «Bald auf sunnozy.ch» |
 | `ads/` | Meta-Anzeige 1:1 (Karussell) und 9:16 (Story/Reels) im Stil der Erstausstattungs-Anzeigen, Etikett «Coming soon», «Bald im Shop» |

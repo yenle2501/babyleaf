@@ -4,7 +4,8 @@
 
 | Ordner | Inhalt |
 |---|---|
-| `shop/` | Shop-Hauptbild 2048×2048 aus dem echten Foto (Logo und Artikelnummer abgedeckt), mit und ohne sunnozy-Logo |
+| `shop/` | Shop-Hauptbild 2048×2048 = Holzbügel-Präsentation (KI, Canva), mit und ohne Logo; `_echtes_foto` = bisheriges Stangen-Foto |
+| `praesentation/` | KI-Präsentation im Stil der übrigen Sets, mit und ohne Logo |
 | `instagram/` | Feed 4:5 und Story 9:16 mit «Coming soon» |
 | `ads/` | Meta-Anzeigen 1:1 und 9:16 mit «Coming soon», «Bald im Shop» |
 

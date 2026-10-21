@@ -31,10 +31,12 @@ Dateinamen beschreibend: `set_<farbe/motiv>` (z.B. `set_teddy_creme`). Artikelnu
 ### 1. Fotos hochladen
 Pro Foto `create-upload-url` aufrufen, dann `curl -X POST -H 'Content-Type: application/octet-stream' --data-binary @datei URL`. Die Antwort enthält die `mediaId`. Bilder mit sichtbarer Artikelnummer sind als Referenz in Ordnung; die Nummer darf nur nicht im Ergebnis erscheinen.
 
-Stil-Referenz für die Bügel-Präsentation (bereits in Canva): **`MAHX8MIuH4w`**. Falls nicht mehr verfügbar, `sunnozy-content/posts/produktfotos-set-praesentation/` als Vorlage hochladen.
+**Canva-Konto:** Seit 21.10.2026 ist ein neues Canva-Konto verbunden; IDs aus dem alten Konto (`MAHX8MIuH4w`, `DAHX6xgEj_I`, `DAHX-AebYko`, `DAHYlyeKU3U`) sind dort nicht erreichbar.
+
+Stil-Referenz für die Bügel-Präsentation (neues Konto): **`MAHYpukOu2Q`** (= `posts/coming-soon/i-love-you-dad/praesentation/i-love-you-dad_praesentation_ohne_logo.jpg`, ohne fremdes Bügel-Logo). Falls nicht mehr verfügbar, diese Datei erneut hochladen.
 
 ### 2. Bilder generieren (pro Set parallel)
-**Präsentation** (`aspectRatio: SQUARE_1_1`, Referenzen `[set-foto, MAHX8MIuH4w]`):
+**Präsentation** (`aspectRatio: SQUARE_1_1`, Referenzen `[set-foto, MAHYpukOu2Q]`):
 > Premium e-commerce set presentation in exactly the style of the second reference image: light grey-white seamless studio background, soft diffused light, very soft shadows, all items smooth and wrinkle-free, spaced generously. Items exactly from the <Set-Beschreibung> in the first reference: on the left the <Decke/Strampler> folded over a plain light wooden hanger (no logo on hanger) on a small wall knob; <weitere Teile mit Position>. No text, no logos, true colours, sharp catalogue quality.
 
 **Marktplatz** (`SQUARE_1_1`, Referenz `[set-foto]`):
@@ -49,8 +51,8 @@ Marktplatz-Bild → `remove-background`.
 
 ### 4. In voller Auflösung exportieren
 `get-generate-image-job` liefert nur Vorschaubilder (≈200 px). Deshalb ein Hilfsdesign nutzen:
-- **`DAHX6xgEj_I`** („sunnozy KI-Fotos Export“) ist **voll** (Canva-Limit: 100 Seiten). Für neue quadratische oder 4:5-Bilder mit `create-design` ein neues leeres Design anlegen.
-- **`DAHX-AebYko`** („sunnozy KI-Fotos Export 9:16“) für Hochformat 1080×1920 (Stories, Reels); dort ist noch Platz.
+- **`DAHYpiIMPVU`** („sunnozy KI-Fotos Export (neu)“, neues Konto): Seite 1 ist ein Deko-Platzhalter, ab Seite 2 quadratische 1264×1264-Seiten. Canva-Limit 100 Seiten; wenn voll, mit `create-design` ein neues leeres Design anlegen und hier eintragen.
+- Für Hochformat (4:5 1136×1408, 9:16 1080×1920) im selben Design Seiten in passender Grösse mit `add_page` anlegen.
 
 Ablauf:
 1. `read-design` mit `open_transaction: true`
