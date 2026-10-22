@@ -42,6 +42,24 @@ Erstellt aus den Grok-Videos mit `python3 tools/make_coming_soon_reels.py`. Schr
   - Little Princess: Im Clip trägt das Baby ein rosa Haarband, das im Set nicht drin ist (das Set hat eine Mütze).
   - Best Family: Das Baby trägt Body und Fusshose. Das Set hat einen Strampler, keine Hose.
 
+## Zusammengeschnittene Reels (22.10.2026)
+
+Erstellt mit `python3 tools/make_coming_soon_kombi.py`. Mehrere Clips pro Reel, harte Schnitte im Takt von 1,2–2,6 s, Zoom auf Details, Zeitlupe bei den schönsten Momenten, weiche Blende nur in die Set-Karte und am Schluss zurück ins erste Bild (Loop).
+
+| Datei | Inhalt | Texte | Dauer |
+|---|---|---|---|
+| `reel_best_family_teddy_kombi_9x16.mp4` | Lächeln, Stickerei ganz nah, Teddy-Rassel, Umarmung in Zeitlupe, Set | POV: Er entdeckt seinen ersten Teddy → Die Teddy-Rassel ist im Set dabei → und er lässt ihn nicht mehr los | 13,9 s |
+| `reel_blumenwiese_kombi_9x16.mp4` | Ganz nah: Wickelverschluss, Haarband, Fusshose, Baby in Zeitlupe, Set | Ganz nah: «Blumenwiese» → Wickelbody, nichts über den Kopf → Haarband im gleichen Muster → Fusshose aus weichem Musselin → Blümchen von Kopf bis Fuss | 14,5 s |
+| `reel_little_princess_looks_9x16.mp4` | Strampler-Look, Body-Look, Kronen-Schmusetuch, Söckchen, Set | Ein Set, zwei Looks → Look 1: Strampler → Look 2: Body mit Söckchen → Dazu das Kronen-Schmusetuch → 8 Teile | 14,7 s |
+| `reel_coming_soon_1-2-3_9x16.mp4` | Alle drei Sets, je mit grosser Zahl | Welches Set würdest Du verschenken? → 1 «Blumenwiese», 2 «Best Family», 3 «Little Princess» → Schreib 1, 2 oder 3 in die Kommentare | 15,0 s |
+| `reel_coming_soon_details_9x16.mp4` | Schnelle Detail-Montage aller drei Sets | Die kleinen Details machen den Unterschied → 3 neue Sets, bald bei sunnozy → Speicher Dir das für später → Welches gefällt Dir? | 12,6 s |
+
+**Für Reichweite:** Das 1-2-3-Reel holt Kommentare, die einfach zu schreiben sind, nämlich eine Zahl. Das Detail-Reel wird gespeichert. Die Kombi-Reels sind die stärkere Version der Einzel-Reels: Mit mehr Schnitten bleiben die Leute länger dran.
+
+**Posting-Reihenfolge (Vorschlag):** zuerst das 1-2-3-Reel (Kommentare sammeln), 2 Tage später das Kombi-Reel des Sets mit den meisten Stimmen, danach das Detail-Reel.
+
+**Nicht verwendet (Safe Sleep):** `little-princess/original/baby_clip_d.mp4` (Bauchlage) und die Gänseblümchen-Clips (Decke über dem Baby).
+
 ## Ältere Reels (vom 19./20.10.2026)
 
 Erstellt mit `tools/make_set_video.py`: `reel_little_princess_{a,b,c,kombi}_{9x16,4x5}.mp4` und `reel_gaensebluemchen_{a,b,c}_{9x16,4x5}.mp4`, mit `*_standbild.jpg`. Beschreibung und Befehle stehen in `posts/coming-soon/little-princess/README.md` und `posts/coming-soon/gaensebluemchen/README.md`.
