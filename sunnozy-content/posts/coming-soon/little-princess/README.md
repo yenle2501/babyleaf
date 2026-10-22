@@ -1,5 +1,7 @@
 # Neues Set «Little Princess» mit Krone: Videos
 
+**Die Videos und Titelbilder liegen seit 22.10.2026 in `posts/reels/coming-soon/`** (alle Reels flach in einem Ordner). Hier bleiben `original/` mit den Baby-Clips und dieses README.
+
 Aus Deinen KI-Videos (Grok, je 10 s, Baby mit Body, Söckchen und Kronen-Schmusetuch aus dem Set) sind je ein Reel 9:16 und ein Feed-Video 4:5 entstanden. Die Varianten unterscheiden sich nur im Baby-Clip, so kannst Du in Meta testen, welche am besten läuft.
 
 | Variante | Baby-Clip (`original/`) | Reel 9:16 | Feed 4:5 |
@@ -21,8 +23,8 @@ A–C sind 14,8 s lang, das Kombi-Video 18,8 s. Alle sind stumm, den Sound wähl
 ## Vor dem Posten prüfen
 
 - **Coming soon:** Das Set ist noch nicht in Shopify, darum steht «Coming soon» statt eines Preises im Video. Sobald es im Shop ist, mit Preis neu erzeugen (dann steht «Neu bei sunnozy» und der Preis statt «Coming soon»):
-  `python3 tools/make_set_video.py posts/coming-soon/little-princess/original/baby_clip_a.mp4 posts/coming-soon/little-princess/reel_little_princess_a --set=little_princess --preis=30.40` (für b und c gleich). Kombi-Video:
-  `python3 tools/make_set_video.py "posts/coming-soon/little-princess/original/baby_clip_d.mp4:3:5:mitte:mitte,posts/coming-soon/little-princess/original/baby_clip_c.mp4:0.5:5.5:schwenk:oben_rechts" posts/coming-soon/little-princess/reel_little_princess_kombi --set=little_princess --preis=30.40`
+  `python3 tools/make_set_video.py posts/coming-soon/little-princess/original/baby_clip_a.mp4 posts/reels/coming-soon/reel_little_princess_a --set=little_princess --preis=30.40` (für b und c gleich). Kombi-Video:
+  `python3 tools/make_set_video.py "posts/coming-soon/little-princess/original/baby_clip_d.mp4:3:5:mitte:mitte,posts/coming-soon/little-princess/original/baby_clip_c.mp4:0.5:5.5:schwenk:oben_rechts" posts/reels/coming-soon/reel_little_princess_kombi --set=little_princess --preis=30.40`
 - **Name:** Im Shop gibt es schon «Princess» (rosa, Teddy). «Little Princess» steht so auf dem Lätzchen. Wenn das neue Set im Shop anders heisst, `titel` in `SETS` in `tools/make_set_video.py` anpassen.
 - **KI-Video:** Das Baby ist KI-generiert. Der Body im Video hat die Schleife, aber nicht die Schrift «Make a Wish» wie der echte Body. Instagram und Facebook verlangen bei realistisch wirkenden KI-Videos die Kennzeichnung: beim Posten «KI-Info» bzw. «Mit KI erstellt» einschalten. Im Video selbst steht kein Hinweis.
 - Die Holzkarte «1 Monat» stammt aus dem Clip und gehört nicht zum Set.

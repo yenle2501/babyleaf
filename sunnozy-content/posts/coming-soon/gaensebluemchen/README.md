@@ -1,5 +1,7 @@
 # Neues Set «Gänseblümchen»: Videos (Coming soon)
 
+**Die Videos und Titelbilder liegen seit 22.10.2026 in `posts/reels/coming-soon/`** (alle Reels flach in einem Ordner). Hier bleiben `original/` mit den Baby-Clips und dieses README.
+
 Aus Deinen 3 KI-Videos (Grok, je 10 s, schlafendes Baby im Nestchen mit Strampler und Kapuzentuch aus dem Set) sind je ein Reel 9:16 und ein Feed-Video 4:5 entstanden. Aufbau und Look sind gleich wie bei «Little Princess» (`../little-princess/`).
 
 | Variante | Baby-Clip (`original/`) | Reel 9:16 | Feed 4:5 |
@@ -20,7 +22,7 @@ Die 3 Clips unterscheiden sich nur wenig (kleine Hand- und Mundbewegungen, bei C
 ## Vor dem Posten prüfen
 
 - **Coming soon:** Das Set ist noch nicht in Shopify (geprüft am 20.10.2026). Sobald es im Shop ist, mit Preis neu erzeugen:
-  `python3 tools/make_set_video.py posts/coming-soon/gaensebluemchen/original/baby_clip_a.mp4 posts/coming-soon/gaensebluemchen/reel_gaensebluemchen_a --set=gaensebluemchen --preis=30.40` (für b und c gleich)
+  `python3 tools/make_set_video.py posts/coming-soon/gaensebluemchen/original/baby_clip_a.mp4 posts/reels/coming-soon/reel_gaensebluemchen_a --set=gaensebluemchen --preis=30.40` (für b und c gleich)
 - **Name:** «Gänseblümchen» ist der Arbeitsname. Auf dem Body steht «It's a baby girl». Wenn das Set im Shop anders heisst, `titel` in `SETS` in `tools/make_set_video.py` anpassen.
 - **KI-Video:** Das Baby ist KI-generiert. Beim Posten auf Instagram und Facebook «KI-Info» bzw. «Mit KI erstellt» einschalten. Im Clip trägt das Baby den Strampler mit Gänseblümchen und liegt unter dem Kapuzentuch, das passt zum Set.
 
