@@ -37,6 +37,6 @@
 
 `uebersicht_neue_sets.jpg` zeigt Shop-Bild, Instagram-Post, Meta-Anzeige und Marktplatz-Bild der 7 neuen Sets, `uebersicht_ki.jpg` Präsentation, Baby-Post und Baby-Anzeige, `uebersicht_baby_handyfoto.jpg` die Baby-Fotos im Handyfoto-Stil (Stilvorlagen in `assets/referenz-baby-handyfoto/`), `uebersicht_strampler_hosen_neu.jpg` die 9 Strampler- und Hosen-Sets (Shop, Marktplatz, Baby-Post, Feed, Baby-Anzeige), `uebersicht_muetzen_dreambig_gerippt.jpg` die 4 Sets aus echten Fotos.
 
-**Alle Reel-Videos liegen flach in `posts/reels/coming-soon/`** (seit 22.10.2026, mit Titelbildern). In den Set-Ordnern bleiben `original/` mit den Baby-Clips, `uebersicht.jpg` und ein README mit Bildunterschrift und Prüfpunkten. Sobald ein Set im Shop ist, die Videos mit Preis neu erzeugen (Befehl im README des Sets).
+**Alle Instagram-Bilder (Feed, Story, Baby-Fotos) liegen seit 23.10.2026 flach in `posts/baby-photos/instagram/`.** **Alle Reel-Videos liegen flach in `posts/reels/coming-soon/`** (seit 22.10.2026, mit Titelbildern). In den Set-Ordnern bleiben `original/` mit den Baby-Clips, `uebersicht.jpg` und ein README mit Bildunterschrift und Prüfpunkten. Sobald ein Set im Shop ist, die Videos mit Preis neu erzeugen (Befehl im README des Sets).
 
 Erstellt mit `tools/make_set_video.py`.
