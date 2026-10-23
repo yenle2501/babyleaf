@@ -42,6 +42,41 @@ Erstellt aus den Grok-Videos mit `python3 tools/make_coming_soon_reels.py`. Schr
   - Little Princess: Im Clip trägt das Baby ein rosa Haarband, das im Set nicht drin ist (das Set hat eine Mütze).
   - Best Family: Das Baby trägt Body und Fusshose. Das Set hat einen Strampler, keine Hose.
 
+## Reels aus `posts/videos-baby/` (23.10.2026)
+
+Erstellt mit `python3 tools/make_reels_videos_baby.py`, je ein Reel pro Set (18 Reels), Datei `reel_<set>_9x16.mp4` mit `_titelbild.jpg`.
+
+- **Aufbau:** Hook ab Sekunde 0 → Nahaufnahme/zweiter Clip mit Produkt-Info → Zeitlupe → Set-Karte «neu bei sunnozy» → Schlusskarte mit Preis, «Link in der Bio», Gratisversand → Loop ins erste Bild. 13–17 s.
+- **Musik:** schon drin, abwechselnd «Heartwarming Story» und «No Copyright Music» von Alex Morgan (Pixabay-Lizenz, frei nutzbar, `posts/reels/musik/`), pro Reel ein anderer Ausschnitt. Wer lieber einen Trend-Sound will: in Instagram den Originalton auf 0 stellen.
+- **Preis statt «Coming soon»:** Laut `shopify/README.md` sind alle 18 Sets aktiv, darum steht der Shop-Preis auf der Schlusskarte.
+- **Kommentar-Reel:** «Kirschen» fragt «Welcher ist Dein Favorit? Schreib 1, 2 oder 3».
+
+| Reel | Hook |
+|---|---|
+| `reel_eisbaer_taupe` | POV: Dein Winterbaby kommt im Dezember |
+| `reel_dino_cool_dude` | Wenn er jetzt schon cooler ist als Papa |
+| `reel_born_in_2027_rosa` | Born in 2027? Dann ist das ihr Set |
+| `reel_segelboote` | POV: Sein erster Mittagsschlaf zu Hause |
+| `reel_rosa_little_princess` | POV: Sie ist endlich da |
+| `reel_kirschen` | Welcher ist Dein Favorit? |
+| `reel_kaetzchen_tulpen` | POV: Sie schläft endlich |
+| `reel_blumen_hase` | Blümchen von Kopf bis Fuss |
+| `reel_weltall` | POV: Euer kleiner Astronaut |
+| `reel_little_princess_wickelbody` | Kleine Prinzessin, grosser Blick |
+| `reel_hase_rosa` | Wenn die Rassel spannender ist als alles |
+| `reel_love_dad_mom` | Schick das Mama und Papa |
+| `reel_lila_hase` | POV: Sie hat ihren Hasen gefunden |
+| `reel_wal_blau` | Ganz nah: «Wal» in Hellblau |
+| `reel_gaensebluemchen_beautiful` | Der grosse Strecker |
+| `reel_hund_creme` | POV: Sein erster bester Freund |
+| `reel_gaensebluemchen` | Gänseblümchen für Dein Mädchen |
+| `reel_bauernhof` | Kleiner Bauernhof-Fan |
+
+**Vor dem Posten prüfen:**
+- «Mit KI erstellt» einschalten.
+- **Safe Sleep:** In mehreren Clips schläft das Baby neben einem Plüschtier (Hase, Wal, Hund, Lamm) oder auf einer Strickdecke, beim Gänseblümchen-Set mit Haarband im Schlaf. Die Babys liegen auf dem Rücken, aber `marke.md` sagt: keine losen Sachen im Bett zeigen. Wach sind die Babys bei Hase Rosa, Lila Hase, Dad Mom, Little Princess Wickelbody und teilweise Kirschen.
+- **Teile, die nicht im Set sind:** Plüschtiere (ausser der Hasen-Rassel bei «Hase» Rosa) und das Haarband beim «It's a baby girl»-Set gehören nicht dazu.
+
 ## Zusammengeschnittene Reels (22.10.2026)
 
 Erstellt mit `python3 tools/make_coming_soon_kombi.py`. Mehrere Clips pro Reel, harte Schnitte im Takt von 1,2–2,6 s, Zoom auf Details, Zeitlupe bei den schönsten Momenten, weiche Blende nur in die Set-Karte und am Schluss zurück ins erste Bild (Loop).
