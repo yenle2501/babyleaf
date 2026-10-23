@@ -104,40 +104,40 @@ REELS = {
                   seg('wal_blau_b', 1, 3.4, fx=0.55), seg('eisbaer_taupe_a', 5, 7.4, 1.05, 1.12)],
         texte=[['Welches Set', 'für einen Jungen?'], None, None, {'zahl': '1', 'name': '«Cool Dude»'}, {'zahl': '2', 'name': '«Little One» Weltall'},
                {'zahl': '3', 'name': '«Segelboote»'}, {'zahl': '4', 'name': '«Wal»'}, {'zahl': '5', 'name': '«Eisbär»'}],
-        liste=('Welches nimmst Du?', [('1  «Cool Dude»', 'CHF 26.90'), ('2  «Little One» Weltall', 'CHF 15.90'), ('3  «Segelboote»', 'CHF 25.90'),
-               ('4  «Wal»', 'CHF 30.90'), ('5  «Eisbär»', 'CHF 20.90')], ['Schreib die Zahl in die Kommentare', 'Link in der Bio'])),
+        liste=('Welches nimmst Du?', [('1  «Cool Dude»', '6 Teile'), ('2  «Little One» Weltall', '3 Teile'), ('3  «Segelboote»', '3 Strampler'),
+               ('4  «Wal»', '8 Teile'), ('5  «Eisbär»', '5 Teile')], ['Schreib die Zahl in die Kommentare', 'Coming soon auf sunnozy.ch'])),
     'welches_set_maedchen': dict(
         segmente=[seg('strampler_kirschen_b', 0, 1.2, fx=0.45), seg('hase_rosa_a', 0, 1.2, fx=0.42), seg('lila_hase_a', 0, 1.2, fx=0.55),
                   seg('strampler_kirschen_a', 0, 2.4), seg('hase_rosa_c', 1, 3.4), seg('lila_hase_b', 1, 3.4, fx=0.55),
                   seg('little_princess_wickelbody_a', 0, 2.4, fx=0.55), seg('strampler_blumen_hase_a', 0, 2.4, fx=0.42)],
         texte=[['Welches Set', 'für ein Mädchen?'], None, None, {'zahl': '1', 'name': '«Kirschen»'}, {'zahl': '2', 'name': '«Hase» Rosa'},
                {'zahl': '3', 'name': '«little and cute»'}, {'zahl': '4', 'name': '«Little Princess»'}, {'zahl': '5', 'name': '«Blumen & Hase»'}],
-        liste=('Welches nimmst Du?', [('1  «Kirschen»', 'CHF 25.90'), ('2  «Hase» Rosa', 'CHF 30.90'), ('3  «little and cute»', 'CHF 26.90'),
-               ('4  «Little Princess»', 'CHF 15.90'), ('5  «Blumen & Hase»', 'CHF 19.90')], ['Schreib die Zahl in die Kommentare', 'Link in der Bio'])),
-    'unter_20_franken': dict(
+        liste=('Welches nimmst Du?', [('1  «Kirschen»', '3 Strampler'), ('2  «Hase» Rosa', '8 Teile'), ('3  «little and cute»', '6 Teile'),
+               ('4  «Little Princess»', '3 Teile'), ('5  «Blumen & Hase»', '2 Strampler')], ['Schreib die Zahl in die Kommentare', 'Coming soon auf sunnozy.ch'])),
+    'kleine_sets': dict(
         segmente=[seg('weltall_hellblau_a', 0, 2.6), seg('gaensebluemchen_beautiful_b', 2, 4.4), seg('little_princess_wickelbody_a', 5, 7.4, 1.05, 1.12, 0.58, 0.45),
                   seg('strampler_kaetzchen_tulpen_a', 0, 2.4), seg('strampler_blumen_hase_a', 3, 5.4, fx=0.42)],
-        texte=[['Erstausstattung', 'unter 20 Franken'], ['«Little One» Weltall', 'CHF 15.90'], ['«Little Princess»', 'CHF 15.90'],
-               ['«Kätzchen & Tulpen»', 'CHF 19.90'], ['«Blumen & Hase»', 'CHF 19.90']],
-        liste=(['Alle unter', 'CHF 20'], [('«Little One» Weltall', 'CHF 15.90'), ('«Beautiful»', 'CHF 15.90'), ('«Little Princess»', 'CHF 15.90'),
-               ('«Kätzchen & Tulpen»', 'CHF 19.90'), ('«Blumen & Hase»', 'CHF 19.90')], ['Speicher Dir das für später', 'Link in der Bio'])),
+        texte=[['Klein, weich', 'und schnell angezogen'], ['«Little One» Weltall', 'Body, Hose, Mütze'], ['«Little Princess»', 'Wickelbody, Hose, Mütze'],
+               ['«Kätzchen & Tulpen»', '2 Strampler mit Mütze'], ['«Blumen & Hase»', '2 Strampler mit Haarband']],
+        liste=(['Kleine Sets,', 'bald bei sunnozy'], [('«Little One» Weltall', '3 Teile'), ('«Beautiful»', '3 Teile'), ('«Little Princess»', '3 Teile'),
+               ('«Kätzchen & Tulpen»', '2 Strampler'), ('«Blumen & Hase»', '2 Strampler')], ['Speicher Dir das für später', 'Coming soon auf sunnozy.ch'])),
     'acht_teile_geschenk': dict(
         segmente=[seg('hase_rosa_c', 0, 2.6), seg('hund_creme_a', 0, 2.4, fx=0.45), seg('wal_blau_a', 0, 2.4, fx=0.55),
                   seg('gaensebluemchen_c', 4, 6.4, fx=0.45), seg('bauernhof_a', 0, 2.6, 1.5, 1.6, 0.5, 0.5)],
         texte=[['Geschenk zur Geburt?', '8 Teile, ein Set'], ['«I love Dogs»'], ['«Wal» Hellblau'], ['«It\'s a baby girl»'], ['«Bauernhof»']],
-        liste=(['8 Teile,', 'je CHF 30.90'], [('«Hase» Rosa', 'mit Rassel'), ('«I love Dogs»', 'Creme'), ('«Wal»', 'Hellblau'),
-               ('«It\'s a baby girl»', 'Apricot'), ('«Bauernhof»', 'Creme')], ['Markier das Gotti oder den Götti', 'Link in der Bio'])),
+        liste=(['8 Teile,', 'ein Geschenk'], [('«Hase» Rosa', 'mit Rassel'), ('«I love Dogs»', 'Creme'), ('«Wal»', 'Hellblau'),
+               ('«It\'s a baby girl»', 'Apricot'), ('«Bauernhof»', 'Creme')], ['Markier das Gotti oder den Götti', 'Coming soon auf sunnozy.ch'])),
     'team_junge_oder_maedchen': dict(
         segmente=[seg('dino_cool_dude_a', 0, 2.2), seg('strampler_kirschen_b', 0, 2.2, fx=0.45), seg('weltall_hellblau_a', 5, 7.2),
                   seg('hase_rosa_c', 1, 3.2), seg('wal_blau_a', 0, 2.2, fx=0.55), seg('lila_hase_a', 0, 2.2, fx=0.55)],
         texte=[['Team Junge', 'oder Team Mädchen?'], ['Team Mädchen'], ['Team Junge'], ['Team Mädchen'], ['Team Junge'], ['Team Mädchen']],
         liste=(['Team Junge', 'oder Team Mädchen?'], [('Junge', '«Cool Dude», «Weltall», «Wal»'), ('Mädchen', '«Kirschen», «Hase», «Lila»')],
-               ['Schreib es in die Kommentare', 'Link in der Bio'])),
+               ['Schreib es in die Kommentare', 'Coming soon auf sunnozy.ch'])),
     'suesseste_momente': dict(
         segmente=[seg('gaensebluemchen_c', 10, 12.6, 1.0, 1.08, 0.5, 0.4), seg('strampler_kirschen_b', 10, 12.6, 1.0, 1.06, 0.5, 0.42),
                   seg('hase_rosa_c', 0, 2.6), seg('lila_hase_a', 8, 10.6, 1.0, 1.08, 0.55, 0.42), seg('love_dad_mom_a', 9, 11.6, 1.0, 1.06, 0.55, 0.45)],
         texte=[['Die süssesten', '10 Sekunden heute'], None, ['Schick das jemandem,', 'der das heute braucht'], None, None],
-        liste=(['Neu bei sunnozy'], [], ['Babykleider aus der Schweiz', 'Link in der Bio'])),
+        liste=(['Coming soon'], [], ['Neue Sets bei sunnozy', 'Folge uns, damit Du es zuerst siehst'])),
 }
 
 
@@ -147,7 +147,7 @@ def set_karte(r, t):
     im = Image.open(r['bild']).convert('RGB'); s = 940 / max(im.size) * (0.96 + 0.04 * e)
     im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
     c.paste(im, ((W - im.width) // 2, 860 - im.height // 2))
-    d.text((W / 2, 340), 'neu bei sunnozy', font=m.f(m.SERIF_I, 56), fill=m.SALBEI, anchor='mm')
+    d.text((W / 2, 340), 'coming soon', font=m.f(m.SERIF_I, 56), fill=m.SALBEI, anchor='mm')
     d.text((W / 2, 1400), r['name'], font=m.f(m.SERIF, 92 if len(r['name']) < 20 else 76), fill=m.WALD, anchor='mm')
     d.text((W / 2, 1490), r['teile'], font=m.f(m.SERIF_I, 50), fill=m.GRAU, anchor='mm')
     return c
@@ -156,10 +156,10 @@ def set_karte(r, t):
 def end_karte(r):
     c = Image.new('RGBA', (W, H), m.CREME + (255,)); d = ImageDraw.Draw(c)
     d.text((W / 2, 740), r['name'], font=m.f(m.SERIF, 104 if len(r['name']) < 20 else 84), fill=m.WALD, anchor='mm')
-    d.text((W / 2, 870), f'CHF {r["preis"]}', font=m.f(m.SERIF_I, 80), fill=m.SALBEI, anchor='mm')
+    d.text((W / 2, 870), 'Coming soon', font=m.f(m.SERIF_I, 80), fill=m.SALBEI, anchor='mm')
     d.line((W / 2 - 70, 965, W / 2 + 70, 965), fill=(200, 192, 180), width=2)
-    d.text((W / 2, 1040), 'Link in der Bio', font=m.f(m.SERIF, 52), fill=m.GRAU, anchor='mm')
-    d.text((W / 2, 1105), 'Gratisversand ab CHF 50', font=m.f(m.SERIF_I, 44), fill=m.GRAU, anchor='mm')
+    d.text((W / 2, 1040), 'Bald auf sunnozy.ch', font=m.f(m.SERIF, 52), fill=m.GRAU, anchor='mm')
+    d.text((W / 2, 1105), 'Folge uns, damit Du es zuerst siehst', font=m.f(m.SERIF_I, 44), fill=m.GRAU, anchor='mm')
     L = m.logo(260, (122, 108, 104)); c.paste(L, ((W - L.width) // 2, 1290), L)
     return c
 

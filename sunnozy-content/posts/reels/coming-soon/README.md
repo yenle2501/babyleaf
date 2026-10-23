@@ -46,10 +46,10 @@ Erstellt aus den Grok-Videos mit `python3 tools/make_coming_soon_reels.py`. Schr
 
 | Datei | Idee | Ende |
 |---|---|---|
-| `reel_welches_set_jungs_9x16.mp4` | 5 Jungen-Sets mit grosser Zahl 1–5 | Liste mit Preisen, «Schreib die Zahl in die Kommentare» |
-| `reel_welches_set_maedchen_9x16.mp4` | 5 Mädchen-Sets mit grosser Zahl 1–5 | Liste mit Preisen, Kommentar-Frage |
-| `reel_unter_20_franken_9x16.mp4` | «Erstausstattung unter 20 Franken», 5 Sets mit Preis | «Speicher Dir das für später» |
-| `reel_acht_teile_geschenk_9x16.mp4` | «Geschenk zur Geburt? 8 Teile, ein Set», 5 Sets à CHF 30.90 | «Markier das Gotti oder den Götti» |
+| `reel_welches_set_jungs_9x16.mp4` | 5 Jungen-Sets mit grosser Zahl 1–5 | Liste mit Anzahl Teile, «Schreib die Zahl in die Kommentare» |
+| `reel_welches_set_maedchen_9x16.mp4` | 5 Mädchen-Sets mit grosser Zahl 1–5 | Liste mit Anzahl Teile, Kommentar-Frage |
+| `reel_kleine_sets_9x16.mp4` | «Klein, weich und schnell angezogen»: 5 kleine Sets mit Inhalt | «Speicher Dir das für später» |
+| `reel_acht_teile_geschenk_9x16.mp4` | «Geschenk zur Geburt? 8 Teile, ein Set», 5 Sets | «Markier das Gotti oder den Götti» |
 | `reel_team_junge_oder_maedchen_9x16.mp4` | Abwechselnd Team Junge / Team Mädchen | «Schreib es in die Kommentare» |
 | `reel_suesseste_momente_9x16.mp4` | Die wachen, süssesten Momente aus allen Clips | «Schick das jemandem, der das heute braucht» |
 
@@ -59,9 +59,9 @@ Erstellt aus den Grok-Videos mit `python3 tools/make_coming_soon_reels.py`. Schr
 
 Erstellt mit `python3 tools/make_reels_videos_baby.py`, je ein Reel pro Set (18 Reels), Datei `reel_<set>_9x16.mp4` mit `_titelbild.jpg`.
 
-- **Aufbau:** Hook ab Sekunde 0 → Nahaufnahme/zweiter Clip mit Produkt-Info → Zeitlupe → Set-Karte «neu bei sunnozy» → Schlusskarte mit Preis, «Link in der Bio», Gratisversand → Loop ins erste Bild. 13–17 s.
+- **Aufbau:** Hook ab Sekunde 0 → Nahaufnahme/zweiter Clip mit Produkt-Info → Zeitlupe → Set-Karte «coming soon» → Schlusskarte «Coming soon», «Bald auf sunnozy.ch», «Folge uns, damit Du es zuerst siehst» → Loop ins erste Bild. 13–19 s.
 - **Musik:** schon drin, abwechselnd «Heartwarming Story» und «No Copyright Music» von Alex Morgan (Pixabay-Lizenz, frei nutzbar, `posts/reels/musik/`), pro Reel ein anderer Ausschnitt. Wer lieber einen Trend-Sound will: in Instagram den Originalton auf 0 stellen.
-- **Preis statt «Coming soon»:** Laut `shopify/README.md` sind alle 18 Sets aktiv, darum steht der Shop-Preis auf der Schlusskarte.
+- **Kein Preis (Wunsch 23.10.2026):** Alle Reels zeigen nur «Coming soon», auch die Sammel-Reels. Sobald die Sets verkauft werden, kann der Preis in `tools/make_reels_videos_baby.py` (Feld `preis`, Funktion `end_karte`) wieder eingesetzt werden.
 - **Kommentar-Reel:** «Kirschen» fragt «Welcher ist Dein Favorit? Schreib 1, 2 oder 3».
 
 | Reel | Hook |
