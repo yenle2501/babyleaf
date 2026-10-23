@@ -1,6 +1,7 @@
 # Baby-Videos (KI, Grok)
 
 Rohclips für Reels, flach in einem Ordner (23.10.2026). Dateiname = Set + Buchstabe. Alle Babys sind KI-generiert: beim Posten «Mit KI erstellt» einschalten.
+`<clip>_bearbeitet.mp4` ist die bearbeitete Fassung: entrauscht (hqdn3d), wärmer und etwas kontrastreicher (eq, colorbalance), nachgeschärft (cas), ohne Ton. Die Reels verwenden diese Fassung.
 Die fertigen Reels liegen in `posts/reels/coming-soon/` (`tools/make_reels_videos_baby.py`).
 
 | Set | Clips |

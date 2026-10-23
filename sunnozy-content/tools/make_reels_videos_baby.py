@@ -21,10 +21,25 @@ MUSIK = [os.path.join(P, 'reels', 'musik', n) for n in ('alex-morgan_heartwarmin
 CS = lambda d: os.path.join(P, 'coming-soon', d, 'shop', d + '_shop_ohne_logo.jpg')
 PR = lambda s: os.path.join(P, 'produktfotos-set-praesentation', 'ohne_logo', f'set_{s}_quadratisch.jpg')
 W, H, FPS = m.W, m.H, m.FPS
+ZMAX, ZMAX_KLEIN = 1.25, 1.6        # mehr Zoom macht die 848-px-Clips unscharf; Bauernhof-Baby ist sehr klein im Bild
+KLEIN = {'bauernhof_a'}
+
+# sanfterer Verlauf hinter dem Text als in make_coming_soon_reels (Bild bleibt hell)
+import numpy as np
+_g = np.zeros((H, 1), np.float32); _g[1120:, 0] = np.clip(np.arange(H - 1120) / 380.0, 0, 1) ** 1.3 * 0.42
+m.VERLAUF = Image.fromarray((_g * 255).astype(np.uint8)).resize((W, H))
+
+
+def ausschnitt(im, zoom, fx, fy):
+    """9:16-Ausschnitt, danach immer leicht nachgeschärft."""
+    from PIL import ImageFilter
+    out = k.ausschnitt(im, zoom, fx, fy).convert('RGB')
+    return out.filter(ImageFilter.UnsharpMask(radius=1.4, percent=55, threshold=2)).convert('RGBA')
 
 
 def seg(clip, von, bis, z0=1.0, z1=1.06, fx=0.5, fy=0.45, tempo=1.0):
-    return (clip, von, bis, tempo, z0, z1, fx, fy)
+    zm = ZMAX_KLEIN if clip in KLEIN else ZMAX
+    return (clip, von, bis, tempo, min(z0, zm), min(z1, zm), fx, fy)
 
 
 REELS = {
@@ -82,6 +97,47 @@ REELS = {
     'bauernhof': dict(name='«Bauernhof»', teile='8 Teile mit Tieren', preis='30.90', bild=PR('bauernhof'),
         segmente=[seg('bauernhof_a', 0, 4, 1.7, 1.8, 0.5, 0.5), seg('bauernhof_a', 5, 8, 2.1, 2.2, 0.48, 0.5), seg('bauernhof_a', 10, 13.5, 1.8, 1.7, 0.5, 0.5)],
         texte=[['Kleiner', 'Bauernhof-Fan'], ['Strampler mit', 'Kühen und Schafen'], ['8 Teile', 'in Creme']]),
+    # ---- Sammel-Reels (mehrere Sets) ----
+    'welches_set_jungs': dict(
+        segmente=[seg('dino_cool_dude_a', 0, 1.2), seg('weltall_hellblau_a', 0, 1.2), seg('strampler_segelboote_a', 0, 1.2),
+                  seg('dino_cool_dude_a', 9, 11.4), seg('weltall_hellblau_a', 5, 7.4, 1.05, 1.12), seg('strampler_segelboote_a', 5, 7.4, 1.05, 1.12),
+                  seg('wal_blau_b', 1, 3.4, fx=0.55), seg('eisbaer_taupe_a', 5, 7.4, 1.05, 1.12)],
+        texte=[['Welches Set', 'für einen Jungen?'], None, None, {'zahl': '1', 'name': '«Cool Dude»'}, {'zahl': '2', 'name': '«Little One» Weltall'},
+               {'zahl': '3', 'name': '«Segelboote»'}, {'zahl': '4', 'name': '«Wal»'}, {'zahl': '5', 'name': '«Eisbär»'}],
+        liste=('Welches nimmst Du?', [('1  «Cool Dude»', 'CHF 26.90'), ('2  «Little One» Weltall', 'CHF 15.90'), ('3  «Segelboote»', 'CHF 25.90'),
+               ('4  «Wal»', 'CHF 30.90'), ('5  «Eisbär»', 'CHF 20.90')], ['Schreib die Zahl in die Kommentare', 'Link in der Bio'])),
+    'welches_set_maedchen': dict(
+        segmente=[seg('strampler_kirschen_b', 0, 1.2, fx=0.45), seg('hase_rosa_a', 0, 1.2, fx=0.42), seg('lila_hase_a', 0, 1.2, fx=0.55),
+                  seg('strampler_kirschen_a', 0, 2.4), seg('hase_rosa_c', 1, 3.4), seg('lila_hase_b', 1, 3.4, fx=0.55),
+                  seg('little_princess_wickelbody_a', 0, 2.4, fx=0.55), seg('strampler_blumen_hase_a', 0, 2.4, fx=0.42)],
+        texte=[['Welches Set', 'für ein Mädchen?'], None, None, {'zahl': '1', 'name': '«Kirschen»'}, {'zahl': '2', 'name': '«Hase» Rosa'},
+               {'zahl': '3', 'name': '«little and cute»'}, {'zahl': '4', 'name': '«Little Princess»'}, {'zahl': '5', 'name': '«Blumen & Hase»'}],
+        liste=('Welches nimmst Du?', [('1  «Kirschen»', 'CHF 25.90'), ('2  «Hase» Rosa', 'CHF 30.90'), ('3  «little and cute»', 'CHF 26.90'),
+               ('4  «Little Princess»', 'CHF 15.90'), ('5  «Blumen & Hase»', 'CHF 19.90')], ['Schreib die Zahl in die Kommentare', 'Link in der Bio'])),
+    'unter_20_franken': dict(
+        segmente=[seg('weltall_hellblau_a', 0, 2.6), seg('gaensebluemchen_beautiful_b', 2, 4.4), seg('little_princess_wickelbody_a', 5, 7.4, 1.05, 1.12, 0.58, 0.45),
+                  seg('strampler_kaetzchen_tulpen_a', 0, 2.4), seg('strampler_blumen_hase_a', 3, 5.4, fx=0.42)],
+        texte=[['Erstausstattung', 'unter 20 Franken'], ['«Little One» Weltall', 'CHF 15.90'], ['«Little Princess»', 'CHF 15.90'],
+               ['«Kätzchen & Tulpen»', 'CHF 19.90'], ['«Blumen & Hase»', 'CHF 19.90']],
+        liste=(['Alle unter', 'CHF 20'], [('«Little One» Weltall', 'CHF 15.90'), ('«Beautiful»', 'CHF 15.90'), ('«Little Princess»', 'CHF 15.90'),
+               ('«Kätzchen & Tulpen»', 'CHF 19.90'), ('«Blumen & Hase»', 'CHF 19.90')], ['Speicher Dir das für später', 'Link in der Bio'])),
+    'acht_teile_geschenk': dict(
+        segmente=[seg('hase_rosa_c', 0, 2.6), seg('hund_creme_a', 0, 2.4, fx=0.45), seg('wal_blau_a', 0, 2.4, fx=0.55),
+                  seg('gaensebluemchen_c', 4, 6.4, fx=0.45), seg('bauernhof_a', 0, 2.6, 1.5, 1.6, 0.5, 0.5)],
+        texte=[['Geschenk zur Geburt?', '8 Teile, ein Set'], ['«I love Dogs»'], ['«Wal» Hellblau'], ['«It\'s a baby girl»'], ['«Bauernhof»']],
+        liste=(['8 Teile,', 'je CHF 30.90'], [('«Hase» Rosa', 'mit Rassel'), ('«I love Dogs»', 'Creme'), ('«Wal»', 'Hellblau'),
+               ('«It\'s a baby girl»', 'Apricot'), ('«Bauernhof»', 'Creme')], ['Markier das Gotti oder den Götti', 'Link in der Bio'])),
+    'team_junge_oder_maedchen': dict(
+        segmente=[seg('dino_cool_dude_a', 0, 2.2), seg('strampler_kirschen_b', 0, 2.2, fx=0.45), seg('weltall_hellblau_a', 5, 7.2),
+                  seg('hase_rosa_c', 1, 3.2), seg('wal_blau_a', 0, 2.2, fx=0.55), seg('lila_hase_a', 0, 2.2, fx=0.55)],
+        texte=[['Team Junge', 'oder Team Mädchen?'], ['Team Mädchen'], ['Team Junge'], ['Team Mädchen'], ['Team Junge'], ['Team Mädchen']],
+        liste=(['Team Junge', 'oder Team Mädchen?'], [('Junge', '«Cool Dude», «Weltall», «Wal»'), ('Mädchen', '«Kirschen», «Hase», «Lila»')],
+               ['Schreib es in die Kommentare', 'Link in der Bio'])),
+    'suesseste_momente': dict(
+        segmente=[seg('gaensebluemchen_c', 10, 12.6, 1.0, 1.08, 0.5, 0.4), seg('strampler_kirschen_b', 10, 12.6, 1.0, 1.06, 0.5, 0.42),
+                  seg('hase_rosa_c', 0, 2.6), seg('lila_hase_a', 8, 10.6, 1.0, 1.08, 0.55, 0.42), seg('love_dad_mom_a', 9, 11.6, 1.0, 1.06, 0.55, 0.45)],
+        texte=[['Die süssesten', '10 Sekunden heute'], None, ['Schick das jemandem,', 'der das heute braucht'], None, None],
+        liste=(['Neu bei sunnozy'], [], ['Babykleider aus der Schweiz', 'Link in der Bio'])),
 }
 
 
@@ -108,17 +164,39 @@ def end_karte(r):
     return c
 
 
+def liste_karte(titel, zeilen, fuss):
+    """Schlusskarte für Sammel-Reels: Titel, Liste Name + Preis, Aufforderung, Logo."""
+    c = Image.new('RGBA', (W, H), m.CREME + (255,)); d = ImageDraw.Draw(c)
+    y = 640 - len(zeilen) * 38
+    for z in (titel if isinstance(titel, list) else [titel]):
+        d.text((W / 2, y), z, font=m.f(m.SERIF, 92), fill=m.WALD, anchor='mm'); y += 100
+    y += 30
+    for links, rechts in zeilen:
+        d.text((120, y), links, font=m.f(m.SERIF, 62), fill=m.WALD, anchor='lm')
+        d.text((W - 120, y), rechts, font=m.f(m.SERIF_I, 56), fill=m.SALBEI, anchor='rm'); y += 88
+    y += 40
+    d.line((W / 2 - 70, y, W / 2 + 70, y), fill=(200, 192, 180), width=2); y += 70
+    for z in (fuss if isinstance(fuss, list) else [fuss]):
+        d.text((W / 2, y), z, font=m.f(m.SERIF_I, 50), fill=m.GRAU, anchor='mm'); y += 64
+    L = m.logo(240, (122, 108, 104)); c.paste(L, ((W - L.width) // 2, max(y + 60, 1330)), L)
+    return c
+
+
 def reel(key, nr):
     r = REELS[key]
     teile, t0 = [], 0.0
     for sg, tx in zip(r['segmente'], r['texte']):
         clip, von, bis, tempo, z0, z1, fx, fy = sg
-        fr = m.clip_frames(os.path.join(VB, clip + '.mp4'), von, bis + 0.2)
+        fr = m.clip_frames(os.path.join(VB, clip + '_bearbeitet.mp4'), von, bis + 0.2)
         dauer = (bis - von) / tempo
         teile.append(dict(start=t0, dauer=dauer, frames=fr, tempo=tempo, z=(z0, z1), f=(fx, fy), text=tx, karte=False)); t0 += dauer
-    teile.append(dict(start=t0, dauer=2.4, fn=lambda t: set_karte(r, t), karte=True)); t0 += 2.4
-    end = end_karte(r)
-    teile.append(dict(start=t0, dauer=2.2, fn=lambda t: end, karte=True)); t0 += 2.2
+    if 'liste' in r:
+        end = liste_karte(*r['liste'])
+        teile.append(dict(start=t0, dauer=3.4, fn=lambda t: end, karte=True)); t0 += 3.4
+    else:
+        teile.append(dict(start=t0, dauer=2.4, fn=lambda t: set_karte(r, t), karte=True)); t0 += 2.4
+        end = end_karte(r)
+        teile.append(dict(start=t0, dauer=2.2, fn=lambda t: end, karte=True)); t0 += 2.2
     n = int(round(t0 * FPS)); nb = int(m.BLENDE * FPS)
 
     def bild(tl, t):
@@ -128,7 +206,7 @@ def reel(key, nr):
         i = min(int(p), len(fr) - 1); j = min(i + 1, len(fr) - 1); a = p - int(p)
         im = fr[i] if a < 0.05 or i == j else Image.blend(fr[i], fr[j], a)
         e = m.ease(t / tl['dauer']); z0, z1 = tl['z']
-        return k.ausschnitt(im, z0 + (z1 - z0) * e, *tl['f'])
+        return ausschnitt(im, z0 + (z1 - z0) * e, *tl['f'])
 
     def text_von(idx):
         while idx >= 0 and teile[idx].get('text') is None:
@@ -142,7 +220,11 @@ def reel(key, nr):
         if not tl['karte']:
             zeilen = text_von(idx)
             neu = tl['text'] is not None and idx > 0
-            m.text_unten(c, zeilen, min(1, t / 0.12) if neu else 1.0)
+            alpha = min(1, t / 0.12) if neu else 1.0
+            if isinstance(zeilen, dict):          # grosse Zahl + Name (Vergleich zum Kommentieren)
+                k.zahl(c, zeilen['zahl'], zeilen['name'], alpha)
+            elif zeilen:
+                m.text_unten(c, zeilen, alpha)
         if idx + 1 < len(teile) and teile[idx + 1]['karte'] and s > tl['start'] + tl['dauer'] - m.BLENDE:
             a = (s - (tl['start'] + tl['dauer'] - m.BLENDE)) / m.BLENDE
             c = Image.blend(c, bild(teile[idx + 1], 0), min(a, 1))

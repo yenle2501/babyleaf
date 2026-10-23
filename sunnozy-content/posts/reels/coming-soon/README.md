@@ -42,6 +42,19 @@ Erstellt aus den Grok-Videos mit `python3 tools/make_coming_soon_reels.py`. Schr
   - Little Princess: Im Clip trägt das Baby ein rosa Haarband, das im Set nicht drin ist (das Set hat eine Mütze).
   - Best Family: Das Baby trägt Body und Fusshose. Das Set hat einen Strampler, keine Hose.
 
+## Sammel-Reels aus `posts/videos-baby/` (23.10.2026)
+
+| Datei | Idee | Ende |
+|---|---|---|
+| `reel_welches_set_jungs_9x16.mp4` | 5 Jungen-Sets mit grosser Zahl 1–5 | Liste mit Preisen, «Schreib die Zahl in die Kommentare» |
+| `reel_welches_set_maedchen_9x16.mp4` | 5 Mädchen-Sets mit grosser Zahl 1–5 | Liste mit Preisen, Kommentar-Frage |
+| `reel_unter_20_franken_9x16.mp4` | «Erstausstattung unter 20 Franken», 5 Sets mit Preis | «Speicher Dir das für später» |
+| `reel_acht_teile_geschenk_9x16.mp4` | «Geschenk zur Geburt? 8 Teile, ein Set», 5 Sets à CHF 30.90 | «Markier das Gotti oder den Götti» |
+| `reel_team_junge_oder_maedchen_9x16.mp4` | Abwechselnd Team Junge / Team Mädchen | «Schreib es in die Kommentare» |
+| `reel_suesseste_momente_9x16.mp4` | Die wachen, süssesten Momente aus allen Clips | «Schick das jemandem, der das heute braucht» |
+
+**Bearbeitung (23.10.2026, 2. Runde):** Alle Clips sind entrauscht, wärmer und kontrastreicher und nachgeschärft (`posts/videos-baby/*_bearbeitet.mp4`). Der Zoom ist auf 1,25 begrenzt (vorher bis 2,2), damit nichts mehr unscharf wird. Der dunkle Verlauf hinter dem Text ist heller. Alle Set-Reels sind damit neu gerendert.
+
 ## Reels aus `posts/videos-baby/` (23.10.2026)
 
 Erstellt mit `python3 tools/make_reels_videos_baby.py`, je ein Reel pro Set (18 Reels), Datei `reel_<set>_9x16.mp4` mit `_titelbild.jpg`.
