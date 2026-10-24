@@ -54,6 +54,23 @@ Neu erzeugen:
 - Anzeigen und Hauptbilder: `python3 tools/make_weihnachtsbox.py posts/kampagne-weihnachtsbox/fotos posts/kampagne-weihnachtsbox` (Preise in `BOXEN`)
 - Karte: `python3 tools/make_weihnachtskarte.py posts/kampagne-weihnachtsbox/karte` (zweites Argument ändert den Gruss, z.B. `"Frohe\nWeihnachten"`)
 
+## Meta-Anzeigen und Fotos im Handyfoto-Stil (24.10.2026)
+
+Wunsch: «nicht so KI». Neue Szenen statt Studio-Box von oben: Hände halten die Box auf dem Sofa, Box unter dem Christbaum, Grosi bindet eine Schleife, Küchentisch mit Packpapier, Bett mit Morgenlicht, Eingang mit Schal. Danach mit `tools/make_meta_ads_weihnachtsbox_echt.py` nachbearbeitet: etwas wärmer und matter, Sättigung leicht reduziert, feines Handy-Korn, leichte Vignette, minimal weicher (KI-Bilder sind sonst überscharf).
+
+| Ordner | Was |
+|---|---|
+| `fotos-echt/box_<box>.jpg` | 9 Szenen, 1136 × 1408, für Posts und als Shop-Zusatzbild |
+| `meta-ads-echt/feed_<box>_4x5.jpg` | Feed 1080 × 1350 |
+| `meta-ads-echt/story_<box>_9x16.jpg` | Story/Reel 1080 × 1920, oben und unten frei für Instagram |
+| `meta-ads-echt/karussell_<box>_1x1.jpg` + `karussell_00_uebersicht_1x1.jpg` | Karussell 1080 × 1080 |
+
+Gestaltung wie ein normaler Post: Foto randlos, unten links Logo klein, Box-Name und «Inhalt · Preis» in Weiss mit weichem Schatten. Keine Preis-Etiketten oder farbigen Felder.
+
+**Vorschlag Test:** Die neuen Handyfoto-Anzeigen gegen die bisherigen Studio-Anzeigen (`meta-ads/`) laufen lassen, gleiches Budget, 5–7 Tage, dann die mit dem tieferen Preis pro Klick behalten.
+
+**Vor dem Schalten prüfen:** Die Szenen sind KI-generiert. Inhalt jeder Box mit der echten Ware vergleichen (bei «Dinosaur» und «I like flying» weichen einzelne Bodys im Druck ab).
+
 ## Meta-Anzeigen
 
 Bilder: `meta-ads/` (erzeugt mit `python3 tools/make_meta_ads_geschenkbox.py posts/kampagne-weihnachtsbox`), Stil wie die
