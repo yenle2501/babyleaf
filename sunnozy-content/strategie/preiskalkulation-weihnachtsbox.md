@@ -14,6 +14,7 @@ Grundlage: Einstand pro Set aus `preiskalkulation.csv` (Einkauf + Fracht + GTIN)
 | «Dinosaur» | Body-Set Kurzarm 5er Dinosaur + Jogginghose 5er | 10 | 17.40 | 34.10 | **CHF 42.90** | 56 % | **+17.18** |
 | «Little One» | Body-Set Little One 5er + Mulltücher 3er grün | 8 | 19.18 | 31.10 | **CHF 44.90** | 54 % | **+17.35** |
 | «I like flying» | Body-Set Langarm 3er + Leggings 5er | 8 | 15.09 | 31.70 | **CHF 39.90** | 58 % | **+16.58** |
+| «Little One» Jogginghosen (24.10.) | Body-Set Little One 5er Langarm + Jogginghose 5er | 10 | 18.13 | 34.10 | **CHF 42.90** | 54 % | **+16.45** |
 
 Rohertrag = (Boxpreis − Einstand − Box-Material) ÷ Boxpreis.
 

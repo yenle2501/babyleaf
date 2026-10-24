@@ -4,7 +4,7 @@ Für Schenkende (Gotti, Götti, Grosseltern, Freundinnen), passend zur Kampagne 
 
 Darstellung nach den Vorbildern der Nutzerin: Box von oben, randvoll und von Hand gepackt (Instagram-«Baby Box»-Stil), Karte oben in der Box. Die Fotos sind mit Canva-KI erzeugt aus: Box-Foto der Nutzerin (`vorlage_geschenkbox.jpg`), den Shop-Bildern der Sets und der Karte.
 
-## Check: die acht Boxen
+## Check: die Boxen
 
 | Box | Inhalt | Preis | Gewinn* | Shopify-ID (Entwurf, in Admin unter Produkte → Typ «Geschenkbox») | Lager je Grösse |
 |---|---|---|---|---|---|
@@ -16,6 +16,7 @@ Darstellung nach den Vorbildern der Nutzerin: Box von oben, randvoll und von Han
 | «Dinosaur» | 5 Kurzarm-Bodys + 5 Jogginghosen | CHF 42.90 | +17.18 | ID 11293063610711 | 2 / 2 / 2 |
 | «Little One» | 5 Langarm-Bodys + 3 Mulltücher grün | CHF 44.90 | +17.35 | ID 11293063676247 | 2 / 2 / 1 |
 | «I like flying» | 3 Langarm-Bodys + 5 Leggings | CHF 39.90 | +16.58 | ID 11293063741783 | 2 / 2 / 2 |
+| «Little One» Jogginghosen (neu 24.10.2026) | 5 Langarm-Bodys «Little One» gerippt + 5 Jogginghosen | CHF 42.90 | +16.45 | ID 11314410127703 (**aktiv**, Onlineshop + Facebook & Instagram, Kollektion Geschenkboxen) | 2 / 2 / 2 |
 
 \* pro Bestellung einer Box, vor Werbung. Rechnung: `strategie/preiskalkulation-weihnachtsbox.md`.
 
