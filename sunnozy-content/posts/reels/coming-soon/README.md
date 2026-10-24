@@ -42,6 +42,21 @@ Erstellt aus den Grok-Videos mit `python3 tools/make_coming_soon_reels.py`. Schr
   - Little Princess: Im Clip trägt das Baby ein rosa Haarband, das im Set nicht drin ist (das Set hat eine Mütze).
   - Best Family: Das Baby trägt Body und Fusshose. Das Set hat einen Strampler, keine Hose.
 
+## Runde 3: weitere Reels (24.10.2026)
+
+Auch die älteren Clips aus `posts/coming-soon/<set>/original/` sind jetzt bearbeitet und in `posts/videos-baby/` (Little Princess Krone, Best Family, Blumenwiese; ohne den Bauchlage-Clip `baby_clip_d` und ohne die Gänseblümchen-Clips mit Decke). Alle mit «Coming soon», ohne Preis, mit Musik.
+
+| Datei | Idee | Ende |
+|---|---|---|
+| `reel_little_princess_krone_9x16.mp4` | POV: Deine beste Freundin bekommt ein Mädchen | Set-Karte, Coming soon |
+| `reel_best_family_9x16.mp4` | POV: Er entdeckt seinen ersten Teddy, Umarmung in Zeitlupe | Set-Karte, Coming soon |
+| `reel_blumenwiese_9x16.mp4` | POV: Wickeln um 3 Uhr nachts | Set-Karte, Coming soon |
+| `reel_geburtsgeschenk_9x16.mp4` | «Du suchst ein Geburtsgeschenk?», 6 Sets | «Schick das der Person, die ein Geschenk sucht» |
+| `reel_winterbaby_9x16.mp4` | «Dein Baby kommt im Winter?», 5 warme Sets mit Tipps | «Speicher Dir das für später» |
+| `reel_kleine_prinzessinnen_9x16.mp4` | 6 Mädchen-Sets | «Markier eine Mama mit Mädchen» |
+| `reel_kleine_abenteurer_9x16.mp4` | ins Weltall, aufs Meer, zu den Walen, auf den Bauernhof, in den Schnee | «Markier eine Mama mit Jungen» |
+| `reel_tierfreunde_9x16.mp4` | «Teddy, Hase oder Hund?» | «Schreib Dein Lieblingstier in die Kommentare» |
+
 ## Sammel-Reels aus `posts/videos-baby/` (23.10.2026)
 
 | Datei | Idee | Ende |

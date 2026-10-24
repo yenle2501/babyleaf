@@ -23,4 +23,7 @@ Die fertigen Reels liegen in `posts/reels/coming-soon/` (`tools/make_reels_video
 | «Beautiful» Gänseblümchen | `gaensebluemchen_beautiful_a`, `_b` |
 | «I love Dogs» | `hund_creme_a`, `_b` |
 | «It's a baby girl» Gänseblümchen | `gaensebluemchen_a`, `_b`, `_c` |
+| «Little Princess» Krone | `little_princess_krone_a`, `_b`, `_c`, `_e` (aus `coming-soon/little-princess/original/`) |
+| «Best Family» Teddy | `best_family_a`, `_b` |
+| «Blumenwiese» | `blumenwiese_a`, `_b` |
 | «Bauernhof» | `bauernhof_a` (Baby sehr klein im Bild, im Reel stark gezoomt) |

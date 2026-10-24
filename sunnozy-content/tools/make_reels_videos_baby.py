@@ -138,6 +138,47 @@ REELS = {
                   seg('hase_rosa_c', 0, 2.6), seg('lila_hase_a', 8, 10.6, 1.0, 1.08, 0.55, 0.42), seg('love_dad_mom_a', 9, 11.6, 1.0, 1.06, 0.55, 0.45)],
         texte=[['Die süssesten', '10 Sekunden heute'], None, ['Schick das jemandem,', 'der das heute braucht'], None, None],
         liste=(['Coming soon'], [], ['Neue Sets bei sunnozy', 'Folge uns, damit Du es zuerst siehst'])),
+    # ---- Runde 3: ältere Clips aus posts/coming-soon/<set>/original/ ----
+    'little_princess_krone': dict(name='«Little Princess» Krone', teile='8 Teile mit Kronen-Schmusetuch', preis='30.90', bild=PR('prinzessin_krone'),
+        segmente=[seg('little_princess_krone_e', 0, 3.2, fx=0.38), seg('little_princess_krone_c', 1, 4.5, fx=0.42), seg('little_princess_krone_c', 5, 7.5, 1.2, 1.25, 0.64, 0.38),
+                  seg('little_princess_krone_e', 3.2, 5.8, 1.0, 1.06, 0.4, 0.5, tempo=0.85)],
+        texte=[['POV: Deine beste Freundin', 'bekommt ein Mädchen'], ['Body und Söckchen', 'mit Schleife'], ['Dazu das', 'Kronen-Schmusetuch'], ['8 Teile,', 'alles abgestimmt']]),
+    'best_family': dict(name='«Best Family» Teddy', teile='8 Teile mit Teddy-Rassel', preis='30.90', bild=PR('best_family'),
+        segmente=[seg('best_family_a', 0, 3), seg('best_family_b', 0.5, 3, 1.2, 1.25, 0.42, 0.45), seg('best_family_b', 4, 7, 1.05, 1.15, 0.5, 0.42, tempo=0.75), seg('best_family_a', 5, 7.5)],
+        texte=[['POV: Er entdeckt', 'seinen ersten Teddy'], ['Body mit', 'Teddy-Stickerei'], ['und lässt ihn', 'nicht mehr los'], ['Die Teddy-Rassel', 'ist im Set dabei']]),
+    'blumenwiese': dict(name='«Blumenwiese»', teile='Wickelbody, Fusshose, Haarband', preis='15.90', bild=CS('blumen-musselin'),
+        segmente=[seg('blumenwiese_a', 0, 3, fx=0.36), seg('blumenwiese_a', 3, 5, 1.2, 1.25, 0.56, 0.48), seg('blumenwiese_b', 2, 4.5, 1.2, 1.25, 0.24, 0.18), seg('blumenwiese_b', 6, 9, 1.05, 1.0, 0.38, 0.5, tempo=0.85)],
+        texte=[['POV: Wickeln', 'um 3 Uhr nachts'], ['Wickelbody,', 'nichts über den Kopf'], ['Haarband', 'im gleichen Muster'], ['Blümchen', 'von Kopf bis Fuss']]),
+    'geburtsgeschenk': dict(
+        segmente=[seg('best_family_b', 4, 6.4, tempo=0.85), seg('little_princess_krone_c', 1, 3.2, fx=0.42), seg('hund_creme_a', 0, 2.2, fx=0.45),
+                  seg('blumenwiese_a', 0, 2.2, fx=0.36), seg('love_dad_mom_a', 0, 2.2, fx=0.55), seg('weltall_hellblau_a', 0, 2.2)],
+        texte=[['Du suchst ein', 'Geburtsgeschenk?'], ['«Little Princess» Krone'], ['«I love Dogs»'], ['«Blumenwiese»'], ['«I love Dad Mom»'], ['«Little One» Weltall']],
+        liste=(['Geschenke,', 'die gebraucht werden'], [('«Best Family»', '8 Teile'), ('«Little Princess» Krone', '8 Teile'), ('«I love Dogs»', '8 Teile'),
+               ('«Blumenwiese»', '3 Teile'), ('«I love Dad Mom»', '6 Teile')], ['Schick das der Person, die ein Geschenk sucht', 'Coming soon auf sunnozy.ch'])),
+    'winterbaby': dict(
+        segmente=[seg('eisbaer_taupe_a', 0, 2.6), seg('best_family_a', 0, 2.2), seg('born_in_2027_rosa_a', 0, 2.2, fx=0.55),
+                  seg('weltall_hellblau_a', 5, 7.2), seg('hund_creme_b', 0, 2.2, fx=0.45)],
+        texte=[['Dein Baby kommt', 'im Winter?'], ['Langarm-Body', 'und Mütze'], ['Hose mit Füsschen', 'für warme Zehen'], ['Mütze nicht vergessen'], ['Strampler', 'bis über die Füsse']],
+        liste=(['Fürs Winterbaby'], [('«Eisbär»', '5 Teile'), ('«Best Family»', '8 Teile'), ('«Born in 2027»', '6 Teile'),
+               ('«Little One» Weltall', '3 Teile'), ('«I love Dogs»', '8 Teile')], ['Speicher Dir das für später', 'Coming soon auf sunnozy.ch'])),
+    'kleine_prinzessinnen': dict(
+        segmente=[seg('little_princess_krone_e', 0, 2.4, fx=0.38), seg('little_princess_wickelbody_a', 0, 2.2, fx=0.55), seg('strampler_rosa_little_princess_a', 0, 2.2),
+                  seg('blumenwiese_b', 6, 8.2, fx=0.38), seg('gaensebluemchen_beautiful_a', 0, 2.2), seg('hase_rosa_c', 1, 3.2)],
+        texte=[['Für kleine', 'Prinzessinnen'], ['«Little Princess»', 'Wickelbody'], ['Strampler', '«Little Princess»'], ['«Blumenwiese»'], ['«Beautiful»'], ['«Hase» Rosa']],
+        liste=(['Für kleine', 'Prinzessinnen'], [('«Little Princess» Krone', '8 Teile'), ('«Little Princess» Wickelbody', '3 Teile'), ('Strampler «Little Princess»', '3 Strampler'),
+               ('«Blumenwiese»', '3 Teile'), ('«Beautiful»', '3 Teile'), ('«Hase» Rosa', '8 Teile')], ['Markier eine Mama mit Mädchen', 'Coming soon auf sunnozy.ch'])),
+    'kleine_abenteurer': dict(
+        segmente=[seg('dino_cool_dude_a', 0, 2.4), seg('weltall_hellblau_a', 0, 2.2), seg('strampler_segelboote_a', 0, 2.2),
+                  seg('wal_blau_a', 0, 2.2, fx=0.55), seg('bauernhof_a', 0, 2.2, 1.5, 1.6, 0.5, 0.5), seg('eisbaer_taupe_a', 9, 11.2)],
+        texte=[['Für kleine', 'Abenteurer'], ['ins Weltall'], ['aufs Meer'], ['zu den Walen'], ['auf den Bauernhof'], ['und in den Schnee']],
+        liste=(['Für kleine', 'Abenteurer'], [('«Cool Dude»', '6 Teile'), ('«Little One» Weltall', '3 Teile'), ('«Segelboote»', '3 Strampler'),
+               ('«Wal»', '8 Teile'), ('«Bauernhof»', '8 Teile'), ('«Eisbär»', '5 Teile')], ['Markier eine Mama mit Jungen', 'Coming soon auf sunnozy.ch'])),
+    'tierfreunde': dict(
+        segmente=[seg('best_family_b', 4, 6.4, 1.05, 1.12), seg('hase_rosa_c', 0, 2.2), seg('lila_hase_a', 0, 2.2, fx=0.55),
+                  seg('hund_creme_a', 0, 2.2, fx=0.45), seg('strampler_kaetzchen_tulpen_a', 0, 2.2)],
+        texte=[['Erster bester Freund:', 'Teddy, Hase oder Hund?'], ['Hase'], ['noch ein Hase'], ['Hund'], ['Kätzchen']],
+        liste=(['Welches Tier', 'gewinnt?'], [('Teddy', '«Best Family»'), ('Hase', '«Hase» Rosa'), ('Hase Lila', '«little and cute»'),
+               ('Hund', '«I love Dogs»'), ('Kätzchen', '«Kätzchen & Tulpen»')], ['Schreib Dein Lieblingstier in die Kommentare', 'Coming soon auf sunnozy.ch'])),
 }
 
 
@@ -171,9 +212,12 @@ def liste_karte(titel, zeilen, fuss):
     for z in (titel if isinstance(titel, list) else [titel]):
         d.text((W / 2, y), z, font=m.f(m.SERIF, 92), fill=m.WALD, anchor='mm'); y += 100
     y += 30
+    gl = 62                                   # Schrift verkleinern, bis links und rechts nebeneinander passen
+    while zeilen and gl > 40 and max(d.textlength(l, font=m.f(m.SERIF, gl)) + d.textlength(r_, font=m.f(m.SERIF_I, gl - 6)) for l, r_ in zeilen) > W - 300:
+        gl -= 2
     for links, rechts in zeilen:
-        d.text((120, y), links, font=m.f(m.SERIF, 62), fill=m.WALD, anchor='lm')
-        d.text((W - 120, y), rechts, font=m.f(m.SERIF_I, 56), fill=m.SALBEI, anchor='rm'); y += 88
+        d.text((120, y), links, font=m.f(m.SERIF, gl), fill=m.WALD, anchor='lm')
+        d.text((W - 120, y), rechts, font=m.f(m.SERIF_I, gl - 6), fill=m.SALBEI, anchor='rm'); y += int(gl * 1.42)
     y += 40
     d.line((W / 2 - 70, y, W / 2 + 70, y), fill=(200, 192, 180), width=2); y += 70
     for z in (fuss if isinstance(fuss, list) else [fuss]):
