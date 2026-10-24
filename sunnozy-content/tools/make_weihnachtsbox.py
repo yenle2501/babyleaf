@@ -27,7 +27,8 @@ BOXEN = [('box_mum_dad_me', '«Mum Dad Me»', '5 Bodys + 5 Leggings', '42.90'),
          ('box_dino', '«Dino»', '3 Bodys + 3 Mulltücher', '39.90'),
          ('box_dinosaur', '«Dinosaur»', '5 Bodys + 5 Jogginghosen', '42.90'),
          ('box_little_one', '«Little One»', '5 Bodys + 3 Mulltücher', '44.90'),
-         ('box_i_like_flying', '«I like flying»', '3 Bodys + 5 Leggings', '39.90')]
+         ('box_i_like_flying', '«I like flying»', '3 Bodys + 5 Leggings', '39.90'),
+         ('box_little_one_jogginghosen', '«Little One»', '5 Bodys + 5 Jogginghosen', '42.90')]
 TITEL = 'Weihnachts-Geschenkbox'
 
 
@@ -94,14 +95,15 @@ def shopify(box, N=2048):
 
 
 def uebersicht(W=1080, H=1350):
-    """Alle Boxen im Raster 2 x 4 fuer eine Kollektions-Anzeige."""
+    """Alle Boxen im Raster mit 2 Spalten fuer eine Kollektions-Anzeige."""
     im0 = foto(BOXEN[0])
     c = leinwand(im0, W, H, H, 0); d = ImageDraw.Draw(c)
     d.rectangle([0, 0, W, H], fill=(244, 242, 239))
     d.text((W / 2, 92), TITEL + 'en', font=FONT('fraunces-600.ttf', 52), fill=WALD, anchor='ms')
     d.text((W / 2, 140), 'Ganze Sets, von Hand eingepackt  ·  ab CHF 29.90', font=FONT('nunitosans-600.ttf', 27), fill=GRAU, anchor='ms')
     g, oben = 12, 172
-    kw = (W - 3 * g) // 2; kh = (H - oben - 4 * g) // 4
+    reihen = (len(BOXEN) + 1) // 2
+    kw = (W - 3 * g) // 2; kh = (H - oben - (reihen + 1) * g) // reihen
     f = FONT('nunitosans-700.ttf', 22)
     for i, box in enumerate(BOXEN):
         x, y = g + (i % 2) * (kw + g), oben + (i // 2) * (kh + g)
