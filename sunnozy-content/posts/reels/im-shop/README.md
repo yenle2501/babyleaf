@@ -12,6 +12,6 @@ Preis = günstigste Variante in Shopify am 25.10.2026. Beim Posten «Mit KI erst
 
 ## «Outfits der Woche» (25.10.2026)
 
-`reel_outfits_der_woche_9x16.mp4` (6,2 s, Loop) im Trend-Format nach der Vorlage der Nutzerin: Montag bis Freitag je ein Erstausstattungs-Set aus dem Shop (Teddybär, Hello World, Little and Loved, Princess, Hello Little Bear), schnelle Schnitte, Wochentag gross in der Mitte, leichte Handkamera-Bewegung. Fotos: Baby-Fotos im echten Handy-Stil (KI, «Mit KI erstellt» einschalten). Erstellt mit `python3 tools/make_reel_outfits_woche.py`.
+`reel_outfits_der_woche_9x16.mp4` (7,7 s, Loop) im Trend-Format nach der Vorlage der Nutzerin, aus den Grok-Babyvideos (`posts/videos-baby`): Montag «Teddybär», Dienstag «Princess», Mittwoch «It's a baby girl», Donnerstag «Best Family», Freitag «Bauernhof», Samstag «Born in 2027» Rosa, Sonntag «Eisbär». Je 1,1 s, Wochentag gross in der Mitte, «Outfits der Woche» zum Start. «Mit KI erstellt» einschalten. Erstellt mit `python3 tools/make_reel_outfits_woche.py`.
 
-Bildunterschrift-Vorschlag: «Welches Outfit ist Dein Favorit? Montag bis Freitag in unseren Erstausstattungs-Sets 🤍 Alle Sets auf sunnozy.ch»
+Bildunterschrift-Vorschlag: «Welches Outfit ist Dein Favorit? Eine Woche, sieben Outfits 🤍 Teddybär und Princess gibt es schon auf sunnozy.ch, die anderen kommen bald.»

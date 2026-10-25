@@ -3,7 +3,7 @@ Outfit, schnelle Schnitte (ca. 1,2 s), Wochentag gross in der Mitte, leichte Han
 
     python3 tools/make_reel_outfits_woche.py
 
-Bilder: Baby-Fotos im echten Handy-Stil aus posts/baby-photos (Erstausstattungs-Sets, die im Shop sind).
+Clips: die Grok-Babyvideos der Nutzerin aus posts/videos-baby (*_bearbeitet.mp4), je 1,1 s pro Tag.
 Schrift: Cormorant Garamond kursiv wie die anderen Reels (keine Schreibschrift).
 Ausgabe: posts/reels/im-shop/reel_outfits_der_woche_9x16.mp4 + _titelbild.jpg
 """
@@ -16,31 +16,23 @@ W, H, FPS = 1080, 1920, 30
 BP = os.path.join(m.POSTS, 'baby-photos')
 OUT = os.path.join(m.POSTS, 'reels', 'im-shop')
 MUSIK = os.path.join(m.POSTS, 'reels', 'musik', 'alex-morgan_no-copyright-music.mp3')
-TAGE = [('Montag', 'baby_echt_erstausstattung_teddybaer.jpg'),
-        ('Dienstag', 'baby_echt_erstausstattung_hello_world.jpg'),
-        ('Mittwoch', 'baby_echt_erstausstattung_little_and_loved.jpg'),
-        ('Donnerstag', 'baby_echt_erstausstattung_princess.jpg'),
-        ('Freitag', 'baby_echt_erstausstattung_hello_little_bear.jpg')]
-DAUER = 1.25          # Sekunden pro Tag
-ZOOM0 = 1.05          # Grundzoom, damit die Handbewegung keine Ränder zeigt
+VB = os.path.join(m.POSTS, 'videos-baby')
+# (Tag, Clip, Start in s, Bildmitte x)
+TAGE = [('Montag', 'teddy_creme_a', 2.0, 0.5),
+        ('Dienstag', 'princess_rosa_a', 1.0, 0.5),
+        ('Mittwoch', 'gaensebluemchen_d', 2.5, 0.5),
+        ('Donnerstag', 'best_family_c', 1.0, 0.5),
+        ('Freitag', 'bauernhof_b', 0.5, 0.5),
+        ('Samstag', 'born_in_2027_rosa_b', 1.0, 0.55),
+        ('Sonntag', 'eisbaer_taupe_b', 1.5, 0.52)]
+DAUER = 1.1           # Sekunden pro Tag
 
 
-def vorbereiten(p):
-    im = Image.open(p).convert('RGB')
-    s = max(W / im.width, H / im.height) * ZOOM0
-    return im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
-
-
-def bild(im, t, seed):
-    """Leichtes Wackeln wie aus der Hand + langsames Ranzoomen."""
-    z = 1 + 0.035 * t / DAUER
-    dx = 9 * math.sin(2 * math.pi * (0.7 * t + seed)) + 4 * math.sin(2 * math.pi * (1.9 * t + seed * 2))
-    dy = 7 * math.cos(2 * math.pi * (0.5 * t + seed)) + 3 * math.sin(2 * math.pi * (2.3 * t + seed))
-    w, h = W / z, H / z
-    cx, cy = im.width / 2 + dx, im.height * 0.56 + dy
-    cx = min(max(cx, w / 2), im.width - w / 2); cy = min(max(cy, h / 2), im.height - h / 2)
-    box = (cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2)
-    return im.resize((W, H), Image.LANCZOS, box=box)
+def bild(frames, i, fx, t):
+    """9:16-Ausschnitt aus dem Clip-Frame, langsam leicht reinzoomen, nachgeschärft."""
+    import make_reels_videos_baby as rv
+    fr = frames[min(i, len(frames) - 1)]
+    return rv.ausschnitt(fr, 1.0 + 0.05 * t / DAUER, fx, 0.45).convert('RGB')
 
 
 def tag_text(c, text):
@@ -63,14 +55,14 @@ def titel(c, a):
 
 if __name__ == '__main__':
     os.makedirs(OUT, exist_ok=True)
-    bilder = [vorbereiten(os.path.join(BP, p)) for _, p in TAGE]
+    clips = [m.clip_frames(os.path.join(VB, c + '_bearbeitet.mp4'), v, v + DAUER + 0.2) for _, c, v, _ in TAGE]
     n_tag = int(DAUER * FPS); n = n_tag * len(TAGE)
     pfad = os.path.join(OUT, 'reel_outfits_der_woche_9x16.mp4'); tmp = pfad + '.tmp.mp4'
     enc = subprocess.Popen(['ffmpeg', '-y', '-v', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
                             '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '17', '-preset', 'medium', tmp], stdin=subprocess.PIPE)
     for i in range(n):
         k, j = divmod(i, n_tag); t = j / FPS
-        c = tag_text(bild(bilder[k], t, k * 0.37), TAGE[k][0])
+        c = tag_text(bild(clips[k], j, TAGE[k][3], t), TAGE[k][0])
         if k == 0:                                   # Titel nur am Anfang, blendet aus
             c = titel(c, max(0.0, min(1.0, (DAUER - t) / 0.4)))
         fr = c.convert('RGB')
