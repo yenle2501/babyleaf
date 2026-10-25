@@ -18,3 +18,18 @@ daylight, unstaged, candid Pinterest mom aesthetic, not a studio photo, photorea
 - 18 von 20 Sets fertig (`<set>/baby_<set>_1.jpg`, 2272x2816), Übersicht: `uebersicht.jpg`.
 - **Offen:** `waldbaer_creme` und `weltall_hellblau` – Canva meldete mehrfach «SERVER_GENERIC» (Serverfehler). Später erneut versuchen.
 - Die Studio-Fotos aus dem ersten Versuch wurden durch den Handyfoto-Stil ersetzt.
+
+## Neuer Stil «echt» (25.10.2026, Wunsch: «echter und realer»)
+
+Vorbild: drei echte Instagram-Babyfotos der Nutzerin (nur als Stilbeschreibung, die Fotos werden **nicht** als Referenz hochgeladen: fremde Babys).
+
+Was die Bilder echt macht und im Prompt steht:
+- «Real unedited iPhone photo a mom took of her own three-week-old newborn (fictional)»
+- echte Neugeborenen-Merkmale: leicht verquollene Lider, fleckige rosa Haut, Milien auf der Nase, trockene Händchen, feine Haare, ruhiger/neugieriger Blick statt Grinsen
+- nahe Aufnahme, Baby füllt das Bild, leicht schräg und nicht mittig
+- Fensterlicht von der Seite mit leicht überstrahlten Stellen, Handy-Tiefenschärfe, etwas Bewegungsunschärfe, Stoff mit Falten
+- echte Umgebung: Babykörbchen mit cremefarbener Matratze und Lammfellrand, Schoss mit weissem T-Shirt, zerknittertes Leintuch am Fenster, Arm mit grauem Pulli
+- «no studio light, no retouched skin, no AI glow»
+- Safe Sleep: wach, Rückenlage, nichts über dem Baby
+
+Dateien im neuen Stil heissen `baby_echt_<produkt>.jpg`, Vergleich: `vergleich_stil_alt_neu.jpg`.
