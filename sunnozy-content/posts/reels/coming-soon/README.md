@@ -126,3 +126,22 @@ Erstellt mit `python3 tools/make_coming_soon_kombi.py`. Mehrere Clips pro Reel, 
 ## Ältere Reels (vom 19./20.10.2026)
 
 Erstellt mit `tools/make_set_video.py`: `reel_little_princess_{a,b,c,kombi}_{9x16,4x5}.mp4` und `reel_gaensebluemchen_{a,b,c}_{9x16,4x5}.mp4`, mit `*_standbild.jpg`. Beschreibung und Befehle stehen in `posts/coming-soon/little-princess/README.md` und `posts/coming-soon/gaensebluemchen/README.md`.
+
+## Runde 4 (25.10.2026): 14 neue Clips
+
+Erstellt mit `python3 tools/make_reels_videos_baby_runde4.py`. Nur «Coming soon», kein Preis. Die Reels für Sets, die schon im Shop sind (Princess, Teddybär, Little and Loved), liegen in `../im-shop/`.
+
+| Datei | Set | Hook |
+|---|---|---|
+| `reel_born_2027_blau_9x16.mp4` | «Born in 2027» Hellblau | POV: Er kommt 2027 und hat schon sein Outfit |
+| `reel_born_2027_junge_maedchen_9x16.mp4` | «Born in 2027» Rosa + Hellblau | 2027 wird Euer Jahr? → Kommentar: Rosa oder Hellblau |
+| `reel_bauernhof_happy_baby_9x16.mp4` | «Bauernhof» | Dieses Lachen am Morgen |
+| `reel_gaensebluemchen_baby_girl_9x16.mp4` | «It's a baby girl» | POV: Ihr verratet es endlich allen |
+| `reel_wickelbody_schlaf_9x16.mp4` | «Little Princess» Wickelbody | Der Moment, wenn sie endlich schläft (Rückenlage, keine Decke) |
+| `reel_eisbaer_hand_9x16.mp4` | «Eisbär» | Nur eine Hand auf dem Bauch |
+| `reel_beautiful_sofa_9x16.mp4` | «Beautiful» | Sonntag auf dem Sofa mit ihr |
+| `reel_best_family_lachen_9x16.mp4` | «Best Family» Teddy | Wenn Papa Grimassen schneidet |
+| `reel_krone_nach_dem_bad_9x16.mp4` | «Little Princess» Krone | Nach dem ersten Bad |
+| `reel_lachen_sammlung_9x16.mp4` | 6 Sets | Welches Lachen gewinnt? (Zahl in die Kommentare) |
+
+Nicht verwendet: `videos-baby/little_and_loved_b` (schlafendes Baby mit Haarband und Plüschhase daneben, gegen Safe Sleep).

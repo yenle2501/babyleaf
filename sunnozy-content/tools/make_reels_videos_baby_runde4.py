@@ -19,9 +19,9 @@ REELS = {
         segmente=[seg('born_in_2027_blau_a', 0, 4, fy=0.35), seg('born_in_2027_blau_a', 5, 7.5, 1.22, 1.25, 0.5, 0.36), seg('born_in_2027_blau_a', 9, 13, 1.05, 1.0, fy=0.4, tempo=0.85)],
         texte=[['POV: Er kommt 2027', 'und hat schon sein Outfit'], ['«Born in 2027»', 'in Hellblau'], ['Body, Hose, Mütze', 'und mehr, 6 Teile']]),
     'born_2027_junge_maedchen': dict(
-        segmente=[seg('born_in_2027_rosa_b', 0, 3, fy=0.4), seg('born_in_2027_blau_a', 0.5, 3.5, fy=0.35), seg('born_in_2027_rosa_b', 5, 7.5, 1.2, 1.25, 0.5, 0.36),
+        segmente=[seg('born_in_2027_rosa_b', 0, 3, fy=0.4), seg('born_in_2027_rosa_b', 5, 7.5, 1.2, 1.25, 0.5, 0.36), seg('born_in_2027_blau_a', 0.5, 3.5, fy=0.35),
                   seg('born_in_2027_blau_a', 6, 8.5, 1.2, 1.25, 0.5, 0.36), seg('born_in_2027_rosa_b', 10, 13, 1.0, 1.05, fy=0.4, tempo=0.85)],
-        texte=[['2027 wird', 'Euer Jahr?'], {'zahl': '1', 'name': 'Rosa'}, ['«Born in 2027»', 'zum Mitwachsen'], {'zahl': '2', 'name': 'Hellblau'}, ['Rosa oder Hellblau?', 'Schreib es in die Kommentare']],
+        texte=[['2027 wird', 'Euer Jahr?'], {'zahl': '1', 'name': 'Rosa'}, {'zahl': '2', 'name': 'Hellblau'}, ['«Born in 2027»', 'Body, Hose, Mütze'], ['Rosa oder Hellblau?', 'Schreib es in die Kommentare']],
         liste=(['«Born in 2027»', 'Rosa oder Hellblau?'], [('1 Rosa', '6 Teile'), ('2 Hellblau', '6 Teile')], ['Markier jemanden, der 2027 Mama wird', 'Coming soon auf sunnozy.ch'])),
     'bauernhof_happy_baby': dict(name='«Bauernhof»', teile='8 Teile mit Tieren', bild=PR('bauernhof'),
         segmente=[seg('bauernhof_b', 0, 4, fy=0.4), seg('bauernhof_b', 5, 7.5, 1.22, 1.25, 0.5, 0.42), seg('bauernhof_b', 9.5, 13.5, 1.05, 1.0, fy=0.4, tempo=0.85)],

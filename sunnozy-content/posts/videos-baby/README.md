@@ -28,3 +28,4 @@ Die fertigen Reels liegen in `posts/reels/coming-soon/` (`tools/make_reels_video
 | «Blumenwiese» | `blumenwiese_a`, `_b` |
 | «Bauernhof» | `bauernhof_a` (Baby sehr klein im Bild, im Reel stark gezoomt) |
 | Weihnachts-Geschenkbox «I love my Mummy» (Auspacken, keine Babys) | `weihnachtsbox_mummy_a`, `_b`, `_c` (25.10.2026; `_bearbeitet` ohne den eingebrannten Anzeigentext unten, 848 × 872) |
+| Runde 4 (25.10.2026) | `born_in_2027_blau_a`, `born_in_2027_rosa_b`, `bauernhof_b`, `gaensebluemchen_d`, `little_princess_wickelbody_b`, `eisbaer_taupe_b`, `gaensebluemchen_beautiful_c`, `best_family_c`, `little_princess_krone_f`, `princess_rosa_a` (Erstausstattung «Princess» = Set Rosa), `teddy_creme_a`, `_b` (Erstausstattung «Teddybär»), `little_and_loved_a`, `little_and_loved_b` (**nicht verwenden**: Haarband und Plüschtier beim schlafenden Baby) |
