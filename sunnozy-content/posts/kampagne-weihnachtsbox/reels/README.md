@@ -15,3 +15,16 @@ Erstellt mit `python3 tools/make_reels_weihnachtsbox.py` aus den Szenen im Handy
 **Vor dem Posten prüfen:**
 - «Mit KI erstellt» einschalten (Szenen KI-generiert).
 - `last_minute` nennt «Letzter Bestelltag: ca. 18.12.» (Annahme aus der Kampagnenplanung). Datum mit der Post prüfen, sonst im Skript ändern.
+
+## Reels aus den Auspack-Videos «I love my Mummy» (25.10.2026)
+
+Erstellt mit `python3 tools/make_reels_weihnachtsbox_video.py` aus den drei Grok-Clips `posts/videos-baby/weihnachtsbox_mummy_a/b/c`. Im Original war unten der Anzeigentext (Logo, Name, Preis) eingebrannt; dieser Streifen ist in den `_bearbeitet.mp4` weggeschnitten, die Clips sind entrauscht, farblich angepasst und nachgeschärft. Preis nur auf der Schlusskarte (Box ist im Shop).
+
+| Datei | Idee | Dauer |
+|---|---|---|
+| `reel_mummy_auspacken_9x16.mp4` | POV: Du packst Mamas Geschenk aus → Stickerei, Karte, Halstücher | 16,7 s |
+| `reel_mummy_was_ist_drin_9x16.mp4` | «Was ist in der Box für CHF 29.90?» → 3 Bodys, 3 Halstücher, + Karte | 17,1 s |
+| `reel_mummy_erstes_weihnachten_9x16.mp4` | «Ihr erstes Weihnachten mit Baby», Geschenk für die frischgebackene Mama | 14,6 s |
+| `reel_mummy_unter_30_9x16.mp4` | «Babyparty am Wochenende und noch kein Geschenk?» → unter 30 Franken, Gratisversand ab CHF 50 | 15,9 s |
+
+Prüfen: «Mit KI erstellt» einschalten. In den Clips liegen in der Box gestreifte und Bärchen-Halstücher; im echten Set mit dem Shopfoto abgleichen.

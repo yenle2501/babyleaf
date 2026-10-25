@@ -27,3 +27,4 @@ Die fertigen Reels liegen in `posts/reels/coming-soon/` (`tools/make_reels_video
 | «Best Family» Teddy | `best_family_a`, `_b` |
 | «Blumenwiese» | `blumenwiese_a`, `_b` |
 | «Bauernhof» | `bauernhof_a` (Baby sehr klein im Bild, im Reel stark gezoomt) |
+| Weihnachts-Geschenkbox «I love my Mummy» (Auspacken, keine Babys) | `weihnachtsbox_mummy_a`, `_b`, `_c` (25.10.2026; `_bearbeitet` ohne den eingebrannten Anzeigentext unten, 848 × 872) |
