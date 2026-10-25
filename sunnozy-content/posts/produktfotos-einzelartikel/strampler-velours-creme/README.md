@@ -9,4 +9,6 @@ Quelle: 1688, Angebot 948863738705.
 
 Das Hauptbild ist KI-generiert. Vor dem Veröffentlichen mit dem echten Strampler abgleichen (Knopfzahl, Farbe, Kragen).
 
-Offen: Einkaufspreis (Verkaufspreis = 10 × EK), echte Grössen laut Lieferant, Material-Zusammensetzung.
+Preis: EK ¥32 (≈ CHF 3.80, Einstand ≈ CHF 7.20), Verkaufspreis CHF 19.90 (25.10.2026).
+
+Offen: echte Grössen laut Lieferant, Material-Zusammensetzung.
