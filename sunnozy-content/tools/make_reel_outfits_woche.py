@@ -71,8 +71,8 @@ if __name__ == '__main__':
         enc.stdin.write(fr.tobytes())
     enc.stdin.close(); enc.wait()
     d = n / FPS
-    subprocess.run(['ffmpeg', '-y', '-v', 'error', '-i', tmp, '-ss', '30', '-i', MUSIK, '-t', f'{d:.2f}',
-                    '-af', f'afade=t=in:d=0.3,afade=t=out:st={d - 0.6:.2f}:d=0.6,volume=0.85', '-map', '0:v', '-map', '1:a',
+    subprocess.run(['ffmpeg', '-y', '-v', 'error', '-i', tmp, '-ss', '18', '-i', MUSIK, '-t', f'{d:.2f}',
+                    '-af', f'loudnorm=I=-12:TP=-1:LRA=11,afade=t=in:d=0.15,afade=t=out:st={d - 0.4:.2f}:d=0.4,aresample=44100', '-map', '0:v', '-map', '1:a',
                     '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k', '-shortest', '-movflags', '+faststart', pfad], check=True)
     os.remove(tmp)
     print(pfad, f'{d:.1f} s')
