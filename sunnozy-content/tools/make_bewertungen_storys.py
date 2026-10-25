@@ -2,7 +2,7 @@
 
     python3 tools/make_bewertungen_storys.py
 
-Oben ein Foto des bewerteten Produkts (Baby-Foto im echten Handy-Stil oder Produktbild), unten eine helle Karte
+Oben das Shop-Produktbild des bewerteten Produkts (seit 25.10. statt KI-Babyfotos, Wunsch der Nutzerin), unten eine helle Karte
 mit fünf Sternen, dem Bewertungstext wörtlich (auch mit kleinen Fehlern), Vorname wie bei Judge.me und Produkt.
 Schrift: Fraunces für Zitat und Titel, Nunito Sans für den Rest (keine Schreibschrift).
 Die Baby-Fotos sind KI-generiert: auf der Story steht klein «Produktfoto mit KI erstellt», damit niemand denkt,
@@ -24,16 +24,16 @@ ANZAHL, SCHNITT = 15, '5,0'
 # (Datei, Text wörtlich, Name, Produkt, KI-Foto?, Übersetzung)
 STORYS = [
     ('kathrin', 'Super schnelle Abwicklung des Warenvorgangs. Sehr gute Qualität. Die Ware wurde als Geschenk weiter gereicht und ist dort sehr gut angekommen. Ich kann es nur empfehlen. Vielen Dank!',
-     'Kathrin', 'Erstausstattung-Set «Teddybär»', os.path.join(BP, 'baby_echt_erstausstattung_teddybaer.jpg'), True, None),
+     'Kathrin', 'Erstausstattung-Set «Teddybär»', os.path.join(OUT, 'produktbilder', 'erstausstattung_teddybaer.jpg'), False, None),
     ('anonym', "I'm simply pleasantly shocked: the quality is excellent, the delivery is fast, and the price is simply unbelievable. Thank you.",
-     'Anonym', 'Erstausstattung-Set «Hello World»', os.path.join(BP, 'baby_echt_erstausstattung_hello_world.jpg'), True,
+     'Anonym', 'Erstausstattung-Set «Hello World»', os.path.join(OUT, 'produktbilder', 'erstausstattung_hello_world.jpg'), False,
      'Ich bin einfach angenehm überrascht: Die Qualität ist ausgezeichnet, die Lieferung schnell und der Preis einfach unglaublich. Danke.'),
     ('alissa', 'alles super, würde ich immer wieder kaufen',
-     'Alissa', 'Erstausstattung-Set «Little and Loved»', os.path.join(BP, 'baby_echt_erstausstattung_little_and_loved.jpg'), True, None),
+     'Alissa', 'Erstausstattung-Set «Little and Loved»', os.path.join(OUT, 'produktbilder', 'erstausstattung_little_and_loved.jpg'), False, None),
     ('mariolyg', 'Super schneller Versand, alles lief sehr gut. Gerne wieder. Merci',
-     'MariolyG', 'Erstausstattung-Set «Hello»', os.path.join(BP, 'baby_echt_erstausstattung_hello_spitze.jpg'), True, None),
+     'MariolyG', 'Erstausstattung-Set «Hello»', os.path.join(OUT, 'produktbilder', 'erstausstattung_hello_spitze.jpg'), False, None),
     ('monica', 'Super schnell Versand und sehr nette Verkäuferin mit wirklich niedlichen Produkten.',
-     'Monica', 'Erstausstattung-Set «Hello Little Bear»', os.path.join(BP, 'baby_echt_erstausstattung_hello_little_bear.jpg'), True, None),
+     'Monica', 'Erstausstattung-Set «Hello Little Bear»', os.path.join(OUT, 'produktbilder', 'erstausstattung_hello_little_bear.jpg'), False, None),
     ('eff_g8mf', 'Alles tip top: schnelle Kommunikation und Versand',
      'eff_g8mf', 'Söckchen 5er-Set «Neutral Umschlag»', os.path.join(OUT, 'produktbilder', 'soeckchen_neutral_umschlag.jpg'), False, None),
     ('nalinea', 'Nur zu empfehlen. Danke',
@@ -121,14 +121,14 @@ def intro(fotos):
     c = Image.new('RGB', (W, H), CREME); d = ImageDraw.Draw(c)
     g = 12; kw = (W - 3 * g) // 2; kh = int(kw * 1.25)
     for i, p in enumerate(fotos[:4]):
-        c.paste(fuellen(Image.open(p).convert('RGB'), kw, kh, 0.3), (g + (i % 2) * (kw + g), g + (i // 2) * (kh + g)))
+        t = Image.open(p).convert('RGB'); t.thumbnail((kw, kh)); f = Image.new('RGB', (kw, kh), (244, 240, 235))
+        f.paste(t, ((kw - t.width) // 2, (kh - t.height) // 2)); c.paste(f, (g + (i % 2) * (kw + g), g + (i // 2) * (kh + g)))
     y0 = 2 * kh + 3 * g
     d.rectangle((0, y0, W, H), fill=CREME)
     sterne(d, W / 2, y0 + 110, r=30, abstand=76)
     d.text((W / 2, y0 + 190), f'{SCHNITT} von 5 Sternen', font=FONT('fraunces-600.ttf', 76), fill=WALD, anchor='ma')
     d.text((W / 2, y0 + 300), f'aus {ANZAHL} Bewertungen auf sunnozy.ch', font=FONT('nunitosans-600.ttf', 36), fill=GRAU, anchor='ma')
     d.text((W / 2, y0 + 360), 'Danke für jedes liebe Wort', font=FONT('nunitosans-400i.ttf', 34), fill=SALBEI, anchor='ma')
-    d.text((W - 30, y0 - 20), 'Produktfotos mit KI erstellt', font=FONT('nunitosans-600.ttf', 22), fill=(255, 255, 255), anchor='rs', stroke_width=2, stroke_fill=(80, 70, 65))
     L = logo(170, (122, 108, 104)); c.paste(L, ((W - L.width) // 2, H - 120), L)
     return c
 
@@ -136,7 +136,7 @@ def intro(fotos):
 if __name__ == '__main__':
     os.makedirs(OUT, exist_ok=True)
     alle = []
-    i0 = intro([s[4] for s in STORYS if s[5]])
+    i0 = intro([s[4] for s in STORYS][:4])
     i0.save(os.path.join(OUT, 'story_00_intro_9x16.jpg'), quality=92); alle.append(i0)
     for n, s in enumerate(STORYS, 1):
         im = story(*s); im.save(os.path.join(OUT, f'story_{n:02d}_{s[0]}_9x16.jpg'), quality=92); alle.append(im)

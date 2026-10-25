@@ -15,7 +15,7 @@ Alle Texte sind **echte Bewertungen** von sunnozy.ch (Judge.me, Stand 25.10.2026
 | `story_06_eff_g8mf_9x16.jpg` | eff_g8mf, 15.08.2026 | Söckchen «Neutral Umschlag» |
 | `story_07_nalinea_9x16.jpg` | Nalinea, 02.10.2026 | Söckchen «Spitze & Blümchen» |
 
-Die Baby-Fotos sind KI-generiert (echter Handy-Stil). Auf jeder Story steht klein «Produktfoto mit KI erstellt», damit niemand denkt, das Baby gehöre zur Person, die bewertet hat. Beim Posten zusätzlich «Mit KI erstellt» einschalten. Link-Sticker auf das bewertete Produkt setzen.
+Bilder: die Shop-Produktbilder der bewerteten Produkte (`produktbilder/`), keine KI-Babyfotos (Wunsch 25.10.2026). Die Set-Präsentationen sind KI-Präsentationen der echten Sets; vor dem Posten mit dem Produkt abgleichen. Link-Sticker auf das bewertete Produkt setzen.
 
 **Bitte prüfen:** Zwei Texte stehen auf sunnozy.ch doppelt, bei verschiedenen Namen und Produkten:
 - Kathrin (Teddybär) = Caroline (Princess), Wort für Wort gleich.
