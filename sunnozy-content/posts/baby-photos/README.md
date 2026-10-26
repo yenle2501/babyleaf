@@ -10,7 +10,20 @@ Alle Baby-Fotos liegen flach in diesem Ordner, ohne Unterordner. Alle Babys sind
 
 Looks 2 und 3 gibt es für 15 Sets (23.10.2026): bauernhof, best_family, gaensebluemchen, hase_rosa, hello_schmetterling, hello_world_blatt, hello_world_blatt_creme, lila_hase, little_and_loved_gans_rosa, little_bear, love_dad_mom, prinzessin_krone, rosa, teddy_creme, wal_blau. Übersicht: `uebersicht_looks_2_3.jpg` (Look 1: `uebersicht_handyfoto_look1.jpg`).
 
-Format: 4:5, 2272 × 2816 px (Canva-Export 1136 × 1408, mit Real-ESRGAN x4 compact hochgerechnet, 25 % Original zurückgemischt).
+Format: 4:5, 2272 × 2816 px. Canva liefert höchstens 1136 × 1408; hochgerechnet mit Real-ESRGAN x4plus (seit 25./26.10.2026, vorher x4 compact), 30 % Lanczos-Original zurückgemischt, leicht nachgeschärft und feines Korn, damit die Haut nicht wächsern wirkt. Look 1 ist noch mit dem alten Verfahren hochgerechnet.
+
+## Handyfotos pro Produkt (`baby_handy_*`, `baby_echt_*`)
+
+Ein Foto pro Produkt aus dem Shop und den Coming-soon-Sets, wie von einer Mama mit dem Handy aufgenommen.
+
+| Datei | Stil |
+|---|---|
+| `baby_echt_<produkt>.jpg` | **neuer Stil «echt»** (ab 25.10.2026, nach den Instagram-Beispielen der Nutzerin): echte Neugeborenen-Merkmale (geschwollene Lider, fleckige Haut, Milien), nah und nicht ganz mittig, Fensterlicht mit leicht überstrahlten Stellen, kein Studiolicht, keine glatte KI-Haut |
+| `baby_handy_<produkt>.jpg` | erster Stil (24.10.2026), etwas glatter; wird nach und nach durch `baby_echt_*` ersetzt |
+
+Szenen im Stil «echt»: Stubenwagen mit Sherpa-Rand, an der Brust auf dem Sofa (weisses T-Shirt), auf zerknittertem Laken am Fenster, im Arm (grauer Pullover). Lätzchen, Halstücher, Sommer-Sets: 5–6 Monate altes Baby auf dem Schoss. Mulltücher: Baby liegt wach auf dem Tuch. Söckchen: Füsschen in Mamas Hand.
+
+Bei `baby_echt_leggings_ripp_pastell.jpg` hatte die KI einen weissen, logoähnlichen Haken auf das Hosenbein gesetzt; er ist wegretuschiert. Prompts: `prompts.md`.
 
 ## Instagram-Bilder der Coming-soon-Sets
 
