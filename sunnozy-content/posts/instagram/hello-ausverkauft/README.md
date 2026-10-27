@@ -1,15 +1,16 @@
 # Sold Out: Erstausstattung-Set «Hello» in Rosa (27.10.2026)
 
-Karussell, 4 Bilder im Format 4:5 (1080 × 1350). Erstellt mit `tools/make_post_hello_ausverkauft.py`.
+Karussell, 3 Bilder im Format 4:5 (1080 × 1350). Erstellt mit `tools/make_post_hello_ausverkauft.py`.
+Zweite, elegantere Version (27.10.2026): alle Bilder mit dem Set auf cremefarbener Seide im Hintergrund.
 
 | Datei | Inhalt |
 |---|---|
-| `slide_1_4x5.jpg` | «Sold Out» mit rosa Schleife und Band (Idee der Nutzerin), darunter das Set |
-| `slide_2_4x5.jpg` | Hände packen das Set in eine Geschenkbox, «Danke für Euer Vertrauen.» |
-| `slide_3_4x5.jpg` | Danke-Text und die echte Bewertung von MariolyG (Judge.me, wörtlich) |
-| `slide_4_4x5.jpg` | «Restock in Arbeit», ohne Datum |
+| `slide_1_4x5.jpg` | «Sold Out» oben auf der Seide, darunter das ganze Set |
+| `slide_2_4x5.jpg` | Set weichgezeichnet, helle Karte mit «Danke.» und der echten Bewertung von MariolyG (Judge.me, wörtlich) |
+| `slide_3_4x5.jpg` | Nahaufnahme Häubchen, Lätzchen, Body mit Spitzenkragen; «Restock in Arbeit», ohne Datum |
 
-Die Schleife (`bilder/schleife_ki.jpg`) und das Verpackungsfoto (`bilder/verpacken_ki.jpg`) sind mit KI erstellt (Canva). Beim Posten «Mit KI erstellt» einschalten.
+Das Set-Foto (`bilder/set_seide_ki.jpg`) ist mit KI erstellt (Canva, nach dem Shop-Produktbild). Beim Posten «Mit KI erstellt» einschalten.
+Die erste Version (Schleife, Verpackungsfoto) gefiel nicht und ist gelöscht (in der Git-Historie noch vorhanden).
 
 ## Text für den Beitrag
 
