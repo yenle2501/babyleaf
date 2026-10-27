@@ -62,7 +62,7 @@ def text_ebene(n):
     mitte(800, 'COMING', f_gross); mitte(950, 'SOON', f_gross)
     f_zahl = m.f('nunitosans-700.ttf', 118); f_lab = m.f('nunitosans-600.ttf', 26)
     xs = [W / 2 - 300, W / 2, W / 2 + 300]
-    for x, z, lab in zip(xs, [f'{n:02d}', '00', '00'], ['TAGE', 'STUNDEN', 'MINUTEN']):
+    for x, z, lab in zip(xs, [f'{n:02d}', '00', '00'], ['TAG' if n == 1 else 'TAGE', 'STUNDEN', 'MINUTEN']):
         d.text((x, 1135), z, font=f_zahl, fill=WEISS + (255,), anchor='ms')
         d.text((x, 1185), lab, font=f_lab, fill=WEISS + (235,), anchor='ms')
     for x in [W / 2 - 150, W / 2 + 150]:
@@ -81,7 +81,7 @@ def reel(n):
         clips.append(m.clip_frames(p, start, start + SCHNITT + 0.1))
     txt = text_ebene(n)
     n_seg = int(SCHNITT * FPS); total = n_seg * len(clips)
-    pfad = os.path.join(OUT, f'reel_countdown_noch_{n}_tage_9x16.mp4'); tmp = pfad + '.tmp.mp4'
+    pfad = os.path.join(OUT, f'reel_countdown_noch_{n}_tag{"" if n == 1 else "e"}_9x16.mp4'); tmp = pfad + '.tmp.mp4'
     enc = subprocess.Popen(['ffmpeg', '-y', '-v', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
                             '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '18', '-preset', 'medium', tmp], stdin=subprocess.PIPE)
     for i in range(total):
