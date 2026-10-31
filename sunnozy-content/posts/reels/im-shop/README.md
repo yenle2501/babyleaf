@@ -22,3 +22,9 @@ Bildunterschrift-Vorschlag: «Welches Outfit ist Dein Favorit? Eine Woche, siebe
 `reel_halstuecher_3er_sets_9x16.mp4` (18 s) aus den echten Handyvideos der Nutzerin: Hook «Welches Halstuch-Set ist Dein Favorit?», die drei Sets werden hingelegt, dann 1 «I love my Mummy», 2 «Cool like Daddy», 3 «Baby Flowers» in der Hand, Schlusskarte mit Preisen (je CHF 7.99, 3 Stück, 100 % Baumwolle) und «Schreib Deine Zahl in die Kommentare». Echte Videos, kein KI-Hinweis nötig.
 
 Text-Idee: «Sabberzeit, aber stylish 🤍 Welches Set ist Dein Favorit: 1, 2 oder 3? Je 3 Halstücher aus 100 % Baumwolle für CHF 7.99, jetzt auf sunnozy.ch.»
+
+## Body-Set «I love my Mummy» Kurzarm (31.10.2026)
+
+`reel_body_mummy_kurzarm_9x16.mp4` (13 s) aus dem echten Handyvideo der Nutzerin: langsamer Zoom auf den Body («Die süsseste Liebeserklärung an Mama», «Zwei Bärchen und «I love my Mummy»»), dann das passende Halstuch-Set, Schlusskarte mit Body-Set Kurzarm 5 Stück CHF 16.70 und Halstücher 3 Stück CHF 7.99, Grössen 0–9 Monate. Echtes Video, kein KI-Hinweis nötig.
+
+Text-Idee: «Die süsseste Liebeserklärung an Mama 🤍 Body-Set «I love my Mummy» im 5er-Pack, und das Halstuch gibt es passend dazu. Jetzt auf sunnozy.ch.»
