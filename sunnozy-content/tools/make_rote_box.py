@@ -53,10 +53,13 @@ def inhalt_einsetzen(basis, inhalt):
     ref = np.asarray(basis).astype(int); r, g, b = ref[..., 0], ref[..., 1], ref[..., 2]
     over = np.zeros((H, W), np.float32)
     over[:, :x0 + round(6 * f)] = 1; over[:, round(1036 * f):] = 1
-    band = ((r > 120) & (r - g > 60) & (r - b > 50)).astype(np.uint8) * 255
+    band = ((r > 175) & (r - g > 115) & (r - b > 100)).astype(np.uint8) * 255   # nur das helle Satinband, nicht der dunklere Deckelrand
     band = np.asarray(Image.fromarray(band).filter(ImageFilter.MaxFilter(2 * round(1.5 * f) + 1))) > 0
-    reg = np.zeros_like(band); reg[round(530 * f):round(600 * f), round(820 * f):round(1010 * f)] = True
+    reg = np.zeros_like(band); reg[round(538 * f):round(580 * f), round(860 * f):round(992 * f)] = True
     over[band & reg] = 1
+    # Deckelunterkante verläuft schräg: links y≈543, rechts y≈568 (Original-Massstab); alles darüber ist Deckel
+    xs_ = np.arange(W) / f; kante = (543 + (xs_ - 213) / (1047 - 213) * 25) * f
+    over[np.arange(H)[:, None] < kante[None, :]] = 1
     om = Image.fromarray((over * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(1.0 * f))
     out = Image.composite(basis, out, om)
     return out
