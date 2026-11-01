@@ -101,7 +101,9 @@ def box(name):
     basis = Image.open(VORLAGE).convert('RGB')
     inhalt = Image.open(glob.glob(os.path.join(RB, 'inhalt', name + '.*'))[0])
     bild = karte(inhalt_einsetzen(basis, inhalt), basis)
-    os.makedirs(os.path.join(RB, 'shopify'), exist_ok=True); os.makedirs(os.path.join(RB, '4x5'), exist_ok=True)
+    for d in ('shopify', '4x5', 'komposit'):
+        os.makedirs(os.path.join(RB, d), exist_ok=True)
+    bild.save(os.path.join(RB, 'komposit', f'{name}.jpg'), quality=95)   # Grundlage für die Anzeigen (make_rote_box_ads.py)
     leinwand(bild, 2048, 2048).save(os.path.join(RB, 'shopify', f'geschenkbox-{name.replace("_", "-")}.jpg'), quality=95)
     leinwand(bild, 1080, 1350).save(os.path.join(RB, '4x5', f'{name}.jpg'), quality=93)
     return bild
