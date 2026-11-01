@@ -18,5 +18,5 @@ Die Bilder sind **mit KI erstellt** (Canva), mit den Handyfotos der Nutzerin vom
 
 - **Deckel-Motiv:** Die KI hat das Teddy-Fenster-Motiv nachgemalt, nicht 1:1 kopiert.
 - **Band:** Das echte Band trägt den Schriftzug «sunnozy». Die KI kann ihn nicht sauber schreiben, darum zeigen die Bilder ein schlichtes rotes Band.
-- **Inhalt (Bild 2):** Farben grün, weiss, beige, hellblau und grau sowie der «DADDY'S»-Print stammen aus Foto 7. Die Schleifen an den Hosen gibt es auch in echt (Foto 8).
+- **Inhalt (Bild 2):** Farben grün, weiss, beige, hellblau und grau sowie der «DADDY'S»-Print stammen aus Foto 7. Die Schleifen an den Hosen gibt es auch in echt (Foto 7).
 - **Shopify-Text:** Die Beschreibung spricht von einer «rosa Geschenkbox», die echte Box ist rot mit Weihnachtsdruck. Den Text erst nach Freigabe anpassen.
