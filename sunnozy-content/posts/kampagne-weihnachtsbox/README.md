@@ -151,3 +151,16 @@ Ohne Bewertungen erscheint nichts. Vorschau: `theme/bewertungen_vorschau_*.png`.
   Das Live-Menü `unser-sortiment` bleibt unverändert.
 - Die personalisierte Box ist wieder **Entwurf**, bis FINAL 107 veröffentlicht ist (das Live-Theme hat den Konfigurator nicht).
   Nach dem Veröffentlichen von FINAL 107: Produkt «Personalisierte Geschenkbox» wieder auf Aktiv stellen.
+
+## Shopify-Hauptbild mit der echten roten Box (01.11.2026)
+
+Wunsch: gleicher Stil wie `shopify/` (Box von oben, hellgrau, Karte, Logo oben links), aber mit der echten Geschenkbox
+(rote Weihnachtsbox, Blumen-Seidenpapier) und dem echten Inhalt. Grundbild **mit KI erstellt** (Canva) aus den Handyfotos
+in `posts/produktfotos-geschenkbox-weihnachten/quelle/`; die Karte ist die echte Druckvorlage, das Logo wie bei den anderen Boxen.
+
+| Datei | Box |
+|---|---|
+| `shopify-echt/geschenkbox-growing-up-strong.jpg` (2048 × 2048) | «Growing up strong», 5 Kurzarm-Bodys + 5 Jogginghosen |
+| `shopify-echt/roh/` | KI-Grundbilder ohne Karte und Logo |
+
+Neu erzeugen: `python3 tools/make_shopify_geschenkbox_echt.py` (Kartenposition pro Box in `BOXEN`). Noch nicht in Shopify hochgeladen.
