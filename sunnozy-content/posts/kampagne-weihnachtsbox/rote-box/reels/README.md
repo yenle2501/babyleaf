@@ -5,18 +5,18 @@ Neu erzeugen: `python3 tools/make_reels_geschenkboxen.py 1 2 3 4 5 6`
 
 Die Texte stehen im sicheren Bereich: nicht im unteren Viertel, wo TikTok und Instagram die Caption zeigen, und rechts frei für die Knöpfe.
 
-- **Echte Fotos:** Reel 1 und 6 zeigen Deine Handyfotos der Box. Beim Foto mit dem Inhalt ist die Tastatur rechts weggeschnitten.
+- **Keine echten Fotos:** In den Reels und Foto-Posts sind keine Handyfotos (Wunsch vom 02.11.2026). Verwendet werden Deine Vorlage der geschlossenen Box, die KI-Szenen (unterm Baum, Flatlay, Detail) und die Box-Bilder.
 - **Box-Bilder:** Deckel, Band und Karte stammen aus Deiner Vorlage. Der Inhalt ist mit KI erstellt.
 - **Musik:** Alex Morgan (Pixabay, frei nutzbar). Auf TikTok kannst Du stattdessen einen Trend-Sound über das Video legen.
 
 | Reel | Datei | Inhalt | Dauer |
 |---|---|---|---|
-| 1 | `reel_1_so_kommt_sie_an_9x16.mp4` | echte Fotos: geschlossene Box, Seidenpapier, offen, Inhalt, Schlusskarte | ≈ 11 s |
+| 1 | `reel_1_so_kommt_sie_an_9x16.mp4` | geschlossene Box, unterm Baum, offene Box mit Set, Detail, Schlusskarte | ≈ 11 s |
 | 2 | `reel_2_welche_box_9x16.mp4` | «Welche Box würdest Du schenken?», alle 9 Boxen mit Nummer, Kommentar-Aufruf | ≈ 14 s |
 | 3 | `reel_3_fuer_kleine_maedchen_9x16.mp4` | Mum Dad Me, Lovely Little Girl, I like flying, mit Preis | ≈ 10 s |
 | 4 | `reel_4_fuer_kleine_jungs_9x16.mp4` | Dino, Dinosaur, Growing up strong, mit Preis | ≈ 10 s |
 | 5 | `reel_5_little_one_und_mummy_9x16.mp4` | Little One (Mulltücher), Little One (Jogginghosen), I love my Mummy | ≈ 10 s |
-| 6 | `reel_6_pov_gotti_9x16.mp4` | «POV: Du bist Gotti und brauchst noch ein Geschenk», echte Fotos und Box | ≈ 11 s |
+| 6 | `reel_6_pov_gotti_9x16.mp4` | «POV: Du bist Gotti und brauchst noch ein Geschenk», Box zu, Flatlay, offene Box, Detail | ≈ 11 s |
 
 ## Captions
 
@@ -54,9 +54,9 @@ Die Texte stehen im sicheren Bereich: nicht im unteren Viertel, wo TikTok und In
 | `tiktok-fotos-9x16/` | 1080 × 1920 | TikTok-Fotomodus und Storys |
 
 Reihenfolge der 12 Bilder:
-1. Deckblatt mit dem echten Foto der Box.
+1. Deckblatt mit der geschlossenen Box (Deine Vorlage).
 2. bis 10. Die 9 Boxen mit Preis.
-11. «So kommt sie bei Dir an», echtes Foto.
+11. «So kommt sie bei Dir an», offene Box (KI-Bild).
 12. Schlussbild.
 
 Caption Karussell:

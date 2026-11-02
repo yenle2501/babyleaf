@@ -4,8 +4,9 @@
     python3 tools/make_reels_geschenkboxen.py 2 4        # nur Reel 2 und 4
     python3 tools/make_reels_geschenkboxen.py fotos      # nur die Foto-Posts
 
-Bilder: echte Handyfotos der Nutzerin (posts/produktfotos-geschenkbox-weihnachten/quelle/, nur die ohne fremde Marken,
-foto7 ohne die Tastatur rechts) und die Box-Bilder aus rote-box/komposit/ (Inhalt mit KI erstellt).
+Bilder: KEINE echten Handyfotos (Wunsch der Nutzerin, 02.11.2026). Verwendet werden ihre Vorlage der geschlossenen Box
+(rote-box/vorlage/vorlage_zu.jpg), die KI-Szenen aus posts/produktfotos-geschenkbox-weihnachten/growing-up-strong/
+und die Box-Bilder aus rote-box/komposit/ (Inhalt mit KI erstellt).
 Text liegt im sicheren Bereich für TikTok und Reels: oben ab 250 px, nicht im unteren Viertel, rechts frei für die Knöpfe.
 Schrift Fraunces + Nunito Sans (keine Schreibschrift). Musik: Alex Morgan (Pixabay), Lautheit normalisiert.
 Ausgabe: posts/kampagne-weihnachtsbox/rote-box/reels/ und rote-box/fotos-posts/
@@ -17,7 +18,6 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 POSTS = os.path.join(ROOT, 'posts')
 RB = os.path.join(POSTS, 'kampagne-weihnachtsbox', 'rote-box')
-Q = os.path.join(POSTS, 'produktfotos-geschenkbox-weihnachten', 'quelle')
 OUT = os.path.join(RB, 'reels'); FOTOS = os.path.join(RB, 'fotos-posts')
 MUSIK = {1: 'alex-morgan_heartwarming-story.mp3', 2: 'alex-morgan_no-copyright-music.mp3'}
 W, H, FPS, BLENDE = 1080, 1920, 30, 0.35
@@ -49,13 +49,13 @@ def logo(width, col):
     L = L.crop(L.getbbox()); return L.resize((width, round(L.height * width / L.width)), Image.LANCZOS)
 
 
+KI = {'baum': '3_box_unterm_weihnachtsbaum.jpg', 'flatlay': '4_flatlay_weihnachten_holz.jpg',
+      'detail': '5_detail_stickerei_schleife.jpg', 'offen': '2_box_offen_inhalt.jpg'}
 _cache = {}
 def bild(name):
     if name not in _cache:
-        if name.startswith('foto'):
-            im = Image.open(os.path.join(Q, name + '.jpg')).convert('RGB')
-            if name == 'foto7':                       # rechts Tastatur mit Fremdmarke: weg
-                im = im.crop((0, 0, int(im.width * 0.80), im.height))
+        if name in KI:
+            im = Image.open(os.path.join(POSTS, 'produktfotos-geschenkbox-weihnachten', 'growing-up-strong', KI[name])).convert('RGB')
         elif name == 'zu':
             im = Image.open(os.path.join(RB, 'vorlage', 'vorlage_zu.jpg')).convert('RGB')
         else:
@@ -154,37 +154,37 @@ def S(dauer, fn):
 
 REELS = {
     1: dict(datei='reel_1_so_kommt_sie_an', musik=1, seg=[
-        S(2.4, lambda t, d: foto_frame('foto8', t, d, ['So kommt Deine', 'Geschenkbox an'], zoom=(1.0, 1.10))),
-        S(2.0, lambda t, d: foto_frame('foto6', t, d, ['Blumen-Seidenpapier', 'und unser Sticker'], zoom=(1.12, 1.04), fy=0.55)),
-        S(2.3, lambda t, d: foto_frame('foto9', t, d, ['Und darin:', 'ein ganzes Set'], zoom=(1.0, 1.08), fy=0.45)),
-        S(2.3, lambda t, d: foto_frame('foto7', t, d, ['5 Bodys + 5 Jogginghosen'], klein='«Growing up strong» · CHF 42.90', zoom=(1.05, 1.13))),
+        S(2.4, lambda t, d: foto_frame('zu', t, d, ['So kommt Deine', 'Geschenkbox an'], zoom=(1.0, 1.10))),
+        S(2.0, lambda t, d: foto_frame('baum', t, d, ['Bereit für', 'unter den Baum'], zoom=(1.12, 1.04))),
+        S(2.3, lambda t, d: box_frame('growing_up_strong', t, d, oben='UND DARIN: EIN GANZES SET')),
+        S(2.3, lambda t, d: foto_frame('detail', t, d, ['Weiche Baumwolle,', 'liebevolle Details'], zoom=(1.05, 1.13))),
         S(2.6, lambda t, d: endkarte(t, d, 'Fertig verpackt', '9 Boxen ab CHF 29.90, mit Karte')),
     ]),
     2: dict(datei='reel_2_welche_box', musik=2, seg=[
-        S(2.0, lambda t, d: foto_frame('foto8', t, d, ['Welche Box', 'würdest Du schenken?'], zoom=(1.0, 1.06))),
+        S(2.0, lambda t, d: foto_frame('zu', t, d, ['Welche Box', 'würdest Du schenken?'], zoom=(1.0, 1.06))),
         *[S(1.15, (lambda k, n: lambda t, d: box_frame(k, t, d, nummer=n))(k, i + 1)) for i, k in enumerate(ALLE)],
         S(2.6, lambda t, d: endkarte(t, d, 'Schreib Deine Zahl', 'in die Kommentare', '9 Boxen auf sunnozy.ch')),
     ]),
     3: dict(datei='reel_3_fuer_kleine_maedchen', musik=1, seg=[
-        S(2.0, lambda t, d: foto_frame('foto8', t, d, ['Geschenkideen', 'für kleine Mädchen'], zoom=(1.0, 1.06))),
+        S(2.0, lambda t, d: foto_frame('zu', t, d, ['Geschenkideen', 'für kleine Mädchen'], zoom=(1.0, 1.06))),
         *[S(2.2, (lambda k: lambda t, d: box_frame(k, t, d, oben='WEIHNACHTS-GESCHENKBOX'))(k)) for k in ['mum_dad_me', 'lovely_little_girl', 'i_like_flying']],
         S(2.5, lambda t, d: endkarte(t, d, 'Fertig verpackt mit Karte', 'Grössen 0–9 Monate')),
     ]),
     4: dict(datei='reel_4_fuer_kleine_jungs', musik=2, seg=[
-        S(2.0, lambda t, d: foto_frame('foto8', t, d, ['Geschenkideen', 'für kleine Jungs'], zoom=(1.0, 1.06))),
+        S(2.0, lambda t, d: foto_frame('baum', t, d, ['Geschenkideen', 'für kleine Jungs'], zoom=(1.0, 1.06))),
         *[S(2.2, (lambda k: lambda t, d: box_frame(k, t, d, oben='WEIHNACHTS-GESCHENKBOX'))(k)) for k in ['dino', 'dinosaur', 'growing_up_strong']],
         S(2.5, lambda t, d: endkarte(t, d, 'Fertig verpackt mit Karte', 'Grössen 0–9 Monate')),
     ]),
     5: dict(datei='reel_5_little_one_und_mummy', musik=1, seg=[
-        S(2.0, lambda t, d: foto_frame('foto9', t, d, ['Zarte Farben,', 'die zu allem passen'], zoom=(1.0, 1.06), fy=0.45)),
+        S(2.0, lambda t, d: foto_frame('flatlay', t, d, ['Zarte Farben,', 'die zu allem passen'], zoom=(1.0, 1.06))),
         *[S(2.2, (lambda k: lambda t, d: box_frame(k, t, d, oben='WEIHNACHTS-GESCHENKBOX'))(k)) for k in ['little_one', 'little_one_jogginghosen', 'i_love_my_mummy']],
         S(2.5, lambda t, d: endkarte(t, d, 'Ein Set in jeder Box', 'aus weicher Baumwolle')),
     ]),
     6: dict(datei='reel_6_pov_gotti', musik=2, seg=[
-        S(2.6, lambda t, d: foto_frame('foto8', t, d, ['POV: Du bist Gotti', 'und brauchst noch', 'ein Geschenk'], zoom=(1.12, 1.0))),
-        S(2.2, lambda t, d: foto_frame('foto9', t, d, ['Box auf …'], zoom=(1.0, 1.08), fy=0.45)),
+        S(2.6, lambda t, d: foto_frame('zu', t, d, ['POV: Du bist Gotti', 'und brauchst noch', 'ein Geschenk'], zoom=(1.12, 1.0))),
+        S(2.2, lambda t, d: foto_frame('flatlay', t, d, ['Box auf …'], zoom=(1.0, 1.08))),
         S(2.2, lambda t, d: box_frame('growing_up_strong', t, d, oben='EIN GANZES SET DRIN')),
-        S(2.2, lambda t, d: foto_frame('foto7', t, d, ['Weich, praktisch,', 'sofort anziehbar'], zoom=(1.0, 1.08))),
+        S(2.2, lambda t, d: foto_frame('detail', t, d, ['Weich, praktisch,', 'sofort anziehbar'], zoom=(1.0, 1.08))),
         S(2.6, lambda t, d: endkarte(t, d, 'Nur noch schenken', 'Fertig verpackt, ab CHF 29.90')),
     ]),
 }
@@ -220,7 +220,7 @@ def render(nr):
 
 # ---------- Foto-Posts ----------
 def deckblatt(W2, H2):
-    im = bild('foto8'); s = max(W2 / im.width, H2 / im.height) * 1.04
+    im = bild('zu'); s = max(W2 / im.width, H2 / im.height) * 1.04
     bw, bh = W2 / s, H2 / s; cx, cy = im.width / 2, im.height / 2
     c = im.resize((W2, H2), Image.LANCZOS, box=(cx - bw / 2, cy - bh / 2, cx + bw / 2, cy + bh / 2)).convert('RGBA')
     if True:
@@ -234,7 +234,7 @@ def deckblatt(W2, H2):
 
 
 def echt_slide(W2, H2):
-    im = bild('foto9'); s = max(W2 / im.width, H2 / im.height) * 1.02
+    im = bild('offen'); s = max(W2 / im.width, H2 / im.height) * 1.02
     bw, bh = W2 / s, H2 / s; cx = im.width / 2; cy = min(max(im.height * 0.47, bh / 2), im.height - bh / 2)
     c = im.resize((W2, H2), Image.LANCZOS, box=(cx - bw / 2, cy - bh / 2, cx + bw / 2, cy + bh / 2)).convert('RGBA')
     g = np.zeros((H2, 1), np.float32); g[:int(H2 * 0.3), 0] = np.linspace(0.55, 0, int(H2 * 0.3))
