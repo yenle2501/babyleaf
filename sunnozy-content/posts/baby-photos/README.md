@@ -41,3 +41,17 @@ Bei `baby_echt_leggings_ripp_pastell.jpg` hatte die KI einen weissen, logoähnli
 - **Schrift auf den Teilen:** Die KI schreibt Text nicht immer sauber. Beim Wal-Kapuzentuch (`baby_wal_blau_3.jpg`) ist «Just Swimming» unleserlich, beim Rosa-Kapuzentuch (`baby_rosa_3.jpg`) ist «Princess» nur angedeutet. Diese beiden lieber nicht als Produktbild verwenden, oder neu erzeugen.
 - **Little and Loved, Look 3:** Das Baby trägt zur Jacke und zum T-Shirt eine cremefarbene Hose. Die Hose ist im Set enthalten, aber nicht in der Referenz; Farbe prüfen.
 - Alle Babys sind wach, auf dem Rücken oder im Arm, ohne Decke über dem Körper (Safe Sleep).
+
+## Zuhause-Stil Coming soon (`baby_zuhause_cs_*`, 03.11.2026)
+
+31 Fotos, je eins pro Coming-soon-Set (alle Ordner in `../coming-soon/` mit Referenzfoto). Stil nach den 5 Beispielfotos der Nutzerin (nur in Worten beschrieben, keine fremden Fotos hochgeladen): warmes Kinderzimmer mit Tageslicht, Naturtöne, Fotografen-Look. Die Babys sind echt wirkend und hübsch (rundes Gesicht, rosige Wangen, klare Augen), keine Puppen. Übersicht: `uebersicht_zuhause_coming_soon.jpg`.
+
+| Szene | Beschreibung |
+|---|---|
+| Korb | Baby wach im Seegras-Mosekorb, Strickdecke unter den Beinen, Pampas und Papierkugel am Rand |
+| Kissen | Baby wach auf taupefarbenem Musselin-Stillkissen auf dem Sofa |
+| Fell | Baby wach auf cremefarbenem Lammfell mit Holz-Beissring |
+
+**Sicherer Schlaf:** Alle Babys sind wach mit offenen Augen, nichts liegt auf dem Baby, kein Nuggi im Mund, keine Plüschtiere.
+**KI-Bilder:** Prints, Schriften und Farben mit dem echten Set vergleichen. Beim Posten «Mit KI erstellt» einschalten.
+Format 2272 × 2816 (aus 1136 × 1408 hochgerechnet; die bessere Real-ESRGAN-Version ersetzt die schnelle Version nach und nach).
