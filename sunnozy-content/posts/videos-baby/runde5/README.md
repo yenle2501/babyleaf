@@ -6,4 +6,4 @@
 
 **Kleidung aus den Weihnachts-Geschenkboxen:** 27 («Dinosaur»), 29 («Growing up strong», Body mit D), 32 («Lovely Little Girl»), 33 («I love my Mummy», Halstuch), dazu 15/24/31 («I love Dad Mom», nicht in einer Box).
 
-Clips 37–41 (`*_clip_<id>.mp4`): ohne Sichtung gespeichert.
+Clips 37–41: 37 Kirschen (weiss), 38 rosa Body mit Creme-Hose (schläft mit Mütze), 39 pinker Strampler (nur 12 s), 40 Box «Dino» (Body «Daddy Mommy love me»), 41 Lätzchen «best friends forever».
