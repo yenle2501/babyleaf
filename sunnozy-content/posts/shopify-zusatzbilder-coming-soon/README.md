@@ -16,7 +16,7 @@ Pro Set ein Ordner mit jedem Teil einzeln (`strampler.jpg`, `body.jpg`, `muetze.
 | «Born in 2027» Rosa | Hauptbild, Kapuzentuch, Strampler, Body, Hose, Mütze, Lätzchen, Stoff mit Ballon-Muster, Stickerei | übernommen 04.11.2026 |
 | «Little One» Weltall | Hauptbild, Wickelbody, Fusshose, Knotenmütze, Weltall-Muster, Planet-Print | übernommen 04.11.2026 |
 | «Beautiful» Gänseblümchen | Hauptbild, Wickelbody, Fusshose, Knotenmütze, Kragen mit Stickerei, Gänseblümchen-Muster, Weissbild (alt, behalten) | übernommen 04.11.2026 |
-| «Blumenwiese» Musselin | in Arbeit | folgt |
+| «Blumenwiese» Musselin | Hauptbild, Wickelbody, Fusshose, Haarband, Musselin-Stoff, Schleife, Weissbild (alt, behalten) | übernommen 04.11.2026 |
 
 Die bisherigen weissen Einzelteil-Bilder wurden per `fileUpdate` an derselben Media-ID ersetzt (Fäustlinge, Lätzchen, Mütze, «Strampler und Body» → Strampler, «Kapuzentuch strampler body hose» → Kapuzentuch). Die alten Dateien liegen weiterhin unter `../coming-soon/<set>/marktplatz/einzelteile/`. Body, Nahaufnahmen, Strampler und Hose (Born in 2027) sind neu dazugekommen. Reihenfolge: Hauptbild, Strampler, Body, Mütze, Fäustlinge, Lätzchen, Nahaufnahmen. Alt-Texte: «Erstausstattung-Set «…» – <Teil>».
 
