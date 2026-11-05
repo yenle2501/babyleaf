@@ -6,23 +6,23 @@ Für Feed (4:5, 1080 × 1350) und Story/Reel-Cover (9:16, 1080 × 1920). **Mit K
 
 `<box>_9x16.jpg` / `<box>_4x5.jpg`: dieselben Bilder wie in den Schlaf-Reels. Safe Sleep: Rückenlage, nichts im Bettchen.
 
-## Wache Babys, verschiedene Posen, Body und Hose Ton in Ton (05.11.2026)
+## Wache Babys, verschiedene Posen, Body und Hose Ton in Ton (05.11.2026, neu nach Shopify-Einzelbildern)
 
-Erstellt mit `python3 tools/make_box_baby_posen.py <png-ordner>`. Übersicht pro Box: `uebersicht_<box>.jpg`.
+Erstellt mit `python3 tools/make_box_baby_posen.py <png-ordner>`. Vorlage für jedes Foto waren die **Einzelbilder der Produkte in Shopify** (Body-Set, Leggings- bzw. Jogginghosen-Set): `vorlagen-shopify/<foto>.jpg`, Body links, Hose rechts. Übersicht pro Box: `uebersicht_<box>.jpg`, unter jedem Foto die Vorlage zum Vergleichen.
 
-| Box | Farben und Posen | Kurzlink |
+| Box | Body + Hose (Pose) | Kurzlink |
 |---|---|---|
-| «Mum Dad Me» | lila (Füsse halten), rosa (im Arm), gelb (auf dem Schoss), creme (über der Schulter), Blümchen (spielt am Boden) | sunnozy.ch/box-mum-dad-me |
-| «Lovely Little Girl» | lila «Lovely» (Schoss), creme (Füsse), rosa Herzen (im Arm) | sunnozy.ch/box-lovely |
-| «Growing up strong» | hellblau (Füsse), creme (spielt), salbeigrün (im Arm), weiss (Schoss), grau (Schulter) | sunnozy.ch/box-growing-up-strong |
-| «Dinosaur» | creme (Füsse), hellblau (im Arm), taupe (Schoss), weiss (spielt) | sunnozy.ch/box-dinosaur |
-| «I like flying» | rosa Vogel (Schulter), weiss Glacé (Füsse), rosa Print (Schoss) | sunnozy.ch/box-i-like-flying |
+| «Mum Dad Me» | lila «mum dad me» + lila Leggings (Füsse) · creme + creme (Schulter) · gelb «i love mummy!» + gelb (Schoss) · rosa + rosa (im Arm) · Blümchen + Blümchen (spielt) | sunnozy.ch/box-mum-dad-me |
+| «Lovely Little Girl» | lila «Lovely» + lila Leggings (Schoss) · rosa Herzen + rosa (im Arm) | sunnozy.ch/box-lovely |
+| «Growing up strong» | beige «Daddy's D Bestie» + beige Hose (spielt) · hellblau + hellblau (Füsse) · salbeigrün + salbeigrün (im Arm) · weiss + weiss (Schoss) · graublau + grau (Schulter) | sunnozy.ch/box-growing-up-strong |
+| «Dinosaur» | creme «Dinosaur is coming!» + beige (Füsse) · braun «hungry» + grau (Schoss) · Streifen + beige (Schulter) · blau Pünktchen + hellblau (im Arm) · weiss Dinos + weiss (spielt) | sunnozy.ch/box-dinosaur |
+| «I like flying» | pink Vögelchen + rosa Leggings (Schulter) · rosa Glacé-Print + rosa (Schoss) · creme Glacé + creme (Füsse) | sunnozy.ch/box-i-like-flying |
 | «Little One» Jogginghosen | salbeigrün, hellblau, creme, grau, weiss | sunnozy.ch/box-little-one-hosen |
 
+Der gelbe Body aus «Mum Dad Me» trägt im Original «i love mummy!»; das ist so richtig. Der creme Body aus «Lovely Little Girl» hat kein eigenes Einzelbild in Shopify, darum dort nur 2 Fotos.
 Die Boxen «Dino», «I love my Mummy» und «Little One» (Mulltücher) haben keine Hosen, darum dort keine Ton-in-Ton-Fotos.
 
 ## Vor dem Posten
 
 - «Mit KI erstellt» einschalten.
-- Farben und Prints mit den echten Teilen vergleichen. Die KI verändert kleine Schriften und Muster (z.B. «mum dad & me», Dino- und Vogel-Prints). Ein Bild, auf dem die KI «I love mummy!» statt «mum dad me» geschrieben hat, wurde bereits ersetzt.
-- Nur zeigen, was wirklich in der Box ist: Wenn eine Farbe (z.B. Leggings in Gelb) in der echten Box nicht vorkommt, dieses Foto weglassen.
+- Fotos mit der Vorlage in der Übersicht vergleichen. Die KI zeichnet feine Prints (Blümchen, Glacé, Dinos) manchmal schwächer oder etwas anders.

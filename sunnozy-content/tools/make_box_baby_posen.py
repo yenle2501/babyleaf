@@ -2,7 +2,8 @@
 
     python3 tools/make_box_baby_posen.py <png-ordner>
 
-Quelle: KI-Bilder (Canva, fiktive Babys) 1080 × 1920, Dateiname <box>_<farbe>_<pose>.png
+Quelle: KI-Bilder (Canva, fiktive Babys) 1080 × 1920, Dateiname <box>_<farbe>_<pose>.png.
+Referenz pro Bild: vorlagen-shopify/<name>.jpg (Body links, Hose rechts, aus den Shopify-Einzelbildern).
 Ausgabe: posts/kampagne-weihnachtsbox/baby-in-box-kleidung/<name>_9x16.jpg und _4x5.jpg (1080 × 1350),
 dazu uebersicht_<box>.jpg pro Box.
 """
@@ -11,6 +12,7 @@ from PIL import Image, ImageFilter, ImageDraw
 import make_coming_soon_reels as m
 
 OUT = os.path.join(m.POSTS, 'kampagne-weihnachtsbox', 'baby-in-box-kleidung')
+VORLAGEN = os.path.join(OUT, 'vorlagen-shopify')        # Body + Hose aus den Shopify-Einzelbildern, Referenz für die KI
 BOXEN = ['mum_dad_me', 'lovely_little_girl', 'growing_up_strong', 'dinosaur', 'i_like_flying', 'little_one_jogginghosen']
 
 
@@ -38,11 +40,14 @@ def main(src):
         gruppen.setdefault(box_von(k), []).append((k, im))
         print(k)
     for box, bilder in gruppen.items():
-        tw, th = 300, 533
-        c = Image.new('RGB', (tw * len(bilder), th + 46), m.CREME); d = ImageDraw.Draw(c)
+        tw, th, rh = 300, 533, 169                         # unter jedem Foto die Shopify-Vorlage (Body + Hose)
+        c = Image.new('RGB', (tw * len(bilder), th + 46 + rh), m.CREME); d = ImageDraw.Draw(c)
         for i, (k, im) in enumerate(bilder):
             c.paste(im.resize((tw, th), Image.LANCZOS), (i * tw, 0))
             d.text((i * tw + tw / 2, th + 23), anzeige(k[len(box) + 1:]), font=m.f(m.SERIF_I, 26), fill=m.GRAU, anchor='mm')
+            v = os.path.join(VORLAGEN, k + '.jpg')
+            if os.path.exists(v):
+                c.paste(Image.open(v).convert('RGB').resize((tw, rh), Image.LANCZOS), (i * tw, th + 46))
         c.save(os.path.join(OUT, f'uebersicht_{box}.jpg'), quality=90)
         print('uebersicht', box)
 
