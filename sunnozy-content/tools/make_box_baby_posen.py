@@ -13,7 +13,8 @@ import make_coming_soon_reels as m
 
 OUT = os.path.join(m.POSTS, 'kampagne-weihnachtsbox', 'baby-in-box-kleidung')
 VORLAGEN = os.path.join(OUT, 'vorlagen-shopify')        # Body + Hose aus den Shopify-Einzelbildern, Referenz für die KI
-BOXEN = ['mum_dad_me', 'lovely_little_girl', 'growing_up_strong', 'dinosaur', 'i_like_flying', 'little_one_jogginghosen']
+BOXEN = ['mum_dad_me', 'lovely_little_girl', 'growing_up_strong', 'dinosaur', 'i_like_flying', 'little_one_jogginghosen',
+         'dino', 'i_love_my_mummy', 'little_one', 'body']   # body = einzelne Body-Sets (nicht Box)
 
 
 def anzeige(t):
