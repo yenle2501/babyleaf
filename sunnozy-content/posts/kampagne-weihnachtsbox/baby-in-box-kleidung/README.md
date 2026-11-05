@@ -24,6 +24,21 @@ Die Boxen «Dino», «I love my Mummy» und «Little One» (Mulltücher) haben k
 
 In Shopify sind alle 20 Fotos (4:5) als Zusatzbilder in der passenden Geschenkbox (05.11.2026). Alle Babys von vorne, Schleife der Hose vorne in der Mitte, Beine gerade.
 
+
+## Weitere Produkte (05.11.2026, nach Shopify-Einzelbildern)
+
+Gleiches Vorgehen: Vorlage aus den Einzelbildern in Shopify (`vorlagen-shopify/`), Baby von vorne, Übersicht `uebersicht_<gruppe>.jpg`. Alle Fotos (4:5) sind in Shopify hochgeladen.
+
+| Foto | In Shopify bei |
+|---|---|
+| Dino: «Daddy Mommy love me» auf blauem Mulltuch, blauer Pünktchen-Body im Arm, Dino-Print auf Mulltuch | Geschenkbox «Dino» + Langarm-Body-Set Dino |
+| Mummy: Body «I love my Mummy» mit Halstuch, brauner Body mit Streifen-Halstuch, Bären-Body mit Bären-Halstuch | Geschenkbox «I love my Mummy» + Body-Set «I Love My Mummy» Langarm |
+| Little One: Body «little one» auf grünem Mulltuch, salbeigrüner Body im Arm | Geschenkbox «Little One» (Mulltücher) + Body-Set «Little One» |
+| Kurzarm-Body «I love my Mummy» | Body-Set «I Love My Mummy» Kurzarm |
+| Ärmelloser Body «I Love hugs» | Body-Set «I Love Hugs» |
+| Body «Little Love» | Body-Set «Little Love» |
+| Langarm-Body «Princess» | «Princess» Langarm-Body 3er-Set |
+
 ## Vor dem Posten
 
 - «Mit KI erstellt» einschalten.
