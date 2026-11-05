@@ -38,6 +38,9 @@ Gleiches Vorgehen: Vorlage aus den Einzelbildern in Shopify (`vorlagen-shopify/`
 | Ärmelloser Body «I Love hugs» | Body-Set «I Love Hugs» |
 | Body «Little Love» | Body-Set «Little Love» |
 | Langarm-Body «Princess» | «Princess» Langarm-Body 3er-Set |
+| Kurzarm-Body «I love my mum» (rosa) | «I love my Mum» Kurzarm-Body 5er-Set |
+| Kurzarm-Body «Sweet Friends» | Kurzarm-Body 5er-Set «Sweet Friends» |
+| Kurzarm-Body «Love More» | Kurzarm-Body 5er-Set «Love More» |
 
 ## Vor dem Posten
 
