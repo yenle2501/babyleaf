@@ -34,7 +34,7 @@ Auf Instagram sind Links in der Caption nicht klickbar: Den Kurzlink in die Stor
 | `reel_dinosaur_9x16.mp4` | POV: Er schläft und der Baum leuchtet | «Dinosaur» liegt schon darunter |
 | `reel_little_one_9x16.mp4` | POV: Deine Freundin hat gerade geboren | und Du weisst sofort, was Du schenkst |
 | `reel_i_like_flying_9x16.mp4` | POV: Tante sein und das Geschenk ist da | «I like flying» in Rosa und Pastell |
-| `reel_little_one_jogginghosen_9x16.mp4` | POV: Grosi hat schon eingepackt | weiche Ripp-Bodys und Hosen (Baby trägt hellblauen Body und salbeigrüne Hose aus dem Set) |
+| `reel_little_one_jogginghosen_9x16.mp4` | POV: Grosi hat schon eingepackt | weiche Ripp-Bodys und Hosen (Body und Hose Ton in Ton, Salbeigrün) |
 
 Fotos ohne Text (9:16 und 4:5) aus denselben Babybildern: `../baby-in-box-kleidung/` (`tools/make_box_baby_fotos.py`).
 
