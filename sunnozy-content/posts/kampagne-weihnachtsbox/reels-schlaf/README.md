@@ -27,6 +27,16 @@ Auf Instagram sind Links in der Caption nicht klickbar: Den Kurzlink in die Stor
 | Datei | Hook (0 s) | Auflösung (~4,5 s) |
 |---|---|---|
 | `reel_mum_dad_me_9x16.mp4` | POV: Grosi hat die schönste Box gefunden | und sie liegt schon unter dem Baum |
+| `reel_lovely_little_girl_9x16.mp4` | POV: Ihr erstes Weihnachten und Gotti hat vorgesorgt | «Lovely Little Girl» fertig verpackt |
+| `reel_growing_up_strong_9x16.mp4` | POV: Götti schenkt dieses Jahr Bodys | 5 Bodys und 5 Hosen in der roten Box |
+| `reel_i_love_my_mummy_9x16.mp4` | POV: Mamas erstes Weihnachten mit Baby | «I love my Mummy» liegt schon bereit |
+| `reel_dino_9x16.mp4` | POV: Opa hat den kleinen Dino entdeckt | 3 Bodys und 3 Mulltücher fertig verpackt |
+| `reel_dinosaur_9x16.mp4` | POV: Er schläft und der Baum leuchtet | «Dinosaur» liegt schon darunter |
+| `reel_little_one_9x16.mp4` | POV: Deine Freundin hat gerade geboren | und Du weisst sofort, was Du schenkst |
+| `reel_i_like_flying_9x16.mp4` | POV: Tante sein und das Geschenk ist da | «I like flying» in Rosa und Pastell |
+| `reel_little_one_jogginghosen_9x16.mp4` | POV: Grosi hat schon eingepackt | weiche Ripp-Bodys und Hosen (Baby trägt hellblauen Body und salbeigrüne Hose aus dem Set) |
+
+Fotos ohne Text (9:16 und 4:5) aus denselben Babybildern: `../baby-in-box-kleidung/` (`tools/make_box_baby_fotos.py`).
 
 ## Caption
 
