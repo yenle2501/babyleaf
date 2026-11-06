@@ -20,15 +20,15 @@ FONT = lambda n, s: ImageFont.truetype(os.path.join(ROOT, 'fonts', n), int(s))
 WALD, CREME = (35, 48, 41), (253, 252, 250)
 
 # Schlüssel, Name, Inhalt kurz, Preis
-BOXEN = [('mum_dad_me', '«Mum Dad Me»', '5 Bodys + 5 Leggings', '42.90'),
-         ('lovely_little_girl', '«Lovely Little Girl»', '3 Bodys + 5 Leggings', '39.90'),
-         ('growing_up_strong', '«Growing up strong»', '5 Bodys + 5 Jogginghosen', '42.90'),
-         ('i_love_my_mummy', '«I love my Mummy»', '3 Bodys + 3 Halstücher', '29.90'),
-         ('dino', '«Dino»', '3 Bodys + 3 Mulltücher', '39.90'),
-         ('dinosaur', '«Dinosaur»', '5 Bodys + 5 Jogginghosen', '42.90'),
-         ('little_one', '«Little One»', '5 Bodys + 3 Mulltücher', '44.90'),
-         ('i_like_flying', '«I like flying»', '3 Bodys + 5 Leggings', '39.90'),
-         ('little_one_jogginghosen', '«Little One»', '5 Bodys + 5 Jogginghosen', '42.90')]
+BOXEN = [('mum_dad_me', '«Mum Dad Me»', '5 Bodys + 5 Leggings', '47.90'),
+         ('lovely_little_girl', '«Lovely Little Girl»', '3 Bodys + 5 Leggings', '44.90'),
+         ('growing_up_strong', '«Growing up strong»', '5 Bodys + 5 Jogginghosen', '47.90'),
+         ('i_love_my_mummy', '«I love my Mummy»', '3 Bodys + 3 Halstücher', '34.90'),
+         ('dino', '«Dino»', '3 Bodys + 3 Mulltücher', '44.90'),
+         ('dinosaur', '«Dinosaur»', '5 Bodys + 5 Jogginghosen', '47.90'),
+         ('little_one', '«Little One»', '5 Bodys + 3 Mulltücher', '49.90'),
+         ('i_like_flying', '«I like flying»', '3 Bodys + 5 Leggings', '44.90'),
+         ('little_one_jogginghosen', '«Little One»', '5 Bodys + 5 Jogginghosen', '47.90')]
 
 
 def natuerlich(im, seed=0):
@@ -102,7 +102,7 @@ def uebersicht(fotos, N=1080):
         t = fuellen(f, kw, kh); c.paste(t, (g + (i % 3) * (kw + g), g + (i // 3) * (kh + g)))
     d = ImageDraw.Draw(c)
     d.text((N / 2, N - band / 2 - 14), 'Weihnachts-Geschenkboxen', font=FONT('fraunces-600.ttf', 46), fill=WALD, anchor='mm')
-    d.text((N / 2, N - band / 2 + 34), 'Ganze Sets, von Hand verpackt  ·  ab CHF 29.90', font=FONT('nunitosans-600.ttf', 28), fill=(110, 118, 113), anchor='mm')
+    d.text((N / 2, N - band / 2 + 34), 'Ganze Sets, von Hand verpackt  ·  ab CHF 34.90', font=FONT('nunitosans-600.ttf', 28), fill=(110, 118, 113), anchor='mm')
     return c
 
 

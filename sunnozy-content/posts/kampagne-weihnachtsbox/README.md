@@ -8,15 +8,15 @@ Darstellung nach den Vorbildern der Nutzerin: Box von oben, randvoll und von Han
 
 | Box | Inhalt | Preis | Gewinn* | Shopify-ID (Entwurf, in Admin unter Produkte → Typ «Geschenkbox») | Lager je Grösse |
 |---|---|---|---|---|---|
-| «Mum Dad Me» | 5 Langarm-Bodys + 5 Leggings | CHF 42.90 | +16.45 | ID 11293061054807 | 2 / 2 / 2 |
-| «Lovely Little Girl» | 3 Langarm-Bodys + 5 Leggings | CHF 39.90 | +16.58 | ID 11293063250263 | 2 / 2 / 2 |
-| «Growing up strong» | 5 Kurzarm-Bodys + 5 Jogginghosen | CHF 42.90 | +17.18 | ID 11293063348567 | 2 / 2 / 2 |
-| «I love my Mummy» | 3 Langarm-Bodys + 3 Halstücher | CHF 29.90 | +13.00 | ID 11293063414103 | 2 / 2 / 1 |
-| «Dino» | 3 Langarm-Bodys + 3 Mulltücher blau | CHF 39.90 | +15.53 | ID 11293063512407 | 2 / 2 / 1 |
-| «Dinosaur» | 5 Kurzarm-Bodys + 5 Jogginghosen | CHF 42.90 | +17.18 | ID 11293063610711 | 2 / 2 / 2 |
-| «Little One» | 5 Langarm-Bodys + 3 Mulltücher grün | CHF 44.90 | +17.35 | ID 11293063676247 | 2 / 2 / 1 |
-| «I like flying» | 3 Langarm-Bodys + 5 Leggings | CHF 39.90 | +16.58 | ID 11293063741783 | 2 / 2 / 2 |
-| «Little One» Jogginghosen (neu 24.10.2026) | 5 Langarm-Bodys «Little One» gerippt + 5 Jogginghosen | CHF 42.90 | +16.45 | ID 11314410127703 (**aktiv**, Onlineshop + Facebook & Instagram, Kollektion Geschenkboxen) | 2 / 2 / 2 |
+| «Mum Dad Me» | 5 Langarm-Bodys + 5 Leggings | CHF 47.90 | +16.45 | ID 11293061054807 | 2 / 2 / 2 |
+| «Lovely Little Girl» | 3 Langarm-Bodys + 5 Leggings | CHF 44.90 | +16.58 | ID 11293063250263 | 2 / 2 / 2 |
+| «Growing up strong» | 5 Kurzarm-Bodys + 5 Jogginghosen | CHF 47.90 | +17.18 | ID 11293063348567 | 2 / 2 / 2 |
+| «I love my Mummy» | 3 Langarm-Bodys + 3 Halstücher | CHF 34.90 | +13.00 | ID 11293063414103 | 2 / 2 / 1 |
+| «Dino» | 3 Langarm-Bodys + 3 Mulltücher blau | CHF 44.90 | +15.53 | ID 11293063512407 | 2 / 2 / 1 |
+| «Dinosaur» | 5 Kurzarm-Bodys + 5 Jogginghosen | CHF 47.90 | +17.18 | ID 11293063610711 | 2 / 2 / 2 |
+| «Little One» | 5 Langarm-Bodys + 3 Mulltücher grün | CHF 49.90 | +17.35 | ID 11293063676247 | 2 / 2 / 1 |
+| «I like flying» | 3 Langarm-Bodys + 5 Leggings | CHF 44.90 | +16.58 | ID 11293063741783 | 2 / 2 / 2 |
+| «Little One» Jogginghosen (neu 24.10.2026) | 5 Langarm-Bodys «Little One» gerippt + 5 Jogginghosen | CHF 47.90 | +16.45 | ID 11314410127703 (**aktiv**, Onlineshop + Facebook & Instagram, Kollektion Geschenkboxen) | 2 / 2 / 2 |
 
 \* pro Bestellung einer Box, vor Werbung. Rechnung: `strategie/preiskalkulation-weihnachtsbox.md`.
 
@@ -92,7 +92,7 @@ CHF 5–10/Tag. Advantage+-Zielgruppe, Schweiz, 25–65. Placements Advantage+ (
 **Anzeige C – Personalisiert:** `feed_personalisiert_4x5.jpg` + `story_personalisiert_9x16.jpg`.
 
 **Primärtext (Varianten):**
-> Das schönste Hallo unterm Baum 🎁 Ganze Sets aus weicher Baumwolle, von Hand in die rosa Box gepackt – mit Weihnachtskarte. Fürs Gottikind, Grosskind und alle Kleinen. Ab CHF 29.90.
+> Das schönste Hallo unterm Baum 🎁 Ganze Sets aus weicher Baumwolle, von Hand in die rosa Box gepackt – mit Weihnachtskarte. Fürs Gottikind, Grosskind und alle Kleinen. Ab CHF 34.90.
 
 > Noch kein Geschenk fürs Gottikind? Unsere Weihnachts-Geschenkboxen kommen fertig verpackt, mit Karte, in 1–2 Werktagen. Gratisversand ab CHF 50.
 

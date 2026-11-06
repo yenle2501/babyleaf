@@ -7,7 +7,7 @@ Erstellt mit `python3 tools/make_reels_weihnachtsbox.py` aus den Szenen im Handy
 | `reel_gotti_9x16.mp4` | POV: Du bist Gotti und das Geschenk ist schon da → verpackt, Sets, Grösse wählen | 13,4 s |
 | `reel_welche_box_9x16.mp4` | «Welche Box würdest Du verschenken?», alle 9 Boxen mit Zahl 1–9, Liste mit Preisen, Kommentar-Frage | 20,9 s |
 | `reel_was_ist_drin_9x16.mp4` | «Was ist in der Weihnachtsbox?»: Zoom über «Growing up strong» (Bodys, Hosen, Karte), Verpackung | 14,6 s |
-| `reel_unter_30_franken_9x16.mp4` | «Geschenk für die Mama unter 30 Franken»: «I love my Mummy» CHF 29.90 | 12,8 s |
+| `reel_unter_30_franken_9x16.mp4` | «Geschenk für die Mama unter 30 Franken»: «I love my Mummy» CHF 34.90 | 12,8 s |
 | `reel_last_minute_9x16.mp4` | «Noch kein Geschenk fürs Gottikind?»: wir packen ein, 2–3 Werktage, Gratisversand ab CHF 50 | 12,6 s |
 
 **Posting-Vorschlag:** Anfang November `gotti` und `was_ist_drin`, Mitte November `welche_box` (Kommentare), Ende November `unter_30_franken`, ab 10. Dezember `last_minute`.
@@ -23,7 +23,7 @@ Erstellt mit `python3 tools/make_reels_weihnachtsbox_video.py` aus den drei Grok
 | Datei | Idee | Dauer |
 |---|---|---|
 | `reel_mummy_auspacken_9x16.mp4` | POV: Du packst Mamas Geschenk aus → Stickerei, Karte, Halstücher | 16,7 s |
-| `reel_mummy_was_ist_drin_9x16.mp4` | «Was ist in der Box für CHF 29.90?» → 3 Bodys, 3 Halstücher, + Karte | 17,1 s |
+| `reel_mummy_was_ist_drin_9x16.mp4` | «Was ist in der Box für CHF 34.90?» → 3 Bodys, 3 Halstücher, + Karte | 17,1 s |
 | `reel_mummy_erstes_weihnachten_9x16.mp4` | «Ihr erstes Weihnachten mit Baby», Geschenk für die frischgebackene Mama | 14,6 s |
 | `reel_mummy_unter_30_9x16.mp4` | «Babyparty am Wochenende und noch kein Geschenk?» → unter 30 Franken, Gratisversand ab CHF 50 | 15,9 s |
 

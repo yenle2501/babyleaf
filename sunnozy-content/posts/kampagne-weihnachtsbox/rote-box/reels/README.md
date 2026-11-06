@@ -21,7 +21,7 @@ Die Texte stehen im sicheren Bereich: nicht im unteren Viertel, wo TikTok und In
 ## Captions
 
 **Reel 1 – So kommt sie an**
-> So kommt Deine Weihnachts-Geschenkbox bei Dir an 🎁 Rote Box mit sunnozy-Satinband, Blumen-Seidenpapier, Karte und ein ganzes Set aus weicher Baumwolle. Fertig verpackt, Du musst nur noch schenken. 9 Boxen ab CHF 29.90 auf sunnozy.ch
+> So kommt Deine Weihnachts-Geschenkbox bei Dir an 🎁 Rote Box mit sunnozy-Satinband, Blumen-Seidenpapier, Karte und ein ganzes Set aus weicher Baumwolle. Fertig verpackt, Du musst nur noch schenken. 9 Boxen ab CHF 34.90 auf sunnozy.ch
 > #geschenkbox #babygeschenk #weihnachtsgeschenk #babykleidung #schweiz #sunnozy #unboxing #gotti #götti
 
 **Reel 2 – Welche Box?**
@@ -29,19 +29,19 @@ Die Texte stehen im sicheren Bereich: nicht im unteren Viertel, wo TikTok und In
 > #geschenkbox #babygeschenk #weihnachten #babyshower #geburtsgeschenk #schweiz #sunnozy
 
 **Reel 3 – Für kleine Mädchen**
-> Geschenkideen für kleine Mädchen 🎀 «Mum Dad Me» CHF 42.90 · «Lovely Little Girl» CHF 39.90 · «I like flying» CHF 39.90. Jede Box mit einem ganzen Set, fertig verpackt mit Weihnachtskarte.
+> Geschenkideen für kleine Mädchen 🎀 «Mum Dad Me» CHF 47.90 · «Lovely Little Girl» CHF 44.90 · «I like flying» CHF 44.90. Jede Box mit einem ganzen Set, fertig verpackt mit Weihnachtskarte.
 > #babygeschenk #mädchen #geschenkbox #weihnachtsgeschenk #babykleidung #schweiz #sunnozy
 
 **Reel 4 – Für kleine Jungs**
-> Geschenkideen für kleine Jungs 🦕 «Dino» CHF 39.90 · «Dinosaur» CHF 42.90 · «Growing up strong» CHF 42.90. Fertig verpackt in der roten sunnozy-Box, mit Karte.
+> Geschenkideen für kleine Jungs 🦕 «Dino» CHF 44.90 · «Dinosaur» CHF 47.90 · «Growing up strong» CHF 47.90. Fertig verpackt in der roten sunnozy-Box, mit Karte.
 > #babygeschenk #junge #geschenkbox #weihnachtsgeschenk #babykleidung #schweiz #sunnozy
 
 **Reel 5 – Little One und Mummy**
-> Zarte Farben, die zu allem passen 🤍 «Little One» mit Mulltüchern CHF 44.90 · «Little One» mit Jogginghosen CHF 42.90 · «I love my Mummy» CHF 29.90. Aus weicher Baumwolle, fertig verpackt mit Karte.
+> Zarte Farben, die zu allem passen 🤍 «Little One» mit Mulltüchern CHF 49.90 · «Little One» mit Jogginghosen CHF 47.90 · «I love my Mummy» CHF 34.90. Aus weicher Baumwolle, fertig verpackt mit Karte.
 > #babygeschenk #neutral #geschenkbox #weihnachtsgeschenk #babykleidung #schweiz #sunnozy
 
 **Reel 6 – POV Gotti**
-> POV: Du bist Gotti und brauchst noch ein Weihnachtsgeschenk 😅 Unsere Geschenkboxen kommen fertig verpackt, mit Seidenpapier, Satinband und Karte. Ab CHF 29.90 auf sunnozy.ch
+> POV: Du bist Gotti und brauchst noch ein Weihnachtsgeschenk 😅 Unsere Geschenkboxen kommen fertig verpackt, mit Seidenpapier, Satinband und Karte. Ab CHF 34.90 auf sunnozy.ch
 > #gotti #götti #babygeschenk #geschenkbox #weihnachtsgeschenk #schweiz #sunnozy
 
 ## Foto-Posts
@@ -60,5 +60,5 @@ Reihenfolge der 12 Bilder:
 12. Schlussbild.
 
 Caption Karussell:
-> Unsere Weihnachts-Geschenkboxen sind da 🎁 9 Boxen, jede mit einem ganzen Set aus weicher Baumwolle, fertig verpackt in der roten sunnozy-Box mit Seidenpapier, Satinband und Karte. Wisch durch und sag uns, welche Dir am besten gefällt. Ab CHF 29.90 auf sunnozy.ch
+> Unsere Weihnachts-Geschenkboxen sind da 🎁 9 Boxen, jede mit einem ganzen Set aus weicher Baumwolle, fertig verpackt in der roten sunnozy-Box mit Seidenpapier, Satinband und Karte. Wisch durch und sag uns, welche Dir am besten gefällt. Ab CHF 34.90 auf sunnozy.ch
 > #geschenkbox #babygeschenk #weihnachtsgeschenk #babykleidung #schweiz #sunnozy

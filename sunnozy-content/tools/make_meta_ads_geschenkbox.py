@@ -23,14 +23,14 @@ IN = lambda w, s: ImageFont.truetype(INTER.format(w), int(s))
 PANEL, INK, GRAU, WALD = (240, 226, 224), (17, 17, 17), (110, 106, 101), (35, 48, 41)
 
 # (Datei, Name, Inhalt, Preis)
-BOXEN = [('box_mum_dad_me', 'Mum Dad Me', '5 Bodys + 5 Leggings', '42.90'),
-         ('box_lovely_little_girl', 'Lovely Little Girl', '3 Bodys + 5 Leggings', '39.90'),
-         ('box_growing_up_strong', 'Growing up strong', '5 Bodys + 5 Jogginghosen', '42.90'),
-         ('box_i_love_my_mummy', 'I love my Mummy', '3 Bodys + 3 Halstücher', '29.90'),
-         ('box_dino', 'Dino', '3 Bodys + 3 Mulltücher', '39.90'),
-         ('box_dinosaur', 'Dinosaur', '5 Bodys + 5 Jogginghosen', '42.90'),
-         ('box_little_one', 'Little One', '5 Bodys + 3 Mulltücher', '44.90'),
-         ('box_i_like_flying', 'I like flying', '3 Bodys + 5 Leggings', '39.90')]
+BOXEN = [('box_mum_dad_me', 'Mum Dad Me', '5 Bodys + 5 Leggings', '47.90'),
+         ('box_lovely_little_girl', 'Lovely Little Girl', '3 Bodys + 5 Leggings', '44.90'),
+         ('box_growing_up_strong', 'Growing up strong', '5 Bodys + 5 Jogginghosen', '47.90'),
+         ('box_i_love_my_mummy', 'I love my Mummy', '3 Bodys + 3 Halstücher', '34.90'),
+         ('box_dino', 'Dino', '3 Bodys + 3 Mulltücher', '44.90'),
+         ('box_dinosaur', 'Dinosaur', '5 Bodys + 5 Jogginghosen', '47.90'),
+         ('box_little_one', 'Little One', '5 Bodys + 3 Mulltücher', '49.90'),
+         ('box_i_like_flying', 'I like flying', '3 Bodys + 5 Leggings', '44.90')]
 
 
 def load_logo(width, col=INK):
@@ -126,7 +126,7 @@ def uebersicht(W=1080, H=1080):
         s = kw / im.width; im = im.resize((kw, round(im.height * s)), Image.LANCZOS)
         oy = (im.height - kh) // 2
         c.paste(im.crop((0, oy, kw, oy + kh)), (g + (i % 2) * (kw + g), oben + (i // 2) * (kh + g)))
-    d.text((W / 2, H - 26), 'ab CHF 29.90  ·  GRATISVERSAND AB CHF 50', font=IN('Bold', 26), fill=INK, anchor='ms')
+    d.text((W / 2, H - 26), 'ab CHF 34.90  ·  GRATISVERSAND AB CHF 50', font=IN('Bold', 26), fill=INK, anchor='ms')
     return c
 
 

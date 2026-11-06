@@ -3,7 +3,7 @@
     python3 tools/make_rote_box_ads.py
 
 Grundlage: `rote-box/komposit/<box>.jpg` aus make_rote_box.py (Box von oben, Deckel mit sunnozy-Band, Karte).
-Schrift Fraunces + Nunito Sans (keine Schreibschrift). Preise wie im Shop (BOXEN unten, Stand 01.11.2026).
+Schrift Fraunces + Nunito Sans (keine Schreibschrift). Preise wie im Shop (BOXEN unten, Stand 06.11.2026).
 Ausgabe in `rote-box/ads/`: feed_<box>_4x5.jpg (1080 × 1350), quadrat_<box>_1x1.jpg (1080 × 1080),
 story_<box>_9x16.jpg (1080 × 1920, oben und unten frei für die Instagram-Bedienelemente) und uebersicht_4x5.jpg.
 """
@@ -18,15 +18,15 @@ F = lambda n, s: ImageFont.truetype(os.path.join(ROOT, 'fonts', n), int(s))
 DUNKEL, GRAU, ROT = (44, 36, 34), (112, 104, 100), (168, 24, 32)
 
 # (Datei, Name, Inhalt, Preis)
-BOXEN = [('mum_dad_me', '«Mum Dad Me»', '5 Bodys + 5 Leggings', '42.90'),
-         ('lovely_little_girl', '«Lovely Little Girl»', '3 Bodys + 5 Leggings', '39.90'),
-         ('growing_up_strong', '«Growing up strong»', '5 Bodys + 5 Jogginghosen', '42.90'),
-         ('i_love_my_mummy', '«I love my Mummy»', '3 Bodys + 3 Halstücher', '29.90'),
-         ('dino', '«Dino»', '3 Bodys + 3 Mulltücher', '39.90'),
-         ('dinosaur', '«Dinosaur»', '5 Bodys + 5 Jogginghosen', '42.90'),
-         ('little_one', '«Little One»', '5 Bodys + 3 Mulltücher', '44.90'),
-         ('i_like_flying', '«I like flying»', '3 Bodys + 5 Leggings', '39.90'),
-         ('little_one_jogginghosen', '«Little One»', '5 Bodys + 5 Jogginghosen', '42.90')]
+BOXEN = [('mum_dad_me', '«Mum Dad Me»', '5 Bodys + 5 Leggings', '47.90'),
+         ('lovely_little_girl', '«Lovely Little Girl»', '3 Bodys + 5 Leggings', '44.90'),
+         ('growing_up_strong', '«Growing up strong»', '5 Bodys + 5 Jogginghosen', '47.90'),
+         ('i_love_my_mummy', '«I love my Mummy»', '3 Bodys + 3 Halstücher', '34.90'),
+         ('dino', '«Dino»', '3 Bodys + 3 Mulltücher', '44.90'),
+         ('dinosaur', '«Dinosaur»', '5 Bodys + 5 Jogginghosen', '47.90'),
+         ('little_one', '«Little One»', '5 Bodys + 3 Mulltücher', '49.90'),
+         ('i_like_flying', '«I like flying»', '3 Bodys + 5 Leggings', '44.90'),
+         ('little_one_jogginghosen', '«Little One»', '5 Bodys + 5 Jogginghosen', '47.90')]
 
 
 def hintergrund(im, W, H):

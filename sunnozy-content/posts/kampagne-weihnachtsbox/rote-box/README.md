@@ -24,15 +24,15 @@ Entfernt wurden die alten Bilder mit der rosa Box (Hauptbild und, wo vorhanden, 
 
 | Box | Inhalt | Preis |
 |---|---|---|
-| «Mum Dad Me» | 5 Bodys + 5 Leggings | CHF 42.90 |
-| «Lovely Little Girl» | 3 Bodys + 5 Leggings | CHF 39.90 |
-| «Growing up strong» | 5 Bodys + 5 Jogginghosen | CHF 42.90 |
-| «I love my Mummy» | 3 Bodys + 3 Halstücher | CHF 29.90 |
-| «Dino» | 3 Bodys + 3 Mulltücher | CHF 39.90 |
-| «Dinosaur» | 5 Bodys + 5 Jogginghosen | CHF 42.90 |
-| «Little One» | 5 Bodys + 3 Mulltücher | CHF 44.90 |
-| «I like flying» | 3 Bodys + 5 Leggings | CHF 39.90 |
-| «Little One» Jogginghosen | 5 Bodys + 5 Jogginghosen | CHF 42.90 |
+| «Mum Dad Me» | 5 Bodys + 5 Leggings | CHF 47.90 |
+| «Lovely Little Girl» | 3 Bodys + 5 Leggings | CHF 44.90 |
+| «Growing up strong» | 5 Bodys + 5 Jogginghosen | CHF 47.90 |
+| «I love my Mummy» | 3 Bodys + 3 Halstücher | CHF 34.90 |
+| «Dino» | 3 Bodys + 3 Mulltücher | CHF 44.90 |
+| «Dinosaur» | 5 Bodys + 5 Jogginghosen | CHF 47.90 |
+| «Little One» | 5 Bodys + 3 Mulltücher | CHF 49.90 |
+| «I like flying» | 3 Bodys + 5 Leggings | CHF 44.90 |
+| «Little One» Jogginghosen | 5 Bodys + 5 Jogginghosen | CHF 47.90 |
 
 ## Neu erzeugen
 
