@@ -6,5 +6,6 @@ Safe Sleep: Die Babys sind wach. Kein Kissen und keine Decke über dem Baby, ein
 | Datei | Set | Stil |
 |---|---|---|
 | `little_and_loved_bett_4x5.jpg` | Erstausstattung «Little and Loved» (Body «little and loved», Leggings mit Füsschen, Mütze) + rosa Plüsch-Ente | von oben auf zerwühlter Bettwäsche, Handy-Look |
+| `hello_little_bear_bett_4x5.jpg` | Erstausstattung «Hello Little Bear» (Teddy-Strampler mit Reissverschluss, Mütze mit Öhrchen) | ruhiger Pinterest-Look, von oben, Bettwäsche |
 
 Vor dem Posten Prints und Farben mit der echten Ware vergleichen.
