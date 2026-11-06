@@ -5,7 +5,7 @@ Rote sunnozy-Schleife vor dem Laptop mit dem Instagram-Profil, eine Hand zieht d
   5–9.3 s   Aufziehen in Zeitlupe (0.6×)
   danach    Zoom zum Logo auf dem Bildschirm, oben «sunnozy» + COMING SOON
   Schluss   Cremefarbene Karte: Logo, COMING SOON, sunnozy.ch, «Folg uns, damit Du nichts verpasst»
-Warm gegradet, leichte Vignette, Musik Alex Morgan, Originalton (Schleifenrascheln) leise darunter.
+Warm gegradet, leichte Vignette, Musik «Holiday 01» (Lily J, Mixkit, lizenzfrei), Originalton (Schleifenrascheln) leise darunter.
 
     python3 tools/make_coming_soon_schleife.py
 Quelle: posts/coming-soon/schleife/original/schleife.mov (iPhone, hochkant). Ausgabe: posts/reels/coming-soon/reel_sunnozy_schleife_9x16.mp4
@@ -18,7 +18,8 @@ import make_coming_soon_reels as m
 W, H, FPS = m.W, m.H, 30
 QUELLE = os.path.join(m.POSTS, 'coming-soon', 'schleife', 'original', 'schleife.mov')
 OUT = os.path.join(m.POSTS, 'reels', 'coming-soon')
-MUSIK = os.path.join(m.POSTS, 'reels', 'musik', 'alex-morgan_heartwarming-story.mp3')
+MUSIK = os.path.join(m.POSTS, 'reels', 'musik', 'mixkit_lily-j_holiday-01.mp3')   # Mixkit, lizenzfrei
+MUSIK_AB = 19.5        # der Aufbau bei 0:28 im Stück fällt auf das Aufziehen der Schleife
 HELL = (253, 246, 238)
 
 # (Quelle von, bis, Tempo, Zoom von, bis, Fokus von (x, y), bis (x, y))
@@ -158,10 +159,10 @@ def main():
     teile = []
     for k, (von, bis, tempo, *_r) in enumerate(SEGMENTE):
         teile.append(f'[1:a]atrim={von}:{bis},asetpts=PTS-STARTPTS' + (f',atempo={tempo}' if tempo != 1 else '') + f'[o{k}]')
-    fil = ';'.join(teile) + f';{"".join(f"[o{k}]" for k in range(len(SEGMENTE)))}concat=n={len(SEGMENTE)}:v=0:a=1,volume=0.35,apad[orig];' \
-          f'[2:a]atrim=0:{dauer:.2f},afade=t=in:d=0.8,afade=t=out:st={dauer - 2:.2f}:d=2,volume=0.8[mus];' \
-          f'[orig][mus]amix=inputs=2:duration=longest:normalize=0,atrim=0:{dauer:.2f}[a]'
-    subprocess.run(['ffmpeg', '-y', '-v', 'error', '-i', tmp, '-i', QUELLE, '-ss', '20', '-i', MUSIK, '-filter_complex', fil,
+    fil = ';'.join(teile) + f';{"".join(f"[o{k}]" for k in range(len(SEGMENTE)))}concat=n={len(SEGMENTE)}:v=0:a=1,volume=0.25,apad[orig];' \
+          f'[2:a]atrim=0:{dauer:.2f},afade=t=in:d=0.8,afade=t=out:st={dauer - 2:.2f}:d=2,volume=1.25[mus];' \
+          f'[orig][mus]amix=inputs=2:duration=longest:normalize=0,alimiter=limit=0.89,atrim=0:{dauer:.2f}[a]'
+    subprocess.run(['ffmpeg', '-y', '-v', 'error', '-i', tmp, '-i', QUELLE, '-ss', str(MUSIK_AB), '-i', MUSIK, '-filter_complex', fil,
                     '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', '-t', f'{dauer:.2f}', pfad], check=True)
     os.remove(tmp)
     print(f'{pfad}: {dauer:.1f} s', flush=True)
