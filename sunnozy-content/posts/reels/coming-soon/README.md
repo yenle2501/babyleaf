@@ -145,3 +145,22 @@ Erstellt mit `python3 tools/make_reels_videos_baby_runde4.py`. Nur «Coming soon
 | `reel_lachen_sammlung_9x16.mp4` | 6 Sets | Welches Lachen gewinnt? (Zahl in die Kommentare) |
 
 Nicht verwendet: `videos-baby/little_and_loved_b` (schlafendes Baby mit Haarband und Plüschhase daneben, gegen Safe Sleep).
+
+## «Schleife» aus dem Handyvideo (06.11.2026)
+
+`reel_sunnozy_schleife_9x16.mp4` (16.4 s) aus `posts/coming-soon/schleife/original/schleife.mov`. Neu erzeugen: `python3 tools/make_coming_soon_schleife.py`
+
+| Zeit | Was |
+|---|---|
+| 0–5 s | rote sunnozy-Schleife vor dem Laptop, langsamer Zoom, oben «Psst …» → «Wir packen gerade etwas aus.» |
+| 5–9.3 s | die Hand zieht die Schleife auf (Zeitlupe 0.6×) |
+| 9.3–13.2 s | Zoom aufs Profil, oben erscheint das sunnozy-Logo und COMING SOON |
+| 13.2–16.4 s | Creme-Karte: Logo, COMING SOON, sunnozy.ch, «Folg uns, damit Du nichts verpasst» |
+
+Warm gegradet mit leichter Vignette. Musik Alex Morgan, das Rascheln der Schleife aus dem Original leise darunter.
+
+**Caption:**
+> Psst … wir packen gerade etwas aus 🎀
+> Babykleidung und Geschenkboxen mit ganz viel Liebe, bald bei sunnozy.
+> Folg uns, damit Du nichts verpasst ✨
+> #comingsoon #babyshop #babyschweiz #geschenkbox #sunnozy
