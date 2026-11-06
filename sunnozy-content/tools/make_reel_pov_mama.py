@@ -30,6 +30,13 @@ TEXTE = {
                          'Pediküre und Shoppingtouren', 'mit Mama.'], emoji='💗🌸🎀👛💅🌷💞'),
     'gotti': dict(zeilen=['Sie weiss es noch nicht, aber ihr Gotti', 'wird sie verwöhnen: Glace-Dates,',
                           'Bastelnachmittage, Pyjama-Partys', 'und Geschenke ohne Ende.'], emoji='🎀🍦✂️🌙🎁💗'),
+    # Weihnachtsbox «I like flying» (rosa Vögelchen-Body + rosa Leggings), Clip vor dem Weihnachtsbaum
+    'weihnachten_mama': dict(schnitt=[('weihnachten', 0.0, 14.9, 1.0, 0.5)], y=1130, ende='i_like_flying', musik_ab=8,
+        zeilen=['Sie weiss es noch nicht, aber das', 'ist ihr erstes Weihnachten mit Mama,', 'und unter dem Baum wartet schon',
+                'ihre erste Geschenkbox.'], emoji='🎄🎁🎀✨💗⭐'),
+    'weihnachten_gotti': dict(schnitt=[('weihnachten', 0.0, 14.9, 1.0, 0.5)], y=1130, ende='i_like_flying', musik_ab=8,
+        zeilen=['Sie weiss es noch nicht, aber Gotti hat', 'ihr erstes Weihnachtsgeschenk schon', 'gefunden: rosa, weich',
+                'und fertig verpackt.'], emoji='🎄🐦🎀🎁💗✨'),
 }
 
 
@@ -58,7 +65,7 @@ def text_ebene(t):
     while max(d.textlength(z, font=m.f(SCHRIFT, g)) for z in t['zeilen']) > 880:
         g -= 2
     fo = m.f(SCHRIFT, g); lh = g * 1.18
-    y0 = 900 - (len(t['zeilen']) - 1) * lh / 2
+    y0 = t.get('y', 900) - (len(t['zeilen']) - 1) * lh / 2
     sh = Image.new('RGBA', (W, H), (0, 0, 0, 0)); ds = ImageDraw.Draw(sh)
     for k, z in enumerate(t['zeilen']):
         ds.text((W / 2 + 1, y0 + k * lh + 2), z, font=fo, fill=(30, 22, 18, 255), anchor='mm', stroke_width=6, stroke_fill=(30, 22, 18, 255))
@@ -72,37 +79,69 @@ def text_ebene(t):
     return c
 
 
+def end_karte(key):
+    """Schlusskarte für die Weihnachtsbox: Box-Hauptbild, Name, Inhalt, Preis, Kurzlink, Logo (Creme wie die Box-Reels)."""
+    from make_reels_box_schlaf import BOXEN, BOX, WEINROT
+    r = BOXEN[key]
+    c = Image.new('RGB', (W, H), m.CREME); d = ImageDraw.Draw(c)
+    im = Image.open(BOX(key)).convert('RGB'); im.thumbnail((860, 860), Image.LANCZOS)
+    c.paste(im, ((W - im.width) // 2, 330))
+    d.text((W / 2, 250), 'Weihnachts-Geschenkbox', font=m.f(m.SERIF_I, 58), fill=m.SALBEI, anchor='mm')
+    d.text((W / 2, 1290), r['name'], font=m.f(m.SERIF, 96), fill=m.WALD, anchor='mm')
+    d.text((W / 2, 1380), r['inhalt'], font=m.f(m.SERIF_I, 52), fill=m.GRAU, anchor='mm')
+    d.text((W / 2, 1480), f"CHF {r['preis']}", font=m.f(m.SERIF, 80), fill=WEINROT, anchor='mm')
+    d.text((W / 2, 1575), f"sunnozy.ch/{r['kurz']}", font=m.f(m.SERIF, 50), fill=m.WALD, anchor='mm')
+    L = m.logo(200, (122, 108, 104)); c.paste(L, ((W - L.width) // 2, 1640), L)
+    return c
+
+
 def reel(name):
     t = TEXTE[name]
+    schnitt = t.get('schnitt', SCHNITT)
     os.makedirs(BASIS, exist_ok=True)
     tmp = os.path.join(BASIS, f'_text_{name}.png'); text_ebene(t).save(tmp)
     L = m.logo(230, (255, 255, 255)); lpfad = os.path.join(BASIS, '_logo.png'); L.save(lpfad)
     ein, fil = [], []
-    for i, (n, von, bis, z, fy) in enumerate(SCHNITT):
+    for i, (n, von, bis, z, fy) in enumerate(schnitt):
         ein += ['-ss', str(von), '-t', str(bis - von), '-i', CLIP(n)]
-        sw, sh_ = round(1289 * z / 2) * 2, round(1920 * z / 2) * 2
-        fil.append(f'[{i}:v]fps={FPS},scale={sw}:{sh_}:flags=lanczos,crop={W}:{H}:(iw-{W})/2:(ih-{H})*{fy},'
+        fil.append(f'[{i}:v]fps={FPS},scale=-2:{round(1920 * z / 2) * 2}:flags=lanczos,crop={W}:{H}:(iw-{W})/2:(ih-{H})*{fy},'
                    f'unsharp=5:5:0.6,eq=saturation=1.03,setsar=1,format=yuv420p[v{i}]')
-    dauern = [b - v for _, v, b, _, _ in SCHNITT]
-    off = dauern[0] - BLENDE
-    fil.append(f'[v0][v1]xfade=transition=fade:duration={BLENDE}:offset={off:.3f}[x1]')
-    off += dauern[1] - BLENDE
-    fil.append(f'[x1][v2]xfade=transition=fade:duration={BLENDE}:offset={off:.3f}[x2]')
-    gesamt = sum(dauern) - 2 * BLENDE
-    k = len(SCHNITT)
+    dauern = [b - v for _, v, b, _, _ in schnitt]
+    k = len(schnitt)
+    letzte, off = 'v0', dauern[0]
+    for i in range(1, k):
+        off -= BLENDE
+        fil.append(f'[{letzte}][v{i}]xfade=transition=fade:duration={BLENDE}:offset={off:.3f}[x{i}]')
+        letzte = f'x{i}'; off += dauern[i]
+    video = off                                                       # Länge des Videoteils
+    T_ENDE = 3.4 if t.get('ende') else 0
+    gesamt = video + T_ENDE - (BLENDE if T_ENDE else 0)
     fil.append(f'[{k}:v]format=rgba[txt]')
-    fil.append(f'[{k + 1}:v]format=rgba,fade=t=in:st={gesamt - 2.6:.2f}:d=0.8:alpha=1[lg]')
-    fil.append('[x2][txt]overlay=0:0[y1]')
-    fil.append(f'[y1][lg]overlay=(W-w)/2:1235:enable=\'gte(t,{gesamt - 2.6:.2f})\',format=yuv420p[out]')
+    fil.append(f'[{letzte}][txt]overlay=0:0[y1]')
+    if T_ENDE:
+        epfad = os.path.join(BASIS, f'_ende_{name}.png'); end_karte(t['ende']).save(epfad)
+        ein += ['-loop', '1', '-t', f'{T_ENDE:.2f}', '-i', epfad]
+        fil.append(f'[{k + 1}:v]fps={FPS},setsar=1,format=yuv420p[e]')
+        fil.append(f'[y1]format=yuv420p[y1b]')
+        fil.append(f'[y1b][e]xfade=transition=fade:duration={BLENDE}:offset={video - BLENDE:.3f},format=yuv420p[out]')
+    else:
+        ein += ['-loop', '1', '-t', f'{gesamt:.2f}', '-i', lpfad]
+        fil.append(f'[{k + 1}:v]format=rgba,fade=t=in:st={gesamt - 2.6:.2f}:d=0.8:alpha=1[lg]')
+        fil.append(f'[y1][lg]overlay=(W-w)/2:1235:enable=\'gte(t,{gesamt - 2.6:.2f})\',format=yuv420p[out]')
     fil.append(f'[{k + 2}:a]atrim=0:{gesamt:.2f},afade=t=in:d=0.5,afade=t=out:st={gesamt - 1.8:.2f}:d=1.8,volume=0.85[a]')
     pfad = os.path.join(BASIS, f'reel_pov_{name}_9x16.mp4')
-    cmd = ['ffmpeg', '-y', '-v', 'error'] + ein + ['-loop', '1', '-t', f'{gesamt:.2f}', '-i', tmp, '-loop', '1', '-t', f'{gesamt:.2f}', '-i', lpfad,
-           '-ss', '30', '-i', MUSIK, '-filter_complex', ';'.join(fil), '-map', '[out]', '-map', '[a]', '-t', f'{gesamt:.2f}',
-           '-c:v', 'libx264', '-crf', '18', '-preset', 'medium', '-r', str(FPS), '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', pfad]
+    # Reihenfolge der Eingänge: Clips, Text, Schluss (Karte oder Logo), Musik
+    clips = ein[:6 * k]; schluss = ein[6 * k:]          # je Clip: -ss von -t dauer -i datei
+    cmd = (['ffmpeg', '-y', '-v', 'error'] + clips + ['-loop', '1', '-t', f'{gesamt:.2f}', '-i', tmp] + schluss +
+           ['-ss', str(t.get('musik_ab', 30)), '-i', MUSIK, '-filter_complex', ';'.join(fil), '-map', '[out]', '-map', '[a]',
+            '-t', f'{gesamt:.2f}', '-c:v', 'libx264', '-crf', '18', '-preset', 'medium', '-r', str(FPS),
+            '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', pfad])
     subprocess.run(cmd, check=True)
     subprocess.run(['ffmpeg', '-y', '-v', 'error', '-ss', '1.5', '-i', pfad, '-frames:v', '1', '-q:v', '2',
                     pfad.replace('.mp4', '_titelbild.jpg')], check=True)
-    os.remove(tmp); os.remove(lpfad)
+    for q in (tmp, lpfad, os.path.join(BASIS, f'_ende_{name}.png')):
+        if os.path.exists(q):
+            os.remove(q)
     print(f'{pfad}: {gesamt:.1f} s', flush=True)
 
 
