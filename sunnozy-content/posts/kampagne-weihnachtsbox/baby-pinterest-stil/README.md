@@ -9,5 +9,6 @@ Stil nach dem Pinterest-Pin der Nutzerin (minimalistisch, von oben, zerwühlte w
 | `dinosaur_4x5.jpg` | «Dinosaur» | creme Kurzarm-Body «Dinosaur is coming», creme Ripp-Jogginghose |
 | `mum_dad_me_4x5.jpg` | «Mum Dad Me» | lila Ripp-Body «mum dad me», lila Ripp-Leggings |
 | `lovely_little_girl_4x5.jpg` | «Lovely Little Girl» | lila Langarm-Body «Lovely», lila Ripp-Leggings |
+| `i_like_flying_4x5.jpg` | «I like flying» | pinker Langarm-Body mit Rüschen und Vögelchen, rosa Ripp-Leggings |
 
 Vor dem Posten Prints und Farben mit der echten Ware vergleichen.
