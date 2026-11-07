@@ -13,5 +13,6 @@ Stil nach dem Pinterest-Pin der Nutzerin (minimalistisch, von oben, zerwühlte w
 | `dino_4x5.jpg` | «Dino» | beiger Langarm-Body «Daddy MOMMY love me» mit Dino, blaues Mulltuch darunter |
 | `i_love_my_mummy_4x5.jpg` | «I love my Mummy» | beiger Langarm-Body «I love my Mummy» mit Bären, Halstuch mit Bären |
 | `little_one_4x5.jpg` | «Little One» (Mulltücher) | creme Ripp-Body «little one», grünes Mulltuch darunter |
+| `little_one_jogginghosen_4x5.jpg` | «Little One» (Jogginghosen) | salbeigrüner Ripp-Body, salbeigrüne Ripp-Jogginghose (ohne Produktvorlage erzeugt, Canva brach mit Vorlage ab) |
 
 Vor dem Posten Prints und Farben mit der echten Ware vergleichen.
