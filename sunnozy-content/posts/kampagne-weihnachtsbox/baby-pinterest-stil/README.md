@@ -12,5 +12,6 @@ Stil nach dem Pinterest-Pin der Nutzerin (minimalistisch, von oben, zerwühlte w
 | `i_like_flying_4x5.jpg` | «I like flying» | pinker Langarm-Body mit Rüschen und Vögelchen, rosa Ripp-Leggings |
 | `dino_4x5.jpg` | «Dino» | beiger Langarm-Body «Daddy MOMMY love me» mit Dino, blaues Mulltuch darunter |
 | `i_love_my_mummy_4x5.jpg` | «I love my Mummy» | beiger Langarm-Body «I love my Mummy» mit Bären, Halstuch mit Bären |
+| `little_one_4x5.jpg` | «Little One» (Mulltücher) | creme Ripp-Body «little one», grünes Mulltuch darunter |
 
 Vor dem Posten Prints und Farben mit der echten Ware vergleichen.
