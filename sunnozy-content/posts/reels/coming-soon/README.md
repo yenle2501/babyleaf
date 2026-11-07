@@ -157,7 +157,7 @@ Nicht verwendet: `videos-baby/little_and_loved_b` (schlafendes Baby mit Haarband
 | 9.3–13.2 s | Zoom aufs Profil, oben erscheint das sunnozy-Logo und COMING SOON |
 | 13.2–16.4 s | Creme-Karte: Logo, COMING SOON, sunnozy.ch, «Folg uns, damit Du nichts verpasst» |
 
-Warm gegradet mit leichter Vignette. Musik: «Holiday 01» von Lily J (Mixkit, lizenzfrei, auch kommerziell, ohne Namensnennung), der Aufbau im Stück fällt genau auf das Aufziehen der Schleife. Das Rascheln aus dem Original liegt leise darunter.
+Auf dem Laptop stehen Follower und Gefolgt auf 0 (Bild für Bild ersetzt). Warm gegradet mit leichter Vignette. Musik: «Holiday 01» von Lily J (Mixkit, lizenzfrei, auch kommerziell, ohne Namensnennung), der Aufbau im Stück fällt genau auf das Aufziehen der Schleife. Das Rascheln aus dem Original liegt leise darunter.
 
 **Caption:**
 > Psst … wir packen gerade etwas aus 🎀

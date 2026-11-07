@@ -5,7 +5,7 @@ Rote sunnozy-Schleife vor dem Laptop mit dem Instagram-Profil, eine Hand zieht d
   5–9.3 s   Aufziehen in Zeitlupe (0.6×)
   danach    Zoom zum Logo auf dem Bildschirm, oben «sunnozy» + COMING SOON
   Schluss   Cremefarbene Karte: Logo, COMING SOON, sunnozy.ch, «Folg uns, damit Du nichts verpasst»
-Warm gegradet, leichte Vignette, Musik «Holiday 01» (Lily J, Mixkit, lizenzfrei), Originalton (Schleifenrascheln) leise darunter.
+Follower/Gefolgt auf dem Bildschirm auf 0 gesetzt. Warm gegradet, leichte Vignette, Musik «Holiday 01» (Lily J, Mixkit, lizenzfrei), Originalton (Schleifenrascheln) leise darunter.
 
     python3 tools/make_coming_soon_schleife.py
 Quelle: posts/coming-soon/schleife/original/schleife.mov (iPhone, hochkant). Ausgabe: posts/reels/coming-soon/reel_sunnozy_schleife_9x16.mp4
@@ -50,8 +50,92 @@ def quelle_frames():
         b = p.stdout.read(W * H * 3)
         if len(b) < W * H * 3:
             break
-        yield i / fps, Image.frombuffer('RGB', (W, H), b)
+        yield i / fps, follower_null(Image.frombuffer('RGB', (W, H), b), i / fps)
         i += 1
+
+
+# --- Follower und Gefolgt auf 0 setzen (Wunsch der Nutzerin, 07.11.2026) ------------------------------------------
+# Im Video zeigt der Laptop das Instagram-Profil mit «0 Beiträge  115 Follower  250 Gefolgt». Die Zeile wird Bild für Bild
+# verfolgt (Template-Matching auf Name + Untertitel) und neu zusammengesetzt: «0 Beiträge  0 Follower  0 Gefolgt».
+# Die neue «0» und die Wörter «Follower»/«Gefolgt» stammen aus demselben Bild, damit Schrift, Schärfe und Licht passen.
+# Pixel der roten Schleife oder der Hand bleiben unverändert (die Schleife liegt davor).
+import cv2
+_REF = None                                  # Vorlage aus dem Bild bei 9 s
+REF_T = 9.0
+VORLAGE = (410, 590, 640, 655)               # x0, y0, x1, y1 im Referenzbild: Name + Untertitel
+ZEILE = (657, 685)                           # y-Bereich der Zahlenzeile im Referenzbild
+# (Quelle x0, x1) -> Ziel x0 im Referenzbild
+TEILE = [((419, 429), 496),                  # «0» aus «0 Beiträge» an die Stelle von «115»
+         ((518, 571), 509),                  # «Follower»
+         ((419, 429), 576),                  # «0» an die Stelle von «250»
+         ((611, 658), 588)]                  # «Gefolgt»
+LOESCHEN = (494, 662)                        # x-Bereich der alten Gruppen «115 Follower  250 Gefolgt»
+_letzter = (0, 0)
+_GLYPHEN = {}                                # gemerkte Schrift (Dunkelheit gegenüber Hintergrund) je Teil
+
+
+def _bildschirm(a):
+    """Maske: heller, ungesättigter Bildschirm (nicht Schleife, nicht Hand)."""
+    mx = a.max(axis=2).astype(int); mn = a.min(axis=2).astype(int)
+    return (mx - mn < 28) & (mx > 150)
+
+
+def follower_null(im, t):
+    global _REF, _letzter
+    a = np.array(im)
+    g = cv2.cvtColor(a, cv2.COLOR_RGB2GRAY)
+    if _REF is None:
+        return im
+    x0, y0, x1, y1 = VORLAGE
+    sx0, sy0 = max(x0 - 90, 0), max(y0 - 90, 0)
+    such = g[sy0:y1 + 90, sx0:x1 + 90]
+    r = cv2.matchTemplate(such, _REF, cv2.TM_CCOEFF_NORMED)
+    _, mx, _, loc = cv2.minMaxLoc(r)
+    if mx > 0.55:
+        _letzter = (loc[0] + sx0 - x0, loc[1] + sy0 - y0)
+    dx, dy = _letzter
+    ya, yb = ZEILE[0] + dy, ZEILE[1] + dy
+    la, lb = LOESCHEN[0] + dx, LOESCHEN[1] + dx
+    alt = a[ya:yb].copy()
+    maske = _bildschirm(alt)
+    # Hintergrund: pro Spalte zwischen den Zeilen knapp über und unter dem Text interpolieren
+    def _median(streifen):
+        st = streifen[:, la:lb].reshape(-1, 3); m = _bildschirm(streifen[:, la:lb]).reshape(-1)
+        return np.median(st[m], axis=0) if m.sum() > 20 else np.median(alt[maske], axis=0)
+    oben = _median(a[ya - 4:ya]); unten = _median(a[yb:yb + 4])
+    w = np.linspace(0, 1, yb - ya)[:, None, None]
+    hg = np.broadcast_to(oben * (1 - w) + unten * w, (yb - ya, a.shape[1], 3))
+    neu = alt.astype(float).copy()
+    neu[:, la:lb] = hg[:, la:lb]
+    # Schleifenkanten (auch die weichen Übergänge) nicht als Schrift kopieren
+    fremd = cv2.dilate((~_bildschirm(alt)).astype(np.uint8), np.ones((7, 7), np.uint8)).astype(bool)
+    for k, ((q0, q1), z0) in enumerate(TEILE):
+        q0 += dx; q1 += dx; z0 += dx
+        quelle = alt[:, q0:q1].astype(float)
+        ziel = neu[:, z0:z0 + (q1 - q0)]
+        hq = hg[:, q0:q1]
+        if not fremd[:, q0:q1].any():
+            # Quelle frei: Dunkelheit der Schrift gegenüber dem Hintergrund messen und merken
+            dunkel = (hq - quelle).clip(min=0)
+            schrift = quelle.mean(axis=2) < hq.mean(axis=2) - 8
+            schrift[:3] = False; schrift[-3:] = False
+            dunkel[~schrift] = 0
+            _GLYPHEN[k] = dunkel
+        dunkel = _GLYPHEN.get(k)
+        if dunkel is not None:                   # verdeckte Quelle: gemerkte Schrift aus einem freien Bild
+            ziel[:] = np.minimum(ziel, ziel - dunkel)
+    a[ya:yb] = np.where(maske[..., None], neu.clip(0, 255).astype(np.uint8), alt)
+    return Image.fromarray(a)
+
+
+def _ref_laden():
+    global _REF
+    p = subprocess.run(['ffmpeg', '-v', 'error', '-ss', str(REF_T), '-i', QUELLE, '-map', '0:v:0', '-frames:v', '1',
+                        '-vf', f'scale={W}:{H}', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], capture_output=True, check=True).stdout
+    g = cv2.cvtColor(np.frombuffer(p, np.uint8).reshape(H, W, 3), cv2.COLOR_RGB2GRAY)
+    x0, y0, x1, y1 = VORLAGE
+    _REF = g[y0:y1, x0:x1].copy()
+    follower_null(Image.fromarray(np.frombuffer(p, np.uint8).reshape(H, W, 3).copy()), REF_T)   # Glyphen vorab merken
 
 
 def grade(im, vign):
@@ -130,7 +214,7 @@ def end_karte(t):
 
 def main():
     os.makedirs(OUT, exist_ok=True)
-    plan = zeitplan(); vign = vignette()
+    plan = zeitplan(); vign = vignette(); _ref_laden()
     t_reveal = (SEGMENTE[0][1] - SEGMENTE[0][0]) + (SEGMENTE[1][1] - SEGMENTE[1][0]) / SEGMENTE[1][2] + 0.4
     t_video = len(plan) / FPS; n_ende = int(T_ENDE * FPS); nb = int(BLENDE_ENDE * FPS)
     pfad = os.path.join(OUT, 'reel_sunnozy_schleife_9x16.mp4'); tmp = pfad + '.tmp.mp4'
