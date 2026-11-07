@@ -7,5 +7,6 @@ Stil nach dem Pinterest-Pin der Nutzerin (minimalistisch, von oben, zerwühlte w
 |---|---|---|
 | `growing_up_strong_4x5.jpg` | «Growing up strong» | creme Kurzarm-Body mit «D», creme Ripp-Jogginghose |
 | `dinosaur_4x5.jpg` | «Dinosaur» | creme Kurzarm-Body «Dinosaur is coming», creme Ripp-Jogginghose |
+| `mum_dad_me_4x5.jpg` | «Mum Dad Me» | lila Ripp-Body «mum dad me», lila Ripp-Leggings |
 
 Vor dem Posten Prints und Farben mit der echten Ware vergleichen.
