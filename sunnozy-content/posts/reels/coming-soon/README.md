@@ -198,3 +198,24 @@ Jeder Wechsel hat einen leisen Tick (selbst erzeugt), darunter «Holiday 01» (M
 Hashtag-Auswahl (5): 1 Trend (#comingsoon), 2 Produkt/Anlass (#babykleidung, #geschenkzurgeburt), 1 Ort (#babyschweiz), 1 Marke (#sunnozy).
 Alternativen zum Tauschen: #erstausstattung #babygeschenk #smallbusinessschweiz #weihnachtsgeschenk #gottigeschenk.
 Musik: In der App lieber einen gerade trendenden Sound wählen (der Rhythmus passt auf jeden Beat), sonst die eingebaute Musik behalten.
+
+## Launch-Serie: Countdown + Weihnachts-Reveal (08.11.2026)
+
+Nach den Trend-Vorschlägen (Countdown-Serie, Weihnachts-Reveal). Reihenfolge zum Posten:
+
+| Tag | Reel | Inhalt |
+|---|---|---|
+| 3 Tage vorher | `reel_countdown_3_9x16.mp4` (6.9 s) | Logo → «NOCH 3 TAGE BIS ZUM LAUNCH» im Flacker-Stil (Weinrot/Rosé) → Logo, sunnozy.ch |
+| 2 Tage vorher | `reel_countdown_2_9x16.mp4` | «NOCH 2 TAGE» |
+| 1 Tag vorher | `reel_countdown_1_9x16.mp4` | «NOCH 1 TAG» |
+| Launch | `reel_weihnachts_reveal_9x16.mp4` (14 s) | Lichter-Bokeh, «Psst … bald liegt etwas Kleines unter Deinem Baum» → rote Geschenkbox steigt auf, «Weihnachts-Geschenkboxen» → 8 schnelle Schnitte: Babys in den Box-Outfits (KI, Pinterest-Stil) und Boxen → Logo, COMING SOON, sunnozy.ch |
+
+Neu erzeugen: `python3 tools/make_reel_countdown.py` und `python3 tools/make_reel_weihnachts_reveal.py`
+Musik: Countdown mit Ticks + «Holiday 01» (Mixkit), Reveal mit «Holiday 01», der Aufbau fällt auf das Erscheinen der Box.
+Wer einen Trend-Sound will (z.B. «Underneath the Tree»): in der App prüfen, ob er für Business-Konten freigegeben ist, und dann die eingebaute Musik ersetzen.
+«Mit KI erstellt» beim Reveal einschalten (KI-Babyfotos und Box-Inhalt).
+
+**Captions (max. 5 Hashtags):**
+> Countdown: Noch 3 Tage … 👀 Ein kleines Geheimnis, das fast fertig ist.
+> Reveal: Bald liegt etwas Kleines unter Deinem Baum 🎄 Unsere Weihnachts-Geschenkboxen: Bodys und Hosen Ton in Ton, fertig verpackt in der roten sunnozy-Box. sunnozy.ch
+> #comingsoon #geschenkzurgeburt #babykleidung #babyschweiz #sunnozy
