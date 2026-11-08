@@ -164,3 +164,37 @@ Auf dem Laptop stehen Follower und Gefolgt auf 0 (Bild für Bild ersetzt). Warm 
 > Babykleidung und Geschenkboxen mit ganz viel Liebe, bald bei sunnozy.
 > Folg uns, damit Du nichts verpasst ✨
 > #comingsoon #babyshop #babyschweiz #geschenkbox #sunnozy
+
+## «Flackern» – COMING SOON mit Farbwechsel (08.11.2026)
+
+`reel_coming_soon_flackern_weinrot_9x16.mp4` (Weinrot der Geschenkbox + Rosé) und `reel_coming_soon_flackern_salbei_9x16.mp4` (Salbei + Creme), je 9.2 s.
+Neu erzeugen: `python3 tools/make_reel_coming_soon_flacker.py`
+
+Aufbau nach dem Bildschirmvideo der Nutzerin (fremdes Reel einer Kerzenmarke, nur Rhythmus und Aufbau übernommen):
+Logo (0.65 s) → «COMING SOON» in Nunito Sans fett, Hintergrund und Schrift tauschen die Farben immer schneller (0.4 s bis 0.08 s) → Logo mit sunnozy.ch → Blende ins Dunkel, damit das Reel sauber loopt.
+Jeder Wechsel hat einen leisen Tick (selbst erzeugt), darunter «Holiday 01» (Mixkit, lizenzfrei).
+
+### Analyse des Vorbild-Posts
+
+| Was | Beobachtung | Für sunnozy |
+|---|---|---|
+| Zahlen | 14.2 Tsd. Likes, 107 Kommentare, 275 Reposts, **25.6 Tsd. Mal geteilt** | Mehr geteilt als geliked: Das Format wird als Idee weitergeschickt (vor allem unter Kleinunternehmen). Einfach, kurz, loopt. |
+| Hook | «A little secret, that's almost ready 👀» | Neugier statt Werbung, kein Produkt, kein Preis |
+| Punkte-Zeilen | 10 Zeilen mit «.» | schieben den Rest hinter «mehr», die Caption wirkt aufgeräumt |
+| Keyword-Block | in Klammern: small business, coming soon, launching soon, new beginning, aesthetic, new chapter … | Instagram durchsucht heute die Caption-Wörter (Suche/SEO). Die Keywords zählen mehr als Hashtags. |
+| Hashtags | #thatgirlaesthetic #candle #smallbusiness … | Instagram erlaubt seit Dezember 2025 nur noch **5 Hashtags** pro Beitrag/Reel. Darum wenige, gezielte. |
+
+### Caption für sunnozy (zum Kopieren)
+
+> Ein kleines Geheimnis, das fast fertig ist 👀
+> .
+> .
+> .
+> .
+> .
+> (Babykleidung Schweiz, Geschenk zur Geburt, Erstausstattung Baby, Geschenkbox Baby, Weihnachtsgeschenk Baby, Babyshop Schweiz, Gotti Geschenk, Swiss small business, Kleinunternehmen Schweiz, coming soon, launching soon, neuer Onlineshop, new chapter)
+> #comingsoon #babykleidung #geschenkzurgeburt #babyschweiz #sunnozy
+
+Hashtag-Auswahl (5): 1 Trend (#comingsoon), 2 Produkt/Anlass (#babykleidung, #geschenkzurgeburt), 1 Ort (#babyschweiz), 1 Marke (#sunnozy).
+Alternativen zum Tauschen: #erstausstattung #babygeschenk #smallbusinessschweiz #weihnachtsgeschenk #gottigeschenk.
+Musik: In der App lieber einen gerade trendenden Sound wählen (der Rhythmus passt auf jeden Beat), sonst die eingebaute Musik behalten.
