@@ -21,6 +21,10 @@ OUT = os.path.join(m.POSTS, 'reels', 'coming-soon')
 MUSIK = os.path.join(m.POSTS, 'reels', 'musik', 'mixkit_lily-j_holiday-01.mp3')   # Mixkit, lizenzfrei
 MUSIK_AB = 19.5        # der Aufbau bei 0:28 im Stück fällt auf das Aufziehen der Schleife
 HELL = (253, 246, 238)
+import sys
+EN = '--en' in sys.argv          # englische Version: python3 tools/make_coming_soon_schleife.py --en
+T = (dict(psst='Psst …', aus=['We are unwrapping', 'something little.'], folg='Follow us so you don\u2019t miss it', datei='reel_sunnozy_schleife_en_9x16')
+     if EN else dict(psst='Psst …', aus=['Wir packen gerade', 'etwas aus.'], folg='Folg uns, damit Du nichts verpasst', datei='reel_sunnozy_schleife_9x16'))
 
 # (Quelle von, bis, Tempo, Zoom von, bis, Fokus von (x, y), bis (x, y))
 SEGMENTE = [(1.0, 6.0, 1.0, 1.00, 1.10, (0.5, 0.42), (0.5, 0.42)),
@@ -185,9 +189,9 @@ def gesperrt(c, wort, alpha, y, groesse, farbe, abstand):
 def ueberlagerung(c, t, t_reveal, t_video):
     """Texte über dem Video, je nach Ausgabezeit t."""
     a1 = m.ease(t / 0.5) * (1 - m.ease((t - 2.3) / 0.4))
-    text(c, ['Psst …'], a1, 330, 92)
+    text(c, [T['psst']], a1, 330, 92)
     a2 = m.ease((t - 2.7) / 0.5) * (1 - m.ease((t - (t_reveal - 1.6)) / 0.5))
-    text(c, ['Wir packen gerade', 'etwas aus.'], a2, 300, 84)
+    text(c, T['aus'], a2, 300, 84)
     a3 = m.ease((t - t_reveal) / 0.8)
     if a3 > 0:
         L = m.logo(430, HELL); L.putalpha(L.getchannel('A').point(lambda v: int(v * a3)))
@@ -208,7 +212,7 @@ def end_karte(t):
     d = ImageDraw.Draw(c)
     if a3 > 0:
         d.text((W / 2, 1090), 'sunnozy.ch', font=m.f(m.SERIF, 60), fill=m.WALD + (int(255 * a3),), anchor='mm')
-        d.text((W / 2, 1175), 'Folg uns, damit Du nichts verpasst', font=m.f(m.SERIF_I, 50), fill=m.GRAU + (int(255 * a3),), anchor='mm')
+        d.text((W / 2, 1175), T['folg'], font=m.f(m.SERIF_I, 50), fill=m.GRAU + (int(255 * a3),), anchor='mm')
     return c
 
 
@@ -217,7 +221,7 @@ def main():
     plan = zeitplan(); vign = vignette(); _ref_laden()
     t_reveal = (SEGMENTE[0][1] - SEGMENTE[0][0]) + (SEGMENTE[1][1] - SEGMENTE[1][0]) / SEGMENTE[1][2] + 0.4
     t_video = len(plan) / FPS; n_ende = int(T_ENDE * FPS); nb = int(BLENDE_ENDE * FPS)
-    pfad = os.path.join(OUT, 'reel_sunnozy_schleife_9x16.mp4'); tmp = pfad + '.tmp.mp4'
+    pfad = os.path.join(OUT, T['datei'] + '.mp4'); tmp = pfad + '.tmp.mp4'
     enc = subprocess.Popen(['ffmpeg', '-y', '-v', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
                             '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '18', '-preset', 'medium', tmp], stdin=subprocess.PIPE)
     src = quelle_frames(); ts, cur = next(src); nxt = next(src, None)
@@ -233,7 +237,7 @@ def main():
         if i >= len(plan) - nb:                                       # weich in die Schlusskarte
             c = Image.blend(c, end_karte(0), (i - (len(plan) - nb)) / nb)
         if i == int(0.8 * FPS):
-            c.convert('RGB').save(os.path.join(OUT, 'reel_sunnozy_schleife_9x16_titelbild.jpg'), quality=92)
+            c.convert('RGB').save(os.path.join(OUT, T['datei'] + '_titelbild.jpg'), quality=92)
         enc.stdin.write(c.convert('RGB').tobytes())
     for j in range(n_ende):
         enc.stdin.write(end_karte(j / FPS + BLENDE_ENDE * 0).convert('RGB').tobytes())

@@ -25,6 +25,10 @@ BABY = lambda k: os.path.join(BASIS, 'baby-pinterest-stil', k + '_4x5.jpg')
 SCHNITTE = [('baby', 'growing_up_strong'), ('box', 'dinosaur'), ('baby', 'mum_dad_me'), ('box', 'i-like-flying'),
             ('baby', 'dino'), ('box', 'little-one'), ('baby', 'i_love_my_mummy'), ('baby', 'lovely_little_girl')]
 T1, T2, T3, T_END = 2.8, 6.0, 10.0, 14.0
+import sys
+EN = '--en' in sys.argv          # englische Version: python3 tools/make_reel_weihnachts_reveal.py --en
+T = (dict(baum=['something little is coming', 'under your tree'], boxen='Christmas Gift Boxes', datei='reel_weihnachts_reveal_en_9x16')
+     if EN else dict(baum=['bald liegt etwas Kleines', 'unter Deinem Baum'], boxen='Weihnachts-Geschenkboxen', datei='reel_weihnachts_reveal_9x16'))
 
 
 def bokeh_basis():
@@ -108,7 +112,7 @@ def main():
     for art, k in SCHNITTE:
         schnitte.append(Image.open(BABY(k) if art == 'baby' else BOX(k)).convert('RGB'))
     L = m.logo(560, HELL)
-    pfad = os.path.join(OUT, 'reel_weihnachts_reveal_9x16.mp4'); tmp = pfad + '.tmp.mp4'
+    pfad = os.path.join(OUT, T['datei'] + '.mp4'); tmp = pfad + '.tmp.mp4'
     enc = subprocess.Popen(['ffmpeg', '-y', '-v', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
                             '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '18', '-preset', 'medium', tmp], stdin=subprocess.PIPE)
     n = int(T_END * FPS)
@@ -118,15 +122,15 @@ def main():
             c = bokeh(basis, ebenen, t)
         if t < T1:
             text(c, ['Psst …'], m.ease(t / 0.5) * (1 - m.ease((t - 1.1) / 0.3)), 900, 110)
-            text(c, ['bald liegt etwas Kleines', 'unter Deinem Baum'], m.ease((t - 1.3) / 0.5), 860, 84)
+            text(c, T['baum'], m.ease((t - 1.3) / 0.5), 860, 84)
         elif t < T2:
             e = m.ease((t - T1) / 1.0)
             y = 1000 - box.height / 2 + (1 - e) * 500
-            text(c, ['bald liegt etwas Kleines', 'unter Deinem Baum'], 1 - m.ease((t - T1) / 0.4), 860, 84)
+            text(c, T['baum'], 1 - m.ease((t - T1) / 0.4), 860, 84)
             z = 1 + 0.05 * (t - T1) / (T2 - T1)
             bz = box.resize((round(box.width * z), round(box.height * z)), Image.BICUBIC)
             mit_schatten(c, bz, (W - bz.width) / 2, y - (bz.height - box.height) / 2, e)
-            text(c, ['Weihnachts-Geschenkboxen'], m.ease((t - T1 - 0.7) / 0.6), 330, 78)
+            text(c, [T['boxen']], m.ease((t - T1 - 0.7) / 0.6), 330, 78)
         elif t < T3:
             k = min(int((t - T2) / 0.5), len(schnitte) - 1); tt = (t - T2 - k * 0.5) / 0.5
             c = fuell(schnitte[k], 1.04 + 0.04 * tt, 0.5)

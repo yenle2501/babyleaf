@@ -16,15 +16,19 @@ fl.T_LOGO2 = fl.WECHSEL[-1]
 fl.T_ENDE = round(fl.T_LOGO2 + 1.5, 2)
 W, H = fl.W, fl.H
 ZAHL = None
+import sys
+EN = '--en' in sys.argv          # englische Version: python3 tools/make_reel_countdown.py --en
 
 
 def coming(f, dunkel):
     bg, fg = (f['dunkel'], f['hell']) if dunkel else (f['hell'], f['dunkel'])
     c = Image.new('RGB', (W, H), bg); d = ImageDraw.Draw(c)
-    fl.gesperrt(d, 'NOCH', 640, 64, fg, 14)
+    oben, unten, klein = (('ONLY', 'DAYS' if ZAHL > 1 else 'DAY', 'UNTIL LAUNCH') if EN
+                          else ('NOCH', 'TAGE' if ZAHL > 1 else 'TAG', 'BIS ZUM LAUNCH'))
+    fl.gesperrt(d, oben, 640, 64, fg, 14)
     d.text((W / 2, 860), str(ZAHL), font=fl.m.f(fl.FETT, 360), fill=fg, anchor='mm')
-    fl.gesperrt(d, 'TAGE' if ZAHL > 1 else 'TAG', 1090, 64, fg, 14)
-    fl.gesperrt(d, 'BIS ZUM LAUNCH', 1190, 40, fg, 10)
+    fl.gesperrt(d, unten, 1090, 64, fg, 14)
+    fl.gesperrt(d, klein, 1190, 40, fg, 10)
     return c
 
 
@@ -35,6 +39,6 @@ if __name__ == '__main__':
         ZAHL = n
         fl.reel('weinrot')
         alt = os.path.join(fl.OUT, 'reel_coming_soon_flackern_weinrot_9x16')
-        neu = os.path.join(fl.OUT, f'reel_countdown_{n}_9x16')
+        neu = os.path.join(fl.OUT, f'reel_countdown_{n}' + ('_en' if EN else '') + '_9x16')
         os.replace(alt + '.mp4', neu + '.mp4'); os.replace(alt + '_titelbild.jpg', neu + '_titelbild.jpg')
         print(neu + '.mp4')

@@ -219,3 +219,25 @@ Wer einen Trend-Sound will (z.B. «Underneath the Tree»): in der App prüfen, o
 > Countdown: Noch 3 Tage … 👀 Ein kleines Geheimnis, das fast fertig ist.
 > Reveal: Bald liegt etwas Kleines unter Deinem Baum 🎄 Unsere Weihnachts-Geschenkboxen: Bodys und Hosen Ton in Ton, fertig verpackt in der roten sunnozy-Box. sunnozy.ch
 > #comingsoon #geschenkzurgeburt #babykleidung #babyschweiz #sunnozy
+
+## Englische Versionen (09.11.2026)
+
+Gleiche Reels, Text auf Englisch (`--en` an das jeweilige Skript):
+
+| Datei | Text |
+|---|---|
+| `reel_sunnozy_schleife_en_9x16.mp4` | «Psst …» → «We are unwrapping something little.» → Logo, COMING SOON, «Follow us so you don't miss it» |
+| `reel_weihnachts_reveal_en_9x16.mp4` | «Psst …» → «something little is coming under your tree» → «Christmas Gift Boxes» → Logo, COMING SOON |
+| `reel_countdown_3_en_9x16.mp4`, `_2_en`, `_1_en` | «ONLY 3 DAYS UNTIL LAUNCH» / «ONLY 2 DAYS» / «ONLY 1 DAY» |
+| `reel_coming_soon_flackern_*_9x16.mp4` | war schon englisch (COMING SOON) |
+
+**Captions (EN, max. 5 Hashtags):**
+> A little secret that's almost ready 👀
+> .
+> .
+> .
+> (baby clothes, baby gift, newborn gift, gift box, christmas gift for baby, swiss small business, coming soon, launching soon, new chapter)
+> #comingsoon #babygift #newbornbaby #smallbusiness #sunnozy
+
+> Something little is coming under your tree 🎄 Our Christmas gift boxes: matching bodysuits and pants, ready wrapped in the red sunnozy box. sunnozy.ch
+> #comingsoon #babygift #christmasgift #newbornbaby #sunnozy
