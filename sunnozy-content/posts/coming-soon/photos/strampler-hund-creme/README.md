@@ -13,3 +13,5 @@
 **KI-Bilder prüfen:** Schriften und Prints mit dem echten Set vergleichen. Beim Posten der Baby-Fotos «Mit KI erstellt» einschalten.
 
 Erstellt mit `KI=<canva-export> tools/make_coming_soon_set.py strampler-hund-creme`.
+
+**Einzelteile neu (09.11.2026):** Alle 8 Teile in `marktplatz/einzelteile/` einzeln mit KI neu erzeugt (Canva, Vorlage: Marktplatz-Hauptbild), freigestellt und mit `tools/make_marktplatz.py … 0.85` auf reinweiss 2000×2000 gesetzt. Vorher waren sie aus dem kleinen Setbild ausgeschnitten (teils nur 437–800 px) und dadurch unscharf. Übersicht: `marktplatz/einzelteile_uebersicht.jpg`. Prints und Schriften vor dem Hochladen mit der echten Ware vergleichen.
