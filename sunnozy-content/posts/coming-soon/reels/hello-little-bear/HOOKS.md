@@ -4,35 +4,40 @@ Clip: `original/clip_bett.mp4` (KI, 15 s). Ein Neugeborenes liegt wach auf einem
 
 Vorgabe: **kein Preis** im Reel.
 
+## Stil (nach der Vorlage der Nutzerin, 10.11.2026)
+
+Die Vorlage ist eine Bildschirmaufnahme eines fremden Reels. Übernommen ist nur der Stil, kein Bild, kein Text und kein Name. Erste Version mit Creme-Feld und Schlusskarte, am 10.11.2026 auf Wunsch der Nutzerin ersetzt.
+
+- **Video in voller Grösse** (9:16), keine Ränder, keine Schlusskarte, **kein Preis**
+- **Eine einzige POV-Zeile** in weisser Schreibmaschinenschrift (Courier Prime, OFL), klein, mitten im Bild, mit ✨ am Ende
+- **Text nur 0–3,2 s**, dann nur das Baby. Ab 9,6 s kommt der Text zurück, damit der Loop nahtlos ins erste Bild läuft. Wer zweimal schaut, zählt doppelt.
+- **11 s lang:** kurz genug, dass viele bis zum Ende schauen und das Reel noch einmal läuft
+
 ## Was die Zuschauerin anhält
 
 Grundlage ist unsere Recherche in `posts/coming-soon/photos/instagram/pov-hooks.md` (Quellen dort).
 
-| Regel | Umsetzung im Reel |
+| Regel | Umsetzung |
 |---|---|
-| Der Hook steht **ab dem ersten Bild** da und ist in 2 Sekunden lesbar (5–8 Wörter). Bis zur 4. Sekunde springt bis zur Hälfte der Leute ab. | Der erste Text steht ab Bild 1, ohne Logo-Intro, mit 5–6 Wörtern. |
-| **Szene statt Beobachtung:** Wer sich darin erkennt, bleibt. | «POV: Dein Baby kommt im Winter»: Das betrifft alle, die im Dezember bis Februar Termin haben. Es ist November, die Szene ist also gerade aktuell. |
-| **Teilen** ist das stärkste Signal für Leute, die uns noch nicht folgen. | Variante «Freundin»: Die Frage richtet sich an Gotti und Freundinnen und endet mit «Schick ihr das.». |
-| **Zweiter Text löst nach 3–4 s auf**, wer liest, bleibt. | Text 2 dreht die Szene ins Positive («… liegt schon bereit»). |
-| **Ein konkreter Nutzen** statt Werbesprache | Text 3: «Um 3 Uhr nachts: Reissverschluss statt Knöpfe». Das kennt jede, die schon gewickelt hat. Der Strampler im Set hat wirklich einen Reissverschluss. |
-| **Kein Preis**, keine Spannung ohne Inhalt («Warte bis zum Schluss») | Die Schlusskarte zeigt Set-Foto, Name und Teile, dann «Link in der Bio» bzw. «Schick das Deiner Freundin». |
-| Text funktioniert **ohne Ton** | Alles steht im Bild. Die Musik ist nur Stimmung. |
-| Text **nie über dem Produkt** | Der Text steht im Creme-Feld oben, der Clip darunter in voller Breite. |
+| **Hook ab dem ersten Bild**, in 2 s lesbar | Der Text steht ab Bild 1, ohne Logo-Intro, mit 6–10 Wörtern. |
+| **Szene statt Beobachtung:** Wer sich erkennt, bleibt. | «POV: Dein Baby kommt im Winter ✨» betrifft alle, die im Dezember bis Februar Termin haben. Es ist jetzt November. |
+| **Teilen** ist das stärkste Signal für Leute, die uns noch nicht folgen. | «POV: Du wirst bald Gotti und das Geschenk ist schon da ✨»: Das schickt man dem Gotti oder es schickt sich selbst. |
+| **Ruhe statt Werbung** | Nach dem Text nur das Baby. Das Produkt wirkt durch das Bild, die Infos stehen in der Caption. |
+| **Ohne Ton verständlich**, Text nie auf dem Gesicht | Der Text liegt auf dem Bauch, das Gesicht bleibt frei. |
 
 ## Varianten (A/B-Test)
 
-| Datei | 0–4 s (Hook) | 4–8 s | 8–12 s | Schlusskarte (12–15.2 s) |
-|---|---|---|---|---|
-| `reel_hello_little_bear_winter_9x16.mp4` | POV: Dein Baby kommt im Winter | … und das erste Outfit liegt schon bereit. | Um 3 Uhr nachts: Reissverschluss statt Knöpfe | Set, Teile, «Link in der Bio» |
-| `reel_hello_little_bear_freundin_9x16.mp4` | Deine Freundin bekommt bald ein Baby? | Schick ihr das. Mit Bärenöhrchen. | Um 3 Uhr nachts: Reissverschluss statt Knöpfe | Set, Teile, «Schick das Deiner Freundin» |
+| Datei | Text (0–3,2 s und ab 9,6 s) |
+|---|---|
+| `reel_hello_little_bear_winter_9x16.mp4` | POV: Dein Baby kommt im Winter ✨ |
+| `reel_hello_little_bear_gotti_9x16.mp4` | POV: Du wirst bald Gotti und das Geschenk ist schon da ✨ |
 
-Beide dauern 15,2 s, sind 1080 × 1920 und haben ein Titelbild `_titelbild.jpg` mit dem Hook. Neu erzeugen: `python3 tools/make_reel_hello_little_bear_hook.py`. Musik: «Christmas Lullaby» (Mixkit, lizenzfrei).
+Beide dauern 11 s, sind 1080 × 1920 und haben ein Titelbild `_titelbild.jpg` mit dem Text. Neu erzeugen: `python3 tools/make_reel_hello_little_bear_hook.py`. Musik: «Christmas Lullaby» (Mixkit, lizenzfrei). Andere Texte lassen sich in `VARIANTEN` im Skript eintragen.
 
-**Test:** zuerst «Winter» posten, 3 Tage später «Freundin». Nach 48 h vergleichen:
+**Test:** zuerst «Winter» posten, 3 Tage später «Gotti». Nach 48 h vergleichen:
 - Views
 - Anteil der Leute, die länger als 3 s schauen
 - wie oft geteilt und gespeichert
-- Link-Klicks in der Story
 
 Den Gewinner als Anzeige bewerben.
 
@@ -54,12 +59,12 @@ Den Gewinner als Anzeige bewerben.
 >
 > #erstausstattung #winterbaby #neugeboren #babyschweiz #sunnozy
 
-**Freundin**
-> Geburtsgeschenk für die beste Freundin 🤍 Das Set «Hello Little Bear» hat 5 Teile aus 100 % Baumwolle, mit Reissverschluss statt Knöpfen und mit Bärenöhrchen an der Mütze.
+**Gotti**
+> Geburtsgeschenk vom Gotti 🤍 Das Set «Hello Little Bear» hat 5 Teile aus 100 % Baumwolle, mit Reissverschluss statt Knöpfen und mit Bärenöhrchen an der Mütze.
 >
 > Link in der Bio.
 >
-> Schick das der Freundin, die bald ein Baby bekommt.
+> Schick das jemandem, der bald Gotti oder Götti wird.
 >
 > #geburtsgeschenk #erstausstattung #babygeschenk #babyschweiz #sunnozy
 
