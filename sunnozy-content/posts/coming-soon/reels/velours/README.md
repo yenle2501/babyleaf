@@ -49,3 +49,28 @@ Gemacht aus drei Grok-Clips der Nutzerin (`original/`). Neu erzeugen: `python3 t
 - **Kein Datum, kein Weihnachtsversprechen:** Erst wenn die Lieferung feststeht.
 - **Safe Sleep:** in Ordnung. Das Baby ist wach, liegt auf dem Rücken, und es liegt kein Kuscheltier und keine Decke im Körbchen.
 
+
+## Coming soon mit Marken-Vorstellung (13.11.2026)
+
+`reel_velours_sunnozy_coming_soon_9x16.mp4` (9,6 s): Coming-soon-Video, das zusätzlich sagt, was sunnozy ist. Neu erzeugen: `python3 tools/make_reel_velours_marke.py`
+
+Gleicher Clip und Look wie «Strecken»: Zeitlupe beim Strecken, langsamer Zoom, warme Farben, keine Weihnachtseffekte. Neu steht der Text **oben im Bild auf einem sanften dunklen Verlauf**, statt weiss auf dem cremefarbenen Strampler. So ist er gut lesbar, und Gesicht und Strampler bleiben frei.
+
+| Zeit | Text |
+|---|---|
+| 0–3 s | POV: Ihr erster Winter, ganz in Velours ✨ |
+| 3,3–6,3 s | **sunnozy**-Logo + «Babykleidung, verschickt aus der Schweiz 🇨🇭» |
+| 6,6–9,6 s | Logo bleibt + «Neue Kollektion, coming soon 🤍» |
+
+Kein Preis. Musik: «Holiday 01» (Mixkit, lizenzfrei). «Verschickt aus der Schweiz» steht so im Markenleitfaden. Wir schreiben bewusst nicht «aus der Schweiz» oder «Swiss made», weil die Ware nicht in der Schweiz hergestellt wird.
+
+**Caption**
+> Hallo, wir sind sunnozy 🤍 Babykleidung für die ersten Monate, liebevoll ausgesucht und verschickt aus der Schweiz.
+>
+> Unsere neue Kollektion kommt bald, mit dabei der Strampler aus weichem Velours, mit Puffärmeln und Rüschen.
+>
+> Folg uns, damit Du den Start nicht verpasst.
+>
+> #comingsoon #babykleidung #babyschweiz #erstausstattung #sunnozy
+
+«Mit KI erstellt» einschalten.
