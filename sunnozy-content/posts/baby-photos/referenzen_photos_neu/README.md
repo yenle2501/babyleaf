@@ -25,16 +25,18 @@ Nicht hochgerechnet. Formate: ChatGPT 1122 × 1402, Gemini 825 × 1024 (einige 8
 |---|---|---|
 | eisbaer-taupe_baby | ChatGPT | Download (18) |
 | eisbaer-taupe_baby_v1-ohne-referenzlook | ChatGPT | Download (17), nur Stimmung |
-| eisbaer-taupe_baby_body | Gemini | Download (18) |
+| eisbaer-taupe_baby_body | Gemini, Stil | Taupe Leinendecke auf Bett, Strick-Eisbär |
 | blumen-musselin_baby | ChatGPT | Soft, natural, and cozy… |
 | born-in-2027-rosa_baby | Gemini | Baby Beanie, Jumper & Booties |
-| born-in-2027-rosa_baby_strampler | Gemini | Baby Beanie, Jumper & Booties |
+| born-in-2027-rosa_baby_strampler | Gemini, Stil | Rosa Grobstrickdecke auf weissem Bett, Trockenblumen |
 | gaensebluemchen-beautiful_baby | Gemini | Download (13) |
-| little-bear-rosa_baby / _body | Gemini | Download (19) |
-| set_waldbaer_creme_baby_strampler / _body | Gemini | Download (12) |
+| little-bear-rosa_baby | Gemini | Download (19) |
+| little-bear-rosa_baby_body | Gemini, Stil | Weisse Teddyfleece-Decke, rosa Strickherz |
+| set_waldbaer_creme_baby_strampler | Gemini | Download (12) |
+| set_waldbaer_creme_baby_body | Gemini, Stil | Moosgrünes Musselintuch auf Holzboden, Tannzapfen, Holzbaum |
 | weltall-hellblau_baby_body | Gemini | Milo Tan Gingham… |
-| set_bauernhof | Gemini | Soft… (beide) |
-| set_best_family | Gemini | Download (19) (beide) |
+| set_bauernhof | Strampler Gemini / Body Gemini, Stil | Strampler Soft… / Body: hellblaue Vichy-Decke, Holzschaf |
+| set_best_family | Strampler Gemini / Body Gemini, Stil | Strampler D19 / Body: Teddy-Teppich am Fenster, Strickteddy, Weidenkorb |
 | set_gaensebluemchen | Gemini | Strampler D17, Body Soft… |
 | set_hase_rosa | Gemini | Strampler Milo, Body D18 |
 | set_hello_schmetterling | Gemini | Strampler D12, Body D13 |
@@ -53,7 +55,7 @@ Nicht hochgerechnet. Formate: ChatGPT 1122 × 1402, Gemini 825 × 1024 (einige 8
 | set_wal_blau | Gemini, Stil | Seegraskorb mit Waffeldecke / Musselintuch auf Sofa, Strickwal |
 | set_weltall_hellblau | Gemini, Stil | blaue Strickdecke, Holzmond / Gitterbett mit Wolkenlaken |
 
-Gleiche Referenz für Strampler und Body (werden noch neu gemacht): eisbaer-taupe, little-bear-rosa, set_waldbaer_creme, born-in-2027-rosa, set_bauernhof, set_best_family.
+Strampler und Body haben jetzt bei allen Sets eine eigene Szene. Die 6 Bilder mit doppelter Referenz (eisbaer-taupe Body, little-bear-rosa Body, set_waldbaer_creme Body, born-in-2027-rosa Strampler, set_bauernhof Body, set_best_family Body) wurden im Stil neu gemacht; alte Versionen in der Git-History.
 
 ## Vor dem Posten prüfen
 
@@ -63,4 +65,5 @@ Gleiche Referenz für Strampler und Body (werden noch neu gemacht): eisbaer-taup
 - `set_love_dad_mom_baby_strampler`: Baby liegt auf dem Bauch (aus Referenz D11), Schrift im Print teils gespiegelt.
 - Bei der Bearbeitung bleiben Plüschtiere und Nuggi der Referenz drin (D12, D17, D19). Für Ads Referenzen ohne Plüschtier wählen.
 - `set_teddy_rosa_punkte_baby_strampler` und `set_wal_blau_baby_strampler`: Baby schläft (ohne Decke oder Plüschtier am Gesicht).
+- `set_waldbaer_creme_baby_body` (Stil): Bär-Motiv auf dem Body kleiner als im Original. `set_best_family_baby_body`: Mütze gestrickt statt Jersey.
 - Prints und Schriften mit dem echten Set vergleichen.
