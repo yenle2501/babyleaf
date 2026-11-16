@@ -10,6 +10,10 @@ Prompt und Zuordnung Set → Referenz: Projekt-Doc `content/baby-referenz-prompt
 
 Das Referenzfoto wird nur umgezogen: Gemini bekommt zuerst die Referenz, dann das Produktfoto, mit dem Auftrag «Edit image 1 … change only the baby's clothes». So bleiben Neugeborenes, Szene, Deko und Filter wie im Original. Grund: Bei der freien Generierung wurden die Babys zu alt und die Szene passte nicht mehr zur Referenz.
 
+## Methode «Stil» (ab 16.11. abends)
+
+Wunsch: mehr Abwechslung bei Deko, Motiv und Hintergrund (Inspiration: Pinterest «neugeborene mode»). Pinterest-Fotos werden nur als Stilvorlage genommen, nicht hochgeladen: Das Baby ist neu generiert (Neugeborenes, ca. 2 Wochen), die Szene wird im Prompt beschrieben (Bett mit Leinen, Vichy-Decke, Lammfell, Seegraskorb, Musselintuch auf dem Sofa, Gitterbett mit Wolkenlaken, Strickdecke). Kein fremdes Foto und kein echtes Kind im Ergebnis.
+
 ## Dateien
 
 - `<produkt>_baby*.png`: Sets aus `coming-soon/photos/shopify-backup-hauptbilder-coming-soon/`
@@ -42,6 +46,12 @@ Nicht hochgerechnet. Formate: ChatGPT 1122 × 1402, Gemini 825 × 1024 (einige 8
 | set_little_bear | Gemini, Bearbeitung | Strampler D17, Body D12 |
 | set_love_dad_mom | Gemini, Bearbeitung | Strampler D11, Body D17 |
 | set_prinzessin_krone | Gemini, Bearbeitung | Strampler D12, Body Soft… |
+| set_rosa | Strampler ChatGPT, Body Gemini, Bearbeitung | Strampler D13, Body D18 |
+| set_smile_gruen | ChatGPT, Bearbeitung | Baby Beanie (nur Strampler) |
+| set_teddy_creme | Strampler Gemini, Bearbeitung / Body ChatGPT, Stil | Strampler D18 / Body: Bett mit Leinen, Strickhase |
+| set_teddy_rosa_punkte | Strampler Gemini, Stil / Body ChatGPT, Stil | Vichy-Decke mit Leinenkissen / Lammfell, Holzrassel |
+| set_wal_blau | Gemini, Stil | Seegraskorb mit Waffeldecke / Musselintuch auf Sofa, Strickwal |
+| set_weltall_hellblau | Gemini, Stil | blaue Strickdecke, Holzmond / Gitterbett mit Wolkenlaken |
 
 Gleiche Referenz für Strampler und Body (werden noch neu gemacht): eisbaer-taupe, little-bear-rosa, set_waldbaer_creme, born-in-2027-rosa, set_bauernhof, set_best_family.
 
@@ -52,4 +62,5 @@ Gleiche Referenz für Strampler und Body (werden noch neu gemacht): eisbaer-taup
 - `weltall-hellblau_baby_body`: Hand der Mutter im Bild (aus der Referenz).
 - `set_love_dad_mom_baby_strampler`: Baby liegt auf dem Bauch (aus Referenz D11), Schrift im Print teils gespiegelt.
 - Bei der Bearbeitung bleiben Plüschtiere und Nuggi der Referenz drin (D12, D17, D19). Für Ads Referenzen ohne Plüschtier wählen.
+- `set_teddy_rosa_punkte_baby_strampler` und `set_wal_blau_baby_strampler`: Baby schläft (ohne Decke oder Plüschtier am Gesicht).
 - Prints und Schriften mit dem echten Set vergleichen.
