@@ -6,6 +6,10 @@ Pro Set ein Bild im **Strampler** und eins im **Body** (mit Mütze, Söckchen od
 
 Prompt und Zuordnung Set → Referenz: Projekt-Doc `content/baby-referenz-prompts.md` (claude.ai-Projekt «sunnozy-medien»).
 
+## Methode ab 16.11. nachmittags («Bearbeitung»)
+
+Das Referenzfoto wird nur umgezogen: Gemini bekommt zuerst die Referenz, dann das Produktfoto, mit dem Auftrag «Edit image 1 … change only the baby's clothes». So bleiben Neugeborenes, Szene, Deko und Filter wie im Original. Grund: Bei der freien Generierung wurden die Babys zu alt und die Szene passte nicht mehr zur Referenz.
+
 ## Dateien
 
 - `<produkt>_baby*.png`: Sets aus `coming-soon/photos/shopify-backup-hauptbilder-coming-soon/`
@@ -33,6 +37,11 @@ Nicht hochgerechnet. Formate: ChatGPT 1122 × 1402, Gemini 825 × 1024 (einige 8
 | set_hello_world_blatt | Gemini | Strampler D13, Body Baby Beanie |
 | set_hello_world_creme | Gemini | Strampler Baby Beanie, Body D11 |
 | set_hund_creme | Gemini | Strampler D18, Body D4 |
+| set_lila_hase | Gemini, Bearbeitung | Strampler Soft…, Body D19 |
+| set_little_and_loved_gans_rosa | Gemini, Bearbeitung | Strampler D12, Body Milo |
+| set_little_bear | Gemini, Bearbeitung | Strampler D17, Body D12 |
+| set_love_dad_mom | Gemini, Bearbeitung | Strampler D11, Body D17 |
+| set_prinzessin_krone | Gemini, Bearbeitung | Strampler D12, Body Soft… |
 
 Gleiche Referenz für Strampler und Body (werden noch neu gemacht): eisbaer-taupe, little-bear-rosa, set_waldbaer_creme, born-in-2027-rosa, set_bauernhof, set_best_family.
 
@@ -41,4 +50,6 @@ Gleiche Referenz für Strampler und Body (werden noch neu gemacht): eisbaer-taup
 - **Sicherer Schlaf:** Die KI übernimmt Requisiten aus der Referenz. Schlafendes Baby mit Plüschtier, Nuggi oder Decke: `set_hund_creme_baby_body` (Teddy am Gesicht, Decke über den Beinen), `set_hello_world_blatt_baby_strampler` (Nuggi, Plüschtier), `set_hello_world_creme_baby_body` (Plüschhase), `set_best_family_baby_strampler` (Plüschlöwe, Nuggi). Nicht für Ads verwenden.
 - `born-in-2027-rosa_baby`: kleine Krönchen auf den Füsschen sind erfunden, gibt es im Set nicht.
 - `weltall-hellblau_baby_body`: Hand der Mutter im Bild (aus der Referenz).
+- `set_love_dad_mom_baby_strampler`: Baby liegt auf dem Bauch (aus Referenz D11), Schrift im Print teils gespiegelt.
+- Bei der Bearbeitung bleiben Plüschtiere und Nuggi der Referenz drin (D12, D17, D19). Für Ads Referenzen ohne Plüschtier wählen.
 - Prints und Schriften mit dem echten Set vergleichen.
