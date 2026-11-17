@@ -16,9 +16,11 @@ Pro Set ein Ordner mit jedem Teil einzeln (`strampler.jpg`, `body.jpg`, `muetze.
 
 | Set | Bilder |
 |---|---|
-| `hello_schmetterling/` «Hello» Rosa | Strampler, Body, Hose, Häubchen, Lätzchen, Kapuzentuch, Spitzenkragen, Stickerei «Hello» (im Original beige, hier weiss) |
-| `little_bear/` «Hello Little Bear» | Strampler, Body, Mütze, Fäustlinge, Lätzchen, Nahaufnahme Hand am Ärmel (ChatGPT) |
-| `rosa/` «Princess» | Strampler, Body, Kapuzentuch, Mütze, Fäustlinge, Socken, Lätzchen, Rassel, Stoff (Vichy mit Spitzenkragen), Print (Perlenkette) |
+| `hello_schmetterling/` «Hello» Rosa | Strampler, Body, Hose, Häubchen, Lätzchen, Kapuzentuch (Stickerei «Hello» hier weiss, im Original beige), Nahaufnahme Hand am Spitzenkragen, Baby im Stubenwagen |
+| `little_bear/` «Hello Little Bear» | Strampler, Body, Mütze, Fäustlinge, Lätzchen, Nahaufnahme Hand, Baby im Stubenwagen |
+| `rosa/` «Princess» | Strampler, Body, Kapuzentuch, Mütze, Fäustlinge, Socken, Lätzchen, Rassel, Nahaufnahme Hand am Spitzenkragen, Baby im Stubenwagen |
+
+`alt/`: erste flache Stoff-Nahaufnahmen, ersetzt durch `nah_hand` und `baby`.
 
 `verworfen/`: nicht verwenden (`little_bear_baby_zu-alt.jpg`: Baby wirkt ca. 4 Monate alt).
 
