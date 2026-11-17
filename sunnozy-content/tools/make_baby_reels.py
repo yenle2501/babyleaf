@@ -18,7 +18,7 @@ Ausgabe: posts/baby-reels/reel_<name>_9x16.mp4 + _titelbild.jpg, Captions in pos
 import os, sys, subprocess
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 import make_coming_soon_reels as m
-from endfolie import anhaengen, SET, SHOP, CS_AUFRUF
+from endfolie import anhaengen, SET, CS, SHOP, CS_AUFRUF
 
 W, H, FPS = m.W, m.H, 30
 VID = os.path.join(m.POSTS, 'baby-videos')
@@ -49,6 +49,39 @@ REELS = {
                          (SET + '/set_prinzessin_krone_quadratisch.jpg', 'Little Princess', 'coming soon', CS_AUFRUF)),
     'waldbaer_winterbaby': ('set_waldbaer_creme_baby_body_1.mp4', ['POV: Dein Baby', 'kommt im Winter'], '🌲',
                             (SET + '/set_waldbaer_creme_quadratisch.jpg', 'Waldbär', 'coming soon', CS_AUFRUF)),
+    # Runde 2 (17.11.2026, abends)
+    'hello_world_werdende_mami': ('set_hello_world_blatt_baby_body_2.mp4', ['Schick das der werdenden', 'Mami in Deinem Leben'], '✨',
+                                  (SET + '/set_hello_world_blatt_quadratisch.jpg', 'Hello World', 'Erstausstattung · 8 Teile', SHOP)),
+    'teddy_grosi_erstes_mal': ('set_teddy_creme_baby_strampler_2.mp4', ['POV: Das Grosi sieht ihn', 'zum ersten Mal'], '🥹',
+                               (SET + '/set_teddy_creme_quadratisch.jpg', 'Teddybär', 'Erstausstattung · 8 Teile', SHOP)),
+    'little_bear_strecken': ('set_little_bear_baby_strampler_1.mp4', ['Warnung: Dieses Strecken', 'macht süchtig'], '🧸',
+                             (SET + '/set_little_bear_quadratisch.jpg', 'Hello Little Bear', 'Erstausstattung · 5 Teile', SHOP)),
+    'dad_mom_werdender_papa': ('set_love_dad_mom_baby_body_1.mp4', ['Schick das dem', 'werdenden Papa'], '🤍',
+                               (SET + '/set_love_dad_mom_quadratisch.jpg', 'I love Dad Mom', 'coming soon', CS_AUFRUF)),
+    'weltall_goetti': ('set_weltall_hellblau_baby_body_2.mp4', ['POV: Du wirst Götti', 'und suchst noch ein Geschenk'], '🪐',
+                       (SET + '/set_weltall_hellblau_quadratisch.jpg', 'Little One · Weltall', 'coming soon', CS_AUFRUF)),
+    'teddy_rosa_nicht_anschauen': ('set_teddy_rosa_punkte_baby_strampler_2.mp4', ['Nicht anschauen, wenn Du', 'kein Babyfieber willst'], '🎀',
+                                   (SET + '/set_teddy_rosa_punkte_quadratisch.jpg', 'Teddy Rosa', 'coming soon', CS_AUFRUF)),
+    'prinzessin_maedchen': ('set_prinzessin_krone_baby_body_2.mp4', ['POV: Es wird', 'ein Mädchen'], '👑',
+                            (SET + '/set_prinzessin_krone_quadratisch.jpg', 'Little Princess', 'coming soon', CS_AUFRUF)),
+    'waldbaer_termin_winter': ('set_waldbaer_creme_baby_body_2.mp4', ['Schick das Deiner Freundin', 'mit Termin im Winter'], '🌲',
+                               (SET + '/set_waldbaer_creme_quadratisch.jpg', 'Waldbär', 'coming soon', CS_AUFRUF)),
+    'bauernhof_morgens': ('set_bauernhof_baby_strampler_1.mp4', ['POV: Morgens um 7', 'bei Euch zuhause'], '☀',
+                          (SET + '/set_bauernhof_quadratisch.jpg', 'Bauernhof «Happy Baby»', 'coming soon', CS_AUFRUF)),
+    'bauernhof_schwester': ('set_bauernhof_baby_strampler_2.mp4', ['Schick das Deiner Schwester,', 'die bald Mami wird'], '🐄',
+                            (SET + '/set_bauernhof_quadratisch.jpg', 'Bauernhof «Happy Baby»', 'coming soon', CS_AUFRUF)),
+    'wal_bub': ('set_wal_blau_baby_strampler_1.mp4', ['POV: Es wird', 'ein Bub'], '🐳',
+                (SET + '/set_wal_blau_quadratisch.jpg', 'Wal «Sea vibes»', 'coming soon', CS_AUFRUF)),
+    'hase_rosa_beste_freundin': ('set_hase_rosa_baby_body_1.mp4', ['POV: Deine beste Freundin', 'schickt Dir das erste Foto'], '🐰',
+                                 (SET + '/set_hase_rosa_quadratisch.jpg', 'Hase Rosa «Little one»', 'coming soon', CS_AUFRUF)),
+    'eisbaer_babyfieber': ('eisbaer-taupe_baby_v1-ohne-referenzlook_1.mp4', ['Wer braucht noch einen', 'Grund für Babyfieber?'], '🥹',
+                           ((CS + '/eisbaer-taupe/shop/eisbaer-taupe_shop_ohne_logo.jpg'), 'Eisbär Taupe', 'coming soon', CS_AUFRUF)),
+    'eisbaer_januar': ('eisbaer-taupe_baby_v1-ohne-referenzlook_2.mp4', ['Für das Baby,', 'das im Januar kommt'], '❄',
+                       ((CS + '/eisbaer-taupe/shop/eisbaer-taupe_shop_ohne_logo.jpg'), 'Eisbär Taupe', 'coming soon', CS_AUFRUF)),
+    'born_2027_markier': ('born-in-2027-rosa_baby_strampler_1.mp4', ['Markier alle,', 'die 2027 Mami werden'], '🎀',
+                          ((CS + '/born-in-2027-rosa/shop/born-in-2027-rosa_shop_ohne_logo.jpg'), 'Born in 2027', 'coming soon · Rosa und Hellblau', CS_AUFRUF)),
+    'born_2027_weihnachten': ('born-in-2027-rosa_baby_strampler_3.mp4', ['POV: Ihr sagt es der Familie', 'an Weihnachten'], '🎄',
+                              ((CS + '/born-in-2027-rosa/shop/born-in-2027-rosa_shop_ohne_logo.jpg'), 'Born in 2027', 'coming soon · Rosa und Hellblau', CS_AUFRUF)),
 }
 
 
@@ -82,7 +115,10 @@ def emoji(zeichen, hoehe):
 
 def text_ebene(zeilen, emo):
     """Weisse Schreibmaschinenschrift mit weichem Schatten, Emoji am Ende der letzten Zeile."""
-    fo = ImageFont.truetype(SCHRIFT, 52); lh = 66
+    g = 52
+    while max(ImageDraw.Draw(Image.new('L', (1, 1))).textlength(z, font=ImageFont.truetype(SCHRIFT, g)) for z in zeilen) > 930:
+        g -= 2
+    fo = ImageFont.truetype(SCHRIFT, g); lh = round(g * 1.27)
     tx = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(tx)
     schatten = Image.new('L', (W, H), 0); ds = ImageDraw.Draw(schatten)
     sp = emoji(emo, 46)
