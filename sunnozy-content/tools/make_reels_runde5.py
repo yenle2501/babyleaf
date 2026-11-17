@@ -1,4 +1,4 @@
-"""Reels aus den Baby-Videos Runde 5 (posts/videos-baby/runde5, Grok, 04.11.2026) zum Vorplanen.
+"""Reels aus den Baby-Videos Runde 5 (posts/baby-videos/runde5, Grok, 04.11.2026) zum Vorplanen.
 
     python3 tools/make_reels_runde5.py            # alle
     python3 tools/make_reels_runde5.py box_dino   # eines
@@ -17,7 +17,7 @@ import make_reels_box_schlaf as bx
 
 W, H, FPS = m.W, m.H, m.FPS
 P = m.POSTS
-SRC = os.path.join(P, 'videos-baby', 'runde5')
+SRC = os.path.join(P, 'baby-videos', 'runde5')
 BEA = os.path.join(SRC, 'bearbeitet')
 OUT = os.path.join(P, 'reels', 'runde5')
 CS = lambda d: os.path.join(P, 'coming-soon', d, 'shop', d + '_shop_ohne_logo.jpg')

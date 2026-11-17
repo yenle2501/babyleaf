@@ -1,4 +1,4 @@
-"""Reels aus den KI-Babyclips in posts/videos-baby/: Hook ab Sekunde 0, Schnitte, Zoom, Set-Karte, Preis, Musik, Loop.
+"""Reels aus den KI-Babyclips in posts/baby-videos/: Hook ab Sekunde 0, Schnitte, Zoom, Set-Karte, Preis, Musik, Loop.
 
     python3 tools/make_reels_videos_baby.py               # alle Reels aus REELS
     python3 tools/make_reels_videos_baby.py kirschen      # nur eines
@@ -16,7 +16,7 @@ import make_coming_soon_reels as m
 import make_coming_soon_kombi as k
 
 P = m.POSTS
-VB = os.path.join(P, 'videos-baby')
+VB = os.path.join(P, 'baby-videos')
 MUSIK = [os.path.join(P, 'reels', 'musik', n) for n in ('alex-morgan_heartwarming-story.mp3', 'alex-morgan_no-copyright-music.mp3')]
 CS = lambda d: os.path.join(P, 'coming-soon', d, 'shop', d + '_shop_ohne_logo.jpg')
 PR = lambda s: os.path.join(P, 'produktfotos-set-praesentation', 'ohne_logo', f'set_{s}_quadratisch.jpg')

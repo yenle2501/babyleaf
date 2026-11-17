@@ -5,7 +5,7 @@ verschwommene Clips im Hintergrund, mittig «Coming soon» mit Countdown Tage : 
     python3 tools/make_reels_countdown_7tage.py 3      # nur «noch 3 Tage»
 
 Pro Tag ein Reel (Tag 7 zuerst posten, Tag 1 am Vortag des Starts). Hintergrund: Grok-Babyclips der
-Coming-soon-Sets aus posts/videos-baby, stark weichgezeichnet (nur Farben und Bewegung, keine Details).
+Coming-soon-Sets aus posts/baby-videos, stark weichgezeichnet (nur Farben und Bewegung, keine Details).
 Kein Preis, keine Schreibschrift (Nunito Sans), Musik Alex Morgan (Pixabay).
 Ausgabe: posts/reels/coming-soon/countdown/reel_countdown_noch_<n>_tage_9x16.mp4 + _titelbild.jpg
 """
@@ -15,7 +15,7 @@ from PIL import Image, ImageDraw, ImageFilter
 import make_coming_soon_reels as m
 
 W, H, FPS = 1080, 1920, 30
-VB = os.path.join(m.POSTS, 'videos-baby')
+VB = os.path.join(m.POSTS, 'baby-videos')
 OUT = os.path.join(m.POSTS, 'reels', 'coming-soon', 'countdown')
 MUSIK = os.path.join(m.POSTS, 'reels', 'musik', 'alex-morgan_heartwarming-story.mp3')
 SCHNITT = 1.3                       # Sekunden pro Clip

@@ -4,7 +4,8 @@ Alles liegt jetzt in drei Ordnern. Gelöscht wurde nichts.
 
 | Ordner | Was |
 |---|---|
-| `coming-soon/reels/` | alle Videos und Reels (mp4/mov), Musik und die Titelbilder der Reels. Die Coming-soon-Reels (Countdown, Flackern, Schleife, Weihnachts-Reveal) liegen direkt hier, alle anderen in Unterordnern nach Thema (z.B. `kampagne-weihnachtsbox/`, `pov-mama/`, `hello-little-bear/`, `videos-baby/`, `musik/`) |
+| `baby-videos/` | alle KI-Babyvideos (Grok-Clips, roh und `_bearbeitet`), Quelle für Reels. Am 17.11.2026 hierher verschoben aus `coming-soon/reels/videos-baby/` |
+| `coming-soon/reels/` | alle Videos und Reels (mp4/mov), Musik und die Titelbilder der Reels. Die Coming-soon-Reels (Countdown, Flackern, Schleife, Weihnachts-Reveal) liegen direkt hier, alle anderen in Unterordnern nach Thema (z.B. `kampagne-weihnachtsbox/`, `pov-mama/`, `hello-little-bear/`, `musik/`) |
 | `coming-soon/photos/` | alle Produkt-, Shop-, Ads- und Marktplatzbilder, nach Thema bzw. Set (z.B. `strampler-hund-creme/`, `kampagne-weihnachtsbox/`, `marktplatz-galaxus-amazon/`, `shopify-*`, `meta-ads-*`, `paket-*`) |
 | `baby-photos/` | alle Babyfotos (KI und Muster), z.B. `kampagne-weihnachtsbox/baby-pinterest-stil/`, `kampagne-weihnachtsbox/baby-in-box-kleidung/`, `baby-fotos-muster/`, `paket-17-baby-alltag/` |
 

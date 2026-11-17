@@ -3,7 +3,7 @@ Outfit, schnelle Schnitte (ca. 1,2 s), Wochentag gross in der Mitte, leichte Han
 
     python3 tools/make_reel_outfits_woche.py
 
-Clips: die Grok-Babyvideos der Nutzerin aus posts/videos-baby (*_bearbeitet.mp4), je 1,1 s pro Tag.
+Clips: die Grok-Babyvideos der Nutzerin aus posts/baby-videos (*_bearbeitet.mp4), je 1,1 s pro Tag.
 Schrift: Cormorant Garamond kursiv wie die anderen Reels (keine Schreibschrift).
 Ausgabe: posts/reels/im-shop/reel_outfits_der_woche_9x16.mp4 + _titelbild.jpg
 """
@@ -16,7 +16,7 @@ W, H, FPS = 1080, 1920, 30
 BP = os.path.join(m.POSTS, 'baby-photos')
 OUT = os.path.join(m.POSTS, 'reels', 'im-shop')
 MUSIK = os.path.join(m.POSTS, 'reels', 'musik', 'alex-morgan_no-copyright-music.mp3')
-VB = os.path.join(m.POSTS, 'videos-baby')
+VB = os.path.join(m.POSTS, 'baby-videos')
 # (Tag, Clip, Start in s, Bildmitte x)
 TAGE = [('Montag', 'teddy_creme_a', 2.0, 0.5),
         ('Dienstag', 'princess_rosa_a', 1.0, 0.5),

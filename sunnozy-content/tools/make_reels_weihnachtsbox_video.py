@@ -5,7 +5,7 @@ Die Box ist im Shop, deshalb steht der Preis auf der Schlusskarte.
     python3 tools/make_reels_weihnachtsbox_video.py            # alle
     python3 tools/make_reels_weihnachtsbox_video.py auspacken  # nur eines
 
-Clips: posts/videos-baby/weihnachtsbox_mummy_{a,b,c}_bearbeitet.mp4 (unten 200 px mit eingebranntem Text
+Clips: posts/baby-videos/weihnachtsbox_mummy_{a,b,c}_bearbeitet.mp4 (unten 200 px mit eingebranntem Text
 weggeschnitten, nachbearbeitet). Ausgabe: posts/kampagne-weihnachtsbox/reels/reel_mummy_<name>_9x16.mp4 + _titelbild.jpg
 """
 import os, sys
