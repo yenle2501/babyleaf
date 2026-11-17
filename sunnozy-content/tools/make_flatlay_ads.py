@@ -13,7 +13,7 @@ import os, sys, glob
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-FL = os.path.join(ROOT, 'posts', 'kampagne-weihnachtsbox', 'rote-box', 'flatlay')
+FL = os.path.join(ROOT, 'posts', 'coming-soon', 'photos', 'kampagne-weihnachtsbox', 'rote-box', 'flatlay')
 F = lambda n, s: ImageFont.truetype(os.path.join(ROOT, 'fonts', n), int(s))
 HELL, SCHWARZ, GRAU = (239, 238, 236), (17, 17, 17), (110, 108, 104)
 BOX = {
@@ -125,7 +125,7 @@ def zu_offen(key):
     """Idee «Verpackt … und das ist drin»: links die geschlossene Box, rechts das Flatlay."""
     name, inh, preis = BOX[key]; W = H = 1080
     c = Image.new('RGB', (W, H), HELL)
-    zu = Image.open(os.path.join(ROOT, 'posts', 'kampagne-weihnachtsbox', 'rote-box', 'vorlage', 'vorlage_zu.jpg')).convert('RGB')
+    zu = Image.open(os.path.join(ROOT, 'posts', 'coming-soon', 'photos', 'kampagne-weihnachtsbox', 'rote-box', 'vorlage', 'vorlage_zu.jpg')).convert('RGB')
     s = max(530 / zu.width, 760 / zu.height); zu = zu.resize((round(zu.width * s), round(zu.height * s)), Image.LANCZOS)
     zu = zu.crop(((zu.width - 530) // 2, (zu.height - 760) // 2, (zu.width - 530) // 2 + 530, (zu.height - 760) // 2 + 760))
     c.paste(zu, (0, 170)); c.paste(foto(key, 530, 760), (550, 170))
