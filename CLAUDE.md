@@ -12,6 +12,10 @@ Inhalte für die Babykleidungs-Marke sunnozy liegen in `sunnozy-content/`.
   - Video in voller Grösse, Text nur am Anfang und zum Loop am Ende
   - Länge 9–12 s
   - Vorlage: `tools/make_reel_hello_little_bear_hook.py`
+- **Endfolie:** Jedes Reel bekommt eine Endfolie (Wunsch der Nutzerin seit dem 17.11.2026).
+  - Werkzeug: `tools/endfolie.py`, entweder `anhaengen(pfad, set_bild, name, zeile, aufruf)` oder den Eintrag in `REELS` ergänzen und das Skript laufen lassen.
+  - Inhalt: Creme-Fläche, Set-Bild, Name, Zeile («Erstausstattung · 5 Teile» oder «coming soon»), Aufruf («Link in der Bio · sunnozy.ch» oder «Folg uns, damit Du es nicht verpasst»), Logo.
+  - Länge 2,6 s, 0,4 s Überblendung, die Musik läuft durch. Ohne Preis.
 - **Preis:** In Coming-soon-Reels nie einen Preis zeigen.
 - **Inhalt:**
   - Hook ab dem ersten Bild
