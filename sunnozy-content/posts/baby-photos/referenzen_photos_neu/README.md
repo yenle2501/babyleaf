@@ -72,6 +72,11 @@ Für Bilder mit Safe-Sleep-Problem oder Fehler gibt es eine zweite Version im St
 | set_wal_blau_baby_strampler_ads | hellblaue Waffeldecke, Holzboot |
 | born-in-2027-rosa_baby_ads | Lammfell auf Holzboden, Holz-Heissluftballons (ohne Krönchen) |
 
+## Unterordner
+
+- `alt/`: frühere Versionen, die ersetzt wurden (die 6 Bilder mit gleicher Referenz für Strampler und Body, Stand 16.11. nachmittags) und ein Test von lila_hase im Bearbeitungs-Stil.
+- `verworfen/`: nicht verwenden. `*_stil-c.png` = freie Generierung (Babys zu alt, Szene passt nicht), `born-in-2027-rosa_baby_grok.png` = Grok (zu glatt).
+
 ## Vor dem Posten prüfen
 
 - **Sicherer Schlaf:** Die KI übernimmt Requisiten aus der Referenz. Schlafendes Baby mit Plüschtier, Nuggi oder Decke: `set_hund_creme_baby_body` (Teddy am Gesicht, Decke über den Beinen), `set_hello_world_blatt_baby_strampler` (Nuggi, Plüschtier), `set_hello_world_creme_baby_body` (Plüschhase), `set_best_family_baby_strampler` (Plüschlöwe, Nuggi). Nicht für Ads verwenden.
