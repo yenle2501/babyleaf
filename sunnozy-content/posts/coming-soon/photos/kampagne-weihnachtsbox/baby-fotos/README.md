@@ -27,16 +27,11 @@ Für die Produkte der Kollektion «Geschenkboxen» (sunnozy.ch/collections/gesch
 | «Lovely Little Girl» | rosa Eis-Body + rosa Leggings | rosa Herz-Body + Leggings, Sonnenstreifen |
 | «Growing up strong» | creme «Daddy's Bestie» + Jogger, Detail | hellblau + Jogger, Weidenkorb |
 | «I love my Mummy» | Bären-Body, Musselin, Body und Halstuch daneben | brauner Body + Halstuch, Weidenkorb |
-| «Dino» | blauer Punkte-Body, Bettdecke | Body «Daddy Mommy love me», blaues Mulltuch (Lifestyle-Runde) |
+| «Dino» | blauer Punkte-Body, Bettdecke | Body «Daddy Mommy love me», Detail mit Sonnenstreifen |
 | «Dinosaur» | creme «Dinosaur is coming!» + Jogger | Igel-Body + Jogger, Detail |
 | «Little One» (Mulltücher) | creme «little one», Weidenkorb | salbeigrün, Bett mit Sonnenstreifen |
-| «I like flying» | in Papas Händen am Fenster (Lifestyle-Runde) | Eis-Body + Leggings, Musselin (Lifestyle-Runde) |
-| «Little One» Jogginghosen | auf Mamas Schoss (Lifestyle-Runde) | salbeigrün vor dem Christbaum (Lifestyle-Runde) |
-
-**Noch im neuen Stil offen** (alle KI-Konten bis 18.11. am Limit):
-- Dino 2
-- I like flying 1 + 2
-- Little One Jogginghosen 1 + 2
+| «I like flying» | creme Tröpfchen-Body + Leggings, von oben | Eis-Body + rosa Leggings, Detail |
+| «Little One» Jogginghosen | creme «little one» + Jogger, von oben | salbeigrün + Jogger, Weidenkorb |
 
 **Ordner:**
 - `uebersicht.jpg`: alle Fotos auf einen Blick
