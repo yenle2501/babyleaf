@@ -16,7 +16,7 @@ Pro Set ein Ordner mit jedem Teil einzeln (`strampler.jpg`, `body.jpg`, `muetze.
 
 | Set | Bilder |
 |---|---|
-| `hello_schmetterling/` «Hello» Rosa | Strampler, Body, Hose, Häubchen, Lätzchen, Kapuzentuch, Spitzenkragen, Stickerei «Hello» (im Original beige, hier weiss) |
+| `hello_schmetterling/` «Hello» Rosa | Strampler, Body, Hose, Häubchen, Lätzchen, Kapuzentuch (Stickerei «Hello» hier weiss, im Original beige), Nahaufnahme Hand am Spitzenkragen, Baby im Stubenwagen |
 | `little_bear/` «Hello Little Bear» | Strampler, Body, Mütze, Fäustlinge, Lätzchen, Nahaufnahme Hand, Baby im Stubenwagen |
 | `rosa/` «Princess» | Strampler, Body, Kapuzentuch, Mütze, Fäustlinge, Socken, Lätzchen, Rassel, Nahaufnahme Hand am Spitzenkragen, Baby im Stubenwagen |
 
