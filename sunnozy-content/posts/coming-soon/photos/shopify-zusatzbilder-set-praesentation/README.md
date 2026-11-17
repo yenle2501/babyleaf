@@ -20,4 +20,6 @@ Pro Set ein Ordner mit jedem Teil einzeln (`strampler.jpg`, `body.jpg`, `muetze.
 | `little_bear/` «Hello Little Bear» | Strampler, Body, Mütze, Fäustlinge, Lätzchen, Nahaufnahme Hand am Ärmel (ChatGPT) |
 | `rosa/` «Princess» | Strampler, Body, Kapuzentuch, Mütze, Fäustlinge, Socken, Lätzchen, Rassel, Stoff (Vichy mit Spitzenkragen), Print (Perlenkette) |
 
+`verworfen/`: nicht verwenden (`little_bear_baby_zu-alt.jpg`: Baby wirkt ca. 4 Monate alt).
+
 **Mit KI erstellt:** Prints, Stickereien und Farben vor dem Veröffentlichen mit dem echten Set vergleichen.
