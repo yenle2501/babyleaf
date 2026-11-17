@@ -10,6 +10,7 @@ Pro Set ein Ordner mit jedem Teil einzeln (`strampler.jpg`, `body.jpg`, `muetze.
 
 | Set | Bilder |
 |---|---|
+| `hello_schmetterling/` «Hello» Rosa | Strampler, Body, Hose, Häubchen, Lätzchen, Kapuzentuch, Spitzenkragen, Stickerei «Hello» (im Original beige, hier weiss) |
 | `rosa/` «Princess» | Strampler, Body, Kapuzentuch, Mütze, Fäustlinge, Socken, Lätzchen, Rassel, Stoff (Vichy mit Spitzenkragen), Print (Perlenkette) |
 
 **Mit KI erstellt:** Prints, Stickereien und Farben vor dem Veröffentlichen mit dem echten Set vergleichen.
