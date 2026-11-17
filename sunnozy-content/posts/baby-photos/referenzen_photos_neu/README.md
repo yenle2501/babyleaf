@@ -57,6 +57,21 @@ Nicht hochgerechnet. Formate: ChatGPT 1122 × 1402, Gemini 825 × 1024 (einige 8
 
 Strampler und Body haben jetzt bei allen Sets eine eigene Szene. Die 6 Bilder mit doppelter Referenz (eisbaer-taupe Body, little-bear-rosa Body, set_waldbaer_creme Body, born-in-2027-rosa Strampler, set_bauernhof Body, set_best_family Body) wurden im Stil neu gemacht; alte Versionen in der Git-History.
 
+## Ads-Varianten (`*_ads.png`, 17.11.)
+
+Für Bilder mit Safe-Sleep-Problem oder Fehler gibt es eine zweite Version im Stil (Gemini): Baby wach, auf dem Rücken, nichts am Gesicht, kein Nuggi, kein Plüschtier. Das Original bleibt daneben.
+
+| Datei | Szene |
+|---|---|
+| set_hund_creme_baby_body_ads | Waffeldecke auf Bett, Holz-Nachziehhund |
+| set_hello_world_blatt_baby_strampler_ads | Leinendecke, Herbstblätter, Holzeichel |
+| set_hello_world_creme_baby_body_ads | Grobstrickdecke auf Holzboden, Holzregenbogen, Pflanze |
+| set_love_dad_mom_baby_strampler_ads | grau gestreifte Decke auf Bett, Strickherz (Rückenlage, Schrift richtig herum) |
+| set_best_family_baby_strampler_ads | Gitterbett mit Leinenlaken, sonst leer |
+| set_teddy_rosa_punkte_baby_strampler_ads | rosa Vichy-Decke, Leinenkissen, Holzrassel |
+| set_wal_blau_baby_strampler_ads | hellblaue Waffeldecke, Holzboot |
+| born-in-2027-rosa_baby_ads | Lammfell auf Holzboden, Holz-Heissluftballons (ohne Krönchen) |
+
 ## Vor dem Posten prüfen
 
 - **Sicherer Schlaf:** Die KI übernimmt Requisiten aus der Referenz. Schlafendes Baby mit Plüschtier, Nuggi oder Decke: `set_hund_creme_baby_body` (Teddy am Gesicht, Decke über den Beinen), `set_hello_world_blatt_baby_strampler` (Nuggi, Plüschtier), `set_hello_world_creme_baby_body` (Plüschhase), `set_best_family_baby_strampler` (Plüschlöwe, Nuggi). Nicht für Ads verwenden.
