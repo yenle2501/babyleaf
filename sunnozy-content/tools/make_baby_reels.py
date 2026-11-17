@@ -10,7 +10,13 @@ Grösse. Text steht oben im Bild über dem Kopf des Babys, damit Gesicht und Pri
 Bearbeitung: leicht entrauscht, etwas wärmer, nachgeschärft (wie die `_bearbeitet`-Clips). Musik: Standard-Track Alex Morgan.
 Endfolie: tools/endfolie.py (Set-Bild, Name, Zeile, Aufruf, Logo). Kein Preis.
 
-Nur Clips ohne Plüschtier, Nuggi und lose Decke beim Baby (Safe Sleep), Baby auf dem Rücken.
+Bearbeitung v2 (18.11.2026, nach Hook-Recherche Instagram 2026): Skip-Rate in den ersten 1–3 s entscheidet, DM-Shares sind
+das wichtigste Signal, erstes Bild braucht sichtbare Bewegung, Text in 0.5 s da, oberes Drittel, Loop.
+  - Start erst bei 0.8 s: Grok-Clips beginnen mit dem stehenden Foto, so ist ab Bild 1 Bewegung drin
+  - Punch-in-Zoom 112 % → 100 % in den ersten 0.5 s
+  - Hook tippt sich in 0.5 s ein (Schreibmaschine), am Loop-Ende steht er sofort ganz da
+
+Runde 1+2 nur Clips ohne Plüschtier, Nuggi und lose Decke (Safe Sleep). Runde 3 auch solche Clips, auf Wunsch der Nutzerin.
 
     python3 tools/make_baby_reels.py [name ...]
 Ausgabe: posts/baby-reels/reel_<name>_9x16.mp4 + _titelbild.jpg, Captions in posts/baby-reels/README.md
@@ -26,8 +32,9 @@ OUT = os.path.join(m.POSTS, 'baby-reels')
 MUSIK = os.path.join(m.POSTS, 'coming-soon', 'reels', 'musik', 'alex-morgan_no-copyright-music.mp3')
 SCHRIFT = os.path.join(m.ROOT, 'fonts', 'courierprime.ttf')
 EMOJI = '/usr/share/fonts/truetype/noto/NotoColorEmoji.ttf'
-DAUER = 10.0
-TEXT_BIS, LOOP_AB = 3.2, 8.6
+VON, DAUER = 0.8, 9.2
+ZOOM_BIS, TIPP_BIS = 0.5, 0.5
+TEXT_BIS, LOOP_AB = 3.0, 8.0
 TEXT_Y = 250
 GRADE = 'hqdn3d=1.5:1.5:4:4,eq=contrast=1.04:saturation=1.04:gamma=1.01,colorbalance=rs=0.02:bs=-0.02:rm=0.015:bm=-0.015,cas=0.35'
 
@@ -82,6 +89,55 @@ REELS = {
                           ((CS + '/born-in-2027-rosa/shop/born-in-2027-rosa_shop_ohne_logo.jpg'), 'Born in 2027', 'coming soon · Rosa und Hellblau', CS_AUFRUF)),
     'born_2027_weihnachten': ('born-in-2027-rosa_baby_strampler_3.mp4', ['POV: Ihr sagt es der Familie', 'an Weihnachten'], '🎄',
                               ((CS + '/born-in-2027-rosa/shop/born-in-2027-rosa_shop_ohne_logo.jpg'), 'Born in 2027', 'coming soon · Rosa und Hellblau', CS_AUFRUF)),
+    # Runde 3 (17.11.2026, spät): Safe Sleep laut Nutzerin hier nicht so wichtig, auch Clips mit Plüschtier/Nuggi/Decke
+    'hello_world_creme_kuscheltier': ('set_hello_world_creme_baby_body_1.mp4', ['POV: Das erste Kuscheltier', 'ist schon ausgesucht'], '🐰',
+        (SET + '/set_hello_world_creme_quadratisch.jpg', 'Hello World · Creme', 'coming soon', CS_AUFRUF)),
+    'hello_world_creme_zu_dritt': ('set_hello_world_creme_baby_body_2.mp4', ['POV: Ihr seid', 'zum ersten Mal zu dritt'], '🤍',
+        (SET + '/set_hello_world_creme_quadratisch.jpg', 'Hello World · Creme', 'coming soon', CS_AUFRUF)),
+    'hund_hundemama': ('set_hund_creme_baby_body_1.mp4', ['Schick das der Hundemama,', 'die bald echte Mama wird'], '🐶',
+        (SET + '/set_hund_creme_quadratisch.jpg', 'I love Dogs', 'coming soon', CS_AUFRUF)),
+    'hund_schlaeft_fast': ('set_hund_creme_baby_body_2.mp4', ['POV: Er schläft endlich…', 'fast'], '🧸',
+        (SET + '/set_hund_creme_quadratisch.jpg', 'I love Dogs', 'coming soon', CS_AUFRUF)),
+    'lila_hase_suechtig': ('set_lila_hase_baby_body_1.mp4', ['Warnung:', 'Lila macht süchtig'], '💜',
+        (SET + '/set_lila_hase_quadratisch.jpg', 'Lila Hase «little and cute»', 'coming soon', CS_AUFRUF)),
+    'lila_hase_freundin': ('set_lila_hase_baby_body_2.mp4', ['Schick das Deiner Freundin,', 'die Lila liebt'], '💜',
+        (SET + '/set_lila_hase_quadratisch.jpg', 'Lila Hase «little and cute»', 'coming soon', CS_AUFRUF)),
+    'little_and_loved_erster_morgen': ('set_little_and_loved_gans_rosa_baby_body_1.mp4', ['POV: Mamis Hand,', 'Babys erster Morgen'], '🤍',
+        (SET + '/set_little_and_loved_gans_rosa_quadratisch.jpg', 'Little and Loved', 'Erstausstattung · 8 Teile', SHOP)),
+    'little_and_loved_und_wie': ('set_little_and_loved_gans_rosa_baby_body_2.mp4', ['Little and loved.', 'Und wie'], '🥹',
+        (SET + '/set_little_and_loved_gans_rosa_quadratisch.jpg', 'Little and Loved', 'Erstausstattung · 8 Teile', SHOP)),
+    'little_and_loved_gotti_set': ('set_little_and_loved_gans_rosa_baby_strampler_1.mp4', ['POV: Die Gotti hat', 'das Set ausgesucht'], '🎀',
+        (SET + '/set_little_and_loved_gans_rosa_quadratisch.jpg', 'Little and Loved', 'Erstausstattung · 8 Teile', SHOP)),
+    'little_and_loved_markier_gotti': ('set_little_and_loved_gans_rosa_baby_strampler_2.mp4', ['Markier die Gotti,', 'die das schenkt'], '🎀',
+        (SET + '/set_little_and_loved_gans_rosa_quadratisch.jpg', 'Little and Loved', 'Erstausstattung · 8 Teile', SHOP)),
+    'little_bear_guten_morgen': ('set_little_bear_baby_body_1.mp4', ['POV: Sein allererstes', '«Guten Morgen»'], '🧸',
+        (SET + '/set_little_bear_quadratisch.jpg', 'Hello Little Bear', 'Erstausstattung · 5 Teile', SHOP)),
+    'little_bear_grosi': ('set_little_bear_baby_body_2.mp4', ['Schick das dem Grosi,', 'das schon fleissig strickt'], '🧸',
+        (SET + '/set_little_bear_quadratisch.jpg', 'Hello Little Bear', 'Erstausstattung · 5 Teile', SHOP)),
+    'prinzessin_freundin_maedchen': ('set_prinzessin_krone_baby_strampler_1.mp4', ['Schick das der Freundin,', 'die ein Mädchen erwartet'], '👑',
+        (SET + '/set_prinzessin_krone_quadratisch.jpg', 'Little Princess', 'coming soon', CS_AUFRUF)),
+    'princess_endlich_da': ('set_rosa_baby_strampler_1.mp4', ['POV: Sie ist', 'endlich da'], '🎀',
+        (SET + '/set_rosa_quadratisch.jpg', 'Princess', 'Erstausstattung · 8 Teile', SHOP)),
+    'princess_gotti_gefuehle': ('set_rosa_baby_strampler_2.mp4', ['Warnung:', 'akute Gotti-Gefühle'], '🎀',
+        (SET + '/set_rosa_quadratisch.jpg', 'Princess', 'Erstausstattung · 8 Teile', SHOP)),
+    'smile_erstes_laecheln': ('set_smile_gruen_baby_strampler_1.mp4', ['POV: Sein erstes', 'Lächeln'], '💚',
+        (SET + '/set_smile_gruen_quadratisch.jpg', 'Smile · Salbeigrün', 'coming soon', CS_AUFRUF)),
+    'teddy_body_name': ('set_teddy_creme_baby_body_1.mp4', ['POV: Ihr habt', 'den Namen schon'], '🧸',
+        (SET + '/set_teddy_creme_quadratisch.jpg', 'Teddybär', 'Erstausstattung · 8 Teile', SHOP)),
+    'teddy_rosa_fuesschen': ('set_teddy_rosa_punkte_baby_body_1.mp4', ['Warnung:', 'diese Füsschen'], '🥹',
+        (SET + '/set_teddy_rosa_punkte_quadratisch.jpg', 'Teddy Rosa', 'coming soon', CS_AUFRUF)),
+    'wal_matrose': ('set_wal_blau_baby_body_1.mp4', ['POV: Dein kleiner Matrose', 'ist an Bord'], '🐳',
+        (SET + '/set_wal_blau_quadratisch.jpg', 'Wal «Sea vibes»', 'coming soon', CS_AUFRUF)),
+    'weltall_gute_nacht': ('set_weltall_hellblau_baby_strampler_1.mp4', ['Gute Nacht,', 'kleiner Astronaut'], '🌙',
+        (SET + '/set_weltall_hellblau_quadratisch.jpg', 'Little One · Weltall', 'coming soon', CS_AUFRUF)),
+    'gaensebluemchen_sie_ist_da': ('set_gaensebluemchen_baby_strampler_1.mp4', ['POV: Es ist ein Mädchen.', 'Und sie ist da'], '🌼',
+        (SET + '/set_gaensebluemchen_quadratisch.jpg', "«It's a baby girl»", 'coming soon', CS_AUFRUF)),
+    'hase_rosa_erster_tag': ('set_hase_rosa_baby_strampler_1.mp4', ['POV: Mamis Hände,', 'Babys erster Tag'], '🐰',
+        (SET + '/set_hase_rosa_quadratisch.jpg', 'Hase Rosa «Little one»', 'coming soon', CS_AUFRUF)),
+    'hello_rosa_freundin': ('set_hello_schmetterling_baby_body_1.mp4', ['Schick das Deiner Freundin,', 'die Rosa liebt'], '🦋',
+        (SET + '/set_hello_schmetterling_quadratisch.jpg', 'Hello', 'Erstausstattung · 6 Teile', SHOP)),
+    'waldbaer_ist_da': ('set_waldbaer_creme_baby_strampler_1.mp4', ['POV: Euer kleiner Waldbär', 'ist da'], '🌲',
+        (SET + '/set_waldbaer_creme_quadratisch.jpg', 'Waldbär', 'coming soon', CS_AUFRUF)),
 }
 
 
@@ -94,7 +150,7 @@ def groesse(pfad):
 def clip_frames(pfad):
     w, h = groesse(pfad)
     sw = round(w * H / h / 2) * 2
-    p = subprocess.Popen(['ffmpeg', '-v', 'error', '-t', str(DAUER), '-i', pfad, '-map', '0:v:0',
+    p = subprocess.Popen(['ffmpeg', '-v', 'error', '-ss', str(VON), '-t', str(DAUER), '-i', pfad, '-map', '0:v:0',
                           '-vf', f'fps={FPS},{GRADE},scale={sw}:{H}:flags=lanczos,crop={W}:{H}:{(sw - W) // 2}:0',
                           '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], stdout=subprocess.PIPE)
     n = W * H * 3
@@ -113,10 +169,27 @@ def emoji(zeichen, hoehe):
     return im.resize((round(im.width * hoehe / im.height), hoehe), Image.LANCZOS)
 
 
-def text_ebene(zeilen, emo):
+def teil(zeilen, k):
+    aus = []
+    for z in zeilen:
+        aus.append(z[:k]); k -= len(z)
+        if k <= 0:
+            break
+    return [a for a in aus if a]
+
+
+def punch(fr, t):
+    if t >= ZOOM_BIS:
+        return fr
+    f = 1 + 0.12 * (1 - m.ease(t / ZOOM_BIS))
+    w, h = round(W * f), round(H * f)
+    return fr.resize((w, h), Image.BILINEAR).crop(((w - W) // 2, (h - H) // 2, (w - W) // 2 + W, (h - H) // 2 + H))
+
+
+def text_ebene(zeilen, emo, mit_emoji=True, voll=None):
     """Weisse Schreibmaschinenschrift mit weichem Schatten, Emoji am Ende der letzten Zeile."""
     g = 52
-    while max(ImageDraw.Draw(Image.new('L', (1, 1))).textlength(z, font=ImageFont.truetype(SCHRIFT, g)) for z in zeilen) > 930:
+    while max(ImageDraw.Draw(Image.new('L', (1, 1))).textlength(z, font=ImageFont.truetype(SCHRIFT, g)) for z in (voll or zeilen)) > 930:
         g -= 2
     fo = ImageFont.truetype(SCHRIFT, g); lh = round(g * 1.27)
     tx = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(tx)
@@ -124,11 +197,12 @@ def text_ebene(zeilen, emo):
     sp = emoji(emo, 46)
     for k, z in enumerate(zeilen):
         letzte = k == len(zeilen) - 1
-        breite = d.textlength(z, font=fo) + (sp.width + 14 if letzte else 0)
+        ref = (voll or zeilen)[k]                     # Position immer von der ganzen Zeile, damit beim Tippen nichts springt
+        breite = d.textlength(ref, font=fo) + (sp.width + 14 if (voll is None and letzte) or (voll and k == len(voll) - 1) else 0)
         x0 = (W - breite) / 2; y = TEXT_Y + k * lh
         ds.text((x0 + 2, y + 3), z, font=fo, fill=210, anchor='lm')
         d.text((x0, y), z, font=fo, fill=(255, 255, 255, 255), anchor='lm')
-        if letzte:
+        if letzte and mit_emoji:
             schatten.paste(255, (int(x0 + breite - sp.width), int(y - sp.height / 2 - 4)), sp.getchannel('A').point(lambda v: v // 3))
             tx.alpha_composite(sp, (int(x0 + breite - sp.width), int(y - sp.height / 2 - 4)))
     schatten = schatten.filter(ImageFilter.GaussianBlur(7))
@@ -147,18 +221,28 @@ def reel(name):
     os.makedirs(OUT, exist_ok=True)
     pfad = os.path.join(OUT, f'reel_{name}_9x16.mp4'); tmp = pfad + '.tmp.mp4'
     enc = subprocess.Popen(['ffmpeg', '-y', '-v', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
-                            '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '18', '-preset', 'medium', tmp], stdin=subprocess.PIPE)
+                            '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '18', '-preset', 'veryfast', tmp], stdin=subprocess.PIPE)
     i = 0
+    tipp = {}                                     # Schreibmaschine: Ebene je Anzahl sichtbarer Zeichen
+    gesamt = sum(len(z) for z in zeilen)
     for i, fr in enumerate(clip_frames(os.path.join(VID, clip))):
         if i >= n:
             break
         t = i / FPS
-        a = 1 - m.ease((t - (TEXT_BIS - 0.4)) / 0.4) if t < LOOP_AB else m.ease((t - LOOP_AB) / 0.4)
-        c = fr.convert('RGBA')
-        if a > 0:
-            e = ebene.copy(); e.putalpha(e.getchannel('A').point(lambda v: int(v * a)))
-            c.alpha_composite(e)
-        if i == int(0.5 * FPS):
+        c = punch(fr, t).convert('RGBA')
+        if t < TIPP_BIS:
+            k = max(1, int(gesamt * t / TIPP_BIS) + 1)
+            if k not in tipp:
+                tipp[k] = text_ebene(teil(zeilen, k), emo, mit_emoji=False, voll=zeilen)
+            c.alpha_composite(tipp[k])
+        else:
+            a = 1 - m.ease((t - (TEXT_BIS - 0.4)) / 0.4) if t < LOOP_AB else 1.0
+            if a > 0:
+                e = ebene if a >= 1 else ebene.copy()
+                if a < 1:
+                    e.putalpha(e.getchannel('A').point(lambda v: int(v * a)))
+                c.alpha_composite(e)
+        if i == int(0.6 * FPS):
             c.convert('RGB').save(pfad.replace('.mp4', '_titelbild.jpg'), quality=92)
         enc.stdin.write(c.convert('RGB').tobytes())
     enc.stdin.close(); enc.wait()
