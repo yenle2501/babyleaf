@@ -18,7 +18,7 @@ import make_reel_hello_little_bear_hook as hk
 W, H, FPS = m.W, m.H, 30
 BASIS = os.path.join(m.POSTS, 'coming-soon', 'reels', 'hello-spitze')
 O = os.path.join(BASIS, 'original')
-MUSIK = os.path.join(m.POSTS, 'coming-soon', 'reels', 'musik', 'alex-morgan_heartwarming-story.mp3')
+MUSIK = os.path.join(m.POSTS, 'coming-soon', 'reels', 'musik', 'alex-morgan_no-copyright-music.mp3')
 SZENEN = [('clip_strecken.mp4', 0.0, 5.0), ('clip_details.mp4', 10.6, 14.6), ('clip_aufwachen.mp4', 1.6, 6.0)]
 BLENDE = 0.3
 

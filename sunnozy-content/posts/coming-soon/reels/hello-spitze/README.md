@@ -8,7 +8,7 @@ Aus drei KI-Clips der Nutzerin zusammengeschnitten (`original/`). Der Stil ist w
 | 5–8,7 s | `clip_details.mp4` (10,6–14,6 s) | Kamera fährt zu Spitzenkragen, Schleife und Häubchen, die Rippe ist nah zu sehen | – |
 | 8,7–12,8 s | `clip_aufwachen.mp4` (1,6–6 s) | Baby wird wach und öffnet die Augen | Schluss-Text ab etwa 10,5 s, läuft in den Loop |
 
-Zwischen den Clips gibt es eine Überblendung von 0,3 s. Musik: Alex Morgan «Heartwarming Story» (lizenzfrei). Der letzte Clip ist nur 544 px gross und deshalb hochgerechnet und leicht nachgeschärft.
+Zwischen den Clips gibt es eine Überblendung von 0,3 s. Musik: Standard-Track Alex Morgan «No Copyright Music» (`../musik/alex-morgan_no-copyright-music.mp3`, lizenzfrei). Der letzte Clip ist nur 544 px gross und deshalb hochgerechnet und leicht nachgeschärft.
 
 ## Varianten (A/B-Test)
 

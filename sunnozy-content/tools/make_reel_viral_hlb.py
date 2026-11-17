@@ -60,7 +60,7 @@ def babyfieber():
                 e = ebene.copy(); e.putalpha(e.getchannel('A').point(lambda v: int(v * a)))
                 c.alpha_composite(e)
             yield c
-    schreiben(os.path.join(BASIS, 'reel_hello_little_bear_babyfieber_9x16.mp4'), frames(), dauer, 'mixkit_michael-ramir_christmas-lullaby.mp3', 4)
+    schreiben(os.path.join(BASIS, 'reel_hello_little_bear_babyfieber_9x16.mp4'), frames(), dauer, 'alex-morgan_no-copyright-music.mp3')
 
 
 # ---------- 2. Was ist im Set? ----------

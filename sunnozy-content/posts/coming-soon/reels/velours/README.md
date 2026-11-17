@@ -11,7 +11,7 @@ Gemacht aus drei Grok-Clips der Nutzerin (`original/`). Neu erzeugen: `python3 t
 - **warme Farben**, etwas mehr Kontrast, sanfte Vignette, nachgeschärft
 - **Text:** Schreibmaschinenschrift (Courier Prime), grösser und mit stärkerem Schatten
 - **Schluss** «coming soon 🤍», **kein Preis**
-- Musik: «Holiday 01» von Lily J (Mixkit, lizenzfrei)
+- Musik: Standard-Track Alex Morgan «No Copyright Music» (`../musik/alex-morgan_no-copyright-music.mp3`, lizenzfrei)
 
 | Datei | Clip | Ablauf | Hook (0–3 s) | Länge |
 |---|---|---|---|---|
@@ -62,7 +62,7 @@ Gleicher Clip und Look wie «Strecken»: Zeitlupe beim Strecken, langsamer Zoom,
 | 3,3–6,3 s | **sunnozy**-Logo + «Babykleidung, verschickt aus der Schweiz 🇨🇭» |
 | 6,6–9,6 s | Logo bleibt + «Neue Kollektion, coming soon 🤍» |
 
-Kein Preis. Musik: «Holiday 01» (Mixkit, lizenzfrei). «Verschickt aus der Schweiz» steht so im Markenleitfaden. Wir schreiben bewusst nicht «aus der Schweiz» oder «Swiss made», weil die Ware nicht in der Schweiz hergestellt wird.
+Kein Preis. Musik: Standard-Track Alex Morgan «No Copyright Music» (`../musik/alex-morgan_no-copyright-music.mp3`, lizenzfrei). «Verschickt aus der Schweiz» steht so im Markenleitfaden. Wir schreiben bewusst nicht «aus der Schweiz» oder «Swiss made», weil die Ware nicht in der Schweiz hergestellt wird.
 
 **Caption**
 > Hallo, wir sind sunnozy 🤍 Babykleidung für die ersten Monate, liebevoll ausgesucht und verschickt aus der Schweiz.

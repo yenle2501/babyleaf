@@ -6,7 +6,7 @@ Stil wie die Reels zu Hello Little Bear und Hello Spitze:
 - POV-Zeile in weisser Schreibmaschinenschrift (Courier Prime) mit Emoji
 - **kein Preis**, keine Schlusskarte
 
-Baby und Jäckchen füllen die ganze Bildbreite. Der Clip steht deshalb in voller Breite auf einer unscharfen Kopie desselben Bildes, so wirkt das Reel randlos und das Jäckchen bleibt sichtbar. Verwendet sind nur 0–9 s, danach wandert die Kamera vom Baby weg. Musik: Alex Morgan (lizenzfrei).
+Baby und Jäckchen füllen die ganze Bildbreite. Der Clip steht deshalb in voller Breite auf einer unscharfen Kopie desselben Bildes, so wirkt das Reel randlos und das Jäckchen bleibt sichtbar. Verwendet sind nur 0–9 s, danach wandert die Kamera vom Baby weg. Musik: Standard-Track Alex Morgan «No Copyright Music» (`../musik/alex-morgan_no-copyright-music.mp3`, lizenzfrei).
 
 | Datei | Hook (0–3,2 s) | Schluss (ab 6,4 s, läuft in den Loop) |
 |---|---|---|

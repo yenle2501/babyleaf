@@ -23,7 +23,7 @@ import make_reel_hello_little_bear_hook as hk
 W, H, FPS = m.W, m.H, 30
 BASIS = os.path.join(m.POSTS, 'coming-soon', 'reels', 'velours')
 O = os.path.join(BASIS, 'original')
-MUSIK = os.path.join(m.POSTS, 'coming-soon', 'reels', 'musik', 'mixkit_lily-j_holiday-01.mp3')
+MUSIK = os.path.join(m.POSTS, 'coming-soon', 'reels', 'musik', 'alex-morgan_no-copyright-music.mp3')
 SCHRIFT = os.path.join(m.ROOT, 'fonts', 'courierprime.ttf')
 TEMPO = 0.6
 

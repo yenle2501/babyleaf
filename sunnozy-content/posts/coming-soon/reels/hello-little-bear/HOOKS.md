@@ -32,7 +32,7 @@ Grundlage ist unsere Recherche in `posts/coming-soon/photos/instagram/pov-hooks.
 | `reel_hello_little_bear_winter_9x16.mp4` | POV: Dein Baby kommt im Winter ✨ |
 | `reel_hello_little_bear_gotti_9x16.mp4` | POV: Du wirst bald Gotti und das Geschenk ist schon da ✨ |
 
-Beide dauern 11 s, sind 1080 × 1920 und haben ein Titelbild `_titelbild.jpg` mit dem Text. Neu erzeugen: `python3 tools/make_reel_hello_little_bear_hook.py`. Musik: «Christmas Lullaby» (Mixkit, lizenzfrei). Andere Texte lassen sich in `VARIANTEN` im Skript eintragen.
+Beide dauern 11 s, sind 1080 × 1920 und haben ein Titelbild `_titelbild.jpg` mit dem Text. Neu erzeugen: `python3 tools/make_reel_hello_little_bear_hook.py`. Musik: Standard-Track Alex Morgan «No Copyright Music» (`../musik/alex-morgan_no-copyright-music.mp3`, lizenzfrei). Andere Texte lassen sich in `VARIANTEN` im Skript eintragen.
 
 **Test:** zuerst «Winter» posten, 3 Tage später «Gotti». Nach 48 h vergleichen:
 - Views

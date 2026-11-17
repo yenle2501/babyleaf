@@ -10,7 +10,7 @@ Gemacht aus dem KI-Video der Nutzerin (`original/clip.mp4`, 15 s): ein Baby mit 
 | 6.8–14.7 s | «… mit dem liebsten Teddy im Arm.» |
 | 14.7–18.5 s | Schlusskarte: Set-Foto, «Teddybär», 8 Teile, CHF 30.40, sunnozy.ch, Logo |
 
-Musik: «Christmas Lullaby» von Michael Ramir C. (Mixkit, lizenzfrei, siehe `../musik/README.md`). Der Originalton aus dem KI-Video ist entfernt.
+Musik: Standard-Track Alex Morgan «No Copyright Music» (`../musik/alex-morgan_no-copyright-music.mp3`, lizenzfrei). Der Originalton aus dem KI-Video ist entfernt.
 
 ## Vor dem Posten
 

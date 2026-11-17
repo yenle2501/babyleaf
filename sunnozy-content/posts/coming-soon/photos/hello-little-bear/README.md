@@ -11,7 +11,7 @@ weil ab ca. 19 s ein verschwommener, falsch geschriebener KI-Text «shop now at 
 | 7–14 s | «… und überall kleine Teddys.» |
 | 14–17.8 s | Schlusskarte: Set-Foto aus dem Shop, «Hello Little Bear», 5 Teile, CHF 28.40, sunnozy.ch/hello-little-bear, Logo |
 
-Musik: «Christmas Lullaby» von Michael Ramir C. (Mixkit, lizenzfrei, siehe `../musik/README.md`).
+Musik: Standard-Track Alex Morgan «No Copyright Music» (`posts/coming-soon/reels/musik/alex-morgan_no-copyright-music.mp3`, lizenzfrei, seit 17.11.2026).
 Kurzlink in Shopify angelegt: `/hello-little-bear` → `/products/erstausstattung-set-hello-little-bear`.
 
 **Hinweis Safe Sleep:** Im Clip schläft das Baby mit Decke, daneben liegen Kissen. Die Nutzerin hat sich bewusst für diesen Clip entschieden. Im Text gibt es darum keinen Bezug zum Schlafen.
