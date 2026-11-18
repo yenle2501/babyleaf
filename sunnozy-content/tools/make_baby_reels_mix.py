@@ -115,6 +115,51 @@ REELS = {
         clips=[('set_lila_hase_baby_body_2.mp4', 3.0), ('set_hase_rosa_baby_body_1.mp4', 3.0),
                ('set_gaensebluemchen_baby_strampler_1.mp4', 3.0), ('set_hello_schmetterling_baby_body_1.mp4', 3.0)],
         ende=(['lila_hase', 'hase_rosa', 'gaensebluemchen', 'hello_schmetterling'], 'Welche Nummer?', 'Erstausstattungen und coming soon', SHOP)),
+    # 18.11.2026, Nachmittag
+    'body_oder_strampler_a': dict(
+        hook=['Body oder Strampler:', 'was ziehst Du zuerst an?'], emo='🧸', nummern=False, hook_bleibt=True, seg=2.5,
+        clips=[('set_little_bear_baby_body_1.mp4', 3.0, 'Body'), ('set_little_bear_baby_strampler_1.mp4', 3.0, 'Strampler'),
+               ('set_teddy_creme_baby_body_1.mp4', 3.0, 'Body'), ('set_teddy_creme_baby_strampler_1.mp4', 3.0, 'Strampler')],
+        ende=(['little_bear', 'teddy_creme'], 'Beides im Set', 'Hello Little Bear · Teddybär', SHOP)),
+    'body_oder_strampler_b': dict(
+        hook=['Body oder Strampler:', 'was ziehst Du zuerst an?'], emo='🎀', nummern=False, hook_bleibt=True, seg=2.5,
+        clips=[('set_little_and_loved_gans_rosa_baby_body_1.mp4', 3.0, 'Body'), ('set_little_and_loved_gans_rosa_baby_strampler_1.mp4', 3.0, 'Strampler'),
+               ('set_waldbaer_creme_baby_body_1.mp4', 3.0, 'Body'), ('set_waldbaer_creme_baby_strampler_1.mp4', 3.0, 'Strampler')],
+        ende=(['little_and_loved_gans_rosa', 'waldbaer_creme'], 'Beides im Set', 'Little and Loved · Waldbär (coming soon)', SHOP)),
+    'welches_tier': dict(
+        hook=['Welches Tier', 'für Euer Baby?'], emo='🐾', nummern=False, hook_bleibt=True, seg=2.0,
+        clips=[('set_hase_rosa_baby_body_1.mp4', 3.0, 'Hase'), ('set_little_bear_baby_strampler_1.mp4', 3.0, 'Bär'),
+               ('set_wal_blau_baby_strampler_1.mp4', 3.0, 'Wal'), ('runde5/40_box_dino_body.mp4', 1.5, 'Dino'),
+               ('set_hund_creme_baby_body_1.mp4', 3.0, 'Hund')],
+        ende=(['hase_rosa', 'little_bear', 'wal_blau', 'hund_creme'], 'Welches Tier?', 'Schreib es in die Kommentare', SHOP)),
+    'shop_6_in_10s': dict(
+        hook=['6 Erstausstattungen', 'in 10 Sekunden'], emo='✨', nummern=False, hook_bleibt=True, seg=1.7,
+        clips=[('set_little_bear_baby_strampler_1.mp4', 3.2, 'Hello Little Bear'), ('set_hello_world_blatt_baby_body_1.mp4', 3.2, 'Hello World'),
+               ('set_teddy_creme_baby_strampler_1.mp4', 3.2, 'Teddybär'), ('set_rosa_baby_strampler_1.mp4', 3.2, 'Princess'),
+               ('set_little_and_loved_gans_rosa_baby_strampler_1.mp4', 3.2, 'Little and Loved'), ('set_hello_schmetterling_baby_body_1.mp4', 3.2, 'Hello')],
+        ende=(['little_bear', 'hello_world_blatt', 'teddy_creme', 'rosa'], 'Erstausstattungen', '5 bis 8 Teile', SHOP)),
+    'coming_soon_vorschau': dict(
+        hook=['Das kommt bald', 'zu sunnozy'], emo='👀', nummern=False, hook_bleibt=True, seg=2.0,
+        clips=[('set_weltall_hellblau_baby_body_1.mp4', 3.0, 'Weltall'), ('set_wal_blau_baby_strampler_1.mp4', 3.0, 'Wal'),
+               ('set_waldbaer_creme_baby_body_1.mp4', 3.0, 'Waldbär'), ('set_bauernhof_baby_strampler_1.mp4', 3.0, 'Bauernhof'),
+               ('set_love_dad_mom_baby_body_2.mp4', 3.0, 'I love Dad Mom')],
+        ende=(['weltall_hellblau', 'wal_blau', 'waldbaer_creme', 'love_dad_mom'], 'coming soon', 'Welches willst Du zuerst?', CS_AUFRUF)),
+    'gotti_top3': dict(
+        hook=['Unsere Top 3', 'für Gotti-Geschenke'], emo='🎀', nummern=False, hook_bleibt=True, seg=3.3,
+        clips=[('set_teddy_rosa_punkte_baby_strampler_1.mp4', 3.0, 'Nr. 3'), ('set_little_and_loved_gans_rosa_baby_strampler_2.mp4', 3.0, 'Nr. 2'),
+               ('runde5/32_box_lovely_body_arm.mp4', 2.0, 'Nr. 1')],
+        ende=(['teddy_rosa_punkte', 'little_and_loved_gans_rosa', CS + '/kampagne-weihnachtsbox/shopify/geschenkbox-lovely-little-girl.jpg'],
+              'Markier die Gotti', 'Erstausstattungen und Weihnachtsboxen', SHOP)),
+    'dad_mom_alles': dict(
+        hook=['Für Mama und Papa,', 'die alles teilen'], emo='🤍', nummern=False, seg=2.5,
+        clips=[('set_love_dad_mom_baby_body_1.mp4', 3.0, 'Body'), ('set_love_dad_mom_baby_strampler_1.mp4', 3.0, 'Strampler'),
+               ('set_love_dad_mom_baby_body_2.mp4', 3.0, 'Body'), ('set_love_dad_mom_baby_strampler_2.mp4', 3.0, 'Strampler')],
+        ende=(['love_dad_mom'], 'I love Dad Mom', 'coming soon', CS_AUFRUF)),
+    'schlafmuetzen': dict(
+        hook=['Pssst…', '4 kleine Schlafmützen'], emo='😴', nummern=False, seg=2.5,
+        clips=[('eisbaer-taupe_baby_v1-ohne-referenzlook_2.mp4', 3.0), ('set_weltall_hellblau_baby_strampler_1.mp4', 3.0),
+               ('set_hund_creme_baby_body_2.mp4', 3.0), ('set_teddy_rosa_punkte_baby_body_1.mp4', 3.0)],
+        ende=(['weltall_hellblau', 'hund_creme', 'teddy_rosa_punkte'], 'sunnozy', 'coming soon', CS_AUFRUF)),
 }
 
 
@@ -126,7 +171,7 @@ def collage(sets, pfad):
     for k, s in enumerate(sets):
         im = Image.open(quelle(s)).convert('RGB').resize((490, 490), Image.LANCZOS)
         x = (k % 2) * 510 if not (len(sets) == 3 and k == 2) else 255
-        c.paste(im, (x, (k // 2) * 510))
+        c.paste(im, (x, 255 if len(sets) == 2 else (k // 2) * 510))
     c.save(pfad, quality=92)
     return pfad
 

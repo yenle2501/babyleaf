@@ -1,6 +1,6 @@
 # Baby-Reels (17.11.2026)
 
-66 Einzel-Reels (Runde 1: 8, Runde 2: 16, Runde 3: 24, Runde 4: 18) und 17 Mix-Reels in `mix/` aus den neuen Grok-Clips in `../baby-videos/` (Stil «Strecken»). Skript: `tools/make_baby_reels.py`.
+66 Einzel-Reels (Runde 1: 8, Runde 2: 16, Runde 3: 24, Runde 4: 18) und 25 Mix-Reels in `mix/` aus den neuen Grok-Clips in `../baby-videos/` (Stil «Strecken»). Skript: `tools/make_baby_reels.py`.
 
 ## Was aus der Viral-Analyse übernommen ist
 
@@ -434,6 +434,21 @@ Clips aus verschiedenen Videos kombiniert, mit Label je Clip (dunkle Pille unten
 | `mix/reel_mix_gotti_oder_goetti_9x16.mp4` | Gotti oder Götti: wer schenkt was? 🎁 | Gotti / Götti im Wechsel | Markier Gotti und Götti 🎁 #gotti #götti #babygeschenk #babyschweiz #sunnozy |
 | `mix/reel_mix_erstes_weihnachten_9x16.mp4` | Babys erstes Weihnachten kommt näher 🎄 | 4 Weihnachtsbox-Babys | Das erste Weihnachten mit Baby 🎄 Weihnachtsboxen fertig verpackt. Link in der Bio. #erstesweihnachten #weihnachtsgeschenk #babygeschenk #babyschweiz #sunnozy |
 | `mix/reel_mix_tante_markieren_9x16.mp4` | Markier die Tante, die das schenken soll 🎀 | 4 Mädchen-Sets, Nummern 1–4 | Markier die Tante und schreib die Nummer 🎀 #tante #babygeschenk #babygirl #babyschweiz #sunnozy |
+
+### Kombi-Reels Teil 2 (18.11.2026, Nachmittag)
+
+| Reel | Hook | Aufbau | Caption |
+|---|---|---|---|
+| `mix/reel_mix_body_oder_strampler_a_9x16.mp4` | Body oder Strampler: was ziehst Du zuerst an? 🧸 | Little Bear und Teddybär, je Body und Strampler | Body oder Strampler? Im Set ist beides 🧸 Link in der Bio. #erstausstattung #babybody #neugeboren #babyschweiz #sunnozy |
+| `mix/reel_mix_body_oder_strampler_b_9x16.mp4` | dito 🎀 | Little and Loved und Waldbär | Body oder Strampler? Schreib es uns 🎀 #erstausstattung #babystrampler #neugeboren #babyschweiz #sunnozy |
+| `mix/reel_mix_welches_tier_9x16.mp4` | Welches Tier für Euer Baby? 🐾 | Hase, Bär, Wal, Dino, Hund | Hase, Bär, Wal, Dino oder Hund? Schreib es in die Kommentare 🐾 #babymode #neugeboren #babygeschenk #babyschweiz #sunnozy |
+| `mix/reel_mix_shop_6_in_10s_9x16.mp4` | 6 Erstausstattungen in 10 Sekunden ✨ | alle 6 Shop-Sets mit Namen | 6 Erstausstattungen, 5 bis 8 Teile ✨ Welche ist Deine? Link in der Bio. #erstausstattung #babyset #neugeboren #babyschweiz #sunnozy |
+| `mix/reel_mix_coming_soon_vorschau_9x16.mp4` | Das kommt bald zu sunnozy 👀 | Weltall, Wal, Waldbär, Bauernhof, Dad Mom | Das kommt bald 👀 Welches willst Du zuerst? Folg uns, damit Du es nicht verpasst. #comingsoon #babymode #neugeboren #babyschweiz #sunnozy |
+| `mix/reel_mix_gotti_top3_9x16.mp4` | Unsere Top 3 für Gotti-Geschenke 🎀 | Nr. 3 → Nr. 1 (Countdown) | Unsere Lieblinge für die Gotti 🎀 Markier sie. Link in der Bio. #gotti #babygeschenk #babygirl #babyschweiz #sunnozy |
+| `mix/reel_mix_dad_mom_alles_9x16.mp4` | Für Mama und Papa, die alles teilen 🤍 | I love Dad Mom: 2× Body, 2× Strampler | Für Mama und Papa 🤍 Markier Deinen Schatz. Bald bei uns. #elternwerden #schwanger #babyliebe #babyschweiz #sunnozy |
+| `mix/reel_mix_schlafmuetzen_9x16.mp4` | Pssst… 4 kleine Schlafmützen 😴 | 4 schlafende Babys | Pssst 😴 Schick das jemandem, der heute auch Schlaf braucht. #babyschlaf #neugeboren #babyliebe #babyschweiz #sunnozy |
+
+Top 3 ist unsere Auswahl, keine Verkaufszahl. In der Caption nicht «meistverkauft» schreiben.
 
 ## Vor dem Posten
 
