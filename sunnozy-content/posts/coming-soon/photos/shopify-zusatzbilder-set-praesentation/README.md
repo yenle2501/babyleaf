@@ -25,6 +25,7 @@ Pro Set ein Ordner mit jedem Teil einzeln (`strampler.jpg`, `body.jpg`, `muetze.
 | `hund_creme/` Hund Creme | Strampler «I ❤ DOGS», Body mit Hunde-Print, Kapuzentuch «Home is where the Dog is» (Bügel); Mütze mit Öhrchen, Fäustlinge, Socken, Lätzchen «HUG ME!», Hunde-Rassel (flach); Nahaufnahme Hand; Baby auf Musselin (Gemini) |
 | `lila_hase/` Lila Hase | Strampler mit Lochstickerei-Kragen, Kapuzentuch mit Rüsche, Body «little and cute» (Bügel); Hose mit Fuss, Knotenmütze, Lätzchen mit Hase (flach); Nahaufnahme Hand am Kragen; Baby auf Bettdecke (Gemini) |
 | `little_and_loved_gans_rosa/` «little and loved» Gans Rosa | Strampler mit Gänse-Print, Kurzarm-Body «little and loved», Jäckchen mit Gänse-Stickerei (Bügel); T-Shirt, Hose mit Fuss, Knotenmütze, Fäustlinge, Lätzchen «Mommy's little alarm duck!» (flach); Nahaufnahme Hand an der Brusttasche; Baby auf Musselin (Gemini) |
+| `love_dad_mom/` «I ❤ DAD MOM» | Strampler, Body «I ❤ DAD MOM», Wickeldecke (Bügel); Hose mit Fuss «L❤VE», Knotenmütze, Lätzchen «L❤VE» (flach); Nahaufnahme Hand am Body; Baby auf Bettdecke (Gemini) |
 | `hello_schmetterling/` «Hello» Rosa | Strampler, Body, Hose, Häubchen, Lätzchen, Kapuzentuch (Stickerei «Hello» hier weiss, im Original beige), Nahaufnahme Hand am Spitzenkragen, Baby im Stubenwagen |
 | `little_bear/` «Hello Little Bear» | Strampler, Body, Mütze, Fäustlinge, Lätzchen, Nahaufnahme Hand, Baby im Stubenwagen |
 | `rosa/` «Princess» | Strampler, Body, Kapuzentuch, Mütze, Fäustlinge, Socken, Lätzchen, Rassel, Nahaufnahme Hand am Spitzenkragen, Baby im Stubenwagen |
