@@ -1,6 +1,6 @@
 # Baby-Reels (17.11.2026)
 
-66 Einzel-Reels (Runde 1: 8, Runde 2: 16, Runde 3: 24, Runde 4: 18) und 25 Mix-Reels in `mix/` aus den neuen Grok-Clips in `../baby-videos/` (Stil «Strecken»). Skript: `tools/make_baby_reels.py`.
+93 Einzel-Reels (Runde 1: 8, Runde 2: 16, Runde 3: 24, Runde 4: 18, Runde 5: 27) und 25 Mix-Reels in `mix/` aus den neuen Grok-Clips in `../baby-videos/` (Stil «Strecken»). Skript: `tools/make_baby_reels.py`.
 
 ## Was aus der Viral-Analyse übernommen ist
 
@@ -449,6 +449,149 @@ Clips aus verschiedenen Videos kombiniert, mit Label je Clip (dunkle Pille unten
 | `mix/reel_mix_schlafmuetzen_9x16.mp4` | Pssst… 4 kleine Schlafmützen 😴 | 4 schlafende Babys | Pssst 😴 Schick das jemandem, der heute auch Schlaf braucht. #babyschlaf #neugeboren #babyliebe #babyschweiz #sunnozy |
 
 Top 3 ist unsere Auswahl, keine Verkaufszahl. In der Caption nicht «meistverkauft» schreiben.
+
+
+## Runde 5 (27 Reels aus älteren Grok-Clips mit Produktnamen, Stil v2)
+
+| Reel | Clip | Hook | Endfolie |
+|---|---|---|---|
+| `reel_r6_best_family_erster_teddy_9x16.mp4` | `best_family_a` | POV: Der erste Teddy ist eingezogen 🧸 | «Best Family» Teddy · coming soon |
+| `reel_r6_best_family_goetti_9x16.mp4` | `best_family_b` | Schick das dem Götti, der den Teddy schenkt 🧸 | «Best Family» Teddy · coming soon |
+| `reel_r6_born_2027_papas_schoss_9x16.mp4` | `born_in_2027_blau_a` | POV: Papas Schoss ist sein Lieblingsplatz 💙 | Born in 2027 · Hellblau · coming soon |
+| `reel_r6_born_2027_rosa_freundin_9x16.mp4` | `born_in_2027_rosa_a` | Markier die Freundin, die 2027 ein Mädchen bekommt 🎀 | Born in 2027 · Rosa · coming soon |
+| `reel_r6_dino_grosse_traeume_9x16.mp4` | `dino_cool_dude_a` | POV: Kleiner Dino, grosse Träume 🦕 | «Cool Dude» Dino · coming soon |
+| `reel_r6_eisbaer_herz_9x16.mp4` | `eisbaer_taupe_a` | Wenn er sich so streckt, schmilzt jedes Herz 🤍 | Eisbär Taupe · coming soon |
+| `reel_r6_gaensebluemchen_schleifen_9x16.mp4` | `gaensebluemchen_a` | Schick das der Mami mit Schleifen-Liebe 🎀 | «It's a baby girl» · coming soon |
+| `reel_r6_beautiful_welt_steht_9x16.mp4` | `gaensebluemchen_beautiful_a` | POV: Sie streckt sich und die Welt steht still 🌼 | Gänseblümchen «Beautiful» · coming soon |
+| `reel_r6_beautiful_pfirsich_9x16.mp4` | `gaensebluemchen_beautiful_b` | Warnung: Pfirsich ist die neue Lieblingsfarbe 🍑 | Gänseblümchen «Beautiful» · coming soon |
+| `reel_r6_hase_rosa_grosi_9x16.mp4` | `hase_rosa_a` | POV: Grosi hat das Hasen-Set ausgesucht 🐰 | Hase Rosa «Little one» · coming soon |
+| `reel_r6_hund_gaehnen_9x16.mp4` | `hund_creme_a` | Gähnen in 3, 2, 1… 🐶 | I love Dogs · coming soon |
+| `reel_r6_lila_hase_laecheln_9x16.mp4` | `lila_hase_a` | POV: Dieses Lächeln nach dem Schläfchen 💜 | Lila Hase «little and cute» · coming soon |
+| `reel_r6_little_and_loved_stil_9x16.mp4` | `little_and_loved_a` | POV: Sie hat schon mehr Stil als Du 🎀 | Little and Loved · Shop |
+| `reel_r6_little_and_loved_rosa_9x16.mp4` | `little_and_loved_b` | Schick das der Gotti: Rosa geht immer 🎀 | Little and Loved · Shop |
+| `reel_r6_prinzessin_erster_monat_9x16.mp4` | `little_princess_krone_a` | POV: Ihr erster Monat ist schon vorbei 🥹 | Little Princess · coming soon |
+| `reel_r6_wickelbody_freundin_9x16.mp4` | `little_princess_wickelbody_a` | Schick das der Freundin, die Rosa und Creme liebt 🤍 | Wickelbody «Little Princess» · coming soon |
+| `reel_r6_dad_mom_liebling_9x16.mp4` | `love_dad_mom_a` | POV: Er weiss schon, wen er am liebsten hat 🤍 | I love Dad Mom · coming soon |
+| `reel_r6_princess_lachen_9x16.mp4` | `princess_rosa_a` | Dieses Lachen. Mehr muss man nicht sagen 🥹 | Princess · Shop |
+| `reel_r6_bluemchen_schlaf_9x16.mp4` | `strampler_blumen_hase_a` | POV: Blümchen-Strampler und tiefer Schlaf 🌸 | Strampler «Blumen-Hase» · coming soon |
+| `reel_r6_kaetzchen_katzenmama_9x16.mp4` | `strampler_kaetzchen_tulpen_a` | Schick das der Katzenmama, die bald Mami wird 🐱 | Strampler «Kätzchen und Tulpen» · coming soon |
+| `reel_r6_kleine_prinzessin_schlaeft_9x16.mp4` | `strampler_rosa_little_princess_a` | Pssst… kleine Prinzessin schläft 👑 | Strampler «Little Princess» · coming soon |
+| `reel_r6_segelboote_matrose_9x16.mp4` | `strampler_segelboote_a` | POV: Kleiner Matrose macht Mittagsschlaf ⛵ | Strampler «Segelboote» · coming soon |
+| `reel_r6_teddy_mitlachen_9x16.mp4` | `teddy_creme_b` | Versuch, nicht mitzulachen 😄 | Teddybär · Shop |
+| `reel_r6_wal_papa_kommt_9x16.mp4` | `wal_blau_a` | Dieser Blick, wenn Papa nach Hause kommt 🐳 | Wal «Sea vibes» · coming soon |
+| `reel_r6_weltall_mondmission_9x16.mp4` | `weltall_hellblau_a` | POV: Kleiner Astronaut auf Mondmission 🚀 | Little One · Weltall · coming soon |
+| `reel_r6_teddy_arme_hoch_9x16.mp4` | `set_teddy_creme_baby_body_2` | POV: Arme hoch, der Tag kann kommen 🧸 | Teddybär · Shop |
+| `reel_r6_waldbaer_strecken_9x16.mp4` | `set_waldbaer_creme_baby_strampler_2` | Strecken auf Waldbär-Art 🌲 | Waldbär · coming soon |
+
+### Captions Runde 5 (kopierfertig)
+
+**r6_best_family_erster_teddy**
+Der erste Teddy ist eingezogen 🧸 Bald bei uns.
+#bestfamily #neugeboren #babyliebe #babyschweiz #sunnozy
+
+**r6_best_family_goetti**
+Für den Götti, der den Teddy schenkt 🧸 Markier ihn. Bald bei uns.
+#götti #babygeschenk #neugeboren #babyschweiz #sunnozy
+
+**r6_born_2027_papas_schoss**
+Lieblingsplatz: Papas Schoss 💙 «Born in 2027» bald in Hellblau und Rosa.
+#bornin2027 #papasein #babyboy #babyschweiz #sunnozy
+
+**r6_born_2027_rosa_freundin**
+Markier die Freundin, die 2027 ein Mädchen bekommt 🎀 Bald bei uns.
+#bornin2027 #babygirl #schwanger #babyschweiz #sunnozy
+
+**r6_dino_grosse_traeume**
+Kleiner Dino, grosse Träume 🦕 Bald bei uns.
+#babyboy #neugeboren #babymode #babyschweiz #sunnozy
+
+**r6_eisbaer_herz**
+Herz geschmolzen 🤍 Bald bei uns.
+#babyfieber #neugeboren #babyliebe #babyschweiz #sunnozy
+
+**r6_gaensebluemchen_schleifen**
+Für alle Mamis mit Schleifen-Liebe 🎀 Bald bei uns.
+#babygirl #schleifen #neugeboren #babyschweiz #sunnozy
+
+**r6_beautiful_welt_steht**
+Und die Welt steht still 🌼 Bald bei uns.
+#babygirl #neugeboren #babyliebe #babyschweiz #sunnozy
+
+**r6_beautiful_pfirsich**
+Pfirsich ist die neue Lieblingsfarbe 🍑 Bald bei uns.
+#babygirl #babymode #neugeboren #babyschweiz #sunnozy
+
+**r6_hase_rosa_grosi**
+Grosi hat ausgesucht 🐰 Markier sie. Bald bei uns.
+#grosi #babygeschenk #babygirl #babyschweiz #sunnozy
+
+**r6_hund_gaehnen**
+3, 2, 1… 🐶 Bald bei uns.
+#babyalltag #neugeboren #babyliebe #babyschweiz #sunnozy
+
+**r6_lila_hase_laecheln**
+Das Lächeln nach dem Schläfchen 💜 Bald bei uns.
+#babygirl #babylachen #neugeboren #babyschweiz #sunnozy
+
+**r6_little_and_loved_stil**
+Mehr Stil als wir alle 🎀 Erstausstattung «Little and Loved», 8 Teile. Link in der Bio.
+#babygirl #erstausstattung #babymode #babyschweiz #sunnozy
+
+**r6_little_and_loved_rosa**
+Rosa geht immer 🎀 Schick das der Gotti. Link in der Bio.
+#gotti #babygeschenk #erstausstattung #babyschweiz #sunnozy
+
+**r6_prinzessin_erster_monat**
+Wo ist der erste Monat hin? 🥹 Bald bei uns.
+#erstermonat #babygirl #neugeboren #babyschweiz #sunnozy
+
+**r6_wickelbody_freundin**
+Für die Freundin, die Rosa und Creme liebt 🤍 Markier sie. Bald bei uns.
+#babygirl #wickelbody #neugeboren #babyschweiz #sunnozy
+
+**r6_dad_mom_liebling**
+Er weiss schon, wen er am liebsten hat 🤍 Bald bei uns.
+#elternwerden #babyliebe #neugeboren #babyschweiz #sunnozy
+
+**r6_princess_lachen**
+Mehr muss man nicht sagen 🥹 Erstausstattung «Princess», 8 Teile. Link in der Bio.
+#babylachen #babygirl #erstausstattung #babyschweiz #sunnozy
+
+**r6_bluemchen_schlaf**
+Blümchen und tiefer Schlaf 🌸 Bald bei uns.
+#babyschlaf #babygirl #neugeboren #babyschweiz #sunnozy
+
+**r6_kaetzchen_katzenmama**
+Erst Katzenmama, bald Mama 🐱 Markier sie. Bald bei uns.
+#katzenmama #schwanger #babygeschenk #babyschweiz #sunnozy
+
+**r6_kleine_prinzessin_schlaeft**
+Pssst 👑 Bald bei uns.
+#babyschlaf #babygirl #neugeboren #babyschweiz #sunnozy
+
+**r6_segelboote_matrose**
+Mittagsschlaf an Deck ⛵ Bald bei uns.
+#babyboy #babyschlaf #neugeboren #babyschweiz #sunnozy
+
+**r6_teddy_mitlachen**
+Versuch es 😄 Erstausstattung «Teddybär», 8 Teile. Link in der Bio.
+#babylachen #erstausstattung #neugeboren #babyschweiz #sunnozy
+
+**r6_wal_papa_kommt**
+Wenn Papa nach Hause kommt 🐳 Markier den Papa. Bald bei uns.
+#papasein #babyboy #neugeboren #babyschweiz #sunnozy
+
+**r6_weltall_mondmission**
+Mission: Mond 🚀 Bald bei uns.
+#babyboy #neugeboren #babymode #babyschweiz #sunnozy
+
+**r6_teddy_arme_hoch**
+Arme hoch, der Tag kann kommen 🧸 Erstausstattung «Teddybär», 8 Teile. Link in der Bio.
+#erstausstattung #neugeboren #gutenmorgen #babyschweiz #sunnozy
+
+**r6_waldbaer_strecken**
+Strecken auf Waldbär-Art 🌲 Bald bei uns.
+#neugeboren #babyliebe #winterbaby #babyschweiz #sunnozy
 
 ## Vor dem Posten
 
