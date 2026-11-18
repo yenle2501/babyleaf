@@ -64,14 +64,69 @@ REELS = {
                ('runde5/32_box_lovely_body_arm.mp4', 2.0), ('runde5/33_box_mummy_halstuch_arm.mp4', 2.0)],
         ende=([CS + '/kampagne-weihnachtsbox/shopify/geschenkbox-' + k + '.jpg' for k in ('dinosaur', 'growing-up-strong', 'lovely-little-girl', 'i-love-my-mummy')],
               '1, 2, 3 oder 4?', 'Weihnachtsboxen · fertig verpackt', SHOP)),
+    # 18.11.2026, Kombinationen
+    'box_fuer_wen': dict(
+        hook=['Welche Box für wen?'], emo='🎁', nummern=False, hook_bleibt=True, seg=2.0,
+        clips=[('runde5/27_box_dinosaur_body_arm.mp4', 2.0, 'fürs Grosi'), ('runde5/29_box_growing_up_strong_body_D.mp4', 2.0, 'vom Götti'),
+               ('runde5/32_box_lovely_body_arm.mp4', 2.0, 'von der Gotti'), ('runde5/33_box_mummy_halstuch_arm.mp4', 2.0, 'für Mami'),
+               ('runde5/40_box_dino_body.mp4', 1.5, 'vom Opa')],
+        ende=([CS + '/kampagne-weihnachtsbox/shopify/geschenkbox-' + k + '.jpg' for k in ('dinosaur', 'growing-up-strong', 'lovely-little-girl', 'i-love-my-mummy')],
+              'Weihnachtsboxen', 'fertig verpackt · 5 Motive', SHOP)),
+    'bub_oder_maedchen': dict(
+        hook=['Bub oder Mädchen?', 'Schreib es uns'], emo='🤍', nummern=False, hook_bleibt=True, seg=2.5,
+        clips=[('set_weltall_hellblau_baby_body_1.mp4', 3.0, 'Bub'), ('set_rosa_baby_strampler_1.mp4', 3.0, 'Mädchen'),
+               ('set_wal_blau_baby_strampler_1.mp4', 3.0, 'Bub'), ('set_prinzessin_krone_baby_body_1.mp4', 3.0, 'Mädchen')],
+        ende=(['weltall_hellblau', 'rosa', 'wal_blau', 'prinzessin_krone'], 'Bub oder Mädchen?', 'Erstausstattungen und coming soon', SHOP)),
+    'erst_baden_dann_happy': dict(
+        hook=['Erst baden,', 'dann happy'], emo='😄', nummern=False, seg=3.4,
+        clips=[('runde5/17_kapuzentuch_happy_baby.mp4', 2.0, 'nach dem Bad'), ('runde5/08_happy_baby.mp4', 1.5, 'frisch angezogen'),
+               ('runde5/25_happy_baby_b.mp4', 2.5, 'happy')],
+        ende=(['bauernhof'], 'Bauernhof «Happy Baby»', 'coming soon · mit Kapuzentuch', CS_AUFRUF)),
+    'best_family_tag': dict(
+        hook=['Ein Morgen mit der', '«Best Family»'], emo='🧸', nummern=False, seg=3.4,
+        clips=[('runde5/18_kapuzentuch_best_family.mp4', 2.0, 'nach dem Bad'), ('runde5/16_best_family.mp4', 1.5, 'Body und Mütze'),
+               ('runde5/20_best_family_lachen.mp4', 2.0, 'und dieses Lachen')],
+        ende=(['best_family'], '«Best Family» Teddy', 'coming soon', CS_AUFRUF)),
+    'lachen_kompilation': dict(
+        hook=['Schick das jemandem,', 'der heute lachen muss'], emo='😄', nummern=False, seg=2.0,
+        clips=[('runde5/07_teddy_body_ringelarm.mp4', 2.0), ('runde5/08_happy_baby.mp4', 3.0), ('runde5/16_best_family.mp4', 2.0),
+               ('runde5/20_best_family_lachen.mp4', 2.5), ('runde5/25_happy_baby_b.mp4', 1.5)],
+        ende=(['teddy_creme', 'bauernhof', 'best_family'], 'sunnozy Babysets', 'Erstausstattungen und coming soon', SHOP)),
+    'welche_farbe': dict(
+        hook=['Welche Farbe', 'für Euer Baby?'], emo='🎨', nummern=False, hook_bleibt=True, seg=2.0,
+        clips=[('set_rosa_baby_strampler_1.mp4', 3.0, 'Rosa'), ('set_lila_hase_baby_body_1.mp4', 3.0, 'Lila'),
+               ('set_weltall_hellblau_baby_body_1.mp4', 3.0, 'Hellblau'), ('runde5/36_smile_salbeigruen.mp4', 2.0, 'Salbeigrün'),
+               ('set_teddy_creme_baby_strampler_1.mp4', 3.0, 'Creme')],
+        ende=(['rosa', 'lila_hase', 'weltall_hellblau', 'teddy_creme'], 'Welche Farbe?', 'Schreib sie in die Kommentare', SHOP)),
+    'gotti_oder_goetti': dict(
+        hook=['Gotti oder Götti:', 'wer schenkt was?'], emo='🎁', nummern=False, hook_bleibt=True, seg=2.5,
+        clips=[('set_teddy_rosa_punkte_baby_strampler_1.mp4', 3.0, 'Gotti'), ('set_waldbaer_creme_baby_body_1.mp4', 3.0, 'Götti'),
+               ('set_little_and_loved_gans_rosa_baby_strampler_1.mp4', 3.0, 'Gotti'), ('runde5/29_box_growing_up_strong_body_D.mp4', 2.0, 'Götti')],
+        ende=(['teddy_rosa_punkte', 'waldbaer_creme', 'little_and_loved_gans_rosa', CS + '/kampagne-weihnachtsbox/shopify/geschenkbox-growing-up-strong.jpg'],
+              'Markier Gotti und Götti', 'Erstausstattungen und Weihnachtsboxen', SHOP)),
+    'erstes_weihnachten': dict(
+        hook=['Babys erstes Weihnachten', 'kommt näher'], emo='🎄', nummern=False, seg=2.5,
+        clips=[('runde5/32_box_lovely_body_arm.mp4', 2.0), ('runde5/33_box_mummy_halstuch_arm.mp4', 2.0),
+               ('runde5/40_box_dino_body.mp4', 1.5), ('runde5/27_box_dinosaur_body_arm.mp4', 2.0)],
+        ende=([CS + '/kampagne-weihnachtsbox/shopify/geschenkbox-' + k + '.jpg' for k in ('lovely-little-girl', 'i-love-my-mummy', 'dino', 'dinosaur')],
+              'Weihnachtsboxen', 'fertig verpackt', SHOP)),
+    'tante_markieren': dict(
+        hook=['Markier die Tante,', 'die das schenken soll'], emo='🎀', nummern=True, seg=2.5,
+        clips=[('set_lila_hase_baby_body_2.mp4', 3.0), ('set_hase_rosa_baby_body_1.mp4', 3.0),
+               ('set_gaensebluemchen_baby_strampler_1.mp4', 3.0), ('set_hello_schmetterling_baby_body_1.mp4', 3.0)],
+        ende=(['lila_hase', 'hase_rosa', 'gaensebluemchen', 'hello_schmetterling'], 'Welche Nummer?', 'Erstausstattungen und coming soon', SHOP)),
 }
 
 
 def collage(sets, pfad):
+    quelle = lambda s: s if '/' in s else f'{SET}/set_{s}_quadratisch.jpg'
+    if len(sets) == 1:
+        return quelle(sets[0])
     c = Image.new('RGB', (1000, 1000), (250, 246, 240))
     for k, s in enumerate(sets):
-        im = Image.open(s if '/' in s else f'{SET}/set_{s}_quadratisch.jpg').convert('RGB').resize((490, 490), Image.LANCZOS)
-        c.paste(im, ((k % 2) * 510, (k // 2) * 510))
+        im = Image.open(quelle(s)).convert('RGB').resize((490, 490), Image.LANCZOS)
+        x = (k % 2) * 510 if not (len(sets) == 3 and k == 2) else 255
+        c.paste(im, (x, (k // 2) * 510))
     c.save(pfad, quality=92)
     return pfad
 
@@ -91,6 +146,16 @@ def frames(clip, start, dauer):
     p.kill()
 
 
+def label(text):
+    """Kurzer Text in einer dunklen Pille unten (z. B. «fürs Grosi»)."""
+    fo = ImageFont.truetype(b.SCHRIFT, 60)
+    im = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    tw = d.textlength(text, font=fo); y = 1560
+    d.rounded_rectangle((W / 2 - tw / 2 - 40, y - 58, W / 2 + tw / 2 + 40, y + 58), radius=58, fill=(40, 30, 25, 125))
+    d.text((W / 2, y + 2), text, font=fo, fill=(255, 255, 255, 255), anchor='mm')
+    return im
+
+
 def nummer(n):
     fo = ImageFont.truetype(b.SCHRIFT, 150)
     im = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
@@ -108,14 +173,15 @@ def reel(name):
     enc = subprocess.Popen(['ffmpeg', '-y', '-v', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
                             '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '18', '-preset', 'veryfast', tmp], stdin=subprocess.PIPE)
     i = 0
-    for k, (clip, start) in enumerate(r['clips']):
-        num = nummer(k + 1) if r['nummern'] else None
+    for k, eintrag in enumerate(r['clips']):
+        clip, start = eintrag[:2]
+        num = label(eintrag[2]) if len(eintrag) > 2 else (nummer(k + 1) if r['nummern'] else None)
         for j, fr in enumerate(frames(clip, start, seg)):
             t = i / FPS; tj = j / FPS
             if tj < 0.25:                                                # Zoom-Übergang bei jedem Schnitt
                 f = 1 + 0.08 * (1 - m.ease(tj / 0.25)); w2, h2 = round(W * f), round(H * f)
                 fr = fr.resize((w2, h2), Image.BILINEAR).crop(((w2 - W) // 2, (h2 - H) // 2, (w2 - W) // 2 + W, (h2 - H) // 2 + H))
-            if r['nummern']:
+            if r['nummern'] or r.get('hook_bleibt'):
                 a = 1.0                                                  # Hook bleibt stehen, damit man mitzählt
             else:
                 a = 1 - m.ease((t - 2.2) / 0.4) if t < dauer - 1.6 else m.ease((t - (dauer - 1.6)) / 0.4)

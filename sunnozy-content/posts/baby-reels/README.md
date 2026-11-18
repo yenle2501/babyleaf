@@ -1,6 +1,6 @@
 # Baby-Reels (17.11.2026)
 
-66 Einzel-Reels (Runde 1: 8, Runde 2: 16, Runde 3: 24, Runde 4: 18) und 8 Mix-Reels in `mix/` aus den neuen Grok-Clips in `../baby-videos/` (Stil «Strecken»). Skript: `tools/make_baby_reels.py`.
+66 Einzel-Reels (Runde 1: 8, Runde 2: 16, Runde 3: 24, Runde 4: 18) und 17 Mix-Reels in `mix/` aus den neuen Grok-Clips in `../baby-videos/` (Stil «Strecken»). Skript: `tools/make_baby_reels.py`.
 
 ## Was aus der Viral-Analyse übernommen ist
 
@@ -418,6 +418,22 @@ Opa hat den kleinen Dino entdeckt 🦕 Box «Dino»: 3 Bodys + 3 Mulltücher. Li
 | `mix/reel_mix_welche_box_fuer_wen_9x16.mp4` | Welche Weihnachtsbox für welches Baby? 🎁 (1–4) | 1, 2, 3 oder 4? Schreib die Nummer, wir schicken Dir den Link 🎁 #weihnachtsgeschenk #babygeschenk #gotti #babyschweiz #sunnozy |
 
 Nummern in den Mix-Reels jetzt auf dunklem Kreis (besser lesbar).
+
+### Kombi-Reels (18.11.2026, Mittag)
+
+Clips aus verschiedenen Videos kombiniert, mit Label je Clip (dunkle Pille unten) statt Nummer. Labels nennen die Person oder Farbe → Kommentare und Markieren.
+
+| Reel | Hook | Aufbau | Caption |
+|---|---|---|---|
+| `mix/reel_mix_box_fuer_wen_9x16.mp4` | Welche Box für wen? 🎁 | 5 Boxen: fürs Grosi, vom Götti, von der Gotti, für Mami, vom Opa | Wer schenkt bei Euch welche Box? 🎁 Markier sie. Link in der Bio. #weihnachtsgeschenk #babygeschenk #gotti #babyschweiz #sunnozy |
+| `mix/reel_mix_bub_oder_maedchen_9x16.mp4` | Bub oder Mädchen? Schreib es uns 🤍 | Bub / Mädchen im Wechsel | Bub oder Mädchen? Schreib es in die Kommentare 🤍 #schwanger #genderreveal #babyboy #babygirl #sunnozy |
+| `mix/reel_mix_erst_baden_dann_happy_9x16.mp4` | Erst baden, dann happy 😄 | Bauernhof: Kapuzentuch → Body → Lachen | Erst baden, dann happy 😄 Bauernhof-Set mit Kapuzentuch, bald bei uns. #erstesbad #happybaby #neugeboren #babyschweiz #sunnozy |
+| `mix/reel_mix_best_family_tag_9x16.mp4` | Ein Morgen mit der «Best Family» 🧸 | Kapuzentuch → Body und Mütze → Lachen | Ein Morgen mit der Best Family 🧸 Bald bei uns. #bestfamily #babyliebe #neugeboren #babyschweiz #sunnozy |
+| `mix/reel_mix_lachen_kompilation_9x16.mp4` | Schick das jemandem, der heute lachen muss 😄 | 5× Babylachen | Schick das jemandem, der heute ein Lachen braucht 😄 #babylachen #gutelaune #neugeboren #babyschweiz #sunnozy |
+| `mix/reel_mix_welche_farbe_9x16.mp4` | Welche Farbe für Euer Baby? 🎨 | Rosa, Lila, Hellblau, Salbeigrün, Creme | Welche Farbe nimmst Du? Schreib sie in die Kommentare 🎨 #erstausstattung #babymode #neugeboren #babyschweiz #sunnozy |
+| `mix/reel_mix_gotti_oder_goetti_9x16.mp4` | Gotti oder Götti: wer schenkt was? 🎁 | Gotti / Götti im Wechsel | Markier Gotti und Götti 🎁 #gotti #götti #babygeschenk #babyschweiz #sunnozy |
+| `mix/reel_mix_erstes_weihnachten_9x16.mp4` | Babys erstes Weihnachten kommt näher 🎄 | 4 Weihnachtsbox-Babys | Das erste Weihnachten mit Baby 🎄 Weihnachtsboxen fertig verpackt. Link in der Bio. #erstesweihnachten #weihnachtsgeschenk #babygeschenk #babyschweiz #sunnozy |
+| `mix/reel_mix_tante_markieren_9x16.mp4` | Markier die Tante, die das schenken soll 🎀 | 4 Mädchen-Sets, Nummern 1–4 | Markier die Tante und schreib die Nummer 🎀 #tante #babygeschenk #babygirl #babyschweiz #sunnozy |
 
 ## Vor dem Posten
 
