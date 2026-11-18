@@ -18,6 +18,7 @@ Pro Set ein Ordner mit jedem Teil einzeln (`strampler.jpg`, `body.jpg`, `muetze.
 |---|---|
 | `bauernhof/` «Happy Baby» | Strampler, Body, Knotenmütze, Socken, Fäustlinge, Lätzchen «Hi Friends», Kapuzentuch, Kuh-Rassel, Nahaufnahme Hand (Print leicht vereinfacht), Baby im Stubenwagen |
 | `best_family/` «Best family» | Strampler, Body, Mütze mit Öhrchen, Fäustlinge, Socken, Lätzchen, Kapuzentuch, Teddy-Rassel, Baby im Stubenwagen (ChatGPT, Kapuzentuch daneben), Nahaufnahme Hand |
+| `gaensebluemchen/` «Gänseblümchen» | Strampler, Kapuzentuch, Body «IT'S A BABY girl» (Bügel); Mütze, Socken, Fäustlinge, Rassel, Lätzchen «happy» (flach); Nahaufnahme Hand; Baby auf Musselin (Gemini) |
 | `hello_schmetterling/` «Hello» Rosa | Strampler, Body, Hose, Häubchen, Lätzchen, Kapuzentuch (Stickerei «Hello» hier weiss, im Original beige), Nahaufnahme Hand am Spitzenkragen, Baby im Stubenwagen |
 | `little_bear/` «Hello Little Bear» | Strampler, Body, Mütze, Fäustlinge, Lätzchen, Nahaufnahme Hand, Baby im Stubenwagen |
 | `rosa/` «Princess» | Strampler, Body, Kapuzentuch, Mütze, Fäustlinge, Socken, Lätzchen, Rassel, Nahaufnahme Hand am Spitzenkragen, Baby im Stubenwagen |
