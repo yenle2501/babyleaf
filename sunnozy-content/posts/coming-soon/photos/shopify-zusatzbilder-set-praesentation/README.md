@@ -21,6 +21,7 @@ Pro Set ein Ordner mit jedem Teil einzeln (`strampler.jpg`, `body.jpg`, `muetze.
 | `gaensebluemchen/` «Gänseblümchen» | Strampler, Kapuzentuch, Body «IT'S A BABY girl» (Bügel); Mütze, Socken, Fäustlinge, Rassel, Lätzchen «happy» (flach); Nahaufnahme Hand; Baby auf Musselin (Gemini) |
 | `hase_rosa/` Hase Rosa | Strampler, Kapuzentuch, Body «I Love Mummy» (Bügel); Knotenmütze, Fäustlinge, Socken, Hasen-Rassel, Lätzchen (flach); Nahaufnahme Hand; Baby auf Bettdecke (Gemini) |
 | `hello_world_blatt/` «hello world» Blatt | Strampler, Jäckchen, Kurzarm-Body «hello world» (Bügel); Hose mit Fuss, Mütze, Fäustlinge, Lätzchen (flach); Nahaufnahme Hand; Baby auf Musselin (Gemini) |
+| `hello_world_creme/` «hello world» Creme | Strampler, Jäckchen «hello», Kurzarm-Body «hello world» (Bügel); T-Shirt, Hose mit Fuss, Mütze, Fäustlinge, Lätzchen «hello I'm new here» (flach); Nahaufnahme Hand; Baby auf Bettdecke (Gemini) |
 | `hello_schmetterling/` «Hello» Rosa | Strampler, Body, Hose, Häubchen, Lätzchen, Kapuzentuch (Stickerei «Hello» hier weiss, im Original beige), Nahaufnahme Hand am Spitzenkragen, Baby im Stubenwagen |
 | `little_bear/` «Hello Little Bear» | Strampler, Body, Mütze, Fäustlinge, Lätzchen, Nahaufnahme Hand, Baby im Stubenwagen |
 | `rosa/` «Princess» | Strampler, Body, Kapuzentuch, Mütze, Fäustlinge, Socken, Lätzchen, Rassel, Nahaufnahme Hand am Spitzenkragen, Baby im Stubenwagen |
