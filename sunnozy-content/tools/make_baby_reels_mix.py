@@ -13,7 +13,7 @@ import os, sys, subprocess
 from PIL import Image, ImageDraw, ImageFont
 import make_coming_soon_reels as m
 import make_baby_reels as b
-from endfolie import anhaengen, SET, SHOP, CS_AUFRUF
+from endfolie import anhaengen, SET, CS, SHOP, CS_AUFRUF
 
 W, H, FPS = b.W, b.H, b.FPS
 OUT = os.path.join(m.POSTS, 'baby-reels', 'mix')
@@ -52,13 +52,25 @@ REELS = {
                ('set_waldbaer_creme_baby_body_1.mp4', 4.0), ('set_hello_world_creme_baby_body_2.mp4', 3.6),
                ('set_love_dad_mom_baby_body_1.mp4', 3.6)],
         ende=(['prinzessin_krone', 'little_bear', 'waldbaer_creme', 'love_dad_mom'], 'sunnozy Babysets', 'Erstausstattungen und coming soon', SHOP)),
+    # 18.11.2026: aus baby-videos/runde5
+    'welches_lachen': dict(
+        hook=['Welches Lachen', 'ist am süssesten?'], emo='🥹', nummern=True, seg=2.5,
+        clips=[('runde5/07_teddy_body_ringelarm.mp4', 1.5), ('runde5/08_happy_baby.mp4', 1.5),
+               ('runde5/16_best_family.mp4', 1.5), ('runde5/20_best_family_lachen.mp4', 1.5)],
+        ende=(['teddy_creme', 'bauernhof', 'best_family', 'best_family'], 'Schreib die Nummer', 'Teddybär, Bauernhof, Best Family', SHOP)),
+    'welche_box_fuer_wen': dict(
+        hook=['Welche Weihnachtsbox', 'für welches Baby?'], emo='🎁', nummern=True, seg=2.5,
+        clips=[('runde5/27_box_dinosaur_body_arm.mp4', 2.0), ('runde5/29_box_growing_up_strong_body_D.mp4', 2.0),
+               ('runde5/32_box_lovely_body_arm.mp4', 2.0), ('runde5/33_box_mummy_halstuch_arm.mp4', 2.0)],
+        ende=([CS + '/kampagne-weihnachtsbox/shopify/geschenkbox-' + k + '.jpg' for k in ('dinosaur', 'growing-up-strong', 'lovely-little-girl', 'i-love-my-mummy')],
+              '1, 2, 3 oder 4?', 'Weihnachtsboxen · fertig verpackt', SHOP)),
 }
 
 
 def collage(sets, pfad):
     c = Image.new('RGB', (1000, 1000), (250, 246, 240))
     for k, s in enumerate(sets):
-        im = Image.open(f'{SET}/set_{s}_quadratisch.jpg').convert('RGB').resize((490, 490), Image.LANCZOS)
+        im = Image.open(s if '/' in s else f'{SET}/set_{s}_quadratisch.jpg').convert('RGB').resize((490, 490), Image.LANCZOS)
         c.paste(im, ((k % 2) * 510, (k // 2) * 510))
     c.save(pfad, quality=92)
     return pfad
@@ -82,8 +94,8 @@ def frames(clip, start, dauer):
 def nummer(n):
     fo = ImageFont.truetype(b.SCHRIFT, 150)
     im = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
-    d.text((W / 2 + 3, 1560 + 4), str(n), font=fo, fill=(40, 30, 25, 140), anchor='mm')
-    d.text((W / 2, 1560), str(n), font=fo, fill=(255, 255, 255, 255), anchor='mm')
+    d.ellipse((W / 2 - 95, 1560 - 95, W / 2 + 95, 1560 + 95), fill=(40, 30, 25, 120))   # dunkler Kreis, damit die Zahl auf hellem Stoff lesbar ist
+    d.text((W / 2, 1560 + 6), str(n), font=fo, fill=(255, 255, 255, 255), anchor='mm')
     return im
 
 

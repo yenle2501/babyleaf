@@ -1,6 +1,6 @@
 # Baby-Reels (17.11.2026)
 
-48 Einzel-Reels (Runde 1: 8, Runde 2: 16, Runde 3: 24) und 6 Mix-Reels in `mix/` aus den neuen Grok-Clips in `../baby-videos/` (Stil «Strecken»). Skript: `tools/make_baby_reels.py`.
+66 Einzel-Reels (Runde 1: 8, Runde 2: 16, Runde 3: 24, Runde 4: 18) und 8 Mix-Reels in `mix/` aus den neuen Grok-Clips in `../baby-videos/` (Stil «Strecken»). Skript: `tools/make_baby_reels.py`.
 
 ## Was aus der Viral-Analyse übernommen ist
 
@@ -309,6 +309,115 @@ Für die Freundin, die Rosa liebt 🦋 Erstausstattung «Hello», 6 Teile. Link 
 **waldbaer_ist_da**
 Euer kleiner Waldbär ist da 🌲 Bald bei uns.
 #neugeboren #babyboy #winterbaby #babyschweiz #sunnozy
+
+
+## Runde 4 (18 Reels aus `baby-videos/runde5`, Stil v2)
+
+Wache, lachende Babys und Babys im Arm. Boxen-Reels mit Endfolie zur Weihnachtsbox (Shop, ohne Preis im Video).
+
+| Reel | Clip | Hook | Endfolie |
+|---|---|---|---|
+| `reel_r5_smile_mamis_stimme_9x16.mp4` | `runde5/06_smile_weinrot` | POV: Er hört Mamis Stimme zum ersten Mal 🥹 | Strampler «Smile» und «Kirschen» · coming soon |
+| `reel_r5_kirschen_freundin_9x16.mp4` | `runde5/37_kirschen_weiss` | Schick das der Freundin, die Kirschen liebt 🍒 | Strampler «Kirschen» · coming soon |
+| `reel_r5_teddy_lacht_an_9x16.mp4` | `runde5/07_teddy_body_ringelarm` | POV: Er lacht Dich zum ersten Mal an 🧸 | Teddybär · Shop |
+| `reel_r5_happy_baby_lachen_9x16.mp4` | `runde5/08_happy_baby` | Warnung: Dieses Lachen ist ansteckend 😄 | Bauernhof «Happy Baby» · coming soon |
+| `reel_r5_happy_baby_tante_9x16.mp4` | `runde5/25_happy_baby_b` | POV: Du bist Tante und er lacht Dich an 🤍 | Bauernhof «Happy Baby» · coming soon |
+| `reel_r5_kapuzentuch_erstes_bad_9x16.mp4` | `runde5/17_kapuzentuch_happy_baby` | POV: Das erste Bad ist geschafft 🛁 | Bauernhof «Happy Baby» · coming soon |
+| `reel_r5_best_family_seid_ihr_9x16.mp4` | `runde5/16_best_family` | POV: Ihr seid jetzt die «Best Family» 🤍 | «Best Family» Teddy · coming soon |
+| `reel_r5_best_family_lachen_9x16.mp4` | `runde5/20_best_family_lachen` | Wer kann da noch schlecht drauf sein? 🥹 | «Best Family» Teddy · coming soon |
+| `reel_r5_best_family_eingekuschelt_9x16.mp4` | `runde5/18_kapuzentuch_best_family` | POV: Frisch gebadet und eingekuschelt 🧸 | «Best Family» Teddy · coming soon |
+| `reel_r5_baerenmuetze_papa_9x16.mp4` | `runde5/23_creme_baerenmuetze_arm` | Schick das dem Papa, der Bären liebt 🐻 | Knotenmützen «Bär» · coming soon |
+| `reel_r5_born_2027_blau_9x16.mp4` | `runde5/35_born_in_2027_blau` | POV: Er kommt 2027 und hat schon sein Outfit 💙 | Born in 2027 · Hellblau · coming soon |
+| `reel_r5_smile_happy_9x16.mp4` | `runde5/36_smile_salbeigruen` | Schick das der Person, die Dich happy macht 💚 | «You make me happy» · coming soon |
+| `reel_r5_dad_mom_prinzessin_9x16.mp4` | `runde5/24_little_princess_dad_mom_hase` | Schick das Mama und Papa der kleinen Prinzessin 🤍 | I love Dad Mom · coming soon |
+| `reel_r5_box_dinosaur_grosi_9x16.mp4` | `runde5/27_box_dinosaur_body_arm` | POV: Grosi hat ihn endlich im Arm 🦖 | Box «Dinosaur» · Shop |
+| `reel_r5_box_growing_goetti_9x16.mp4` | `runde5/29_box_growing_up_strong_body_D` | POV: Götti schenkt dieses Jahr Bodys 🎁 | Box «Growing up strong» · Shop |
+| `reel_r5_box_lovely_gotti_9x16.mp4` | `runde5/32_box_lovely_body_arm` | POV: Ihr erstes Weihnachten, Gotti hat vorgesorgt 🎁 | Box «Lovely Little Girl» · Shop |
+| `reel_r5_box_mummy_9x16.mp4` | `runde5/33_box_mummy_halstuch_arm` | Schick das der Mami vor ihrem 1. Weihnachten 🎄 | Box «I love my Mummy» · Shop |
+| `reel_r5_box_dino_opa_9x16.mp4` | `runde5/40_box_dino_body` | POV: Opa hat den kleinen Dino entdeckt 🦕 | Box «Dino» · Shop |
+
+### Captions Runde 4 (kopierfertig)
+
+**r5_smile_mamis_stimme**
+Dieser Blick, wenn er Mamis Stimme hört 🥹 Bald bei uns.
+#neugeboren #babyliebe #mamasein #babyschweiz #sunnozy
+
+**r5_kirschen_freundin**
+Für die Freundin, die Kirschen liebt 🍒 Markier sie. Bald bei uns.
+#babygirl #babygeschenk #neugeboren #babyschweiz #sunnozy
+
+**r5_teddy_lacht_an**
+Das erste Lachen 🧸 Erstausstattung «Teddybär», 8 Teile. Link in der Bio.
+#erstausstattung #babylachen #neugeboren #babyschweiz #sunnozy
+
+**r5_happy_baby_lachen**
+Versuch, nicht mitzulachen 😄 Bald bei uns.
+#babylachen #happybaby #babyliebe #babyschweiz #sunnozy
+
+**r5_happy_baby_tante**
+Tante sein ist das Beste 🤍 Schick das Deiner Schwester. Bald bei uns.
+#tante #babyliebe #babygeschenk #babyschweiz #sunnozy
+
+**r5_kapuzentuch_erstes_bad**
+Erstes Bad geschafft 🛁 Kapuzentuch im gleichen Muster. Bald bei uns.
+#erstesbad #neugeboren #babypflege #babyschweiz #sunnozy
+
+**r5_best_family_seid_ihr**
+Jetzt seid Ihr die Best Family 🤍 Markier Deinen Schatz. Bald bei uns.
+#bestfamily #elternwerden #babyliebe #babyschweiz #sunnozy
+
+**r5_best_family_lachen**
+Gute Laune garantiert 🥹 Bald bei uns.
+#babylachen #neugeboren #babyliebe #babyschweiz #sunnozy
+
+**r5_best_family_eingekuschelt**
+Frisch gebadet und eingekuschelt 🧸 Bald bei uns.
+#neugeboren #kuschelzeit #babypflege #babyschweiz #sunnozy
+
+**r5_baerenmuetze_papa**
+Für den Papa, der Bären liebt 🐻 Markier ihn. Bald bei uns.
+#papawerden #babymuetze #neugeboren #babyschweiz #sunnozy
+
+**r5_born_2027_blau**
+Er kommt 2027 💙 «Born in 2027» bald in Hellblau und Rosa.
+#bornin2027 #babyboy #schwanger #babyschweiz #sunnozy
+
+**r5_smile_happy**
+Schick das der Person, die Dich happy macht 💚 Bald bei uns.
+#youmakemehappy #babyliebe #neugeboren #babyschweiz #sunnozy
+
+**r5_dad_mom_prinzessin**
+Für Mama und Papa der kleinen Prinzessin 🤍 Bald bei uns.
+#elternwerden #babygirl #babygeschenk #babyschweiz #sunnozy
+
+**r5_box_dinosaur_grosi**
+Grosi-Moment 🦖 Weihnachtsbox «Dinosaur»: 5 Bodys + 5 Hosen, fertig verpackt. Link in der Bio.
+#weihnachtsgeschenk #grosi #babygeschenk #babyschweiz #sunnozy
+
+**r5_box_growing_goetti**
+Götti-Geschenk erledigt 🎁 Box «Growing up strong»: 5 Bodys + 5 Hosen. Link in der Bio.
+#götti #weihnachtsgeschenk #babygeschenk #babyschweiz #sunnozy
+
+**r5_box_lovely_gotti**
+Ihr erstes Weihnachten 🎁 Box «Lovely Little Girl»: 3 Bodys + 5 Leggings. Link in der Bio.
+#gotti #weihnachtsgeschenk #babygirl #babyschweiz #sunnozy
+
+**r5_box_mummy**
+Für Mamis erstes Weihnachten mit Baby 🎄 Box «I love my Mummy»: 3 Bodys + 3 Halstücher. Link in der Bio.
+#erstesweihnachten #mamasein #babygeschenk #babyschweiz #sunnozy
+
+**r5_box_dino_opa**
+Opa hat den kleinen Dino entdeckt 🦕 Box «Dino»: 3 Bodys + 3 Mulltücher. Link in der Bio.
+#opa #weihnachtsgeschenk #babygeschenk #babyschweiz #sunnozy
+
+### Mix-Reels neu (18.11.2026)
+
+| Reel | Hook | Caption |
+|---|---|---|
+| `mix/reel_mix_welches_lachen_9x16.mp4` | Welches Lachen ist am süssesten? 🥹 (1–4) | Schreib die Nummer 🥹 Schick das jemandem, der heute ein Lachen braucht. #babylachen #neugeboren #babyliebe #babyschweiz #sunnozy |
+| `mix/reel_mix_welche_box_fuer_wen_9x16.mp4` | Welche Weihnachtsbox für welches Baby? 🎁 (1–4) | 1, 2, 3 oder 4? Schreib die Nummer, wir schicken Dir den Link 🎁 #weihnachtsgeschenk #babygeschenk #gotti #babyschweiz #sunnozy |
+
+Nummern in den Mix-Reels jetzt auf dunklem Kreis (besser lesbar).
 
 ## Vor dem Posten
 
