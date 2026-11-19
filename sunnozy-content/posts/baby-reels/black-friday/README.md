@@ -1,5 +1,14 @@
 # Black-Friday-Reel: 10 % auf alles (19.11.2026)
 
+## v2 (neu, Video in voller Grösse) – `tools/make_reel_black_friday_v2.py`
+
+- `reel_black_friday_pov_9x16.mp4`: Hook «POV: Black Friday bei sunnozy 🖤»
+- `reel_black_friday_gotti_9x16.mp4`: Hook «Schick das der Gotti: jetzt 10 % auf alles 🎁»
+- Beide: Hook tippt sich ein und kommt zum Loop zurück, runder schwarzer Sticker «BLACK FRIDAY −10 % auf alles» poppt bei 0,6 s auf und bleibt, Endfolie, Musik Alex Morgan, 12,2 s
+- Caption Gotti-Variante: Schick das der Gotti 🎁 Black Friday: 10 % auf alles im Shop. Link in der Bio. #blackfriday #gotti #babygeschenk #babyschweiz #sunnozy
+
+## v1 (schwarzer Rahmen)
+
 - `reel_black_friday_10_prozent_9x16.mp4`: 10 s Clip (Hand hängt 5 Bodys über die sunnozy-Tüte) + 2,2 s Endfolie, Musik Alex Morgan
 - Cover: `reel_black_friday_10_prozent_9x16_titelbild.jpg`
 - Skript: `tools/make_reel_black_friday.py`
