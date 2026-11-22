@@ -4,7 +4,7 @@ Zwei Varianten aus dem gleichen Clip (Hand hängt 5 Bodys über die sunnozy-Tüt
   pov    : «POV: Black Friday bei sunnozy 🖤»
   gotti  : «Schick das der Gotti: jetzt 10 % auf alles 🎁» (Empfänger zum Teilen)
 Hook oben in weisser Schreibmaschinenschrift (tippt sich in 0.5 s ein), Punch-in-Zoom, Text am Ende zum Loop zurück.
-Dazu ein runder schwarzer Sticker «-10 % auf alles · 16.–30.11» rechts unten neben dem Body, poppt bei 0.6 s auf und bleibt stehen.
+Dazu ein runder schwarzer Sticker «-10 % auf alles · 26.–30.11» rechts unten neben dem Body, poppt bei 0.6 s auf und bleibt stehen.
 Kein Code (in Shopify noch kein Black-Friday-Rabatt angelegt).
 
     python3 tools/make_reel_black_friday_v2.py [pov|gotti]
@@ -47,7 +47,7 @@ def sticker():
     d.text((c, c - 68), 'BLACK FRIDAY', font=ImageFont.truetype(b.SCHRIFT, 20), fill=(255, 255, 255, 255), anchor='mm')
     d.text((c, c - 16), '-10 %', font=ImageFont.truetype(b.SCHRIFT, 54), fill=(255, 255, 255, 255), anchor='mm')
     d.text((c, c + 32), 'auf alles', font=ImageFont.truetype(b.SCHRIFT, 22), fill=(255, 255, 255, 255), anchor='mm')
-    d.text((c, c + 82), '16.–30.11', font=ImageFont.truetype(b.SCHRIFT, 40), fill=(255, 255, 255, 255), anchor='mm')
+    d.text((c, c + 82), '26.–30.11', font=ImageFont.truetype(b.SCHRIFT, 40), fill=(255, 255, 255, 255), anchor='mm')
     return im
 
 
@@ -93,7 +93,7 @@ def main(variante):
                     '-af', 'afade=t=in:d=0.3,volume=1.6,alimiter=limit=0.89',
                     '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k', '-shortest', '-movflags', '+faststart', pfad], check=True)
     os.remove(tmp)
-    anhaengen(pfad, '/tmp/bf_endfolie.jpg', 'Black Friday · 10 % auf alles', '16.–30.11 · im ganzen Shop', SHOP)
+    anhaengen(pfad, '/tmp/bf_endfolie.jpg', 'Black Friday · 10 % auf alles', '26.–30.11 · im ganzen Shop', SHOP)
 
 
 if __name__ == '__main__':

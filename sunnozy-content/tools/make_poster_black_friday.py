@@ -1,7 +1,7 @@
 """Black-Friday-Poster (22.11.2026): statisches Feed-Bild (4:5) zum Reel, gleicher Clip/Sticker/Zeitraum.
 
 Frame aus dem gleichen Clip wie das Reel (Hand hängt 5 Bodys über die sunnozy-Tüte), oben Headline
-«Black Friday bei sunnozy 🖤», runder schwarzer Sticker «-10 % auf alles 16.–30.11» wie im Reel,
+«Black Friday bei sunnozy 🖤», runder schwarzer Sticker «-10 % auf alles 26.–30.11» wie im Reel,
 unten «Link in der Bio · sunnozy.ch» und Logo. Kein Code (in Shopify noch kein Black-Friday-Rabatt).
 
     python3 tools/make_poster_black_friday.py
