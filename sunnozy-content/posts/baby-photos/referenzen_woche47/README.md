@@ -34,3 +34,20 @@ Beim Posten **«Mit KI erstellt»** einschalten. Format 928 × 1152 (4:5), nicht
 - `set_rosa_baby_strampler`: Kragen weiss statt rosa. `set_little_and_loved_gans_rosa_baby_strampler`: Farbe etwas dunkler als Original.
 - `set_hello_world_creme_baby_body`: Hose ohne Füsschen. `set_waldbaer_creme_baby_body`: Bär-Motiv vereinfacht, Füsse angeschnitten. `set_wal_blau_baby_body`: nur eine Socke.
 - Kissen bzw. Tannzapfen liegen in einigen Bildern neben dem Baby (bauernhof Body, wal_blau Body, waldbaer_creme Strampler) – Baby ist wach, für Ads lieber die anderen nehmen.
+
+## Runde 2 (22.11. abends): restliche neue Referenzen
+
+Shop-Produkte (`shopify-backup-hauptbilder-coming-soon`), je 2 Bilder `<produkt>_baby_1/_2.jpg`:
+
+| Produkt | Bild 1 | Bild 2 |
+|---|---|---|
+| eisbaer-taupe | Strampler auf taupe Musselin | Body im Kinderwagen (ohne Decke) |
+| blumen-musselin | Wickelbody + Hose im Rattan-Stubenwagen (ohne Haarband) | Detail ohne Gesicht |
+| born-in-2027-rosa | Body + Hose auf rosa Kunstfell-Rund | Strampler, gähnt |
+| gaensebluemchen-beautiful | Picknickdecke im Garten | Detail Brust mit «Beautiful» |
+| little-bear-rosa | gepunkteter Strampler im Rattankorb | Body auf Mamas Schoss |
+| weltall-hellblau | Body + Hose + Mütze auf Elternbett | Detail Beine/Füsse |
+
+Zusatzbild pro Set `set_<set>_baby_extra.jpg` (Detail oder andere Pose): bauernhof (Mamas Hand hält Füsschen), best_family (Kinderwagen, Herbstlaub), gaensebluemchen (viel Leerraum), hase_rosa (Detail «I Love Mummy», hält Mamas Finger), hello_schmetterling (Papa hält Baby), hello_world_blatt (gähnt, Arme hoch). Rest folgt.
+
+Hinweis: blumen-musselin_baby_1 – Strickdecke hängt am Korbrand, für Ads lieber Bild 2.
