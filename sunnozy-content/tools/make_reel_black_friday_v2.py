@@ -40,14 +40,14 @@ def frames():
 
 
 def sticker():
-    r = 150; im = Image.new('RGBA', (2 * r + 20, 2 * r + 20), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    r = 162; im = Image.new('RGBA', (2 * r + 20, 2 * r + 20), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
     d.ellipse((10, 10, 10 + 2 * r, 10 + 2 * r), fill=(24, 21, 19, 245))
     d.ellipse((22, 22, 2 * r - 2, 2 * r - 2), outline=(255, 255, 255, 200), width=3)
     c = r + 10
-    d.text((c, c - 66), 'BLACK FRIDAY', font=ImageFont.truetype(b.SCHRIFT, 22), fill=(255, 255, 255, 255), anchor='mm')
-    d.text((c, c - 10), '-10 %', font=ImageFont.truetype(b.SCHRIFT, 62), fill=(255, 255, 255, 255), anchor='mm')
-    d.text((c, c + 46), 'auf alles', font=ImageFont.truetype(b.SCHRIFT, 26), fill=(255, 255, 255, 255), anchor='mm')
-    d.text((c, c + 86), '16.–30.11', font=ImageFont.truetype(b.SCHRIFT, 22), fill=(255, 255, 255, 200), anchor='mm')
+    d.text((c, c - 68), 'BLACK FRIDAY', font=ImageFont.truetype(b.SCHRIFT, 20), fill=(255, 255, 255, 255), anchor='mm')
+    d.text((c, c - 16), '-10 %', font=ImageFont.truetype(b.SCHRIFT, 54), fill=(255, 255, 255, 255), anchor='mm')
+    d.text((c, c + 32), 'auf alles', font=ImageFont.truetype(b.SCHRIFT, 22), fill=(255, 255, 255, 255), anchor='mm')
+    d.text((c, c + 82), '16.–30.11', font=ImageFont.truetype(b.SCHRIFT, 40), fill=(255, 255, 255, 255), anchor='mm')
     return im
 
 

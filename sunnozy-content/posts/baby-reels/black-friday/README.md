@@ -5,8 +5,13 @@
 - `reel_black_friday_pov_9x16.mp4`: Hook «POV: Black Friday bei sunnozy 🖤»
 - `reel_black_friday_gotti_9x16.mp4`: Hook «Schick das der Gotti: jetzt 10 % auf alles 🎁»
 - Beide: Hook tippt sich ein und kommt zum Loop zurück, runder schwarzer Sticker «BLACK FRIDAY −10 % auf alles 16.–30.11» poppt bei 0,6 s auf und bleibt, Endfolie (Zeile «16.–30.11 · im ganzen Shop»), Musik Alex Morgan, 12,2 s
-- Aktionszeitraum 16.–30.11. steht auf dem Sticker und auf der Endfolie
+- Aktionszeitraum 16.–30.11. steht gross auf dem Sticker und auf der Endfolie
 - Caption Gotti-Variante: Schick das der Gotti 🎁 Black Friday: 10 % auf alles, vom 16.–30.11. Link in der Bio. #blackfriday #gotti #babygeschenk #babyschweiz #sunnozy
+
+## Poster (Feed-Post, 4:5) – `tools/make_poster_black_friday.py`
+
+- `poster_black_friday_4x5.jpg`: gleicher Clip wie das Reel (Standbild), Headline «Black Friday bei sunnozy 🖤», gleicher Sticker «BLACK FRIDAY −10 % auf alles 16.–30.11», «Link in der Bio · sunnozy.ch» und Logo unten
+- Zum Posten als normaler Feed-Beitrag (kein Reel), Caption siehe unten
 
 ## v1 (schwarzer Rahmen)
 
