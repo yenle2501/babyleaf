@@ -4,8 +4,8 @@ Zwei Varianten aus dem gleichen Clip (Hand hängt 5 Bodys über die sunnozy-Tüt
   pov    : «POV: Black Friday bei sunnozy 🖤»
   gotti  : «Schick das der Gotti: jetzt 10 % auf alles 🎁» (Empfänger zum Teilen)
 Hook oben in weisser Schreibmaschinenschrift (tippt sich in 0.5 s ein), Punch-in-Zoom, Text am Ende zum Loop zurück.
-Dazu ein runder schwarzer Sticker «-10 % auf alles» rechts unten neben dem Body, poppt bei 0.6 s auf und bleibt stehen.
-Kein Code, kein Enddatum (in Shopify noch kein Black-Friday-Rabatt angelegt).
+Dazu ein runder schwarzer Sticker «-10 % auf alles · 16.–30.11» rechts unten neben dem Body, poppt bei 0.6 s auf und bleibt stehen.
+Kein Code (in Shopify noch kein Black-Friday-Rabatt angelegt).
 
     python3 tools/make_reel_black_friday_v2.py [pov|gotti]
 """
@@ -40,13 +40,14 @@ def frames():
 
 
 def sticker():
-    r = 132; im = Image.new('RGBA', (2 * r + 20, 2 * r + 20), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    r = 150; im = Image.new('RGBA', (2 * r + 20, 2 * r + 20), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
     d.ellipse((10, 10, 10 + 2 * r, 10 + 2 * r), fill=(24, 21, 19, 245))
     d.ellipse((22, 22, 2 * r - 2, 2 * r - 2), outline=(255, 255, 255, 200), width=3)
     c = r + 10
-    d.text((c, c - 52), 'BLACK FRIDAY', font=ImageFont.truetype(b.SCHRIFT, 24), fill=(255, 255, 255, 255), anchor='mm')
-    d.text((c, c + 4), '-10 %', font=ImageFont.truetype(b.SCHRIFT, 70), fill=(255, 255, 255, 255), anchor='mm')
-    d.text((c, c + 58), 'auf alles', font=ImageFont.truetype(b.SCHRIFT, 30), fill=(255, 255, 255, 255), anchor='mm')
+    d.text((c, c - 66), 'BLACK FRIDAY', font=ImageFont.truetype(b.SCHRIFT, 22), fill=(255, 255, 255, 255), anchor='mm')
+    d.text((c, c - 10), '-10 %', font=ImageFont.truetype(b.SCHRIFT, 62), fill=(255, 255, 255, 255), anchor='mm')
+    d.text((c, c + 46), 'auf alles', font=ImageFont.truetype(b.SCHRIFT, 26), fill=(255, 255, 255, 255), anchor='mm')
+    d.text((c, c + 86), '16.–30.11', font=ImageFont.truetype(b.SCHRIFT, 22), fill=(255, 255, 255, 200), anchor='mm')
     return im
 
 
@@ -92,7 +93,7 @@ def main(variante):
                     '-af', 'afade=t=in:d=0.3,volume=1.6,alimiter=limit=0.89',
                     '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k', '-shortest', '-movflags', '+faststart', pfad], check=True)
     os.remove(tmp)
-    anhaengen(pfad, '/tmp/bf_endfolie.jpg', 'Black Friday · 10 % auf alles', 'im ganzen Shop', SHOP)
+    anhaengen(pfad, '/tmp/bf_endfolie.jpg', 'Black Friday · 10 % auf alles', '16.–30.11 · im ganzen Shop', SHOP)
 
 
 if __name__ == '__main__':
