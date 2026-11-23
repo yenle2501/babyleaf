@@ -21,6 +21,7 @@ W, H, FPS = m.W, m.H, 30
 OUT = os.path.join(m.POSTS, 'coming-soon', 'reels', 'follow-back')
 VID = os.path.join(m.POSTS, 'baby-videos')
 SERIF = os.path.join(m.ROOT, 'fonts', 'cormorantR.ttf')
+STRICH = 2                # Kontur in Weiss, macht die feine Serifenschrift dicker und besser lesbar
 CLIPS = [('teddy_creme_a_bearbeitet.mp4', 0.5, 3.0),             # Teddybär, lacht
          ('princess_rosa_a_bearbeitet.mp4', 0.5, 3.0),           # Princess, lacht
          ('little_princess_krone_f_bearbeitet.mp4', 0.2, 2.9),   # Little Princess, Kapuzentuch mit Krone, wach auf dem Arm
@@ -91,8 +92,8 @@ def zeile(d, sch, text, y, fo, em=None):
     breite = d.textlength(text, font=fo, features=LNUM) + (em.width + 16 if em else 0)
     x0 = (W - breite) / 2
     for dx, dy in ((0, 4), (3, 4), (-3, 4), (0, 0)):
-        sch.text((x0 + dx, y + dy), text, font=fo, fill=210, anchor='lm', features=LNUM)
-    d.text((x0, y), text, font=fo, fill=(255, 255, 255, 255), anchor='lm', features=LNUM)
+        sch.text((x0 + dx, y + dy), text, font=fo, fill=235, anchor='lm', features=LNUM, stroke_width=STRICH + 3, stroke_fill=235)
+    d.text((x0, y), text, font=fo, fill=(255, 255, 255, 255), anchor='lm', features=LNUM, stroke_width=STRICH, stroke_fill=(255, 255, 255, 255))
     return x0 + breite, em
 
 
@@ -101,7 +102,7 @@ def text_ebene(t):
     sl = Image.new('L', (W, H), 0); ds = ImageDraw.Draw(sl)
     g = 104
     while max(d.textlength(z, font=ImageFont.truetype(SERIF, g), features=LNUM) + (g * 0.9 if k == len(t['oben']) - 1 else 0)
-              for k, z in enumerate(t['oben'])) > W - 70:
+              for k, z in enumerate(t['oben'])) > W - 100:
         g -= 2
     fo = ImageFont.truetype(SERIF, g); lh = int(g * 1.06); y = 205
     emojis = []
@@ -114,7 +115,7 @@ def text_ebene(t):
     fo2 = ImageFont.truetype(SERIF, int(g * 0.95)); y += int(g * 0.55)
     em = hk.emoji(t['unten_emoji'], int(g * 0.72))
     x, _ = zeile(d, ds, t['unten'], y, fo2, em); emojis.append((em, x - em.width, y))
-    e = Image.new('RGBA', (W, H), (30, 20, 14, 0)); e.putalpha(sl.filter(ImageFilter.GaussianBlur(12)))
+    e = Image.new('RGBA', (W, H), (30, 20, 14, 0)); e.putalpha(sl.filter(ImageFilter.GaussianBlur(10)))
     e.alpha_composite(tx)
     for em, x, yy in emojis:
         e.alpha_composite(em, (int(x), int(yy - em.height / 2 - 2)))

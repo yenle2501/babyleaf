@@ -8,7 +8,7 @@ Nach den Vorbildern der Nutzerin (@haymamalife «I only have 70 followers but if
 | `reel_follow_back_en_9x16.mp4` | Englisch | 14,0 s |
 
 - **Clips** (Version 2, Wunsch der Nutzerin): Teddybär (`teddy_creme_a/b`), Princess (`princess_rosa_a`), Little Princess mit Krone (`little_princess_krone_f`, im Kapuzentuch auf dem Arm). Alle wach, ohne Plüschtier, Decke oder Haarband. Die übrigen Krone-Clips (`little_princess_krone_a/b/c/e`, `set_prinzessin_krone_*`) zeigen ein schlafendes Baby mit Plüschtier oder Nuscheli und sind darum nicht dabei.
-- **Text wie in der Vorlage:** gross, Serifenschrift (Cormorant), weiss mit weichem Schatten, oben im Bild und die ganze Zeit sichtbar. Der Clip steht in voller Breite unten, darüber eine unscharfe Verlängerung, damit der Text kein Babygesicht verdeckt.
+- **Text wie in der Vorlage:** gross, Serifenschrift (Cormorant) mit weisser Kontur (dicker, besser lesbar), weiss mit weichem Schatten, oben im Bild und die ganze Zeit sichtbar. Der Clip steht in voller Breite unten, darüber eine unscharfe Verlängerung, damit der Text kein Babygesicht verdeckt.
 - Standardmusik (Alex Morgan) und Endfolie mit den drei Sets, «Hallo, wir sind sunnozy», kein Preis.
 - Neu erzeugen: `python3 tools/make_reel_follow_back.py [de|en]`. Die Follower-Zahl steht in `TEXTE` im Skript.
 - Lager (23.11.2026): Teddybär **ausverkauft**, Princess noch 2, Little Princess Krone ist noch Entwurf (Coming soon).
