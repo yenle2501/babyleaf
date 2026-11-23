@@ -79,6 +79,5 @@ Mit KI erstellt (Vorlage in `original/`, Artikelnummern aus den Lieferantenbilde
 
 Alle 20 Set-Hauptbilder in 2048 × 2048 px für Shopify:
 - `ohne_logo/` und `mit_logo/` (sunnozy-Logo oben links, keine Artikelnummer), `ki-roh/` = Zwischenstand ohne Logo-Ecke.
-- Nackenetikett: fremde Etiketten entfernt, stattdessen direkt auf den Stoff gedruckt wie in der Referenz `product-photos-present/praes_cs_strampler_blumen_hase.jpg`: «sunnozy», «0-3M», drei Herzen, «100%COTTON». Ohne «Made in China».
-- Nur bei Teilen, deren Innennacken sichtbar ist (Strampler, Body, Shirt, Jacke, Weltall-Mütze). Lätzchen ohne Etikett.
+- Nackenetikett: ohne Logo (Wunsch 23.11.). Fremde Etiketten-Texte entfernt; eingenähte Etiketten bleiben als leere Etiketten stehen, gedruckte Etiketten sind wegretuschiert.
 - Werkzeuge: `/home/claude/tools/up.py` (Real-ESRGAN x2), `label_stamp.py`, `hb_label.py` + `hb_label.json` (Etikett-Positionen pro Set).
