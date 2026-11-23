@@ -30,11 +30,11 @@ CLIPS = [('teddy_creme_a_bearbeitet.mp4', 0.5, 3.0),             # Teddybär, la
 BLENDE = 0.3
 LNUM = ['lnum']          # normale Ziffern statt Mediävalziffern («116» statt «ii6»)
 TEXTE = {
-    'de': dict(oben=['Ich habe erst 116 Follower,', 'aber schick mir dieses Reel', 'und ich folge Dir zurück'], oben_emoji='🥹',
-               unten='Lass uns Freundinnen sein', unten_emoji='🤍',
+    'de': dict(oben=['Ich habe erst 116 Follower,', 'aber schick mir dieses Reel', 'und ich folge Dir zurück'], oben_emoji='✨🥹',
+               unten='Lass uns Freundinnen sein', unten_emoji='🤍🫶',
                karte=('Hallo, wir sind sunnozy', 'Babykleider · Erstausstattung', SHOP)),
-    'en': dict(oben=['I only have 116 followers,', 'but send me this reel', "and I'll follow you back"], oben_emoji='🥹',
-               unten="let's be friends", unten_emoji='🤍',
+    'en': dict(oben=['I only have 116 followers,', 'but send me this reel', "and I'll follow you back"], oben_emoji='✨🥹',
+               unten="let's be friends", unten_emoji='🤍🫶',
                karte=("hi, we're sunnozy", 'baby clothes · newborn sets', 'link in bio · sunnozy.ch')),
 }
 SETBILD = os.path.join(m.POSTS, 'coming-soon', 'photos', 'produktfotos-set-praesentation', 'ohne_logo', 'set_{}_quadratisch.jpg')
@@ -88,6 +88,15 @@ def folge():
 
 
 # ---------- Text wie in der Vorlage ----------
+def emojis(folge, hoehe):
+    """Mehrere Emojis nebeneinander (z.B. '✨🥹', '🤍🫶')."""
+    teile = [hk.emoji(z, hoehe) for z in folge]
+    im = Image.new('RGBA', (sum(t.width for t in teile) + 8 * (len(teile) - 1), hoehe), (0, 0, 0, 0)); x = 0
+    for t in teile:
+        im.alpha_composite(t, (x, 0)); x += t.width + 8
+    return im
+
+
 def zeile(d, sch, text, y, fo, em=None):
     breite = d.textlength(text, font=fo, features=LNUM) + (em.width + 16 if em else 0)
     x0 = (W - breite) / 2
@@ -101,23 +110,23 @@ def text_ebene(t):
     tx = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(tx)
     sl = Image.new('L', (W, H), 0); ds = ImageDraw.Draw(sl)
     g = 104
-    while max(d.textlength(z, font=ImageFont.truetype(SERIF, g), features=LNUM) + (g * 0.9 if k == len(t['oben']) - 1 else 0)
+    while max(d.textlength(z, font=ImageFont.truetype(SERIF, g), features=LNUM) + (len(t['oben_emoji']) * g * 0.85 if k == len(t['oben']) - 1 else 0)
               for k, z in enumerate(t['oben'])) > W - 100:
         g -= 2
     fo = ImageFont.truetype(SERIF, g); lh = int(g * 1.06); y = 205
-    emojis = []
+    marken = []
     for k, z in enumerate(t['oben']):
-        em = hk.emoji(t['oben_emoji'], int(g * 0.8)) if k == len(t['oben']) - 1 else None
+        em = emojis(t['oben_emoji'], int(g * 0.8)) if k == len(t['oben']) - 1 else None
         x, em = zeile(d, ds, z, y, fo, em)
         if em:
-            emojis.append((em, x - em.width, y))
+            marken.append((em, x - em.width, y))
         y += lh
     fo2 = ImageFont.truetype(SERIF, int(g * 0.95)); y += int(g * 0.55)
-    em = hk.emoji(t['unten_emoji'], int(g * 0.72))
-    x, _ = zeile(d, ds, t['unten'], y, fo2, em); emojis.append((em, x - em.width, y))
+    em = emojis(t['unten_emoji'], int(g * 0.72))
+    x, _ = zeile(d, ds, t['unten'], y, fo2, em); marken.append((em, x - em.width, y))
     e = Image.new('RGBA', (W, H), (30, 20, 14, 0)); e.putalpha(sl.filter(ImageFilter.GaussianBlur(10)))
     e.alpha_composite(tx)
-    for em, x, yy in emojis:
+    for em, x, yy in marken:
         e.alpha_composite(em, (int(x), int(yy - em.height / 2 - 2)))
     return e
 
