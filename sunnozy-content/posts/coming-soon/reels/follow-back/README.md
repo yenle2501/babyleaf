@@ -4,14 +4,18 @@ Nach den Vorbildern der Nutzerin (@haymamalife «I only have 70 followers but if
 
 | Datei | Sprache | Länge |
 |---|---|---|
-| `reel_follow_back_de_9x16.mp4` | Deutsch | 14,0 s (11,8 s + Endfolie) |
-| `reel_follow_back_en_9x16.mp4` | Englisch | 14,0 s |
+| `reel_follow_back_de_9x16.mp4` | Deutsch | 14,4 s (12,2 s + Endfolie) |
+| `reel_follow_back_en_9x16.mp4` | Englisch | 14,4 s |
 
-- **Clips** (Version 2, Wunsch der Nutzerin): Teddybär (`teddy_creme_a/b`), Princess (`princess_rosa_a`), Little Princess mit Krone (`little_princess_krone_f`, im Kapuzentuch auf dem Arm). Alle wach, ohne Plüschtier, Decke oder Haarband. Die übrigen Krone-Clips (`little_princess_krone_a/b/c/e`, `set_prinzessin_krone_*`) zeigen ein schlafendes Baby mit Plüschtier oder Nuscheli und sind darum nicht dabei.
-- **Text wie in der Vorlage:** hohe, schmale Serifenschrift «Instrument Serif» (frei, OFL, `fonts/instrumentserif.ttf`), weiss mit leichter Kontur und weichem Schatten, oben im Bild, die ganze Zeit sichtbar. Emojis ✨🥹 und 🤍🫶. Der Clip steht in voller Breite unten, darüber eine unscharfe Verlängerung, damit der Text kein Babygesicht verdeckt.
-- Standardmusik (Alex Morgan) und Endfolie mit den drei Sets, «Hallo, wir sind sunnozy», kein Preis.
+- **Clips** (Version 3, 23.11.2026): aus den Reels, die schon im Profil sind, nur die mit wachem Baby:
+  - Hello Little Bear `coming-soon/reels/hello-little-bear/original/clip_bett.mp4` (2×)
+  - Best Family `coming-soon/reels/best-family-teddy/original/baby_clip_a.mp4` und `_b.mp4`. Daneben liegt die Teddy-Rassel aus dem Set, das Baby ist wach.
+  - Box «Growing up strong» (Daddy's Bestie) `baby-videos/runde5/bearbeitet/29_box_growing_up_strong_body_D.mp4`
+  - Nicht dabei, weil das Baby schläft und Decke oder Plüschtier daneben liegt (Safe Sleep): «Die ersten Tage zu Hause» (Hello Little Bear `clip.mp4`), Hello World mit Hase, Weihnachtsmütze, Rosa mit Nuggi, Hase Rosa.
+- **Text:** oben, die ganze Zeit sichtbar, fette Schrift ohne Serifen (Nunito Sans) in Dunkelbraun auf hellem Grund, ohne Leuchten und ohne Schatten. Emojis ✨🥹 und 🤎🫶.
+- Der Clip steht in voller Breite unten, darüber eine helle, unscharfe Verlängerung, damit der Text kein Babygesicht verdeckt.
+- Standardmusik (Alex Morgan) und Endfolie mit Hello Little Bear, Best Family und Box «Growing up strong», «Hallo, wir sind sunnozy», kein Preis.
 - Neu erzeugen: `python3 tools/make_reel_follow_back.py [de|en]`. Die Follower-Zahl steht in `TEXTE` im Skript.
-- Lager (23.11.2026): Teddybär **ausverkauft**, Princess noch 2, Little Princess Krone ist noch Entwurf (Coming soon).
 
 ## Captions
 

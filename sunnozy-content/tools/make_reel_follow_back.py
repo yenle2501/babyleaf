@@ -1,9 +1,9 @@
 """Follow-back-Reels (Wunsch der Nutzerin 23.11.2026, Vorbild: «I only have 70 followers but if you send me this reel
 I'll follow you back … let's be friends» und «Send me this reel & I'll 100% follow you back. Let's find each other»).
 
-Zwei Reels, eines Deutsch, eines Englisch. Babyclips der Sets Teddybär, Princess und Little Princess (Krone), nur wache
-Babys ohne Plüschtier, Decke oder Haarband. Text wie in der Vorlage: gross, hohe schmale Serifenschrift (Instrument Serif), weiss mit weichem Schatten,
-oben im Bild und die ganze Zeit sichtbar. Damit der Text keine Babygesichter verdeckt, steht der Clip in voller Breite
+Zwei Reels, eines Deutsch, eines Englisch. Clips aus den Reels, die schon im Profil sind (Hello Little Bear, Best Family,
+Box «Growing up strong»), nur die mit wachem Baby. Text oben und die ganze Zeit sichtbar, fette Schrift ohne Serifen
+(Nunito Sans) in Dunkelbraun, ohne Leuchten und ohne Schatten. Damit der Text keine Babygesichter verdeckt, steht der Clip in voller Breite
 unten, darüber eine weich verlaufende, unscharfe Verlängerung desselben Clips. Standardmusik, Endfolie.
 
     python3 tools/make_reel_follow_back.py          # beide
@@ -19,26 +19,30 @@ from endfolie import anhaengen, SHOP
 
 W, H, FPS = m.W, m.H, 30
 OUT = os.path.join(m.POSTS, 'coming-soon', 'reels', 'follow-back')
-VID = os.path.join(m.POSTS, 'baby-videos')
-SERIF = os.path.join(m.ROOT, 'fonts', 'instrumentserif.ttf')   # hohe, schmale Serifenschrift wie in der Vorlage (OFL)
-STRICH = 1                # leichte weisse Kontur, damit die Schrift kräftig genug ist
-CLIPS = [('teddy_creme_a_bearbeitet.mp4', 0.5, 3.0),             # Teddybär, lacht
-         ('princess_rosa_a_bearbeitet.mp4', 0.5, 3.0),           # Princess, lacht
-         ('little_princess_krone_f_bearbeitet.mp4', 0.2, 2.9),   # Little Princess, Kapuzentuch mit Krone, wach auf dem Arm
-         ('teddy_creme_b_bearbeitet.mp4', 0.5, 3.0),             # Teddybär, lacht
-         ('princess_rosa_a_bearbeitet.mp4', 6.5, 9.3)]           # Princess, strampelt und lacht
+VID = m.POSTS
+SERIF = os.path.join(m.ROOT, 'fonts', 'nunitosans-800.ttf')    # klare, fette Schrift ohne Serifen (Wunsch 23.11.: andere Schrift)
+STRICH = 0                # keine Kontur, kein Leuchten (Wunsch der Nutzerin)
+FARBE = (62, 48, 40)      # dunkelbraun auf hellem Grund, darum ohne Schatten gut lesbar
+# Clips aus den Reels, die schon im Profil sind (Wunsch 23.11.), nur die mit wachem Baby
+CLIPS = [('coming-soon/reels/hello-little-bear/original/clip_bett.mp4', 1.0, 3.6),          # Hello Little Bear, wach
+         ('coming-soon/reels/best-family-teddy/original/baby_clip_a.mp4', 0.4, 3.0),       # Best Family, winkt, Teddy-Rassel aus dem Set
+         ('baby-videos/runde5/bearbeitet/29_box_growing_up_strong_body_D.mp4', 3.5, 6.1),  # Box «Growing up strong» (Daddy's Bestie), wach
+         ('coming-soon/reels/best-family-teddy/original/baby_clip_b.mp4', 0.8, 3.4),       # Best Family, winkt
+         ('coming-soon/reels/hello-little-bear/original/clip_bett.mp4', 10.0, 12.8)]       # Hello Little Bear, nah, wach
 BLENDE = 0.3
+CH = 1344                 # Clip-Höhe nach dem Skalieren auf volle Breite (3:4-Clips ergeben 1344–1430 px)
 LNUM = ['lnum']          # normale Ziffern statt Mediävalziffern («116» statt «ii6»)
 TEXTE = {
     'de': dict(oben=['Ich habe erst 116 Follower,', 'aber schick mir dieses Reel', 'und ich folge Dir zurück'], oben_emoji='✨🥹',
-               unten=['Lass uns Freundinnen sein'], unten_emoji='🤍🫶',
+               unten=['Lass uns Freundinnen sein'], unten_emoji='🤎🫶',
                karte=('Hallo, wir sind sunnozy', 'Babykleider · Erstausstattung', SHOP)),
     'en': dict(oben=['I only have 116 followers,', 'but send me this reel', "and I'll follow you back"], oben_emoji='✨🥹',
-               unten=["let's be friends"], unten_emoji='🤍🫶',
+               unten=["let's be friends"], unten_emoji='🤎🫶',
                karte=("hi, we're sunnozy", 'baby clothes · newborn sets', 'link in bio · sunnozy.ch')),
 }
 SETBILD = os.path.join(m.POSTS, 'coming-soon', 'photos', 'produktfotos-set-praesentation', 'ohne_logo', 'set_{}_quadratisch.jpg')
-END_BILDER = [SETBILD.format('teddy_creme'), SETBILD.format('rosa'), SETBILD.format('prinzessin_krone')]
+END_BILDER = [SETBILD.format('little_bear'), SETBILD.format('best_family'),
+              os.path.join(m.POSTS, 'coming-soon', 'photos', 'kampagne-weihnachtsbox', 'fotos', 'box_growing_up_strong.jpg')]
 
 
 # ---------- Bild: Clip in voller Breite unten, oben unscharf verlängert ----------
@@ -46,9 +50,9 @@ def clip_frames(datei, von, bis):
     pfad = os.path.join(VID, datei)
     w, h = map(int, subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', pfad],
                                    capture_output=True, text=True).stdout.strip().split(','))
-    ch = round(W * h / w); ch += ch % 2
+    ch = CH                                   # alle Clips gleich hoch, sonst klappt die Überblendung nicht
     p = subprocess.Popen(['ffmpeg', '-v', 'error', '-ss', str(von), '-t', str(bis - von), '-i', pfad, '-map', '0:v:0',
-                          '-vf', f'fps={FPS},scale={W}:{ch}:flags=lanczos', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], stdout=subprocess.PIPE)
+                          '-vf', f'fps={FPS},scale={W}:-2:flags=lanczos,crop={W}:{CH}', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], stdout=subprocess.PIPE)
     n = W * ch * 3
     while True:
         b = p.stdout.read(n)
@@ -72,7 +76,7 @@ def bild(fr, mk):
     s = H / fr.height; klein = fr.resize((round(W * s / 6), round(H / 6)), Image.BILINEAR)
     bg = klein.crop(((klein.width - W // 6) // 2, 0, (klein.width - W // 6) // 2 + W // 6, H // 6)).filter(ImageFilter.GaussianBlur(5))
     bg = bg.resize((W, H), Image.BICUBIC)
-    bg = Image.blend(bg, Image.new('RGB', (W, H), (60, 48, 40)), 0.18)
+    bg = Image.blend(bg, Image.new('RGB', (W, H), (250, 246, 240)), 0.45)   # heller Grund für dunkle Schrift
     bg.paste(fr, (0, y0), mk)
     return bg
 
@@ -103,9 +107,7 @@ def emojis(folge, hoehe):
 def zeile(d, sch, text, y, fo, em=None):
     breite = d.textlength(text, font=fo, features=LNUM) + (em.width + 16 if em else 0)
     x0 = (W - breite) / 2
-    for dx, dy in ((0, 4), (3, 4), (-3, 4), (0, 0)):
-        sch.text((x0 + dx, y + dy), text, font=fo, fill=235, anchor='lm', features=LNUM, stroke_width=STRICH + 3, stroke_fill=235)
-    d.text((x0, y), text, font=fo, fill=(255, 255, 255, 255), anchor='lm', features=LNUM, stroke_width=STRICH, stroke_fill=(255, 255, 255, 255))
+    d.text((x0, y), text, font=fo, fill=FARBE + (255,), anchor='lm', features=LNUM, stroke_width=STRICH, stroke_fill=FARBE + (255,))
     return x0 + breite, em
 
 
@@ -122,8 +124,8 @@ def text_ebene(t):
             g -= 2
         return g
 
-    for zeilen, emo, gmax, abstand in ((t['oben'], t['oben_emoji'], 100, 0.4), (t['unten'], t['unten_emoji'], 118, 0)):
-        g = groesse(zeilen, emo, gmax); fo = ImageFont.truetype(SERIF, g); lh = int(g * 0.98)
+    for zeilen, emo, gmax, abstand in ((t['oben'], t['oben_emoji'], 74, 0.5), (t['unten'], t['unten_emoji'], 84, 0)):
+        g = groesse(zeilen, emo, gmax); fo = ImageFont.truetype(SERIF, g); lh = int(g * 1.2)
         y += int(g * 0.5)
         for k, z in enumerate(zeilen):
             em = emojis(emo, int(g * 0.72)) if k == len(zeilen) - 1 else None
