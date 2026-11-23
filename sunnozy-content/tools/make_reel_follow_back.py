@@ -7,7 +7,8 @@ Box «Growing up strong»), nur die mit wachem Baby. Text oben und die ganze Zei
 unten, darüber eine weich verlaufende, unscharfe Verlängerung desselben Clips. Standardmusik, Endfolie.
 
     python3 tools/make_reel_follow_back.py          # beide
-    python3 tools/make_reel_follow_back.py de       # nur Deutsch
+    python3 tools/make_reel_follow_back.py de       # nur Deutsch (Instagram)
+    python3 tools/make_reel_follow_back.py tiktok_de tiktok_en   # TikTok-Versionen
 Ausgabe: posts/coming-soon/reels/follow-back/reel_follow_back_<sprache>_9x16.mp4 (+ _titelbild.jpg), Captions im README dort.
 """
 import os, sys, subprocess, tempfile
@@ -39,6 +40,13 @@ TEXTE = {
     'en': dict(oben=['I only have 116 followers,', 'but send me this reel', "and I'll follow you back"], oben_emoji='✨🥹',
                unten=["let's be friends"], unten_emoji='🤎🫶',
                karte=("hi, we're sunnozy", 'baby clothes · newborn sets', 'link in bio · sunnozy.ch')),
+    # TikTok (Wunsch 23.11.: dort erst 1 Follower). «Video» statt «Reel», Text etwas tiefer wegen der Reiter oben.
+    'tiktok_de': dict(oben=['Ich habe erst 1 Follower,', 'aber schick mir dieses Video', 'und ich folge Dir zurück'], oben_emoji='✨🥹',
+                      unten=['Lass uns Freundinnen sein'], unten_emoji='🤎🫶', datei='tiktok_follow_back_de', y0=215,
+                      karte=('Hallo, wir sind sunnozy', 'Babykleider · Erstausstattung', SHOP)),
+    'tiktok_en': dict(oben=['I only have 1 follower,', 'but send me this video', "and I'll follow you back"], oben_emoji='✨🥹',
+                      unten=["let's be friends"], unten_emoji='🤎🫶', datei='tiktok_follow_back_en', y0=215,
+                      karte=("hi, we're sunnozy", 'baby clothes · newborn sets', 'link in bio · sunnozy.ch')),
 }
 SETBILD = os.path.join(m.POSTS, 'coming-soon', 'photos', 'produktfotos-set-praesentation', 'ohne_logo', 'set_{}_quadratisch.jpg')
 END_BILDER = [SETBILD.format('little_bear'), SETBILD.format('best_family'),
@@ -116,7 +124,7 @@ def text_ebene(t):
     möglich (höchstens bis zur Obergrenze), Emojis am Ende der letzten Zeile."""
     tx = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(tx)
     sl = Image.new('L', (W, H), 0); ds = ImageDraw.Draw(sl)
-    marken = []; y = 165
+    marken = []; y = t.get('y0', 165)
 
     def groesse(zeilen, emo, g):
         while max(d.textlength(z, font=ImageFont.truetype(SERIF, g), features=LNUM) + (len(emo) * g * 0.8 + 16 if k == len(zeilen) - 1 else 0)
@@ -156,7 +164,7 @@ def reel(sprache):
     t = TEXTE[sprache]
     ebene = text_ebene(t)
     os.makedirs(OUT, exist_ok=True)
-    pfad = os.path.join(OUT, f'reel_follow_back_{sprache}_9x16.mp4'); tmp = pfad + '.tmp.mp4'
+    pfad = os.path.join(OUT, t.get('datei', f'reel_follow_back_{sprache}') + '_9x16.mp4'); tmp = pfad + '.tmp.mp4'
     if os.path.exists(pfad):
         os.remove(pfad)                       # sonst überspringt anhaengen() die Endfolie
     enc = subprocess.Popen(['ffmpeg', '-y', '-v', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',

@@ -43,6 +43,36 @@ if you're a mama, an auntie, or a small shop trying to grow your little corner o
 
 Das Ziel (500) kann frei gewählt werden.
 
+## TikTok (1 Follower)
+
+| Datei | Sprache |
+|---|---|
+| `tiktok_follow_back_de_9x16.mp4` | Deutsch: «Ich habe erst 1 Follower, aber schick mir dieses Video und ich folge Dir zurück ✨🥹» |
+| `tiktok_follow_back_en_9x16.mp4` | Englisch: «I only have 1 follower, but send me this video and I'll follow you back ✨🥹» |
+
+Gleiche Clips und Endfolie wie die Instagram-Reels, Text etwas tiefer (oben stehen bei TikTok die Reiter «Folge ich / Für dich»).
+Neu erzeugen: `python3 tools/make_reel_follow_back.py tiktok_de tiktok_en`.
+
+### Caption Deutsch
+```
+Mama zu Mama 🫶 ich starte gerade auf TikTok 🤍
+
+Schick mir dieses Video und ich folge Dir zurück! Lass uns Freundinnen sein und zusammen wachsen 🥹✨
+
+#mamatok #mamacommunity #smallbusiness #mamaschweiz #sunnozy
+```
+
+### Caption Englisch
+```
+mama to mama 🫶 just starting out on TikTok 🤍
+
+send me this video and I'll follow you right back! let's be friends and grow together 🥹✨
+
+#momtok #momcommunity #smallbusiness #newmom #sunnozy
+```
+
+Beim Posten auf TikTok: Schalter «KI-generierte Inhalte» einschalten.
+
 ## Beim Posten
 
 - «Mit KI erstellt» einschalten (die Babyvideos sind KI-generiert).
