@@ -59,4 +59,5 @@ Zusatzbilder Rest: hello_world_creme (Garten, Leinendecke).
 Auf Wunsch der Nutzerin: Referenzfoto aus `SUNNO\babyphoto` (Woche 47) hochgeladen, Baby, Pose, Position, Hintergrund und Licht bleiben gleich, nur die Kleidung wird durch unser Set ersetzt. Nuggi, Haarband, Plüschtiere und Decken über dem Baby entfernt, Augen offen. `r<NN>` = Nummer des Referenzfotos (Liste in `/home/claude/tools/PLAN_woche47.md`).
 
 Fertig: hund_creme r02, lila_hase r03, teddy_creme r05/r16, bauernhof r06, smile_gruen r07, hello_world_creme r08, weltall_hellblau r10, hello_world_blatt r12, best_family r13, waldbaer_creme r14, little_bear r15, hello_schmetterling r17, rosa r18, teddy_rosa_punkte r19, prinzessin_krone r20, hase_rosa r21, gaensebluemchen r22/r30, little_and_loved r25, blumen-musselin r26, love_dad_mom r27, born-in-2027-rosa r29, little-bear-rosa r31.
-Weggelassen: r28 (wal_blau, Gemini hält die Pose nicht).
+Mit ChatGPT (Konto Yen Le): prinzessin_krone r32, eisbaer-taupe r34, teddy_rosa_punkte r35 (Armband am Handgelenk noch sichtbar).
+Weggelassen: r28 (wal_blau, Gemini hält die Pose nicht). Rest (r36–r57) nicht gemacht, Babyfotos am 23.11. auf Wunsch gestoppt.
