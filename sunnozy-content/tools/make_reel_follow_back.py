@@ -2,7 +2,7 @@
 I'll follow you back … let's be friends» und «Send me this reel & I'll 100% follow you back. Let's find each other»).
 
 Zwei Reels, eines Deutsch, eines Englisch. Babyclips der Sets Teddybär, Princess und Little Princess (Krone), nur wache
-Babys ohne Plüschtier, Decke oder Haarband. Text wie in der Vorlage: gross, Serifenschrift, weiss mit weichem Schatten,
+Babys ohne Plüschtier, Decke oder Haarband. Text wie in der Vorlage: gross, hohe schmale Serifenschrift (Instrument Serif), weiss mit weichem Schatten,
 oben im Bild und die ganze Zeit sichtbar. Damit der Text keine Babygesichter verdeckt, steht der Clip in voller Breite
 unten, darüber eine weich verlaufende, unscharfe Verlängerung desselben Clips. Standardmusik, Endfolie.
 
@@ -20,8 +20,8 @@ from endfolie import anhaengen, SHOP
 W, H, FPS = m.W, m.H, 30
 OUT = os.path.join(m.POSTS, 'coming-soon', 'reels', 'follow-back')
 VID = os.path.join(m.POSTS, 'baby-videos')
-SERIF = os.path.join(m.ROOT, 'fonts', 'cormorantR.ttf')
-STRICH = 2                # Kontur in Weiss, macht die feine Serifenschrift dicker und besser lesbar
+SERIF = os.path.join(m.ROOT, 'fonts', 'instrumentserif.ttf')   # hohe, schmale Serifenschrift wie in der Vorlage (OFL)
+STRICH = 1                # leichte weisse Kontur, damit die Schrift kräftig genug ist
 CLIPS = [('teddy_creme_a_bearbeitet.mp4', 0.5, 3.0),             # Teddybär, lacht
          ('princess_rosa_a_bearbeitet.mp4', 0.5, 3.0),           # Princess, lacht
          ('little_princess_krone_f_bearbeitet.mp4', 0.2, 2.9),   # Little Princess, Kapuzentuch mit Krone, wach auf dem Arm
@@ -31,10 +31,10 @@ BLENDE = 0.3
 LNUM = ['lnum']          # normale Ziffern statt Mediävalziffern («116» statt «ii6»)
 TEXTE = {
     'de': dict(oben=['Ich habe erst 116 Follower,', 'aber schick mir dieses Reel', 'und ich folge Dir zurück'], oben_emoji='✨🥹',
-               unten='Lass uns Freundinnen sein', unten_emoji='🤍🫶',
+               unten=['Lass uns Freundinnen sein'], unten_emoji='🤍🫶',
                karte=('Hallo, wir sind sunnozy', 'Babykleider · Erstausstattung', SHOP)),
     'en': dict(oben=['I only have 116 followers,', 'but send me this reel', "and I'll follow you back"], oben_emoji='✨🥹',
-               unten="let's be friends", unten_emoji='🤍🫶',
+               unten=["let's be friends"], unten_emoji='🤍🫶',
                karte=("hi, we're sunnozy", 'baby clothes · newborn sets', 'link in bio · sunnozy.ch')),
 }
 SETBILD = os.path.join(m.POSTS, 'coming-soon', 'photos', 'produktfotos-set-praesentation', 'ohne_logo', 'set_{}_quadratisch.jpg')
@@ -64,8 +64,11 @@ def maske(ch, weich=160):
     return mk
 
 
+VIDEO_Y = 640         # Clip beginnt hier (unten wird höchstens ein schmaler Rand abgeschnitten), darüber steht der Text
+
+
 def bild(fr, mk):
-    y0 = H - fr.height
+    y0 = max(H - fr.height, VIDEO_Y)
     s = H / fr.height; klein = fr.resize((round(W * s / 6), round(H / 6)), Image.BILINEAR)
     bg = klein.crop(((klein.width - W // 6) // 2, 0, (klein.width - W // 6) // 2 + W // 6, H // 6)).filter(ImageFilter.GaussianBlur(5))
     bg = bg.resize((W, H), Image.BICUBIC)
@@ -107,27 +110,32 @@ def zeile(d, sch, text, y, fo, em=None):
 
 
 def text_ebene(t):
+    """Zwei Blöcke wie in der Vorlage: oben die Bitte, darunter grösser «Lass uns Freundinnen sein». Jeder Block so gross wie
+    möglich (höchstens bis zur Obergrenze), Emojis am Ende der letzten Zeile."""
     tx = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(tx)
     sl = Image.new('L', (W, H), 0); ds = ImageDraw.Draw(sl)
-    g = 104
-    while max(d.textlength(z, font=ImageFont.truetype(SERIF, g), features=LNUM) + (len(t['oben_emoji']) * g * 0.85 if k == len(t['oben']) - 1 else 0)
-              for k, z in enumerate(t['oben'])) > W - 100:
-        g -= 2
-    fo = ImageFont.truetype(SERIF, g); lh = int(g * 1.06); y = 205
-    marken = []
-    for k, z in enumerate(t['oben']):
-        em = emojis(t['oben_emoji'], int(g * 0.8)) if k == len(t['oben']) - 1 else None
-        x, em = zeile(d, ds, z, y, fo, em)
-        if em:
-            marken.append((em, x - em.width, y))
-        y += lh
-    fo2 = ImageFont.truetype(SERIF, int(g * 0.95)); y += int(g * 0.55)
-    em = emojis(t['unten_emoji'], int(g * 0.72))
-    x, _ = zeile(d, ds, t['unten'], y, fo2, em); marken.append((em, x - em.width, y))
+    marken = []; y = 165
+
+    def groesse(zeilen, emo, g):
+        while max(d.textlength(z, font=ImageFont.truetype(SERIF, g), features=LNUM) + (len(emo) * g * 0.8 + 16 if k == len(zeilen) - 1 else 0)
+                  for k, z in enumerate(zeilen)) > W - 90:
+            g -= 2
+        return g
+
+    for zeilen, emo, gmax, abstand in ((t['oben'], t['oben_emoji'], 100, 0.4), (t['unten'], t['unten_emoji'], 118, 0)):
+        g = groesse(zeilen, emo, gmax); fo = ImageFont.truetype(SERIF, g); lh = int(g * 0.98)
+        y += int(g * 0.5)
+        for k, z in enumerate(zeilen):
+            em = emojis(emo, int(g * 0.72)) if k == len(zeilen) - 1 else None
+            x, em = zeile(d, ds, z, y, fo, em)
+            if em:
+                marken.append((em, x - em.width, y))
+            y += lh
+        y += int(g * abstand)
     e = Image.new('RGBA', (W, H), (30, 20, 14, 0)); e.putalpha(sl.filter(ImageFilter.GaussianBlur(10)))
     e.alpha_composite(tx)
     for em, x, yy in marken:
-        e.alpha_composite(em, (int(x), int(yy - em.height / 2 - 2)))
+        e.alpha_composite(em, (int(x), int(yy - em.height / 2 + 4)))
     return e
 
 
