@@ -51,3 +51,12 @@ Shop-Produkte (`shopify-backup-hauptbilder-coming-soon`), je 2 Bilder `<produkt>
 Zusatzbild pro Set `set_<set>_baby_extra.jpg` (Detail oder andere Pose): bauernhof (Mamas Hand hält Füsschen), best_family (Kinderwagen, Herbstlaub), gaensebluemchen (viel Leerraum), hase_rosa (Detail «I Love Mummy», hält Mamas Finger), hello_schmetterling (Papa hält Baby), hello_world_blatt (gähnt, Arme hoch). Rest folgt.
 
 Hinweis: blumen-musselin_baby_1 – Strickdecke hängt am Korbrand, für Ads lieber Bild 2.
+
+Zusatzbilder Rest: hello_world_creme (Garten, Leinendecke).
+
+## Runde 3 (23.11.): nur Kleidung ersetzt (`<set>_edit_r<NN>.jpg`)
+
+Auf Wunsch der Nutzerin: Referenzfoto aus `SUNNO\babyphoto` (Woche 47) hochgeladen, Baby, Pose, Position, Hintergrund und Licht bleiben gleich, nur die Kleidung wird durch unser Set ersetzt. Nuggi, Haarband, Plüschtiere und Decken über dem Baby entfernt, Augen offen. `r<NN>` = Nummer des Referenzfotos (Liste in `/home/claude/tools/PLAN_woche47.md`).
+
+Fertig: hund_creme r02, lila_hase r03, teddy_creme r05/r16, bauernhof r06, smile_gruen r07, hello_world_creme r08, weltall_hellblau r10, hello_world_blatt r12, best_family r13, waldbaer_creme r14, little_bear r15, hello_schmetterling r17, rosa r18, teddy_rosa_punkte r19, prinzessin_krone r20, hase_rosa r21, gaensebluemchen r22/r30, little_and_loved r25, blumen-musselin r26, love_dad_mom r27, born-in-2027-rosa r29, little-bear-rosa r31.
+Weggelassen: r28 (wal_blau, Gemini hält die Pose nicht).
