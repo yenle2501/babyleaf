@@ -17,6 +17,19 @@ Pro Set ein Ordner mit jedem Teil einzeln (`strampler.jpg`, `body.jpg`, `muetze.
 | Set | Bilder |
 |---|---|
 | `bauernhof/` «Happy Baby» | Strampler, Body, Knotenmütze, Socken, Fäustlinge, Lätzchen «Hi Friends», Kapuzentuch, Kuh-Rassel, Nahaufnahme Hand (Print leicht vereinfacht), Baby im Stubenwagen |
+| `best_family/` «Best family» | Strampler, Body, Mütze mit Öhrchen, Fäustlinge, Socken, Lätzchen, Kapuzentuch, Teddy-Rassel, Baby im Stubenwagen (ChatGPT, Kapuzentuch daneben), Nahaufnahme Hand |
+| `gaensebluemchen/` «Gänseblümchen» | Strampler, Kapuzentuch, Body «IT'S A BABY girl» (Bügel); Mütze, Socken, Fäustlinge, Rassel, Lätzchen «happy» (flach); Nahaufnahme Hand; Baby auf Musselin (Gemini) |
+| `hase_rosa/` Hase Rosa | Strampler, Kapuzentuch, Body «I Love Mummy» (Bügel); Knotenmütze, Fäustlinge, Socken, Hasen-Rassel, Lätzchen (flach); Nahaufnahme Hand; Baby auf Bettdecke (Gemini) |
+| `hello_world_blatt/` «hello world» Blatt | Strampler, Jäckchen, Kurzarm-Body «hello world» (Bügel); Hose mit Fuss, Mütze, Fäustlinge, Lätzchen (flach); Nahaufnahme Hand; Baby auf Musselin (Gemini) |
+| `hello_world_creme/` «hello world» Creme | Strampler, Jäckchen «hello», Kurzarm-Body «hello world» (Bügel); T-Shirt, Hose mit Fuss, Mütze, Fäustlinge, Lätzchen «hello I'm new here» (flach); Nahaufnahme Hand; Baby auf Bettdecke (Gemini) |
+| `hund_creme/` Hund Creme | Strampler «I ❤ DOGS», Body mit Hunde-Print, Kapuzentuch «Home is where the Dog is» (Bügel); Mütze mit Öhrchen, Fäustlinge, Socken, Lätzchen «HUG ME!», Hunde-Rassel (flach); Nahaufnahme Hand; Baby auf Musselin (Gemini) |
+| `lila_hase/` Lila Hase | Strampler mit Lochstickerei-Kragen, Kapuzentuch mit Rüsche, Body «little and cute» (Bügel); Hose mit Fuss, Knotenmütze, Lätzchen mit Hase (flach); Nahaufnahme Hand am Kragen; Baby auf Bettdecke (Gemini) |
+| `little_and_loved_gans_rosa/` «little and loved» Gans Rosa | Strampler mit Gänse-Print, Kurzarm-Body «little and loved», Jäckchen mit Gänse-Stickerei (Bügel); T-Shirt, Hose mit Fuss, Knotenmütze, Fäustlinge, Lätzchen «Mommy's little alarm duck!» (flach); Nahaufnahme Hand an der Brusttasche; Baby auf Musselin (Gemini) |
+| `love_dad_mom/` «I ❤ DAD MOM» | Strampler, Body «I ❤ DAD MOM», Wickeldecke (Bügel); Hose mit Fuss «L❤VE», Knotenmütze, Lätzchen «L❤VE» (flach); Nahaufnahme Hand am Body; Baby auf Bettdecke (Gemini) |
+| `prinzessin_krone/` «Make a wish / sweet little princess» | Strampler, Body, Mütze, Socken, Fäustlinge, Lätzchen (Bügel bzw. flach); Kapuzentuch flach (Print auf der Fläche); Nahaufnahme Hand am Body; Baby auf Musselin (Gemini). Krönchen-Schmusetuch bewusst weggelassen (Safe Sleep) |
+| `smile_gruen/` «YOU MAKE ME HAPPY / SMiLE» Salbeigrün | Strampler (Bügel); Knotenmütze, Kapuzentuch «SMiLE» (flach); Nahaufnahme Hand am Strampler; Baby auf Bettdecke (Gemini) |
+| `teddy_creme/` Teddy Creme | Strampler mit Teddy-Print, Body mit Teddy-Applikation (Bügel); Kapuzentuch, Knotenmütze, Socken, Fäustlinge, Lätzchen (flach); Nahaufnahme Hand an der Teddy-Applikation; Baby auf weisser Steppdecke (Gemini, heller Mom-Lifestyle-Stil). Rassel und Beissring bewusst weggelassen |
+| `teddy_rosa_punkte/` Teddy Rosa Punkte | Strampler mit Pünktchen, Kurzarm-Body Teddy auf Wolke (Bügel); Bommelmütze mit Teddy-Print, Fäustlinge, Lätzchen «Little Bear» (flach); Nahaufnahme Hand am Body; Baby auf weisser Steppdecke (Gemini, heller Mom-Lifestyle-Stil) |
 | `hello_schmetterling/` «Hello» Rosa | Strampler, Body, Hose, Häubchen, Lätzchen, Kapuzentuch (Stickerei «Hello» hier weiss, im Original beige), Nahaufnahme Hand am Spitzenkragen, Baby im Stubenwagen |
 | `little_bear/` «Hello Little Bear» | Strampler, Body, Mütze, Fäustlinge, Lätzchen, Nahaufnahme Hand, Baby im Stubenwagen |
 | `rosa/` «Princess» | Strampler, Body, Kapuzentuch, Mütze, Fäustlinge, Socken, Lätzchen, Rassel, Nahaufnahme Hand am Spitzenkragen, Baby im Stubenwagen |
