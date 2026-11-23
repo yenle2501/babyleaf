@@ -17,21 +17,31 @@ Nach den Vorbildern der Nutzerin (@haymamalife «I only have 70 followers but if
 - Standardmusik (Alex Morgan) und Endfolie mit Hello Little Bear, Best Family und Box «Growing up strong», «Hallo, wir sind sunnozy», kein Preis.
 - Neu erzeugen: `python3 tools/make_reel_follow_back.py [de|en]`. Die Follower-Zahl steht in `TEXTE` im Skript.
 
-## Captions
+## Captions (Stil wie @haymamalife «girl to girl … small creator edition»)
 
 ### Deutsch
-> Hallo zusammen, wir sind sunnozy 🤍 Ein kleiner Shop für Babykleider und Erstausstattung, verschickt aus der Schweiz.
->
-> Wir stehen ganz am Anfang. Schick uns dieses Reel und wir folgen Dir zurück. Ob Mama, Gotti oder kleiner Shop wie wir: Lass uns zusammen wachsen ✨
->
-> #mamaschweiz #babyschweiz #smallbusiness #mamacommunity #sunnozy
+```
+Mama zu Mama 🫶 kleiner-Shop-Edition 🤍
+
+Hilf mir auf 500 Follower und ich unterstütze Dich zurück! Lass uns Freundinnen sein und zusammen wachsen 🥹✨
+
+Ob Mama, Gotti, Grosi oder ein kleiner Shop wie meiner: Ich freue mich, Dich kennenzulernen!
+
+#mamacommunity #mamaschweiz #smallbusiness #babyschweiz #sunnozy
+```
 
 ### Englisch
-> hi, we're sunnozy 🤍 a small shop for baby clothes and newborn sets, shipped from Switzerland.
->
-> we're just getting started. send us this reel and we'll follow you back. mamas, aunties, fellow small shops: let's grow together ✨
->
-> #momcommunity #smallbusiness #babyclothes #newmom #sunnozy
+```
+mama to mama 🫶 small shop edition 🤍
+
+help me get to 500 followers and I'll support you right back! let's be friends and grow together 🥹✨
+
+if you're a mama, an auntie, or a small shop trying to grow your little corner of the internet, I'd love to connect!
+
+#smallbusiness #momcommunity #instagramgrowth #momlife #sunnozy
+```
+
+Das Ziel (500) kann frei gewählt werden.
 
 ## Beim Posten
 
