@@ -74,3 +74,11 @@ Für den Shop gibt es die Präsentationen zusätzlich mit reinweissem Hintergrun
 | Smile – Salbeigrün | 3: Ripp-Strampler «You make me happy», Knotenmütze, Kapuzentuch «SMILE» | `set_smile_gruen_quadratisch.jpg` |
 
 Mit KI erstellt (Vorlage in `original/`, Artikelnummern aus den Lieferantenbildern nicht übernommen). Vor dem Upload Teile, Prints und Farben mit dem echten Produkt abgleichen.
+
+## hauptbilder_2048/ (23.11.2026)
+
+Alle 20 Set-Hauptbilder in 2048 × 2048 px für Shopify:
+- `ohne_logo/` und `mit_logo/` (sunnozy-Logo oben links, keine Artikelnummer), `ki-roh/` = Zwischenstand ohne Logo-Ecke.
+- Nackenetikett: fremde Etiketten entfernt, stattdessen direkt auf den Stoff gedruckt wie in der Referenz `product-photos-present/praes_cs_strampler_blumen_hase.jpg`: «sunnozy», «0-3M», drei Herzen, «100%COTTON». Ohne «Made in China».
+- Nur bei Teilen, deren Innennacken sichtbar ist (Strampler, Body, Shirt, Jacke, Weltall-Mütze). Lätzchen ohne Etikett.
+- Werkzeuge: `/home/claude/tools/up.py` (Real-ESRGAN x2), `label_stamp.py`, `hb_label.py` + `hb_label.json` (Etikett-Positionen pro Set).
