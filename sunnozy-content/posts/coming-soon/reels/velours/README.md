@@ -77,11 +77,12 @@ Kein Preis. Musik: Standard-Track Alex Morgan «No Copyright Music» (`../musik/
 
 ## «POV: she is here 💓💓💖» (24.11.2026, Englisch)
 
-`reel_velours_she_is_here_9x16.mp4` (12,4 s + Endfolie = 14,6 s), Skript `tools/make_reel_velours_she_is_here.py`.
+`reel_velours_she_is_here_9x16.mp4` (11,1 s + Endfolie = 13,3 s), Skript `tools/make_reel_velours_she_is_here.py`.
 
-- Produktfoto der Nutzerin (`original/produktfoto_velours.png`) mit Zoom auf Strampler, Kragen/Knöpfe und Rüschen, dazwischen `clip_strampeln` und `clip_strecken` (Baby wach, auf dem Rücken, nichts im Bett)
-- Text «POV: she is here 💓💓💖» in Schreibmaschinenschrift, am Anfang und zum Loop am Ende. Standardmusik. Endfolie «romper «Velours» · coming soon · follow so you don't miss it», kein Preis
-- **Nicht verwendet:** die drei am 24.11. geschickten Videos (zwei davon identisch). Das Baby schläft auf der Seite im Erwachsenenbett mit Kissen, Bettdecke, Plüschhase und Haarband, das verstösst gegen die Safe-Sleep-Regel.
+- **Nur die Videos der Nutzerin vom 24.11.** (`original/clip_bett_a.mp4`, `clip_bett_b.mp4`; das dritte war identisch mit dem ersten), auf ihren ausdrücklichen Wunsch.
+- **Ausnahme von der Safe-Sleep-Regel, von der Nutzerin entschieden:** Baby schläft auf der Seite im Erwachsenenbett mit Kissen, Decke, Plüschhase und Haarband.
+- Clip in voller Breite (Kopf und Füsse ganz im Bild), oben Wand und unten Leintuch verlängert
+- Text «POV: she is here 💓💓💖» in Schreibmaschinenschrift über den Kissen, am Anfang und zum Loop am Ende. Standardmusik. Endfolie «romper «Velours» · coming soon · follow so you don't miss it» mit dem Produktfoto (`original/produktfoto_velours.png`), kein Preis
 
 Caption:
 ```

@@ -1,9 +1,10 @@
 """Coming-soon-Reel Strampler «Velours»: «POV: she is here 💓💓💖» (Wunsch der Nutzerin 24.11.2026, alles auf Englisch).
 
-Clips: velours/original (Baby wach, auf dem Rücken, nichts im Bett) + Produktfoto der Nutzerin mit Zoom auf Rüschen
-und Knöpfe. Die neu geschickten Videos (Baby schläft auf der Seite im Erwachsenenbett, Kissen, Decke, Plüschhase,
-Haarband) sind wegen Safe Sleep nicht dabei.
-Text: Schreibmaschinenschrift weiss mit Schleier, am Anfang und zum Loop am Ende. Standardmusik, Endfolie, kein Preis.
+Nur die zwei Videos, die die Nutzerin am 24.11. geschickt hat (`velours/original/clip_bett_a.mp4`, `clip_bett_b.mp4`),
+auf ausdrücklichen Wunsch der Nutzerin. Ausnahme von der Safe-Sleep-Regel: Das Baby schläft auf der Seite im
+Erwachsenenbett mit Kissen, Decke, Plüschhase und Haarband.
+Die Clips (800×1136) stehen in voller Breite, damit Kopf und Füsse ganz im Bild sind, oben und unten eine unscharfe
+Verlängerung. Text: Schreibmaschinenschrift weiss mit Schleier, am Anfang und zum Loop am Ende. Standardmusik, Endfolie.
 
     python3 tools/make_reel_velours_she_is_here.py
 Ausgabe: posts/coming-soon/reels/velours/reel_velours_she_is_here_9x16.mp4
@@ -22,14 +23,9 @@ ORIG = os.path.join(V, 'original')
 FOTO = os.path.join(ORIG, 'produktfoto_velours.png')
 SCHRIFT = os.path.join(m.ROOT, 'fonts', 'courierprime.ttf')
 TEXT, EMOJI = ['POV: she is here'], '💓💓💖'
-TY = 1500
-# (Art, Quelle, von, bis[, Zoom-Start, Zoom-Ende, Fokus x, Fokus y])
-TEILE = [('foto', FOTO, 0, 2.6, 1.0, 1.12, 0.48, 0.45),                       # ganzer Strampler, langsamer Zoom
-         ('clip', os.path.join(ORIG, 'clip_strampeln.mp4'), 4.0, 6.6),          # wach, strampelt
-         ('foto', FOTO, 0, 1.8, 2.2, 2.4, 0.5, 0.30),                         # Kragen und Knöpfe
-         ('clip', os.path.join(ORIG, 'clip_strecken.mp4'), 5.0, 7.6),           # streckt sich, schaut
-         ('foto', FOTO, 0, 1.8, 2.4, 2.6, 0.25, 0.40),                        # Rüschen am Ärmel
-         ('clip', os.path.join(ORIG, 'clip_strampeln.mp4'), 9.0, 11.4)]         # wach
+TY = 420                 # über den Kissen, nicht auf dem Baby
+TEILE = [('bett', os.path.join(ORIG, 'clip_bett_a.mp4'), 0.3, 5.8),
+         ('bett', os.path.join(ORIG, 'clip_bett_b.mp4'), 1.0, 6.8)]
 BLENDE = 0.3
 
 
@@ -43,11 +39,41 @@ def foto_frames(pfad, dauer, z0, z1, fx, fy):
         yield im.resize((W, H), Image.LANCZOS, box=(x0, y0, x0 + cw, y0 + ch))
 
 
+def bett_frames(pfad, von, bis):
+    """Clip in voller Breite, mittig, oben und unten unscharf verlängert."""
+    w, h = map(int, subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', pfad],
+                                   capture_output=True, text=True).stdout.strip().split(','))
+    ch = round(W * h / w); ch += ch % 2; y0 = (H - ch) // 2
+    mk = Image.new('L', (W, ch), 255); d = ImageDraw.Draw(mk)
+    for y in range(90):
+        a = int(255 * y / 90); d.line((0, y, W, y), fill=a); d.line((0, ch - 1 - y, W, ch - 1 - y), fill=a)
+    for fr in _roh(pfad, von, bis, ch):
+        bg = Image.new('RGB', (W, H))
+        oben = fr.crop((0, 0, W, 50)).resize((W // 8, (y0 + 90) // 8)).filter(ImageFilter.GaussianBlur(3)).resize((W, y0 + 90), Image.BICUBIC)
+        unten = fr.crop((0, ch - 50, W, ch)).resize((W // 8, (H - y0 - ch + 90) // 8)).filter(ImageFilter.GaussianBlur(3)).resize((W, H - y0 - ch + 90), Image.BICUBIC)
+        bg.paste(oben, (0, 0)); bg.paste(unten, (0, y0 + ch - 90))       # Rand verlängert: oben Wand, unten Leintuch
+        bg.paste(fr, (0, y0), mk)
+        yield bg
+
+
+def _roh(pfad, von, bis, ch):
+    p = subprocess.Popen(['ffmpeg', '-v', 'error', '-ss', str(von), '-t', str(bis - von), '-i', pfad, '-map', '0:v:0',
+                          '-vf', f'fps={FPS},scale={W}:{ch}:flags=lanczos', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], stdout=subprocess.PIPE)
+    n = W * ch * 3
+    while True:
+        b = p.stdout.read(n)
+        if len(b) < n:
+            break
+        yield Image.frombuffer('RGB', (W, ch), b)
+
+
 def alle_frames():
     teile = []
     for t in TEILE:
         if t[0] == 'foto':
             teile.append(list(foto_frames(t[1], t[3] - t[2], *t[4:])))
+        elif t[0] == 'bett':
+            teile.append(list(bett_frames(t[1], t[2], t[3])))
         else:
             teile.append(list(k1.clip_frames(t[1], t[2], t[3])))
     nb = int(BLENDE * FPS)
@@ -73,7 +99,7 @@ def text_ebene():
     for e in teile:
         tx.alpha_composite(e, (int(x), int(TY - e.height / 2 - 4))); x += e.width + 6
     # Schleier hinter dem Text (heller Strampler)
-    s = Image.new('L', (W, H), 0); ImageDraw.Draw(s).ellipse((60, TY - 90, W - 60, TY + 90), fill=150)
+    s = Image.new('L', (W, H), 0); ImageDraw.Draw(s).ellipse((60, TY - 90, W - 60, TY + 90), fill=150)   # Schleier hinter dem Text
     e = Image.new('RGBA', (W, H), (40, 30, 22, 0)); e.putalpha(s.filter(ImageFilter.GaussianBlur(45)))
     sch = Image.new('RGBA', (W, H), (45, 30, 20, 0)); sch.putalpha(sl.filter(ImageFilter.GaussianBlur(9)))
     e.alpha_composite(sch); e.alpha_composite(tx)
