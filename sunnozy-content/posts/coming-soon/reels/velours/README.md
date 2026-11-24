@@ -74,3 +74,20 @@ Kein Preis. Musik: Standard-Track Alex Morgan «No Copyright Music» (`../musik/
 > #comingsoon #babykleidung #babyschweiz #erstausstattung #sunnozy
 
 «Mit KI erstellt» einschalten.
+
+## «POV: she is here 💓💓💖» (24.11.2026, Englisch)
+
+`reel_velours_she_is_here_9x16.mp4` (12,4 s + Endfolie = 14,6 s), Skript `tools/make_reel_velours_she_is_here.py`.
+
+- Produktfoto der Nutzerin (`original/produktfoto_velours.png`) mit Zoom auf Strampler, Kragen/Knöpfe und Rüschen, dazwischen `clip_strampeln` und `clip_strecken` (Baby wach, auf dem Rücken, nichts im Bett)
+- Text «POV: she is here 💓💓💖» in Schreibmaschinenschrift, am Anfang und zum Loop am Ende. Standardmusik. Endfolie «romper «Velours» · coming soon · follow so you don't miss it», kein Preis
+- **Nicht verwendet:** die drei am 24.11. geschickten Videos (zwei davon identisch). Das Baby schläft auf der Seite im Erwachsenenbett mit Kissen, Bettdecke, Plüschhase und Haarband, das verstösst gegen die Safe-Sleep-Regel.
+
+Caption:
+```
+POV: she is here 💓💓💖 our new «Velours» romper: soft velvet, puff sleeves and little ruffles. coming soon.
+
+follow so you don't miss it, and send this to someone expecting a little girl 🤍
+
+#babygirl #newbornoutfit #comingsoon #babyclothes #sunnozy
+```
