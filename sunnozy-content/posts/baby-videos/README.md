@@ -130,3 +130,17 @@ Die fertigen Reels liegen in `posts/reels/coming-soon/` (`tools/make_reels_video
 186 ältere Grok-Videos (Sept.–Nov. 2026) aus dem Grok-Konto, die noch nicht im Repo lagen. Abgleich per Git-Blob-Hash: keine Doppelten, nichts doppelt hochgeladen. Liegen flach hier im Ordner.
 Dateiname: `<Datum>_<Uhrzeit>_<Name des Ausgangsbilds>_<Grok-ID>.mp4`. `text_…` und `bild_…` heissen so, weil das Ausgangsbild keinen sprechenden Namen hatte.
 Ungesichtet: vor dem Posten prüfen (Safe Sleep: wach, Rückenlage, kein Kuscheltier, keine Decke, kein Haarband im Bett; keine fremden Marken). Alle Babys sind KI-generiert: beim Posten «Mit KI erstellt» einschalten.
+
+## Produkt-Schwenk (24.11.2026)
+
+`<foto>_schwenk.mp4`: pro Set ein Video, Kamerafahrt nach dem Muster aus der Bildschirmaufnahme vom 24.11. Grok Imagine, Video-Modus, 720p, 10 s, Foto als erstes Bild. Ausgangsfotos aus `baby-photos/referenzen_photos_neu/`, bei Sets mit Ads-Variante die `*_ads.png`.
+
+Ablauf: Handy geht nah ans Gesicht (0–2 s), gleitet am Outfit runter bis zu den Füssen (2–5 s), bleibt kurz bei Beinen und Füssen (5–7 s) und fährt zurück zum Gesicht (7–10 s). Ende ≈ Anfang, damit das Reel loopt.
+
+Prompt «Produkt-Schwenk»:
+
+> Vertical handheld smartphone video, the photo is the first frame. Real, unedited phone footage: a mum holds her phone close above her baby and slowly films the outfit up close. 0-2 s: the phone moves in close until the baby fills most of the frame, framed on the face and the hat or head. 2-5 s: the phone slowly glides down along the body, close-up over the chest, the print, the buttons and the fabric texture, down to the legs and the little feet. 5-7 s: it drifts a little to the side and lingers close on the legs and feet. 7-10 s: it slowly glides back up along the outfit and ends close on the face again, like a seamless loop. Close-up the whole time, the camera follows the outfit, slightly tilted like a real phone, soft natural hand sway, smooth and slow, no zoom jumps, no cuts, no gimbal or drone moves, nothing fast. The outfit stays sharp: fabric, print, colours and details exactly as in the photo. The baby stays calm and lies still on the back: if the eyes are closed the baby keeps sleeping peacefully, if awake the baby only blinks softly. Barely visible calm breathing, at most one tiny hand movement. No crying, no rolling over. Same baby, face, clothing, bedding and room as in the photo. Do not add anything: no toys, no blanket, no pacifier, no text. Soft daylight, warm natural colours, slight phone camera noise. Sound: quiet room ambience, no music.
+
+**Nicht für Ads** (Plüschtier, Nuggi oder Decke am Gesicht, kommt schon vom Ausgangsfoto): `gaensebluemchen-beautiful_baby`, `little-bear-rosa_baby`, `set_hase_rosa_baby_strampler`, `set_hello_schmetterling_baby_strampler`, `set_little_and_loved_gans_rosa_baby_strampler`, `set_prinzessin_krone_baby_strampler`, `set_rosa_baby_strampler`, `set_waldbaer_creme_baby_strampler`.
+
+Ohne diese Probleme: alle `*_ads_schwenk.mp4` sowie `blumen-musselin_baby`, `born-in-2027-rosa_baby_strampler`, `eisbaer-taupe_baby`, `set_bauernhof_baby_strampler`, `set_gaensebluemchen_baby_strampler`, `set_lila_hase_baby_strampler`, `set_little_bear_baby_strampler`, `set_smile_gruen_baby_strampler`, `set_teddy_creme_baby_strampler`, `set_weltall_hellblau_baby_strampler`. Prints trotzdem mit dem echten Set vergleichen. Beim Posten «Mit KI erstellt» einschalten.
