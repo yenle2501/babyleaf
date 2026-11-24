@@ -4,8 +4,8 @@ Hängt an ein fertiges Reel eine 2,6-s-Endfolie an, mit 0,4 s Überblendung. Dan
 Länge gelegt. Die Endfolie ist eine Creme-Fläche mit:
   - Set-Bild als Karte
   - Name in Schreibmaschinenschrift
-  - Zeile darunter (z.B. «Erstausstattung · 5 Teile» oder «coming soon»)
-  - Aufruf («Link in der Bio» oder «Folg uns, damit Du es nicht verpasst»)
+  - Zeile darunter (z.B. «newborn set · 5 pieces» oder «coming soon»)
+  - Aufruf («link in bio · sunnozy.ch» oder «follow so you don't miss it»)
   - sunnozy-Logo
 Kein Preis: Bei Coming soon ist er verboten, bei Shop-Produkten steht er in der Caption, bei «PREIS»-Reels in der DM.
 
@@ -29,7 +29,7 @@ MUSIK = os.path.join(P, 'coming-soon', 'reels', 'musik', 'alex-morgan_no-copyrig
 SCHRIFT = os.path.join(m.ROOT, 'fonts', 'courierprime.ttf')
 CREME, DUNKEL, GRAU = (250, 246, 240), (60, 52, 46), (120, 105, 95)
 DAUER, BLENDE = 2.6, 0.4
-SHOP, CS_AUFRUF = 'Link in der Bio · sunnozy.ch', 'Folg uns, damit Du es nicht verpasst'
+SHOP, CS_AUFRUF = 'link in bio · sunnozy.ch', "follow so you don't miss it"   # ab 24.11.2026 alles auf Englisch
 
 
 def f(g):
