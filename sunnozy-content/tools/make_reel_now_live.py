@@ -1,11 +1,11 @@
 """«Jetzt online»-Reel für die Coming-soon-Sets (Wunsch der Nutzerin 24.11.2026, Vorbild: Stop-Motion-Reel «Now Live»:
 freigestelltes Produkt in der Mitte, Hintergrund wechselt im Takt zwischen Weinrot, Tannengrün und Streifen).
 
-Nur posten, wenn die gezeigten Sets in Shopify aktiv sind (Stand 24.11.2026: alle noch Entwurf).
+Nur posten, wenn die gezeigten Sets in Shopify aktiv sind (Stand 24.11.2026: Teddybär und Princess aktiv, Teddybär
+ausverkauft; Little Princess Krone, Hase Rosa, I love Dogs noch Entwurf).
 
-    python3 tools/make_reel_now_live.py          # Deutsch und Englisch
-    python3 tools/make_reel_now_live.py de
-Ausgabe: posts/coming-soon/reels/now-live/reel_now_live_<sprache>_9x16.mp4 (+ _titelbild.jpg), Captions im README dort.
+    python3 tools/make_reel_now_live.py
+Ausgabe: posts/coming-soon/reels/now-live/reel_now_live_en_9x16.mp4 (+ _titelbild.jpg), Captions im README dort.
 """
 import os, sys, subprocess, tempfile
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
@@ -19,17 +19,17 @@ CS = os.path.join(m.POSTS, 'coming-soon', 'photos')
 OUT = os.path.join(m.POSTS, 'coming-soon', 'reels', 'now-live')
 FRE = lambda k: os.path.join(CS, 'marktplatz-galaxus-amazon', 'freigestellt', f'set_{k}.png')
 SET = lambda k: os.path.join(CS, k, 'marktplatz', f'{k}_freigestellt.png')
-# Freigestellte Hauptbilder der Coming-soon-Sets (Shopify-Entwürfe)
-BILDER = [FRE('best_family'), SET('born-in-2027-rosa'), FRE('wal_blau'), FRE('prinzessin_krone'), SET('eisbaer-taupe'),
-          FRE('bauernhof'), SET('little-bear-rosa'), FRE('lila_hase'), SET('waldbaer-creme'), FRE('hase_rosa'),
-          FRE('love_dad_mom'), FRE('gaensebluemchen')]
-ROT, GRUEN, CREME_ST = (112, 18, 26), (26, 48, 34), (238, 228, 210)
-TAKT = 0.4                 # Sekunden pro Bild, wie im Vorbild schnell im Takt
+# Die fünf 8-teiligen Sets (Wunsch der Nutzerin 24.11.2026): Teddybär, Little Princess Krone, Hase Rosa, Princess, I love Dogs
+BILDER = [FRE('teddy_creme'), FRE('prinzessin_krone'), FRE('hase_rosa'), FRE('rosa_A'),
+          os.path.join(CS, 'produktfotos-set-praesentation', 'freigestellt', 'set_hund_creme.png')]   # mit rembg freigestellt
+# Ruhigere Farben (Wunsch: andere Hintergrundfarbe als im Vorbild)
+ROSE, SALBEI, MOKKA, CREME_ST = (205, 154, 150), (146, 166, 136), (168, 132, 104), (244, 236, 224)
+ROT, GRUEN = ROSE, SALBEI        # Streifen: Creme, Rosa, Creme, Salbei
+TAKT = 0.9                 # Sekunden pro Bild (Wunsch: langsamer als im Vorbild)
 RUNDEN = 2
 SCHRIFT = os.path.join(m.ROOT, 'fonts', 'nunitosans-800.ttf')
-TEXTE = {
-    'de': dict(schild='jetzt online', karte=('Neue Erstausstattung', '12 Sets · jetzt online', SHOP)),
-    'en': dict(schild='now live', karte=('new newborn sets', '12 sets · now live', 'link in bio · sunnozy.ch')),
+TEXTE = {   # ab 24.11.2026 alles auf Englisch
+    'en': dict(schild='now live', karte=('our newborn sets', '8 pieces each · now live', SHOP)),
 }
 
 
@@ -45,8 +45,8 @@ def streifen():
     return c
 
 
-HINTERGRUND = [Image.new('RGB', (W, H), ROT), Image.new('RGB', (W, H), GRUEN), streifen()]
-FOLGE = [0, 1, 2, 2, 0, 1, 0, 2, 1, 1, 2, 0]   # Reihenfolge der Hintergründe, wie im Vorbild unregelmässig
+HINTERGRUND = [Image.new('RGB', (W, H), ROSE), Image.new('RGB', (W, H), SALBEI), streifen(), Image.new('RGB', (W, H), MOKKA)]
+FOLGE = [0, 1, 2, 3, 2, 0, 3, 1, 2, 0]   # Reihenfolge der Hintergründe
 
 
 def produkt(pfad, breite=900, hoehe=900):
@@ -63,15 +63,20 @@ def schild(text):
     b, h = int(tw + em.width + 14 + 80), 96
     s = Image.new('RGBA', (b, h), (0, 0, 0, 0)); d = ImageDraw.Draw(s)
     d.rounded_rectangle((0, 0, b - 1, h - 1), radius=h // 2, fill=CREME_ST + (255,))
-    d.text((40, h / 2 + 2), text, font=fo, fill=ROT + (255,), anchor='lm')
+    d.text((40, h / 2 + 2), text, font=fo, fill=MOKKA + (255,), anchor='lm')
     s.alpha_composite(em, (int(40 + tw + 14), (h - em.height) // 2))
     return s
 
 
 def end_bild():
-    c = Image.new('RGB', (1000, 1000), (250, 246, 240))
-    for k, p in enumerate(BILDER[:4]):
-        im, _ = produkt(p, 470, 470); c.paste(im, ((k % 2) * 510 + (490 - im.width) // 2, (k // 2) * 510 + (490 - im.height) // 2), im)
+    """Alle Sets aus dem Reel: 3 oben, der Rest unten mittig."""
+    c = Image.new('RGB', (1000, 700), (250, 246, 240)); n = len(BILDER); oben = (n + 1) // 2
+    for k, p in enumerate(BILDER):
+        reihe, pos = (0, k) if k < oben else (1, k - oben)
+        anzahl = oben if reihe == 0 else n - oben
+        im, _ = produkt(p, 310, 310)
+        x0 = (1000 - anzahl * 330) // 2 + pos * 330
+        c.paste(im, (x0 + (310 - im.width) // 2, 20 + reihe * 340 + (310 - im.height) // 2), im)
     pfad = os.path.join(tempfile.gettempdir(), 'now_live_endbild.jpg'); c.save(pfad, quality=94)
     return pfad
 
@@ -84,7 +89,7 @@ def reel(sprache):
     pfad = os.path.join(OUT, f'reel_now_live_{sprache}_9x16.mp4'); tmp = pfad + '.tmp.mp4'
     if os.path.exists(pfad):
         os.remove(pfad)
-    n_bild = int(round(TAKT * FPS)); folge = [(i, (i + r * 5) % len(FOLGE)) for r in range(RUNDEN) for i in range(len(BILDER))]
+    n_bild = int(round(TAKT * FPS)); folge = [(i, (i + r * len(BILDER)) % len(FOLGE)) for r in range(RUNDEN) for i in range(len(BILDER))]
     enc = subprocess.Popen(['ffmpeg', '-y', '-v', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
                             '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '18', '-preset', 'medium', tmp], stdin=subprocess.PIPE)
     n = 0

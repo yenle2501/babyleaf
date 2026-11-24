@@ -1,33 +1,24 @@
-# «Jetzt online»-Reel (24.11.2026)
+# «now live»-Reel (24.11.2026)
 
-Nach dem Vorbild der Nutzerin (Stop-Motion-Reel «Now Live»: freigestelltes Produkt in der Mitte, Hintergrund wechselt im Takt zwischen Weinrot, Tannengrün und Streifen). Nur der Stil ist übernommen, keine fremden Bilder.
+Nach dem Vorbild der Nutzerin (Stop-Motion-Reel «Now Live»: freigestelltes Produkt in der Mitte, Hintergrund wechselt im Takt). Nur der Stil ist übernommen, keine fremden Bilder. Ab 24.11.2026 nur noch auf Englisch.
 
-> **Erst posten, wenn die Sets in Shopify aktiv sind.** Stand 24.11.2026 sind alle 12 noch Entwurf. Vorher stimmt «jetzt online» nicht.
+> **Erst posten, wenn die Sets in Shopify aktiv sind.** Stand 24.11.2026: Teddybär und Princess aktiv (Teddybär **ausverkauft**, Princess noch 2), Little Princess Krone, Hase Rosa und I love Dogs noch Entwurf.
 
-| Datei | Sprache | Länge |
-|---|---|---|
-| `reel_now_live_de_9x16.mp4` | Deutsch, Schild «jetzt online ✨» | 11,8 s (9,6 s + Endfolie) |
-| `reel_now_live_en_9x16.mp4` | Englisch, Schild «now live ✨» | 11,8 s |
+| Datei | Länge |
+|---|---|
+| `reel_now_live_en_9x16.mp4` | 11,2 s (9,0 s + Endfolie) |
 
-- 12 Sets, freigestellte Hauptbilder (`photos/marktplatz-galaxus-amazon/freigestellt/`, `photos/<set>/marktplatz/*_freigestellt.png`): Best Family, Born in 2027 Rosa, Wal, Little Princess Krone, Eisbär, Bauernhof, Little Bear Rosa, little and cute (Lila Hase), Waldbär, Hase Rosa, I love Dad Mom, It's a baby girl (Gänseblümchen)
-- Jedes Bild 0,4 s, zwei Runden, Hintergründe Weinrot, Tannengrün, Streifen (Creme, Rot, Grün)
-- Standardmusik (Alex Morgan), Endfolie mit 4 Sets, «Neue Erstausstattung · 12 Sets · jetzt online», kein Preis
-- Neu erzeugen: `python3 tools/make_reel_now_live.py [de|en]`. Sets ändern: Liste `BILDER` im Skript (nur Sets, die wirklich live gehen).
+- Die fünf 8-teiligen Sets, freigestellt: Teddybär, Little Princess Krone, Hase Rosa, Princess, I love Dogs
+  - I love Dogs gab es noch nicht freigestellt: mit rembg aus dem Shop-Hauptbild freigestellt, `photos/produktfotos-set-praesentation/freigestellt/set_hund_creme.png` (mit Bügel)
+- Jedes Bild 0,9 s, zwei Runden. Hintergründe Altrosa, Salbei, Mokka und Streifen (Creme, Rosa, Salbei)
+- Schild oben «now live ✨» (Creme, Schrift Mokka), Standardmusik, Endfolie «our newborn sets · 8 pieces each · now live» mit allen 5 Sets, kein Preis
+- Neu erzeugen: `python3 tools/make_reel_now_live.py`. Sets ändern: Liste `BILDER` im Skript.
 
-## Caption Deutsch
+## Caption
 ```
-Jetzt online ✨ Unsere neue Erstausstattung ist da: 12 Sets für Dein Baby, von «Best Family» bis «Little Princess».
+now live ✨ our 8-piece newborn sets: Teddy, Little Princess, Bunny, Princess and I love Dogs. everything your little one needs for the first weeks, in one set.
 
-Welches ist Dein Favorit? Schreib es in die Kommentare 🤎
-
-#erstausstattung #babykleidung #babyschweiz #geschenkzurgeburt #sunnozy
-```
-
-## Caption Englisch
-```
-now live ✨ our new newborn sets are here: 12 sets for your little one, from «Best Family» to «Little Princess».
-
-which one is your favourite? tell us in the comments 🤎
+which one would you pick? tell us in the comments 🤎
 
 #newbornsets #babyclothes #newmom #babygift #sunnozy
 ```
