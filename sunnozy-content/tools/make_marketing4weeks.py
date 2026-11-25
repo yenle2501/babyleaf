@@ -292,7 +292,7 @@ def tag01_reel_teaser():
         ('bild', VELOURS_FOTO, 2.2, 2.6, 3.0, 0.24, 0.43),
         ('bild', TEIL('hase_rosa', 'body'), 2.2, 2.2, 2.6, 0.5, 0.45),
         ('bild', VELOURS_FOTO, 2.6, 1.6, 1.0, 0.48, 0.45)],
-        [(0, 3.2, ['something beautiful', 'is coming'], '🤍', 1420, POV), (8.0, None, ['something beautiful', 'is coming'], '🤍', 1420, POV)],
+        [(0, 3.2, ['warning: these little', 'outfits might steal', 'your heart'], '🤍', 1380, POV), (8.0, None, ['something beautiful', 'is coming'], '🤍', 1420, POV)],
         CS_KARTE(MAIN4, 'something beautiful'))
 
 
@@ -300,7 +300,7 @@ def tag02_tiktok_getting_ready():
     video(1, 'tag02_tiktok_getting_ready', [
         ('clip', HAENDE('Hand_placing_baby_bodysuits_in_202608310851.mp4'), 0.0, 4.2),
         ('clip', HAENDE('Hands_changing_baby_bodysuits_in…_202608311248.mp4'), 4.5, 9.5)],
-        [(0, 3.2, ['getting ready for', 'something new'], '🤍', 330, POV), (6.0, None, ['coming soon'], '✨', 330, POV)],   # Text oben: unten steht das Logo auf der Tüte
+        [(0, 3.2, ["mama, you don't need", 'another baby outfit…', 'or do you?'], '🥹', 300, POV), (6.0, None, ['coming soon'], '✨', 330, POV)],   # Text oben: unten steht das Logo auf der Tüte
         CS_KARTE(MAIN4))
 
 
@@ -313,7 +313,7 @@ def tag03_tiktok_details():
         ('bild', VELOURS_FOTO, 1.9, 2.6, 3.0, 0.5, 0.25),
         ('bild', TEIL('hase_rosa', 'muetze'), 1.9, 1.6, 2.0, 0.5, 0.5),
         ('bild', VELOURS_FOTO, 2.0, 2.4, 2.8, 0.2, 0.88)],
-        [(0, 3.2, ['little details,', 'lots of love'], '🤍', 1420, POV), (8.6, None, ['little details,', 'lots of love'], '🤍', 1420, POV)],
+        [(0, 3.2, ['wait until you see', 'this little detail'], '👀', 1420, POV), (8.6, None, ['little details,', 'lots of love'], '🤍', 1420, POV)],
         CS_KARTE(MAIN4))
 
 
@@ -330,7 +330,7 @@ def tag05_reel_sneak_peek():
         ('clip', R5('20_best_family_lachen.mp4'), 1.0, 3.4), ('clip', ARCH['little_princess'], 4.0, 6.4),
         ('clip', R5('08_happy_baby.mp4'), 3.0, 5.4), ('clip', ARCH['smile_gruen'], 5.0, 7.4),
         ('clip', VELOURS('clip_strampeln.mp4'), 4.0, 6.8)],
-        [(0, 3.2, ['POV: a little sneak peek', "of what's coming"], '👀', 1420, POV), (8.6, None, ['coming soon'], '🤍', 1420, POV)],
+        [(0, 3.2, ["they'll only be", 'this little once'], '🥹', 1420, POV), (8.6, None, ['coming soon'], '🤍', 1420, POV)],
         CS_KARTE(['Best Family', 'Farm', 'Little Princess', 'Bunny']))
 
 
@@ -338,7 +338,7 @@ def tag06_tiktok_packing():
     video(1, 'tag06_tiktok_packing', [
         ('clip', HAENDE('Hand_placing_baby_bodysuits_in_202608311030.mp4'), 0.0, 4.0),
         ('breit', HAENDE('weihnachtsbox_mummy_b_bearbeitet.mp4'), 0.5, 7.0)],
-        [(0, 3.2, ['packing something special'], '🎀', 330, POV), (8.0, None, ['packing something special'], '🎀', 330, POV)],
+        [(0, 3.2, ["POV: you're packing the", 'sweetest baby gift'], '🎀', 300, POV), (8.0, None, ['packing something special'], '🎀', 330, POV)],
         CS_KARTE(MAIN4))
 
 
@@ -346,7 +346,7 @@ def tag07_tiktok_first_smile():
     video(1, 'tag07_tiktok_first_smile', [
         ('clip', BEST_FAMILY('baby_clip_a.mp4'), 0.4, 3.0), ('clip', R5('25_happy_baby_b.mp4'), 1.0, 3.6),
         ('clip', R5('35_born_in_2027_blau.mp4'), 0.5, 3.0), ('clip', VELOURS('clip_strecken.mp4'), 5.0, 7.8)],
-        [(0, 3.2, ['POV: that first smile', 'melts your heart'], '🥹', 1420, POV), (7.4, None, ['little moments.', 'big love.'], '🤍', 1420, POV)],
+        [(0, 3.2, ['for all the memories', "you'll want to keep", 'forever'], '🤍', 1380, POV), (7.4, None, ['little moments.', 'big love.'], '🤍', 1420, POV)],
         CS_KARTE(['Best Family', 'Farm', 'Born in 2027', 'Little Princess']))
 
 
@@ -355,7 +355,7 @@ def tag08_tiktok_bodysuits():
         ('bild', TEIL('best_family', 'body'), 2.2, 1.0, 1.2, 0.5, 0.5), ('bild', TEIL('best_family', 'body'), 1.8, 2.3, 2.7, 0.5, 0.42),
         ('bild', TEIL('love_dad_mom', 'body'), 2.0, 1.0, 1.15, 0.5, 0.5), ('bild', TEIL('prinzessin_krone', 'body'), 2.0, 1.0, 1.15, 0.5, 0.5),
         ('bild', TEIL('wal_blau', 'body'), 2.0, 1.0, 1.15, 0.5, 0.5)],
-        [(0, 3.2, ['zoom in:', 'our new bodysuits'], '🔍', 1500, POV), (7.4, None, ['100% cotton,', 'snap buttons'], '🤍', 1500, POV)],
+        [(0, 3.2, ['basic? no. this is', "your baby's new", 'favourite bodysuit'], '🤍', 1460, POV), (7.4, None, ['100% cotton,', 'snap buttons'], '🤍', 1500, POV)],
         CS_KARTE(['Best Family', 'I love Dad Mom', 'Little Princess', 'Whale']))
 
 
@@ -370,19 +370,19 @@ def tag09_tiktok_which_one():
 def tag10_reel_new_outfits():
     namen = ['Best Family', 'Little Princess', 'Polar Bear', 'Bunny', 'Whale', 'I love Dogs']
     video(2, 'tag10_reel_new_outfits', [('produkt', SETS[n], 1.5, PASTELL[k % len(PASTELL)], n) for k, n in enumerate(namen)],
-          [(0, 3.0, ['new little outfits', 'are on their way'], '🤍', 300, DUN), (7.0, None, ['coming soon'], '✨', 300, DUN)],
+          [(0, 3.0, ['why are tiny clothes', 'SO cute?'], '🥹', 300, DUN), (7.0, None, ['coming soon'], '✨', 300, DUN)],
           CS_KARTE(namen))
 
 
 def tag11_tiktok_gift_wrap():
     video(2, 'tag11_tiktok_gift_wrap', [('breit', HAENDE('weihnachtsbox_mummy_a_bearbeitet.mp4'), 0.5, 10.5)],
-          [(0, 3.2, ['pack a baby gift', 'with me'], '🎀', 1500, POV), (7.6, None, ['the sweetest gift', 'for a new arrival'], '🤍', 1500, POV)],
+          [(0, 3.2, ['looking for a gift that', 'truly comes from', 'the heart?'], '🎀', 1460, POV), (7.6, None, ['the sweetest gift', 'for a new arrival'], '🤍', 1500, POV)],
           CS_KARTE(MAIN4))
 
 
 def tag12_tiktok_unboxing():
     video(2, 'tag12_tiktok_unboxing', [('clip', HAENDE('–_Unboxing_Set_auslegen_Sto.mp4'), 0.3, 9.8)],
-          [(0, 3.2, ['unboxing a', 'newborn set'], '🤍', 1500, POV), (7.0, None, ['everything in one set'], '✨', 1500, POV)],
+          [(0, 3.2, ["POV: you're pregnant", 'and discover sunnozy'], '🥹', 1500, POV), (7.0, None, ['everything in one set'], '✨', 1500, POV)],
           CS_KARTE(MAIN4))
 
 
@@ -399,21 +399,21 @@ def tag14_tiktok_countdown():
 def tag15_reel_collection():
     namen = list(SETS)[:12]
     video(3, 'tag15_reel_collection', [('produkt', SETS[n], 0.7, PASTELL[k % len(PASTELL)]) for k, n in enumerate(namen)],
-          [(0, None, ['the new collection', f'launching {LAUNCH_TXT}'], '🤍', 300, DUN)], CS_KARTE(namen[:4], 'the new collection'), blende=0.1)
+          [(0, 3.0, ['the cutest baby outfits', "you'll see today"], '🤍', 300, DUN), (3.0, None, ['the new collection', f'launching {LAUNCH_TXT}'], '🤍', 300, DUN)], CS_KARTE(namen[:4], 'the new collection'), blende=0.1)
 
 
 def tag16_tiktok_gift_ideas():
     video(3, 'tag16_tiktok_gift_ideas', [
         ('produkt', SETS['Little Princess'], 2.4, BLUSH, 'for a little girl'), ('produkt', SETS['Whale'], 2.4, (220, 230, 238), 'for a little boy'),
         ('produkt', SETS['Best Family'], 2.4, BEIGE, 'for every little one')],
-        [(0, None, ['gift ideas for newborns'], '🎁', 300, DUN)], CS_KARTE(['Little Princess', 'Whale', 'Best Family', 'Bunny']))
+        [(0, None, ['the perfect gift for', 'a newborn? found it'], '🎁', 280, DUN)], CS_KARTE(['Little Princess', 'Whale', 'Best Family', 'Bunny']))
 
 
 def tag17_tiktok_best_family():
     video(3, 'tag17_tiktok_best_family', [
         ('clip', BEST_FAMILY('baby_clip_b.mp4'), 0.8, 3.6), ('produkt', SETS['Best Family'], 2.2, BEIGE, '«Best Family» · 8 pieces'),
         ('clip', R5('20_best_family_lachen.mp4'), 1.0, 3.8)],
-        [(0, 2.5, ['the «Best Family» set,', 'from body to socks'], '🧸', 1420, POV)], CS_KARTE(['Best Family', 'Little Princess', 'Bunny', 'Whale']))
+        [(0, 2.5, ['when your baby already', 'has more style than you'], '🧸', 1420, POV)], CS_KARTE(['Best Family', 'Little Princess', 'Bunny', 'Whale']))
 
 
 def tag18_reel_whats_inside():
@@ -421,14 +421,14 @@ def tag18_reel_whats_inside():
              ('laetzchen', 'bib'), ('rassel', 'rattle'), ('faeustlinge', 'mittens'), ('socken', 'socks')]
     video(3, 'tag18_reel_whats_inside', [('produkt', TEIL('best_family', t), 1.0, CREME, f'{k + 1}/8  {n}') for k, (t, n) in enumerate(teile)]
           + [('produkt', SETS['Best Family'], 2.0, BEIGE, '8 pieces, one set')],
-          [(0, 2.6, ["what's inside the", '«Best Family» set?'], '🧸', 300, DUN)], CS_KARTE(['Best Family', 'Little Princess', 'Bunny', 'Whale']), blende=0.12)
+          [(0, 2.6, ['mama, this set belongs', "in your baby's wardrobe"], '🧸', 300, DUN)], CS_KARTE(['Best Family', 'Little Princess', 'Bunny', 'Whale']), blende=0.12)
 
 
 def tag19_tiktok_3_details():
     video(3, 'tag19_tiktok_3_details', [
         ('bild', TEIL('best_family', 'body'), 2.4, 2.6, 3.0, 0.5, 0.6), ('bild', TEIL('best_family', 'strampler'), 2.4, 2.6, 3.0, 0.5, 0.3),
         ('produkt', SETS['Best Family'], 2.4, BEIGE)],
-        [(0, 2.3, ['1. 100% soft cotton'], None, 1500, POV), (2.4, 4.6, ['2. snap buttons for', 'quick changes'], None, 1500, POV),
+        [(0, 1.2, ["3 reasons you'll love", 'this baby set'], '🤍', 1500, POV), (1.2, 2.3, ['1. 100% soft cotton'], None, 1500, POV), (2.4, 4.6, ['2. snap buttons for', 'quick changes'], None, 1500, POV),
          (4.8, None, ['3. everything', 'in one set'], '🤍', 1500, POV)], CS_KARTE(['Best Family', 'Little Princess', 'Bunny', 'Whale']))
 
 
@@ -436,7 +436,7 @@ def tag20_tiktok_velours():
     video(3, 'tag20_tiktok_velours', [
         ('bild', VELOURS_FOTO, 2.4, 1.0, 1.1, 0.48, 0.45), ('clip', VELOURS('clip_strampeln.mp4'), 4.0, 6.6),
         ('bild', VELOURS_FOTO, 1.8, 2.2, 2.4, 0.5, 0.3), ('clip', VELOURS('clip_strecken.mp4'), 5.0, 7.6)],
-        [(0, 3.0, ['meet the «Velours» romper'], '🤍', 1500, POV), (6.6, None, ['soft velvet,', 'little ruffles'], '✨', 1500, POV)],
+        [(0, 3.0, ['if love were an outfit…'], '🤍', 1500, POV), (6.6, None, ['soft velvet,', 'little ruffles'], '✨', 1500, POV)],
         (VELOURS_FOTO, 'romper «Velours»', 'coming soon', CS_AUFRUF))
 
 
@@ -447,14 +447,14 @@ def tag21_tiktok_countdown():
 def tag22_reel_full_collection():
     namen = list(SETS)[:12]
     video(4, 'tag22_reel_full_collection', [('raster', [SETS[n] for n in namen], 6.5, CREME, ['the full collection', f'launching {LAUNCH_TXT}'])],
-          [(0, 2.8, ['POV: you see the', 'whole collection'], '🥹', 160, DUN)], CS_KARTE(namen[:4], 'the full collection'))
+          [(0, 2.8, ['POV: you only wanted', 'to buy ONE outfit…'], '🙈', 160, DUN)], CS_KARTE(namen[:4], 'the full collection'))
 
 
 def tag25_reel_favourite_outfits():
     video(4, 'tag25_reel_favourite_outfits', [
         ('clip', R5('25_happy_baby_b.mp4'), 1.0, 3.2), ('clip', ARCH['smile_gruen'], 5.0, 7.2), ('clip', ARCH['weltall'], 6.0, 8.2),
         ('clip', ARCH['little_princess'], 4.0, 6.2), ('clip', R5('20_best_family_lachen.mp4'), 1.0, 3.6)],
-        [(0, 3.0, ['which little outfit', 'is your favourite?'], '🤍', 1420, POV), (8.0, None, ['tell us in the comments'], '👇', 1420, POV)],
+        [(0, 3.0, ['mama, please don\'t buy', 'another baby outfit…'], '🙈', 1420, POV), (8.0, None, ['tell us in the comments'], '👇', 1420, POV)],
         CS_KARTE(['Farm', 'Best Family', 'Little Princess', 'Bunny']))
 
 
@@ -467,7 +467,7 @@ def tag30_tiktok_best_of():
         ('clip', R5('20_best_family_lachen.mp4'), 1.0, 3.0), ('produkt', SETS['Little Princess'], 1.2, BLUSH),
         ('clip', ARCH['smile_gruen'], 5.0, 7.0), ('produkt', SETS['Whale'], 1.2, (220, 230, 238)),
         ('bild', VELOURS_FOTO, 1.6, 1.0, 1.1, 0.48, 0.45), ('clip', R5('08_happy_baby.mp4'), 3.0, 5.0)],
-        [(0, 3.0, ['thank you for', 'being here'], '🤍', 1420, POV)], LIVE_KARTE(MAIN4))
+        [(0, 3.0, ['they grow so fast.', 'thank you for being', 'part of these moments'], '🤍', 1380, POV)], LIVE_KARTE(MAIN4))
 
 
 VIDEOS = [tag01_reel_teaser, tag02_tiktok_getting_ready, tag03_tiktok_details, tag04_tiktok_pink_or_beige, tag05_reel_sneak_peek,

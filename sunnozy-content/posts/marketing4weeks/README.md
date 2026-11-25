@@ -43,6 +43,34 @@ Nach dem Marketingplan der Nutzerin (`Sunnozy_30-Tage-Marketingkampagne.md`). Al
 | 29 | Do 24.12. | Story: gift ideas, now live | `woche-4/tag29_story_gift_ideas.jpg` | gift ideas (wie Tag 16) | `woche-3/tag16_tiktok_gift_ideas_9x16.mp4` |
 | 30 | Fr 25.12. | Foto: thank you | `woche-4/tag30_post_thank_you.jpg` | best-of / thank you | `woche-4/tag30_tiktok_best_of_9x16.mp4` |
 
+## Hooks (in den ersten 3 Sekunden jedes Videos)
+
+Aus der Hook-Liste der Nutzerin (25.11.2026), übersetzt ins Englische. Mischung etwa wie empfohlen: 40 % Emotion, 30 % Unterhaltung/POV, 20 % Produkt, 10 % Verkauf.
+
+| Tag | Video | Hook |
+|---|---|---|
+| 1 | Teaser | warning: these little outfits might steal your heart 🤍 |
+| 2 | TikTok getting ready | mama, you don't need another baby outfit… or do you? 🥹 |
+| 3/13 | Details | wait until you see this little detail 👀 |
+| 4 | TikTok pink or beige | pink or beige? 👇 |
+| 5 | Sneak peek | they'll only be this little once 🥹 |
+| 6 | TikTok packing | POV: you're packing the sweetest baby gift 🎀 |
+| 7 | TikTok emotional | for all the memories you'll want to keep forever 🤍 |
+| 8 | TikTok bodysuits | basic? no. this is your baby's new favourite bodysuit 🤍 |
+| 9 | TikTok which one | which one would you choose? 👇 |
+| 10 | New outfits | why are tiny clothes SO cute? 🥹 |
+| 11 | TikTok gift wrap | looking for a gift that truly comes from the heart? 🎀 |
+| 12 | TikTok unboxing | POV: you're pregnant and discover sunnozy 🥹 |
+| 15 | Collection | the cutest baby outfits you'll see today 🤍 |
+| 16 | TikTok gift ideas | the perfect gift for a newborn? found it 🎁 |
+| 17 | TikTok Best Family | when your baby already has more style than you 🧸 |
+| 18 | What's inside | mama, this set belongs in your baby's wardrobe 🧸 |
+| 19 | TikTok 3 details | 3 reasons you'll love this baby set 🤍 |
+| 20 | TikTok Velours | if love were an outfit… 🤍 |
+| 22 | Full collection | POV: you only wanted to buy ONE outfit… 🙈 |
+| 25 | Favourite outfits | mama, please don't buy another baby outfit… 🙈 |
+| 30 | TikTok best of | they grow so fast. thank you for being part of these moments 🤍 |
+
 ## Captions (Englisch, Feed und TikTok gleich)
 
 ### Tag 1 – Do 26.11.
@@ -72,21 +100,21 @@ pink or beige? 🤍 tell us in the comments, we'd love to know your favourite.
 
 ### Tag 5 – Mo 30.11.
 ```
-POV: a little sneak peek of what's coming 👀 send this to someone who's expecting 🤍
+they'll only be this little once 🥹 a little sneak peek of what's coming. send this to someone who's expecting 🤍
 
 #sunnozy #sneakpeek #newbornsets #babyclothes #comingsoon
 ```
 
 ### Tag 7 – Mi 2.12.
 ```
-Little moments. Big love. 🤍 that first smile is everything. this is why we started sunnozy.
+for all the memories you'll want to keep forever 🤍 little moments. big love.
 
 #sunnozy #littlemoments #newbornlove #momlife #babyclothes
 ```
 
 ### Tag 8 – Do 3.12.
 ```
-zoom in on our new «Best Family» bodysuit 🔍 100% soft cotton and snap buttons for quick changes. coming soon.
+basic? no. this is your baby's new favourite bodysuit 🤍 100% soft cotton and snap buttons for quick changes. coming soon.
 
 #sunnozy #babybodysuit #newborn #cottonbaby #comingsoon
 ```
@@ -100,14 +128,14 @@ which design is your favourite? 1, 2, 3 or 4? 👇 tell us in the comments!
 
 ### Tag 10 – Sa 5.12.
 ```
-new little outfits are on their way 🤍 eight pieces in every set, from bodysuit to socks. which one would you pick?
+why are tiny clothes SO cute? 🥹 new little outfits are on their way: eight pieces in every set, from bodysuit to socks. which one would you pick?
 
 #sunnozy #newcollection #newbornsets #babyoutfit #comingsoon
 ```
 
 ### Tag 11 – So 6.12.
 ```
-pack a baby gift with me 🎀 the sweetest way to welcome a new arrival. tag someone who's expecting!
+looking for a gift that truly comes from the heart? 🎀 the sweetest way to welcome a new arrival. tag someone who's expecting!
 
 #sunnozy #babygift #giftbox #newbabygift #packwithme
 ```
@@ -142,7 +170,7 @@ the new collection 🤍 newborn sets with teddies, crowns, bunnies and whales. l
 
 ### Tag 16 – Fr 11.12.
 ```
-gift ideas for newborns 🎁 for a little girl, a little boy or every little one. save this for your next baby shower!
+the perfect gift for a newborn? we found it 🎁 for a little girl, a little boy or every little one. save this for your next baby shower!
 
 #sunnozy #babygiftideas #babyshower #newborngift #comingsoon
 ```
@@ -156,14 +184,14 @@ a complete first outfit, all in one set 🤍 the «Bunny» set: 8 pieces in soft
 
 ### Tag 18 – So 13.12.
 ```
-what's inside the «Best Family» set? 🧸 romper, bodysuit, hat, hooded towel, bib, rattle, mittens and socks. 8 pieces, one set.
+mama, this set belongs in your baby's wardrobe 🧸 what's inside the «Best Family» set? romper, bodysuit, hat, hooded towel, bib, rattle, mittens and socks. 8 pieces, one set.
 
 #sunnozy #whatsinside #newbornset #babygift #comingsoon
 ```
 
 ### Tag 20 – Di 15.12.
 ```
-our favourite: the «Velours» romper 🤍 soft velvet, puff sleeves and little ruffles. coming soon.
+if love were an outfit… 🤍 our favourite: the «Velours» romper, soft velvet, puff sleeves and little ruffles. coming soon.
 
 #sunnozy #velvetromper #babygirl #newbornoutfit #comingsoon
 ```
@@ -177,7 +205,7 @@ our favourite: the «Velours» romper 🤍 soft velvet, puff sleeves and little 
 
 ### Tag 22 – Do 17.12.
 ```
-POV: you see the whole collection 🥹 12 newborn sets, launching 22.12.
+POV: you only wanted to buy ONE outfit… 🙈 12 newborn sets, launching 22.12.
 
 #sunnozy #newcollection #newbornsets #babyclothes #comingsoon
 ```
@@ -191,7 +219,7 @@ swipe to see three of our new sets 🤍 available from 22.12., link in bio.
 
 ### Tag 25 – So 20.12.
 ```
-which little outfit is your favourite? 🤍 tell us in the comments 👇
+mama, please don't buy another baby outfit… 🙈 okay, just one. which little outfit is your favourite? tell us in the comments 👇
 
 #sunnozy #babyoutfit #newborn #babyclothes #newcollection
 ```
