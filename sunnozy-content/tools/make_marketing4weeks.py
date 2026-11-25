@@ -180,14 +180,16 @@ def produkt_frames(p, dauer, bg, beschriftung=None, nummer=None):
 
 def raster_frames(pfade, dauer, bg, titel=None):
     """Sets erscheinen nacheinander im Raster 3×4 (Collection reveal)."""
-    kach = [einpassen(laden(p), 300, 300) for p in pfade]; n = len(kach)
+    n = len(pfade); sp = 2 if n <= 4 else 3; gr = 460 if sp == 2 else 300; ab = gr + 30
+    kach = [einpassen(laden(p), gr, gr) for p in pfade]
+    x_rand = (W - sp * ab + 30) // 2; y_rand = 330 if sp == 3 else 420
     for i in range(int(round(dauer * FPS))):
         t = i / FPS; c = Image.new('RGBA', (W, H), bg + (255,))
         for k, im in enumerate(kach):
             a = m.ease((t - k * (dauer * 0.6 / n)) / 0.35)
             if a <= 0:
                 continue
-            x = 60 + (k % 3) * 330 + (300 - im.width) // 2; y = 330 + (k // 3) * 330 + (300 - im.height) // 2
+            x = x_rand + (k % sp) * ab + (gr - im.width) // 2; y = y_rand + (k // sp) * ab + (gr - im.height) // 2
             t2 = im.copy(); al = t2.split()[3].point(lambda v: int(v * a)) if t2.mode == 'RGBA' else Image.new('L', t2.size, int(255 * a))
             t2.putalpha(al); c.alpha_composite(t2.convert('RGBA'), (x, y))
         if titel and t > dauer * 0.7:
@@ -307,7 +309,7 @@ def tag03_tiktok_details():
     video(1, 'tag03_tiktok_details', [
         ('bild', TEIL('best_family', 'strampler'), 1.9, 1.8, 2.3, 0.5, 0.35),
         ('bild', TEIL('prinzessin_krone', 'body'), 1.9, 2.2, 2.6, 0.5, 0.45),
-        ('bild', TEIL('wal_blau', 'laetzchen'), 1.9, 1.8, 2.2, 0.5, 0.5),
+        ('bild', TEIL('wal_blau', 'laetzchen'), 1.9, 1.15, 1.35, 0.5, 0.5),
         ('bild', VELOURS_FOTO, 1.9, 2.6, 3.0, 0.5, 0.25),
         ('bild', TEIL('hase_rosa', 'muetze'), 1.9, 1.6, 2.0, 0.5, 0.5),
         ('bild', VELOURS_FOTO, 2.0, 2.4, 2.8, 0.2, 0.88)],
@@ -379,7 +381,7 @@ def tag11_tiktok_gift_wrap():
 
 
 def tag12_tiktok_unboxing():
-    video(2, 'tag12_tiktok_unboxing', [('breit', HAENDE('–_Unboxing_Set_auslegen_Sto.mp4'), 0.3, 9.8)],
+    video(2, 'tag12_tiktok_unboxing', [('clip', HAENDE('–_Unboxing_Set_auslegen_Sto.mp4'), 0.3, 9.8)],
           [(0, 3.2, ['unboxing a', 'newborn set'], '🤍', 1500, POV), (7.0, None, ['everything in one set'], '✨', 1500, POV)],
           CS_KARTE(MAIN4))
 
@@ -411,7 +413,7 @@ def tag17_tiktok_best_family():
     video(3, 'tag17_tiktok_best_family', [
         ('clip', BEST_FAMILY('baby_clip_b.mp4'), 0.8, 3.6), ('produkt', SETS['Best Family'], 2.2, BEIGE, '«Best Family» · 8 pieces'),
         ('clip', R5('20_best_family_lachen.mp4'), 1.0, 3.8)],
-        [(0, 3.0, ['the «Best Family» set,', 'from body to socks'], '🧸', 1420, POV)], CS_KARTE(['Best Family', 'Little Princess', 'Bunny', 'Whale']))
+        [(0, 2.5, ['the «Best Family» set,', 'from body to socks'], '🧸', 1420, POV)], CS_KARTE(['Best Family', 'Little Princess', 'Bunny', 'Whale']))
 
 
 def tag18_reel_whats_inside():
@@ -465,7 +467,7 @@ def tag30_tiktok_best_of():
         ('clip', R5('20_best_family_lachen.mp4'), 1.0, 3.0), ('produkt', SETS['Little Princess'], 1.2, BLUSH),
         ('clip', ARCH['smile_gruen'], 5.0, 7.0), ('produkt', SETS['Whale'], 1.2, (220, 230, 238)),
         ('bild', VELOURS_FOTO, 1.6, 1.0, 1.1, 0.48, 0.45), ('clip', R5('08_happy_baby.mp4'), 3.0, 5.0)],
-        [(0, 3.0, ['thank you for an', 'amazing launch'], '🤍', 1420, POV)], LIVE_KARTE(MAIN4))
+        [(0, 3.0, ['thank you for', 'being here'], '🤍', 1420, POV)], LIVE_KARTE(MAIN4))
 
 
 VIDEOS = [tag01_reel_teaser, tag02_tiktok_getting_ready, tag03_tiktok_details, tag04_tiktok_pink_or_beige, tag05_reel_sneak_peek,
