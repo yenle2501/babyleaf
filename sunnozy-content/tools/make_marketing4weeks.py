@@ -209,6 +209,8 @@ def szene_frames(s):
         return list(produkt_frames(*s[1:]))
     if art == 'raster':
         return list(raster_frames(*s[1:]))
+    if art == 'frames':                          # fertige Bilder (eigene Animationen)
+        return list(s[1])
     raise ValueError(art)
 
 
@@ -231,35 +233,55 @@ def pov_ebene(zeilen, emo, y=1400, g=54, farbe=(255, 255, 255), schleier=True):
     return e
 
 
-def video(woche, name, szenen, texte, karte_end, blende=0.3):
-    """szenen: Liste von Szenen; texte: [(von, bis, zeilen, emoji, y, stil)], bis=None: bis Ende; stil 'pov' oder 'dunkel'."""
-    teile = [szene_frames(s) for s in szenen]
-    nb = int(blende * FPS); frames = []
-    for k, t in enumerate(teile):
-        start = nb if k > 0 else 0; ende = len(t) - (nb if k < len(teile) - 1 else 0)
-        frames += t[start:ende]
-        if k < len(teile) - 1:
-            frames += [Image.blend(t[ende + j], teile[k + 1][j], (j + 1) / (nb + 1)) for j in range(nb)]
-    dauer = len(frames) / FPS
+def szene_dauer(s):
+    art = s[0]
+    if art in ('clip', 'breit'):
+        return s[3] - s[2]
+    if art == 'frames':
+        return s[2]
+    return s[2]
+
+
+def video(woche, name, szenen, texte, karte_end, blende=0.3, ordner=None):
+    """szenen: Liste von Szenen; texte: [(von, bis, zeilen, emoji, y, stil)], bis=None: bis Ende; stil 'pov' oder 'dunkel'.
+    Es liegt immer nur eine Szene im Speicher (lange Videos)."""
+    nb = int(blende * FPS)
+    dauer = sum(szene_dauer(s) for s in szenen) - blende * (len(szenen) - 1)
     ebenen = [(von, dauer if bis is None else bis,
                pov_ebene(z, e, y, farbe=(255, 255, 255) if stil == 'pov' else DUNKEL, schleier=stil == 'pov'))
               for von, bis, z, e, y, stil in texte]
-    o = os.path.join(OUT, f'woche-{woche}'); os.makedirs(o, exist_ok=True)
+    o = ordner or os.path.join(OUT, f'woche-{woche}'); os.makedirs(o, exist_ok=True)
     pfad = os.path.join(o, name + '_9x16.mp4'); tmp = pfad + '.tmp.mp4'
     if os.path.exists(pfad):
         os.remove(pfad)
     enc = subprocess.Popen(['ffmpeg', '-y', '-v', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
                             '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '19', '-preset', 'medium', tmp], stdin=subprocess.PIPE)
-    for i, fr in enumerate(frames):
-        t = i / FPS; c = fr.convert('RGBA')
+    n = [0]
+
+    def schreiben(fr):
+        t = n[0] / FPS; c = fr.convert('RGBA')
         for von, bis, eb in ebenen:
             a = min(m.ease((t - von) / 0.3) if von > 0 else 1, 1 - m.ease((t - bis + 0.3) / 0.3) if bis < dauer else 1)
             if a > 0:
                 c.alpha_composite(k1.mit_alpha(eb, a))
-        if i == int(0.5 * FPS):
+        if n[0] == int(0.5 * FPS):
             c.convert('RGB').save(pfad.replace('.mp4', '_titelbild.jpg'), quality=90)
-        enc.stdin.write(c.convert('RGB').tobytes())
+        enc.stdin.write(c.convert('RGB').tobytes()); n[0] += 1
+
+    rest = None
+    for k, s in enumerate(szenen):
+        fr = szene_frames(s); start = 0
+        if rest is not None:
+            for j in range(min(nb, len(rest), len(fr))):
+                schreiben(Image.blend(rest[j], fr[j], (j + 1) / (nb + 1)))
+            start = nb
+        ende = len(fr) - (nb if k < len(szenen) - 1 else 0)
+        for x in fr[start:ende]:
+            schreiben(x)
+        rest = fr[ende:] if k < len(szenen) - 1 else None
+        del fr
     enc.stdin.close(); enc.wait()
+    dauer = n[0] / FPS
     subprocess.run(['ffmpeg', '-y', '-v', 'error', '-i', tmp, '-i', k1.MUSIK, '-t', f'{dauer:.2f}',
                     '-af', f'afade=t=in:d=0.3,afade=t=out:st={dauer - 1.2:.2f}:d=1.2,volume=1.4,alimiter=limit=0.89',
                     '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k', '-shortest', '-movflags', '+faststart', pfad], check=True)
