@@ -45,7 +45,7 @@ def reel(nr, name, szenen, texte, karte, blende=0.3):
     mw.video(0, f'reel{nr:02d}_{name}', szenen, texte, karte, blende=blende, ordner=os.path.join(OUT, 'reels'))
 
 
-SHOPKARTE = lambda bild, name, zeile='newborn set · link in bio': (bild, name, zeile, SHOP)
+SHOPKARTE = lambda bild, name, zeile='newborn set': (bild, name, zeile, SHOP)
 SUNNOZY = (HLB_KLAR, 'little outfits, big love', 'sunnozy.ch', SHOP)
 
 
@@ -65,7 +65,7 @@ def reel02():
          + [('raster', [KLAR(t) for t in teile[:4]], 2.4, CREME)],
          [(0, 2.2, ['POV: you only wanted to', 'buy ONE baby romper'], '😂', TOP, B), (2.2, 3.6, ['just one outfit…'], None, LOW, B),
           (3.6, 5.0, ['okay, maybe two.'], None, LOW, B), (5.0, 6.4, ['wait… THIS ONE!'], '😍', LOW, B), (7.0, None, ['mom life.'], '☀️', LOW, B)],
-         SHOPKARTE(KLAR(teile[0]), 'baby bodysuit sets', 'link in bio'), blende=0.15)
+         SHOPKARTE(KLAR(teile[0]), 'little favourites', 'bodysuits · leggings · newborn sets'), blende=0.15)
 
 
 def reel03():
@@ -128,7 +128,7 @@ def reel10():
     reel(10, 'wardrobe_goals', [('produkt', KLAR(t), 1.5, bg) for t, bg in teile] + [('raster', [KLAR(t) for t, _ in teile[:4]], 2.4, CREME)],
          [(0, 2.4, ["tell me you're obsessed", 'with baby clothes', 'without telling me…'], '😍', TOP, B), (2.4, 4.4, ['tiny wardrobe.'], None, LOW, B),
           (4.4, 6.6, ['endless cuteness.'], None, LOW, B), (6.6, None, ['pink, beige or lilac?'], '👇', 1700, B)],
-         SHOPKARTE(PRIN_KLAR, 'baby wardrobe goals', 'link in bio'), blende=0.15)
+         SHOPKARTE(PRIN_KLAR, 'baby wardrobe goals', 'pink · beige · lilac'), blende=0.15)
 
 
 def reel11():
@@ -138,7 +138,7 @@ def reel11():
                                     ('produkt', KLAR('baby-soeckchen-5er-set-pastell-umschlag'), 1.8, CREME, 'socks'),
                                     ('produkt', KLAR('mulltuecher-3er-set-musselin'), 2.0, BEIGE, 'muslin cloths')],
          [(0, 2.2, ['getting ready for your', 'little one? save this!'], '🤍', TOP, B), (2.2, None, ['newborn essentials'], '☀️', TOP, B)],
-         SHOPKARTE(HLB_KLAR, 'newborn essentials', 'link in bio'))
+         SHOPKARTE(HLB_KLAR, 'newborn essentials', 'bodysuits · sleepsuits · socks'))
 
 
 def reel12():
@@ -163,7 +163,7 @@ def reel14():
          + [('raster', [KLAR(t) for t in ['body-set-little-one-gerippt'] + alle], 3.0, CREME, ['reality'])],
          [(0, 2.4, ["expectation: I won't buy", 'more baby clothes'], None, TOP, B), (2.4, 3.6, ["I don't need more."], None, TOP, B),
           (3.6, 5.0, ['just one more.'], None, TOP, B), (5.0, None, ['okay, maybe five more'], '😂', TOP, B)],
-         SHOPKARTE(KLAR('body-set-little-one-gerippt'), 'bodysuit sets', 'link in bio'), blende=0.12)
+         SHOPKARTE(KLAR('body-set-little-one-gerippt'), 'bodysuit sets', '3-packs and 5-packs'), blende=0.12)
 
 
 def reel15():
@@ -177,7 +177,7 @@ def reel16():
     teile = ['baby-leggings-5er-set-ripp-pastell-mit-schleife-rosa-blumen', 'baby-langarm-body-3er-set-i-like-flying-vogelchen-eis-rosa', 'baby-langarm-body-5er-set-ripp-pastell-mum-dad-me-lila-blumen', 'erstausstattung-set-princess']
     reel(16, 'just_looking', [('produkt', KLAR(t), 1.6, [BLUSH, CREME, LILA, BEIGE][k]) for k, t in enumerate(teile)] + [('raster', [KLAR(t) for t in teile], 2.4, CREME)],
          [(0, 2.2, ["me: I don't need anything.", 'also me:'], '😍', TOP, B), (2.2, 3.8, ["I'm just looking."], None, LOW, B),
-          (3.8, 5.4, ['wait, this is adorable.'], None, LOW, B), (5.4, None, ['add to cart!'], '🛒', 1700, B)], SHOPKARTE(PRIN_KLAR, 'little favourites', 'link in bio'), blende=0.15)
+          (3.8, 5.4, ['wait, this is adorable.'], None, LOW, B), (5.4, None, ['add to cart!'], '🛒', 1700, B)], SHOPKARTE(PRIN_KLAR, 'little favourites', 'leggings · bodysuits · newborn sets'), blende=0.15)
 
 
 def reel17():
@@ -232,7 +232,7 @@ def reel24():
     teile = ['body-set-little-one-gerippt', 'erstausstattung-set-hello-little-bear', 'baby-soeckchen-5er-set-neutral-umschlag', 'mulltuecher-3er-set-musselin']
     reel(24, 'first_wardrobe', [('produkt', KLAR(t), 1.8, [CREME, BEIGE, BLUSH, CREME][k]) for k, t in enumerate(teile)] + [('raster', [KLAR(t) for t in teile], 2.6, CREME)],
          [(0, 2.4, ['creating the cutest', 'little wardrobe for', 'your newborn'], '🤍', TOP, B), (2.4, 4.2, ['little essentials.'], None, LOW, B),
-          (4.2, 6.0, ['soft colours.'], None, LOW, B), (6.0, None, ['ready for baby'], '☀️', 1700, B)], SHOPKARTE(HLB_KLAR, 'first wardrobe', 'link in bio'), blende=0.15)
+          (4.2, 6.0, ['soft colours.'], None, LOW, B), (6.0, None, ['ready for baby'], '☀️', 1700, B)], SHOPKARTE(HLB_KLAR, 'first wardrobe', 'newborn essentials'), blende=0.15)
 
 
 # ---------------- Woche 4: Kaufanreize & Wiedererkennung ----------------
