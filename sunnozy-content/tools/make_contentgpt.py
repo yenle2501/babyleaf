@@ -121,7 +121,7 @@ def reel09():
                                       ('bild', TEIL('wal_blau', 'laetzchen'), 1.6, 1.2, 1.35), ('produkt', FRE('hase_rosa'), 1.8, BLUSH), ('produkt', FRE('best_family'), 1.8, BEIGE)],
          [(0, 2.0, ['something cute', 'is coming…'], '👀', TOP, B), (2.0, 4.0, ['new little favourites.'], None, LOW, B),
           (4.0, 6.2, ['new designs.'], None, LOW, B), (6.2, None, ['coming soon. stay tuned!'], '✨', LOW, B)],
-         (FRE('best_family'), 'new designs', 'coming soon', CS_AUFRUF))
+         (mw.HAUPT('best_family'), 'new designs', 'coming soon', CS_AUFRUF))
 
 
 def reel10():
