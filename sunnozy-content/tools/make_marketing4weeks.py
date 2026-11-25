@@ -254,12 +254,34 @@ def szene_dauer(s):
     return s[2]
 
 
+SANS = os.path.join(m.ROOT, 'fonts', 'nunitosans-800.ttf')
+
+
+def band_ebene(zeilen, emo, y, g=62):
+    """Grosser, gut lesbarer Text: fette Schrift ohne Serifen, dunkelbraun auf cremefarbenem Band (ohne Leuchten)."""
+    e = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(e)
+    fo = ImageFont.truetype(SANS, g)
+    breite = lambda k, z: d.textlength(z, font=fo) + ((len(zeichen(emo)) * g * 0.95 + 14) if emo and k == len(zeilen) - 1 else 0)
+    while max(breite(k, z) for k, z in enumerate(zeilen)) > W - 160 and g > 36:
+        g -= 2; fo = ImageFont.truetype(SANS, g)
+    lh = int(g * 1.22); hoehe = lh * len(zeilen) + 44; bmax = max(breite(k, z) for k, z in enumerate(zeilen)) + 70
+    d.rounded_rectangle(((W - bmax) / 2, y - g * 0.62 - 22, (W + bmax) / 2, y - g * 0.62 - 22 + hoehe), radius=34, fill=CREME + (238,))
+    for k, z in enumerate(zeilen):
+        em = emojis(emo, int(g * 0.95)) if emo and k == len(zeilen) - 1 else None
+        b = breite(k, z); x0 = (W - b) / 2; yy = y + k * lh
+        d.text((x0, yy), z, font=fo, fill=DUNKEL, anchor='lm')
+        if em:
+            e.alpha_composite(em, (int(x0 + b - em.width), int(yy - em.height / 2)))
+    return e
+
+
 def video(woche, name, szenen, texte, karte_end, blende=0.3, ordner=None):
     """szenen: Liste von Szenen; texte: [(von, bis, zeilen, emoji, y, stil)], bis=None: bis Ende; stil 'pov' oder 'dunkel'.
     Es liegt immer nur eine Szene im Speicher (lange Videos)."""
     nb = int(blende * FPS)
     dauer = sum(szene_dauer(s) for s in szenen) - blende * (len(szenen) - 1)
     ebenen = [(von, dauer if bis is None else bis,
+               band_ebene(z, e, y) if stil == 'band' else
                pov_ebene(z, e, y, farbe=(255, 255, 255) if stil == 'pov' else DUNKEL, schleier=stil == 'pov'))
               for von, bis, z, e, y, stil in texte]
     o = ordner or os.path.join(OUT, f'woche-{woche}'); os.makedirs(o, exist_ok=True)
