@@ -52,17 +52,20 @@ def intro(dauer):
         yield c.convert('RGB')
 
 
+def frei(teil, groesse):
+    """Einzelbild (Reinweiss) freistellen: weisser Grund wird durchsichtig, Kante weich."""
+    import numpy as np
+    from PIL import ImageFilter
+    im = mw.einpassen(mw.laden(TEIL(teil)), groesse, groesse).convert('RGBA')
+    a = np.asarray(im.convert('RGB')).astype(int)
+    maske = Image.fromarray(((a.min(axis=2) < 244) * 255).astype('uint8')).filter(ImageFilter.MaxFilter(3)).filter(ImageFilter.GaussianBlur(1.2))
+    im.putalpha(maske)
+    return im
+
+
 def aufsteigen(teil, dauer=1.6):
     """Teil steigt aus der Tasche und wird gross."""
-    im = mw.einpassen(mw.laden(TEIL(teil)), 760, 760).convert('RGBA')
-    # weissen Hintergrund des Einzelbilds weich ausblenden
-    px = im.load(); a = Image.new('L', im.size, 255); pa = a.load()
-    for y in range(im.height):
-        for x in range(im.width):
-            r, g, b, _ = px[x, y]
-            if r > 246 and g > 246 and b > 246:
-                pa[x, y] = 0
-    im.putalpha(a)
+    im = frei(teil, 760)
     tx, ty = (W - TASCHE_KLEIN.width) // 2, 1300
     for i in range(int(round(dauer * FPS))):
         p = m.ease(i / (dauer * FPS)); c = Image.new('RGBA', (W, H), CREME + (255,))
@@ -75,17 +78,18 @@ def aufsteigen(teil, dauer=1.6):
 
 
 def zeigen(teil, nr, name, info, dauer=3.4):
-    im = mw.einpassen(mw.laden(TEIL(teil)), 860, 860)
+    im = frei(teil, 860)
+    ebene = Image.new('RGBA', (W, H), (0, 0, 0, 0)); mw.schatten_setzen(ebene, im, (W - im.width) // 2, 900 - im.height // 2, r=24, a=55)
     for i in range(int(round(dauer * FPS))):
         z = 1.0 + 0.06 * m.ease(i / (dauer * FPS)); c = Image.new('RGBA', (W, H), CREME + (255,))
-        t = im.resize((int(im.width * z), int(im.height * z)), Image.LANCZOS).convert('RGBA')
-        c.alpha_composite(t, ((W - t.width) // 2, 900 - t.height // 2))
+        cw, ch = W / z, H / z
+        c.alpha_composite(ebene.resize((W, H), Image.BILINEAR, box=((W - cw) / 2, (H - ch) / 2, (W + cw) / 2, (H + ch) / 2)))
         mw.text(c, [f'{nr}/5  {name}'], 1430, 58, DUNKEL); mw.text(c, [info], 1520, 38, GRAU)
         yield c.convert('RGB')
 
 
 def alles(dauer=4.0):
-    teile = [mw.einpassen(mw.laden(TEIL(t)), 430, 430).convert('RGBA') for t, *_ in TEILE]
+    teile = [frei(t, 430) for t, *_ in TEILE]
     pos = [(70, 330), (580, 330), (70, 800), (580, 800), (325, 1270)]
     for i in range(int(round(dauer * FPS))):
         tt = i / FPS; c = Image.new('RGBA', (W, H), CREME + (255,))
@@ -107,7 +111,7 @@ def main():
         if ab:
             szenen.append(('clip', AUSPACKEN, *ab)); t += (ab[1] - ab[0]) - 0.3
         else:
-            szenen.append(('bild', TEIL(teil), 2.6, 1.6, 2.0, 0.5, 0.45)); t += 2.6 - 0.3   # Nahaufnahme
+            szenen.append(('bild', TEIL(teil), 2.6, 1.25, 1.45, 0.5, 0.45)); t += 2.6 - 0.3   # Nahaufnahme
     szenen.append(('frames', alles(4.6), 4.6))
     texte.append((t + 0.4, t + 4.3, ['5 pieces, all in one bag'], '🤍', 1780, mw.DUN)); t += 4.6 - 0.3
     szenen.append(('clip', BABY, 4.0, 9.5))
