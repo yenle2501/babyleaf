@@ -74,3 +74,20 @@ Den Gewinner als Anzeige bewerben.
 - **Produkt markieren:** Das Set im Reel als Produkt taggen (Shopping-Tag), weil die Caption keinen klickbaren Link hat.
 - **Lager prüfen:** Am 10.11. waren 5 Stück da (3 × 0–3 Monate, 2 × 3–6 Monate). Den Satz zu 0–3 Monaten nur stehen lassen, wenn diese Grösse noch da ist.
 - **Print prüfen:** Teddy-Print, Reissverschluss und Mützenöhrchen mit der echten Ware vergleichen.
+
+## «Erstausstattung in 60 Sekunden»: Auspacken Schritt für Schritt (25.11.2026, Englisch)
+
+`reel_hello_little_bear_auspacken_60s_9x16.mp4` (52,8 s + Endfolie = 55 s), Skript `tools/make_reel_hlb_auspacken.py`.
+
+- Hooks: «everything for the first weeks, in one bag 🤍», dann «newborn essentials, shipped from Switzerland, piece by piece ✨» (ehrlich «shipped from Switzerland», nicht «from Switzerland»)
+- sunnozy-Tasche → 5 Teile steigen nacheinander aus der Tasche: romper, bodysuit, bib, hat, mittens (Eigenschaften aus der Shopify-Beschreibung) → Ausschnitte aus dem Auspack-Video → «5 pieces, all in one bag» → Baby (wach) im Set «everything for the first weeks 🧸» → Endfolie «Hello Little Bear · newborn set · 5 pieces · link in bio», kein Preis
+- Lager 25.11.2026: nur noch 3 Stück in 0–3 Monate, 3–6 Monate ausverkauft
+
+Caption:
+```
+everything for the first weeks, in one bag 🤍 our «Hello Little Bear» newborn set, unpacked piece by piece: romper with zip, bodysuit, bib, knot hat with little ears and scratch mittens. 100% soft cotton, shipped from Switzerland.
+
+save this for your hospital bag list 🧸 link in bio.
+
+#erstausstattung #newbornessentials #babyschweiz #hospitalbag #sunnozy
+```
