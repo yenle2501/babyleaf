@@ -59,8 +59,20 @@ def f(g):
     return ImageFont.truetype(SCHRIFT, int(g))
 
 
+def zeichen(folge):
+    """Emojis als Zeichengruppen: Flaggen (zwei Regionalbuchstaben) und Variantenzeichen (FE0F) bleiben zusammen."""
+    out = []
+    for z in folge:
+        if out and (z == '\ufe0f' or z == '\u200d' or out[-1].endswith('\u200d')
+                    or (0x1F1E6 <= ord(z) <= 0x1F1FF and len(out[-1]) == 1 and 0x1F1E6 <= ord(out[-1]) <= 0x1F1FF)):
+            out[-1] += z
+        else:
+            out.append(z)
+    return out
+
+
 def emojis(folge, hoehe):
-    teile = [hk.emoji(z, hoehe) for z in folge]
+    teile = [hk.emoji(z, hoehe) for z in zeichen(folge)]
     im = Image.new('RGBA', (sum(t.width for t in teile) + 6 * (len(teile) - 1), hoehe), (0, 0, 0, 0)); x = 0
     for t in teile:
         im.alpha_composite(t, (x, 0)); x += t.width + 6
@@ -224,7 +236,7 @@ def pov_ebene(zeilen, emo, y=1400, g=54, farbe=(255, 255, 255), schleier=True):
     text(tx, zeilen, y, g, farbe + (255,), emo)
     if farbe == (255, 255, 255):
         for k, z in enumerate(zeilen):
-            em_b = (len(emo) * g * 0.9 + 12) if emo and k == len(zeilen) - 1 else 0
+            em_b = (len(zeichen(emo)) * g * 0.9 + 12) if emo and k == len(zeilen) - 1 else 0
             x0 = (W - d0.textlength(z, font=fo) - em_b) / 2
             for dx, dy in ((0, 3), (2, 3), (-2, 3)):
                 ds.text((x0 + dx, y + k * g * 1.25 + dy), z, font=fo, fill=200, anchor='lm')
