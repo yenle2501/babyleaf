@@ -281,7 +281,7 @@ def video(woche, name, szenen, texte, karte_end, blende=0.3, ordner=None):
     nb = int(blende * FPS)
     dauer = sum(szene_dauer(s) for s in szenen) - blende * (len(szenen) - 1)
     ebenen = [(von, dauer if bis is None else bis,
-               band_ebene(z, e, y) if stil == 'band' else
+               band_ebene(z, e, y) if stil == 'band' else band_ebene(z, e, y, 104) if stil == 'band_gross' else
                pov_ebene(z, e, y, farbe=(255, 255, 255) if stil == 'pov' else DUNKEL, schleier=stil == 'pov'))
               for von, bis, z, e, y, stil in texte]
     o = ordner or os.path.join(OUT, f'woche-{woche}'); os.makedirs(o, exist_ok=True)

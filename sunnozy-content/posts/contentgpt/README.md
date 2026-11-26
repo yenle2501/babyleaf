@@ -344,3 +344,19 @@ Follow sunnozy and become part of our little community 👇
 Nicht alle Reels bewerben: erst 7–10 Tage organisch posten, dann die 3 besten (Wiedergabezeit, Shares, Profilbesuche) mit CHF 5–10 pro Tag testen. Schweiz und Deutschland getrennt auswerten. Gute Kandidaten: Reel 05, 13, 26 (Geschenk), 03 und 25 (Produkt).
 
 Beim Posten immer «Mit KI erstellt» einschalten (TikTok: «KI-generierte Inhalte»).
+
+## Reel 31 – «you loved it?!» (Meme, 26.11.2026)
+
+`reels/reel31_you_loved_it_9x16.mp4` (8,7 s + Danke-Endfolie = 10,9 s), Skript `tools/make_reel_you_loved_it.py`. Nach der Bildschirmaufnahme der Nutzerin (Small-Business-Meme).
+
+- Hände packen die Geschenkbox: «the only question in my mind after a customer receives their order»
+- lachendes Baby (wach) im Set «Princess»: «did you love it??» → gross «YOU LOVED IT?!»
+- Endfolie als Danke-Folie: «thanks for watching · and a big thank you if you · like · comment · share · follow»
+- Das Kind aus dem Vorbild ist fremdes Material und darum nicht verwendet.
+
+Caption:
+```
+the only question in my mind after a customer receives their order 😂🤍 tell us: did you love it?
+
+#smallbusiness #shopsmall #babyschweiz #momlife #sunnozy
+```
